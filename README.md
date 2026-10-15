@@ -42,10 +42,16 @@ Rutas iniciales: `/dashboard`, `/api/health` y `/api/dashboard`.
 
 ```bash
 npm run lint
+npm run quality:check
 npm run typecheck
 npm run test:unit
 npm run build
 ```
+
+`quality:check` ejecuta los scanners deterministas de líneas, límites y contratos.
+El máximo es 99 líneas físicas; documentación, locks y salidas generadas solo se
+excluyen con una razón explícita. `quality:check` también forma parte de
+`format:check` y nunca modifica archivos.
 
 El proyecto usa Pages Router deliberadamente. La migración a App Router queda
 fuera de este alcance.

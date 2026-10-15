@@ -23,12 +23,13 @@ export function countPhysicalLines(content) {
 }
 
 function parseArgs(argv) {
-  const options = { root: process.cwd(), files: null, json: false };
+  const options = { root: process.cwd(), files: null, json: false, scope: 'global' };
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
     if (value === '--root') options.root = resolve(argv[++index]);
     if (value === '--files') options.files = argv[++index].split(',').filter(Boolean);
     if (value === '--json') options.json = true;
+    if (value === '--changed') options.scope = 'changed';
   }
   return options;
 }
@@ -55,7 +56,7 @@ function exclusion(path) {
   return [...excluded.entries()].find(([prefix]) => normalized === prefix || normalized.startsWith(prefix));
 }
 
-function inspect(root, paths) {
+function inspect(root, paths, scope) {
   const files = [];
   const failures = [];
   for (const candidate of paths) {
@@ -77,17 +78,17 @@ function inspect(root, paths) {
       failures.push(`${name}: unreadable (${message})`);
     }
   }
-  return { files, failures };
+  return { scope, files, failures };
 }
 
-export function runLineCheck(root = process.cwd(), files) {
+export function runLineCheck(root = process.cwd(), files, scope = 'global') {
   const paths = files ?? defaultFiles(root).map((path) => relative(root, path));
-  return inspect(root, paths);
+  return inspect(root, paths, scope);
 }
 
 function main() {
   const options = parseArgs(process.argv.slice(2));
-  const report = runLineCheck(options.root, options.files);
+  const report = runLineCheck(options.root, options.files, options.scope);
   if (options.json) console.log(JSON.stringify(report));
   else report.files.forEach((file) => console.log(`${file.status.toUpperCase()} ${file.path}${file.lines === undefined ? '' : ` (${file.lines})`}`));
   if (!options.json) report.failures.forEach((failure) => console.error(`FAIL ${failure}`));

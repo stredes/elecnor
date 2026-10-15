@@ -7,12 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
-    "format:check": "eslint . --max-warnings=0",
+    "format:check": "eslint . --max-warnings=0 && npm run quality:check",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest run",
     "test:integration": "vitest run tests/contracts",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
+    "quality:lines": "node scripts/quality/check-lines.mjs",
+    "quality:boundaries": "node scripts/quality/check-boundaries.mjs",
+    "quality:contracts": "node scripts/quality/check-contracts.mjs",
+    "quality:check": "npm run quality:lines && npm run quality:boundaries && npm run quality:contracts",
     "audit": "npm audit --omit=dev --audit-level=high"
   },
   "dependencies": {
