@@ -327,6 +327,79 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-08",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "0c588b3abdc073c53a8d66d4cb74a2d58cf3f8c8b86cd0a03c8b9852ff7a6e23",
+        "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T20:36:29.403Z",
+        "git": {
+          "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "Expected: 400"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "5edc2931ed55c84019a50bf417f079f2f5434649423430a213d446fb72b6a0e4",
+        "source_digest": "b775368000529bb6dadf7d241300251ac9031ee0fa9de38a44b9b88ba15b901d",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T20:36:54.908Z",
+        "git": {
+          "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "30d67fe5b222c00b0aa93c1e4d19d9b4fbafd95da0633bf8bcba4b423e30a9dd",
+        "source_digest": "f7c92f182eea1cbc654d70791f94262ac53237ea9f9ec05bbb16be1afafa701e",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T20:37:22.452Z",
+        "git": {
+          "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "e2e",
+          "args": [
+            "tests/e2e/c-import.spec.ts"
+          ],
+          "exit_code": 0,
+          "output_digest": "d53646d37551704dde3b3dabb9784b9fe633821e8596e16fd6005ef82417355b",
+          "source_digest": "c6a83abd6b74b6a2b8e772d15691910f4284e565f4aac7d64ccecfe6560f9a06",
+          "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+          "recorded_at": "2026-10-15T20:37:50.515Z",
+          "git": {
+            "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+            "branch": "NP-0028",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -1228,6 +1301,208 @@
         }
       },
       "event_digest": "686f1946acfe423e8704a935ca235b0b0055cdf5e0b066de7ad79066b4a39a62"
+    },
+    {
+      "sequence": 25,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "Expected: 400",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "tests/contracts/decision-register.test.ts",
+        "tests/e2e/c-import.spec.ts"
+      ],
+      "recorded_at": "2026-10-15T20:36:29.404Z",
+      "git": {
+        "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "686f1946acfe423e8704a935ca235b0b0055cdf5e0b066de7ad79066b4a39a62",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "0c588b3abdc073c53a8d66d4cb74a2d58cf3f8c8b86cd0a03c8b9852ff7a6e23",
+        "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T20:36:29.403Z",
+        "git": {
+          "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "Expected: 400"
+      },
+      "event_digest": "8c222349b65e0431343df245c12685752779a2813f6346456b000136435977cc"
+    },
+    {
+      "sequence": 26,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "next-env.d.ts",
+        "pages/api/import.ts",
+        "src/backend/adapters/inbound/import-errors.ts",
+        "src/backend/adapters/outbound/disabled-import-gateway.ts",
+        "src/backend/composition/import.ts",
+        "tests/contracts/decision-register.test.ts",
+        "tests/e2e/c-import.spec.ts"
+      ],
+      "recorded_at": "2026-10-15T20:36:54.909Z",
+      "git": {
+        "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "8c222349b65e0431343df245c12685752779a2813f6346456b000136435977cc",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "5edc2931ed55c84019a50bf417f079f2f5434649423430a213d446fb72b6a0e4",
+        "source_digest": "b775368000529bb6dadf7d241300251ac9031ee0fa9de38a44b9b88ba15b901d",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T20:36:54.908Z",
+        "git": {
+          "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "aba4825b61d6b10092dd13859f64953ea36d3b6b21a49518d997fe3f246ba3b4"
+    },
+    {
+      "sequence": 27,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-08",
+      "reason": "next-env.d.ts: outside declared task scope; src/backend/composition/import.ts: outside declared task scope",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "next-env.d.ts",
+        "pages/api/import.ts",
+        "src/backend/adapters/inbound/import-errors.ts",
+        "src/backend/adapters/outbound/disabled-import-gateway.ts",
+        "src/backend/composition/import.ts",
+        "tests/contracts/decision-register.test.ts",
+        "tests/e2e/c-import.spec.ts"
+      ],
+      "recorded_at": "2026-10-15T20:37:03.504Z",
+      "git": {
+        "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "aba4825b61d6b10092dd13859f64953ea36d3b6b21a49518d997fe3f246ba3b4",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "699cec068462a246e3d85e30f41f41b2c3153a444271f1af72409671900ebb0d"
+    },
+    {
+      "sequence": 28,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "pages/api/import.ts",
+        "src/backend/adapters/inbound/import-errors.ts",
+        "src/backend/adapters/outbound/disabled-import-gateway.ts",
+        "src/backend/composition/import.ts",
+        "tests/contracts/decision-register.test.ts",
+        "tests/e2e/c-import.spec.ts"
+      ],
+      "recorded_at": "2026-10-15T20:37:22.453Z",
+      "git": {
+        "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "699cec068462a246e3d85e30f41f41b2c3153a444271f1af72409671900ebb0d",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "30d67fe5b222c00b0aa93c1e4d19d9b4fbafd95da0633bf8bcba4b423e30a9dd",
+        "source_digest": "f7c92f182eea1cbc654d70791f94262ac53237ea9f9ec05bbb16be1afafa701e",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T20:37:22.452Z",
+        "git": {
+          "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "2ca45c8997d0d9c76329893445b1b122e66b5a14a68d6d73918fcf0dd9e03662"
+    },
+    {
+      "sequence": 29,
+      "type": "REBASELINED",
+      "test_id": "TEST-08",
+      "reason": "Apply lint-only cleanup to the disabled gateway after TEST-08 REFACTOR.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "pages/api/import.ts",
+        "src/backend/adapters/inbound/import-errors.ts",
+        "src/backend/adapters/outbound/disabled-import-gateway.ts",
+        "src/backend/composition/import.ts",
+        "tests/contracts/decision-register.test.ts",
+        "tests/e2e/c-import.spec.ts"
+      ],
+      "recorded_at": "2026-10-15T20:37:50.516Z",
+      "git": {
+        "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "2ca45c8997d0d9c76329893445b1b122e66b5a14a68d6d73918fcf0dd9e03662",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d53646d37551704dde3b3dabb9784b9fe633821e8596e16fd6005ef82417355b",
+        "source_digest": "c6a83abd6b74b6a2b8e772d15691910f4284e565f4aac7d64ccecfe6560f9a06",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T20:37:50.515Z",
+        "git": {
+          "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "96f82ef4851abcd939a4050b2f6e0115174190637a60aa78063c572b921f80c3"
     }
   ],
   "git_baseline": {
@@ -1236,11 +1511,11 @@
     "branch": "NP-0028"
   },
   "final": {
-    "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
-    "test_suite_digest": "6da2881bcf4eb6f3a9af257ed77b4f4d0ac00f2160f5cb286b1aa7be72f502db",
-    "recorded_at": "2026-10-15T20:35:44.244Z",
+    "source_digest": "c6a83abd6b74b6a2b8e772d15691910f4284e565f4aac7d64ccecfe6560f9a06",
+    "test_suite_digest": "d753ff0c6321e6735bdfae7b70df675a4d96dc2a176d02f7d245dacd621218b3",
+    "recorded_at": "2026-10-15T20:37:50.516Z",
     "git": {
-      "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+      "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
       "branch": "NP-0028",
       "dirty": true
     }

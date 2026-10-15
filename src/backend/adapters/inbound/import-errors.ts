@@ -1,4 +1,5 @@
 import { ImportSelectionError } from "@/backend/domain/import-files";
+import { ImportFormError } from "@/backend/adapters/inbound/import-form";
 import { ImportGatewayError } from "@/backend/ports/import-gateway";
 
 export type ImportErrorResponse = {
@@ -10,7 +11,7 @@ const UNAVAILABLE = "El servicio de importación no está disponible.";
 const REJECTED = "El servicio de importación rechazó la solicitud.";
 
 export function mapImportError(error: unknown): ImportErrorResponse {
-  if (error instanceof ImportSelectionError) {
+  if (error instanceof ImportSelectionError || error instanceof ImportFormError) {
     return { status: 400, body: { error: error.message } };
   }
   if (error instanceof ImportGatewayError && error.code === "REJECTED") {
