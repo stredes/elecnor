@@ -1,6 +1,4 @@
-import type { DashboardMetric } from "@/backend/domain/dashboard";
-
-type MetricCardProps = { metric: DashboardMetric };
+import type { MetricCardProps } from "../contracts/metric-card-contract";
 
 export function MetricCard({ metric }: MetricCardProps) {
   return (

@@ -1,18 +1,7 @@
 import type { ImportSummary } from "../../domain/import-summary";
+import { IMPORT_SUMMARY_FIELDS, type ImportSummaryField } from "./import-summary-contract";
 
 export type { ImportSummary } from "../../domain/import-summary";
-
-const FIELDS = [
-  "seleccionados",
-  "procesados",
-  "duplicados",
-  "errores",
-  "inspecciones_nuevas",
-  "metricas_insertadas",
-  "metricas_sin_clasificar",
-] as const;
-
-type ImportSummaryField = (typeof FIELDS)[number];
 
 export class ImportContractError extends Error {
   public constructor() {
@@ -25,7 +14,7 @@ export function parseImportSummary(value: unknown): ImportSummary {
   if (!isRecord(value) || !hasExactFields(value)) {
     throw new ImportContractError();
   }
-  const counters = FIELDS.map((field) => readCounter(value, field));
+  const counters = IMPORT_SUMMARY_FIELDS.map((field) => readCounter(value, field));
   return {
     seleccionados: counters[0],
     procesados: counters[1],
@@ -43,11 +32,11 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function hasExactFields(value: Record<string, unknown>): boolean {
   const keys = Object.keys(value);
-  return keys.length === FIELDS.length && keys.every(isKnownField);
+  return keys.length === IMPORT_SUMMARY_FIELDS.length && keys.every(isKnownField);
 }
 
 function isKnownField(key: string): key is ImportSummaryField {
-  return FIELDS.some((field) => field === key);
+  return IMPORT_SUMMARY_FIELDS.some((field) => field === key);
 }
 
 function readCounter(value: Record<string, unknown>, field: ImportSummaryField): number {

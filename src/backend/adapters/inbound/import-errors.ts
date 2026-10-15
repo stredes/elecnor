@@ -1,11 +1,7 @@
 import { ImportSelectionError } from "@/backend/domain/import-files";
 import { ImportFormError } from "@/backend/adapters/inbound/import-form";
 import { ImportGatewayError } from "@/backend/ports/import-gateway";
-
-export type ImportErrorResponse = {
-  readonly status: 400 | 502 | 503;
-  readonly body: { readonly error: string };
-};
+import type { ImportErrorResponse } from "./import-errors-contract";
 
 const UNAVAILABLE = "El servicio de importación no está disponible.";
 const REJECTED = "El servicio de importación rechazó la solicitud.";

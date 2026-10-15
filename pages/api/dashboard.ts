@@ -1,12 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { dashboardQuery } from "@/backend/composition/dashboard";
-import type { DashboardSnapshot } from "@/backend/domain/dashboard";
-
-type ErrorResponse = { code: "BACKEND_UNAVAILABLE" | "METHOD_NOT_ALLOWED" };
+import type { DashboardResponse } from "@/backend/adapters/inbound/dashboard-response-contract";
 
 export default async function dashboard(
   request: NextApiRequest,
-  response: NextApiResponse<DashboardSnapshot | ErrorResponse>,
+  response: NextApiResponse<DashboardResponse>,
 ) {
   if (request.method !== "GET") {
     response.setHeader("Allow", "GET");

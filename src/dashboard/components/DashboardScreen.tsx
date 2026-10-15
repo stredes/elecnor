@@ -1,8 +1,6 @@
-import type { DashboardSnapshot } from "@/backend/domain/dashboard";
 import Link from "next/link";
 import { MetricCard } from "./MetricCard";
-
-type DashboardScreenProps = { snapshot: DashboardSnapshot };
+import type { DashboardScreenProps } from "../contracts/dashboard-screen-contract";
 
 export function DashboardScreen({ snapshot }: DashboardScreenProps) {
   return (

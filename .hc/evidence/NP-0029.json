@@ -54,6 +54,61 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-boundaries.test.ts",
+          "tests/contracts/quality-contracts.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e3ce08b5e1cf3a9b3720fcabd6accdf38b17e065d9d1d7d9677f5f935b84d234",
+        "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
+        "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+        "recorded_at": "2026-10-15T23:50:34.338Z",
+        "git": {
+          "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+          "branch": "NP-0029",
+          "dirty": true
+        },
+        "expected_reason": "Cannot find module"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-boundaries.test.ts",
+          "tests/contracts/quality-contracts.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "dcb72f97af0fce537c62b22710e61773ef13e227b257b0b4e97830fa34bf3f58",
+        "source_digest": "5cc15ecdd90b9c78e274b71f32e8dcc76c6614edfc84c238236201336369163d",
+        "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+        "recorded_at": "2026-10-15T23:51:57.612Z",
+        "git": {
+          "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f50943a9a27a56800dbb91a4baef465dd0d6c6e610319b3c829ce729c9f2076a",
+        "source_digest": "5cc15ecdd90b9c78e274b71f32e8dcc76c6614edfc84c238236201336369163d",
+        "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+        "recorded_at": "2026-10-15T23:52:01.675Z",
+        "git": {
+          "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -311,6 +366,150 @@
         }
       },
       "event_digest": "dbd68670173c63a0a2118ba785f210f98f1d91103821e8424590a2f68bc703ea"
+    },
+    {
+      "sequence": 10,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Cannot find module",
+      "executed": true,
+      "changed_files": [
+        ".hc/task.json",
+        "tests/contracts/quality-boundaries.test.ts",
+        "tests/contracts/quality-contracts.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:50:34.338Z",
+      "git": {
+        "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "dbd68670173c63a0a2118ba785f210f98f1d91103821e8424590a2f68bc703ea",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-boundaries.test.ts",
+          "tests/contracts/quality-contracts.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e3ce08b5e1cf3a9b3720fcabd6accdf38b17e065d9d1d7d9677f5f935b84d234",
+        "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
+        "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+        "recorded_at": "2026-10-15T23:50:34.338Z",
+        "git": {
+          "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+          "branch": "NP-0029",
+          "dirty": true
+        },
+        "expected_reason": "Cannot find module"
+      },
+      "event_digest": "64d2ce27dd6f9f8d702e1bc0b9a5bd5f947c0f72b62a3d1b12a98e1031b1cf1a"
+    },
+    {
+      "sequence": 11,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/task.json",
+        "pages/api/dashboard.ts",
+        "pages/api/health.ts",
+        "pages/api/import.ts",
+        "scripts/quality/check-boundaries.mjs",
+        "scripts/quality/check-contracts.mjs",
+        "src/backend/adapters/inbound/dashboard-response-contract.ts",
+        "src/backend/adapters/inbound/health-response-contract.ts",
+        "src/backend/adapters/inbound/import-errors-contract.ts",
+        "src/backend/adapters/inbound/import-errors.ts",
+        "src/backend/adapters/inbound/import-response-contract.ts",
+        "src/backend/adapters/inbound/import-summary-contract.ts",
+        "src/backend/adapters/inbound/import-summary.ts",
+        "src/dashboard/components/DashboardScreen.tsx",
+        "src/dashboard/components/MetricCard.tsx",
+        "src/dashboard/contracts/",
+        "tests/contracts/quality-boundaries.test.ts",
+        "tests/contracts/quality-contracts.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:51:57.612Z",
+      "git": {
+        "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "64d2ce27dd6f9f8d702e1bc0b9a5bd5f947c0f72b62a3d1b12a98e1031b1cf1a",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-boundaries.test.ts",
+          "tests/contracts/quality-contracts.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "dcb72f97af0fce537c62b22710e61773ef13e227b257b0b4e97830fa34bf3f58",
+        "source_digest": "5cc15ecdd90b9c78e274b71f32e8dcc76c6614edfc84c238236201336369163d",
+        "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+        "recorded_at": "2026-10-15T23:51:57.612Z",
+        "git": {
+          "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      },
+      "event_digest": "c55bc7b6f38d005d2759752f2a81c5656ee63fb9f1c2a4dceb383468daafc8f3"
+    },
+    {
+      "sequence": 12,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/task.json",
+        "pages/api/dashboard.ts",
+        "pages/api/health.ts",
+        "pages/api/import.ts",
+        "scripts/quality/check-boundaries.mjs",
+        "scripts/quality/check-contracts.mjs",
+        "src/backend/adapters/inbound/dashboard-response-contract.ts",
+        "src/backend/adapters/inbound/health-response-contract.ts",
+        "src/backend/adapters/inbound/import-errors-contract.ts",
+        "src/backend/adapters/inbound/import-errors.ts",
+        "src/backend/adapters/inbound/import-response-contract.ts",
+        "src/backend/adapters/inbound/import-summary-contract.ts",
+        "src/backend/adapters/inbound/import-summary.ts",
+        "src/dashboard/components/DashboardScreen.tsx",
+        "src/dashboard/components/MetricCard.tsx",
+        "src/dashboard/contracts/",
+        "tests/contracts/quality-boundaries.test.ts",
+        "tests/contracts/quality-contracts.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:52:01.676Z",
+      "git": {
+        "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "c55bc7b6f38d005d2759752f2a81c5656ee63fb9f1c2a4dceb383468daafc8f3",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f50943a9a27a56800dbb91a4baef465dd0d6c6e610319b3c829ce729c9f2076a",
+        "source_digest": "5cc15ecdd90b9c78e274b71f32e8dcc76c6614edfc84c238236201336369163d",
+        "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+        "recorded_at": "2026-10-15T23:52:01.675Z",
+        "git": {
+          "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      },
+      "event_digest": "a8569741c8b7bc5018259796726a647eec241cd67f8849509572b7999e3ef8b8"
     }
   ],
   "git_baseline": {
@@ -319,11 +518,11 @@
     "branch": "NP-0029"
   },
   "final": {
-    "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
-    "test_suite_digest": "0d501dbb813fe67f088960c96ecbde491c2963716cdc90108117d42af211aa1d",
-    "recorded_at": "2026-10-15T23:50:05.894Z",
+    "source_digest": "5cc15ecdd90b9c78e274b71f32e8dcc76c6614edfc84c238236201336369163d",
+    "test_suite_digest": "253df62ffe188f48c16b8fe2245838dcdf83ec6b5b935fa59e737636b19d7a4a",
+    "recorded_at": "2026-10-15T23:52:01.675Z",
     "git": {
-      "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+      "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
       "branch": "NP-0029",
       "dirty": true
     }

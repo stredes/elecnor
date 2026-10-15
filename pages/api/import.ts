@@ -5,9 +5,7 @@ import {
   importFilesFromFormData,
 } from "@/backend/adapters/inbound/import-form";
 import { mapImportError } from "@/backend/adapters/inbound/import-errors";
-import type { ImportSummary } from "@/backend/domain/import-summary";
-
-type ImportResponse = ImportSummary | { error: string };
+import type { ImportResponse } from "@/backend/adapters/inbound/import-response-contract";
 
 export const config = {
   api: { bodyParser: false },
