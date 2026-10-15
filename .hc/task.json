@@ -9,7 +9,7 @@
     "risk_tags": ["public-api", "identity", "credentials", "dependency"],
     "test_plan": [
       { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/contracts/context.test.ts"], "expected_failure": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable.", "fixture": "tests/contracts/context.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/import-summary.test.ts"], "expected_failure": "expected 200 to be 502", "fixture": "tests/contracts/import-summary.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/import-summary.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-summary.test.ts", "regression": { "check": "unit", "args": [] } },
       { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/decision-register.test.ts"], "expected_failure": "Pendiente de owners y evidencia humana; no fabricar aprobación.", "fixture": "tests/contracts/decision-register.test.ts", "regression": { "check": "unit", "args": [] } }
     ]
   },

@@ -5,24 +5,77 @@ migración funcional**.
 
 ## Legacy analizado
 
-- BFF actual: `np0028-web/web/src/app/api/import/route.ts`.
-- Mapeo: `np0028-web/web/src/infrastructure/mappers/importSummary.ts`.
-- Contrato: `np0028-web/web/tests/contracts/import-summary.test.ts`.
-- E2E y upstream sintético: `np0028-web/web/tests/e2e/c-import.spec.ts` y `support/upstream.mjs`.
-- Evidencia y bloqueos: `np0028-web/web/.hc/`.
+- Entrada UI: `modulo-data-excel/web/src/presentation/components/DataToolbar.tsx`.
+- Regla cliente: `modulo-data-excel/web/src/domain/pdfImport.ts`.
+- BFF App Router: `modulo-data-excel/web/src/app/api/import/route.ts`.
+- Backend Flask: `modulo-data-excel/app/api.py` y `app/services/importer.py`.
+- Backend FastAPI: `Fasapi/src/app/api/routes/pdf.py` y `routes/extractions.py`.
+- Pruebas: `modulo-data-excel/web/tests/domain/pdfImport.test.ts`,
+  `modulo-data-excel/web/tests/presentation/DataToolbar.test.tsx`,
+  `modulo-data-excel/tests/test_importer*.py` y
+  `Fasapi/tests/characterization/test_np0027_documents.py`.
 
-La responsabilidad observada es adaptar una respuesta HTTP de importación y
-traducir sus errores; no incluye persistencia directa desde el BFF.
+La responsabilidad del BFF es validar la selección, reenviar multipart y
+traducir errores. La persistencia observada pertenece a Flask; Fasapi tiene un
+flujo distinto de extracción y registro por lotes.
+
+## Comportamiento confirmado
+
+1. El navegador selecciona o arrastra archivos bajo máximo 20 y 15 MiB por PDF;
+   valida extensión `.pdf`, pero no firma binaria. Envía `files` a `/api/import`.
+2. El BFF convierte el formulario, llama `BACKEND_API_URL/api/import`, devuelve
+   el resumen 200, mapea rechazo upstream a 502 y fallo de conexión a 503.
+3. Flask rechaza selección vacía o superior a 20 con 400 y procesa cada archivo:
+   extensión, tamaño, magic bytes `%PDF-`, SHA-256 duplicado, extracción de texto,
+   parseo, validación de métricas, persistencia y log.
+4. El resumen contiene `seleccionados`, `procesados`, `duplicados`, `errores`,
+   `inspecciones_nuevas`, `metricas_insertadas` y `metricas_sin_clasificar`.
+5. Flask escribe `inspections`, `metrics`, `unknown_metrics` e `import_logs` en
+   SQLite; elimina el archivo temporal y revierte la transacción ante error.
+6. Fasapi no expone `/api/import`: `POST /api/v1/pdf/extract` recibe un `file`
+   singular, límite configurable por defecto 50 MiB y devuelve un documento
+   estricto; el registro SQLite pertenece a su flujo de lotes.
+
+## Diferencias no resolubles por inferencia
+
+- No está decidido si C-IMPORT objetivo conserva el resumen Flask o adopta el
+  documento Fasapi; sus campos, límites, errores y persistencia no son equivalentes.
+- La regla canónica de Fasapi como único writer contradice la escritura actual
+  de Flask; requiere owner y decisión D-02/D-05 antes de adaptar.
+- No hay autenticación en estas rutas; D-03 sigue pendiente y no se inventan roles.
+- La extracción Excel es otra ruta (`/export/excel`), no parte confirmada de C-IMPORT.
 
 ## Proyección propuesta
 
 | Legacy | Elecnor |
 | --- | --- |
-| Route Handler App Router | `pages/api/import.ts` |
-| mapper HTTP | adaptador/mapeador en `src/backend/adapters/` |
-| contrato de importación | puerto y tipos en `src/backend/ports/` |
-| comportamiento de negocio | caso de uso en `src/backend/application/` |
-| upstream sintético | fixture/adaptador de test |
+| `DataToolbar` + `pdfImport` | presentación + regla pura, sin React en dominio |
+| Route Handler App Router | `pages/api/import.ts` como BFF |
+| Resumen/errores aprobados | tipos, mapper y contrato en `src/backend/` |
+| Persistencia Flask/Fasapi | adaptador externo detrás de un puerto |
+| upstream sintético | fixture/adaptador de test, nunca datos reales |
+
+## Contrato recomendado para aprobación
+
+- Compatibilidad funcional: conservar el resumen observado de `POST /import`.
+- Entrada: `multipart/form-data`, campo repetido `files`, máximo 20 PDFs y 15 MiB.
+- Salida 200: los siete contadores observados; error público como `{error}`.
+- BFF: exponer `/api/import`, validar transporte y traducir 400/502/503.
+- Dominio: modelo interno de selección y resultado; no conoce HTTP, SQLite ni FastAPI.
+- FastAPI: procesa, normaliza, deduplica y escribe solo mediante el servicio aprobado.
+- Persistencia, transacción y contrato documental quedan condicionados a D-02/D-05.
+
+La matriz de aprobación está en `docs/np-0028-decision-matrix.md`; la ficha de
+TEST-01 documenta su ciclo real y la evidencia se conserva en `.hc/evidence/`.
+
+## TEST-02 — slice ejecutado
+
+- `src/backend/adapters/inbound/import-summary.ts` valida los siete contadores,
+  enteros no negativos y conjunto exacto de campos mediante `ImportContractError`.
+- `tests/contracts/import-summary.test.ts` cubre payload válido, ausentes, tipos,
+  negativos, fracciones y campos extra con fixtures sintéticas.
+- No implementa forwarding HTTP, extracción, duplicados ni persistencia; D-02/D-05
+  continúan delimitando esos aspectos.
 
 ## Secuencia autorizable
 
