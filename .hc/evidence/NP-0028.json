@@ -272,6 +272,61 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-07",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-form.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "6b9d8e59ed033ec15daa847e5311cae22026376a009c30b43e961eae83300f70",
+        "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
+        "test_digest": "25fc2aed0ea9722a09a475a461a534a6338698da14094edfa112aee3ca2551b6",
+        "recorded_at": "2026-10-15T20:35:32.696Z",
+        "git": {
+          "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-form.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1761e370a60cec13e3ad323dba2f5facc9c2ed483ec026c5648776233fd523c2",
+        "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
+        "test_digest": "25fc2aed0ea9722a09a475a461a534a6338698da14094edfa112aee3ca2551b6",
+        "recorded_at": "2026-10-15T20:35:40.929Z",
+        "git": {
+          "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-form.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "c2d108ed97bfd9cdf4644e9f90748a6af36dbac8bf2bff6684fbb925164f4fe9",
+        "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
+        "test_digest": "25fc2aed0ea9722a09a475a461a534a6338698da14094edfa112aee3ca2551b6",
+        "recorded_at": "2026-10-15T20:35:44.244Z",
+        "git": {
+          "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -1051,6 +1106,128 @@
         }
       },
       "event_digest": "3f709ca93d23a8457cdf2ade0772370b9abb72c66967063bf3478b7a537a2e81"
+    },
+    {
+      "sequence": 22,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "tests/contracts/decision-register.test.ts",
+        "tests/contracts/import-form.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:35:32.697Z",
+      "git": {
+        "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "3f709ca93d23a8457cdf2ade0772370b9abb72c66967063bf3478b7a537a2e81",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-form.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "6b9d8e59ed033ec15daa847e5311cae22026376a009c30b43e961eae83300f70",
+        "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
+        "test_digest": "25fc2aed0ea9722a09a475a461a534a6338698da14094edfa112aee3ca2551b6",
+        "recorded_at": "2026-10-15T20:35:32.696Z",
+        "git": {
+          "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "2e0336bbb07aa1264dd8e05172820356391cda6e0ee82882ab9fc9f2fcb94728"
+    },
+    {
+      "sequence": 23,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "src/backend/adapters/inbound/import-form.ts",
+        "tests/contracts/decision-register.test.ts",
+        "tests/contracts/import-form.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:35:40.929Z",
+      "git": {
+        "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "2e0336bbb07aa1264dd8e05172820356391cda6e0ee82882ab9fc9f2fcb94728",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-form.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1761e370a60cec13e3ad323dba2f5facc9c2ed483ec026c5648776233fd523c2",
+        "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
+        "test_digest": "25fc2aed0ea9722a09a475a461a534a6338698da14094edfa112aee3ca2551b6",
+        "recorded_at": "2026-10-15T20:35:40.929Z",
+        "git": {
+          "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "ca85399f666c2b066a2745e90ea64992dc4c856ba1bea5c2b04d781f0e515e9a"
+    },
+    {
+      "sequence": 24,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "src/backend/adapters/inbound/import-form.ts",
+        "tests/contracts/decision-register.test.ts",
+        "tests/contracts/import-form.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:35:44.244Z",
+      "git": {
+        "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "ca85399f666c2b066a2745e90ea64992dc4c856ba1bea5c2b04d781f0e515e9a",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-form.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "c2d108ed97bfd9cdf4644e9f90748a6af36dbac8bf2bff6684fbb925164f4fe9",
+        "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
+        "test_digest": "25fc2aed0ea9722a09a475a461a534a6338698da14094edfa112aee3ca2551b6",
+        "recorded_at": "2026-10-15T20:35:44.244Z",
+        "git": {
+          "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "686f1946acfe423e8704a935ca235b0b0055cdf5e0b066de7ad79066b4a39a62"
     }
   ],
   "git_baseline": {
@@ -1059,11 +1236,11 @@
     "branch": "NP-0028"
   },
   "final": {
-    "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
-    "test_suite_digest": "1cab5e35a59f577f6744e8223950686ad6e54d2ae2f8e98dd6749847ba89af73",
-    "recorded_at": "2026-10-15T20:34:51.368Z",
+    "source_digest": "6734c54c4666cbfcf5626dc110824a1412f567cdaa7e1099389a43ec9b36815c",
+    "test_suite_digest": "6da2881bcf4eb6f3a9af257ed77b4f4d0ac00f2160f5cb286b1aa7be72f502db",
+    "recorded_at": "2026-10-15T20:35:44.244Z",
     "git": {
-      "head": "70e0e380e77513a6228554bf53b294462452bb03",
+      "head": "c5c7f33a7bf90bda6e963108f2e5872bace151de",
       "branch": "NP-0028",
       "dirty": true
     }
