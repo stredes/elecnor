@@ -108,7 +108,23 @@
           "branch": "NP-0029",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "3d8497b8868c64713923f1f8d54a7a519088114d86b06772977c754e8547d9be",
+          "source_digest": "df0a27f11b813c13f5c5e79d5b8533e9df614316639f3c64ea29468fa2f9bac7",
+          "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+          "recorded_at": "2026-10-15T23:55:00.128Z",
+          "git": {
+            "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+            "branch": "NP-0029",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -510,6 +526,149 @@
         }
       },
       "event_digest": "a8569741c8b7bc5018259796726a647eec241cd67f8849509572b7999e3ef8b8"
+    },
+    {
+      "sequence": 13,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/task.json",
+        "tests/contracts/quality-scope.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:54:29.406Z",
+      "git": {
+        "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "a8569741c8b7bc5018259796726a647eec241cd67f8849509572b7999e3ef8b8",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "3c27a0e27a310c2be75ae4f6890c7a90c41f109914042bc1bde00f00cf29e4ea"
+    },
+    {
+      "sequence": 14,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/task.json",
+        "scripts/quality/check-lines.mjs",
+        "tests/contracts/quality-scope.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:54:37.579Z",
+      "git": {
+        "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "3c27a0e27a310c2be75ae4f6890c7a90c41f109914042bc1bde00f00cf29e4ea",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "3de3008688dc7ba335c8e7b6bc62e9f2083c7d9a4a434e1094e58f671f109ded"
+    },
+    {
+      "sequence": 15,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 rebaseline command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/task.json",
+        "scripts/quality/check-lines.mjs",
+        "tests/contracts/quality-scope.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:54:42.200Z",
+      "git": {
+        "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "3de3008688dc7ba335c8e7b6bc62e9f2083c7d9a4a434e1094e58f671f109ded",
+      "code": "REBASELINE_COMMAND_FAILED",
+      "event_digest": "a8dcd8452dd5b15e545faa17df1b3e2a270352599b47f04c273435433f099b1f"
+    },
+    {
+      "sequence": 16,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 rebaseline command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/task.json",
+        "scripts/quality/check-lines.mjs",
+        "tests/contracts/quality-scope.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:54:47.444Z",
+      "git": {
+        "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "a8dcd8452dd5b15e545faa17df1b3e2a270352599b47f04c273435433f099b1f",
+      "code": "REBASELINE_COMMAND_FAILED",
+      "event_digest": "bea323ea569a5427f17050d3c509a0be5c794ac09c4efe4853a2e21e78bf567e"
+    },
+    {
+      "sequence": 17,
+      "type": "REBASELINED",
+      "test_id": "TEST-02",
+      "reason": "Serializar salida JSON pura del scanner de líneas antes del siguiente ciclo",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/task.json",
+        "scripts/quality/check-lines.mjs"
+      ],
+      "recorded_at": "2026-10-15T23:55:00.129Z",
+      "git": {
+        "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "bea323ea569a5427f17050d3c509a0be5c794ac09c4efe4853a2e21e78bf567e",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "3d8497b8868c64713923f1f8d54a7a519088114d86b06772977c754e8547d9be",
+        "source_digest": "df0a27f11b813c13f5c5e79d5b8533e9df614316639f3c64ea29468fa2f9bac7",
+        "test_digest": "0b5086e5dd493a0447789b74d429ffea2210c262bcd8c9159168abfc3d438118",
+        "recorded_at": "2026-10-15T23:55:00.128Z",
+        "git": {
+          "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      },
+      "event_digest": "2a9c17b3d5b3e696cdb5587c04688f095a518abe52bff90358d831067c00d9c1"
+    },
+    {
+      "sequence": 18,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "production files remain uncommitted: scripts/quality/check-lines.mjs",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/task.json",
+        "scripts/quality/check-lines.mjs",
+        "tests/contracts/quality-scope.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:55:07.071Z",
+      "git": {
+        "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "2a9c17b3d5b3e696cdb5587c04688f095a518abe52bff90358d831067c00d9c1",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "0c2dc34f93e56f2577fabcd3054ffb604f3a50928803f43c0b96f39099c0f0ea"
     }
   ],
   "git_baseline": {
@@ -518,11 +677,11 @@
     "branch": "NP-0029"
   },
   "final": {
-    "source_digest": "5cc15ecdd90b9c78e274b71f32e8dcc76c6614edfc84c238236201336369163d",
+    "source_digest": "df0a27f11b813c13f5c5e79d5b8533e9df614316639f3c64ea29468fa2f9bac7",
     "test_suite_digest": "253df62ffe188f48c16b8fe2245838dcdf83ec6b5b935fa59e737636b19d7a4a",
-    "recorded_at": "2026-10-15T23:52:01.675Z",
+    "recorded_at": "2026-10-15T23:55:00.129Z",
     "git": {
-      "head": "971b1e0e6ac4c10d51699ed723dd25e0abb38639",
+      "head": "958a32aec266b104790980c5d72e79f2cf215eaf",
       "branch": "NP-0029",
       "dirty": true
     }

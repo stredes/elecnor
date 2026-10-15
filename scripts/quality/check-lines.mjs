@@ -90,7 +90,7 @@ function main() {
   const report = runLineCheck(options.root, options.files);
   if (options.json) console.log(JSON.stringify(report));
   else report.files.forEach((file) => console.log(`${file.status.toUpperCase()} ${file.path}${file.lines === undefined ? '' : ` (${file.lines})`}`));
-  report.failures.forEach((failure) => console.error(`FAIL ${failure}`));
+  if (!options.json) report.failures.forEach((failure) => console.error(`FAIL ${failure}`));
   process.exitCode = report.failures.length ? 1 : 0;
 }
 
