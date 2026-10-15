@@ -1,0 +1,251 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0028",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/context.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e6bc2a2ded21ebbf3fb0bee7f7cf8d9fc5862c9804b36944d00906c348d2cbb6",
+        "source_digest": "d3ecaf62a246006d26cbd75d6a020e7f87cbf6607fdfdbe58f15c2486cf4edd4",
+        "test_digest": "195d314a4fa43d18ae6e540d6cd8a5e62a02d1bb63e4997e9d360f2f36f7681c",
+        "recorded_at": "2026-10-15T20:05:48.700Z",
+        "git": {
+          "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable."
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/context.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "edc83f0f69824810709dd9445b4b5b3e7195067b9aa129fe346b4935df8e86c1",
+        "source_digest": "8e694a3d65b6f318300dff73901ce394cdbdd228d2534ffa439198a7158a5bdc",
+        "test_digest": "195d314a4fa43d18ae6e540d6cd8a5e62a02d1bb63e4997e9d360f2f36f7681c",
+        "recorded_at": "2026-10-15T20:06:35.260Z",
+        "git": {
+          "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "89b21b5fbf6268a7a67521dd9238eb5c1f4e8e7acb5cedbe1b839fda58a36a23",
+        "source_digest": "8e694a3d65b6f318300dff73901ce394cdbdd228d2534ffa439198a7158a5bdc",
+        "test_digest": "195d314a4fa43d18ae6e540d6cd8a5e62a02d1bb63e4997e9d360f2f36f7681c",
+        "recorded_at": "2026-10-15T20:06:40.197Z",
+        "git": {
+          "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 does not match its planned command",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-c-import-plan.md",
+        "docs/np-0028-decision-matrix.md",
+        "docs/np-0028-test-01.md",
+        "tests/contracts/context.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:04:38.724Z",
+      "git": {
+        "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "PLANNED_COMMAND_MISMATCH",
+      "event_digest": "872276496e47bbdf659176d4fa2e56483d972d34af295ace970f8b86ced71a96"
+    },
+    {
+      "sequence": 2,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-c-import-plan.md",
+        "docs/np-0028-decision-matrix.md",
+        "docs/np-0028-test-01.md",
+        "tests/contracts/context.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:05:08.152Z",
+      "git": {
+        "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "872276496e47bbdf659176d4fa2e56483d972d34af295ace970f8b86ced71a96",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "fe23a8996135422bb57017bd2e2025cf6eb11d7bdf06fce836c12118b68f6ed2"
+    },
+    {
+      "sequence": 3,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-c-import-plan.md",
+        "docs/np-0028-decision-matrix.md",
+        "docs/np-0028-test-01.md",
+        "tests/contracts/context.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:05:48.701Z",
+      "git": {
+        "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "fe23a8996135422bb57017bd2e2025cf6eb11d7bdf06fce836c12118b68f6ed2",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/context.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e6bc2a2ded21ebbf3fb0bee7f7cf8d9fc5862c9804b36944d00906c348d2cbb6",
+        "source_digest": "d3ecaf62a246006d26cbd75d6a020e7f87cbf6607fdfdbe58f15c2486cf4edd4",
+        "test_digest": "195d314a4fa43d18ae6e540d6cd8a5e62a02d1bb63e4997e9d360f2f36f7681c",
+        "recorded_at": "2026-10-15T20:05:48.700Z",
+        "git": {
+          "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable."
+      },
+      "event_digest": "8975b8165c281c958d081317dea0499eb9e343a96d06b9db4c2584b43d2bb312"
+    },
+    {
+      "sequence": 4,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-c-import-plan.md",
+        "docs/np-0028-decision-matrix.md",
+        "docs/np-0028-test-01.md",
+        "pages/api/import.ts",
+        "tests/contracts/context.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:06:35.260Z",
+      "git": {
+        "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "8975b8165c281c958d081317dea0499eb9e343a96d06b9db4c2584b43d2bb312",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/context.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "edc83f0f69824810709dd9445b4b5b3e7195067b9aa129fe346b4935df8e86c1",
+        "source_digest": "8e694a3d65b6f318300dff73901ce394cdbdd228d2534ffa439198a7158a5bdc",
+        "test_digest": "195d314a4fa43d18ae6e540d6cd8a5e62a02d1bb63e4997e9d360f2f36f7681c",
+        "recorded_at": "2026-10-15T20:06:35.260Z",
+        "git": {
+          "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "45d702dffa16eb6969bde883b7dd7231df26a9e415514e8702f2c33f1e5f3a30"
+    },
+    {
+      "sequence": 5,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-c-import-plan.md",
+        "docs/np-0028-decision-matrix.md",
+        "docs/np-0028-test-01.md",
+        "pages/api/import.ts",
+        "tests/contracts/context.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:06:40.198Z",
+      "git": {
+        "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "45d702dffa16eb6969bde883b7dd7231df26a9e415514e8702f2c33f1e5f3a30",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "89b21b5fbf6268a7a67521dd9238eb5c1f4e8e7acb5cedbe1b839fda58a36a23",
+        "source_digest": "8e694a3d65b6f318300dff73901ce394cdbdd228d2534ffa439198a7158a5bdc",
+        "test_digest": "195d314a4fa43d18ae6e540d6cd8a5e62a02d1bb63e4997e9d360f2f36f7681c",
+        "recorded_at": "2026-10-15T20:06:40.197Z",
+        "git": {
+          "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "e1fc176faf9093c16641aa423fc78f3bc7c6cf87151f0247d045d70990235ff1"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+    "branch": "NP-0028"
+  },
+  "final": {
+    "source_digest": "8e694a3d65b6f318300dff73901ce394cdbdd228d2534ffa439198a7158a5bdc",
+    "test_suite_digest": "4c81bc6faefb8c3ea7df0fb679c699e9a46cd0802af6ddf72cc26efe046825e5",
+    "recorded_at": "2026-10-15T20:06:40.198Z",
+    "git": {
+      "head": "79fb58b1ef1993d98b9d0df5d417152fa1b274ec",
+      "branch": "NP-0028",
+      "dirty": true
+    }
+  }
+}

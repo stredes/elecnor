@@ -1,26 +1,26 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0001",
+    "id": "NP-0028",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0001.json",
+    "story_path": ".hc/stories/NP-0028.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
-    "change_areas": ["domain", "application", "presentation", "infrastructure", "configuration"],
-    "risk_tags": ["public-api", "dependency", "external-input", "persistence"],
+    "change_areas": ["infrastructure"],
+    "risk_tags": ["public-api", "identity", "credentials", "dependency"],
     "test_plan": [
-      { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/domain"], "expected_failure": "Domain contract is not verified.", "fixture": "tests/domain/dashboard.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts"], "expected_failure": "API payload contract is not verified.", "fixture": "tests/contracts/dashboard-contract.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-03", "order": 3, "level": "e2e", "check": "e2e", "args": ["tests/e2e/dashboard.spec.ts"], "expected_failure": "Dashboard route is not verified end to end.", "fixture": "tests/e2e/dashboard.spec.ts", "regression": { "check": "e2e", "args": [] } }
+      { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/contracts/context.test.ts"], "expected_failure": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable.", "fixture": "tests/contracts/context.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/import-summary.test.ts"], "expected_failure": "expected 200 to be 502", "fixture": "tests/contracts/import-summary.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/decision-register.test.ts"], "expected_failure": "Pendiente de owners y evidencia humana; no fabricar aprobación.", "fixture": "tests/contracts/decision-register.test.ts", "regression": { "check": "unit", "args": [] } }
     ]
   },
   "scope": {
-    "include": ["pages", "src", "tests", "package.json", "tsconfig.json", "next.config.ts", "vitest.config.ts", "playwright.config.ts"],
-    "exclude": ["Real data, secrets, SQLite, deployments, and historical repositories"],
-    "related_paths": ["pages", "pages/api", "src/backend", "src/dashboard", "tests"]
+    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", "package.json", "package-lock.json", "vendor/hc-soluciones-engineering-brain-5.0.1.tgz", "playwright.config.ts", "pages/api/import.ts", "src/backend/application", "src/backend/ports", "src/backend/adapters", "tests/contracts/context.test.ts", "tests/contracts/decision-register.test.ts", "tests/contracts/import-summary.test.ts", "tests/e2e/c-import.spec.ts", "tests/e2e/support/upstream.mjs", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md"],
+    "exclude": ["Datos reales, producción, migraciones y despliegues", "Migración Pages Router completa sin ADR/owners", "Inventar identidad, permisos o fórmulas", "Declarar NP-0028 DONE"],
+    "related_paths": [".hc/stories/NP-0028.json", "tests/contracts", "src/backend/application", "src/backend/ports", "src/backend/adapters", "pages/api", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md"]
   },
-  "constraints": ["Brain 5.0.1", "Pages Router", "No real data", "Authored files at most 99 physical lines"],
+  "constraints": ["Brain local 5.0.1", "Aislar fixtures y efectos externos", "No debilitar gates", "Todo archivo authored conserva 99 líneas o menos", "Esta activación no inicia migración funcional C-IMPORT"],
   "authority": {
-    "allowed": ["Create isolated scaffold", "Add synthetic contracts", "Implement local adapters"],
-    "forbidden": ["Modify historical repositories", "Use production data", "Disable gates", "Declare production readiness"]
+    "allowed": ["Crear tests de contratos sintéticos", "Implementar validación pura del C-IMPORT", "Registrar bloqueos y evidencia"],
+    "forbidden": ["Usar datos reales", "Cambiar fórmulas o identidad por suposición", "Desactivar gates", "Declarar READY/GO/DONE", "Iniciar migración funcional durante esta activación"]
   }
 }
