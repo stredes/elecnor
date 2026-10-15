@@ -1,0 +1,31 @@
+{
+  "schema_version": "2.0",
+  "brain_version": "5.0.1",
+  "project": {
+    "name": "elecnor",
+    "profile": "web-next",
+    "language": "typescript",
+    "framework": "nextjs",
+    "architecture": "hexagonal",
+    "methodology": "tdd"
+  },
+  "quality": {
+    "source_roots": ["pages", "src"],
+    "test_roots": ["tests"],
+    "generated_roots": [],
+    "tsconfig": "tsconfig.json"
+  },
+  "verification": {
+    "commands": {
+      "lint": { "argv": ["npm", "run", "lint"], "timeout_seconds": 120 },
+      "format_check": { "argv": ["npm", "run", "format:check"], "timeout_seconds": 120 },
+      "typecheck": { "argv": ["npm", "run", "typecheck"], "timeout_seconds": 120 },
+      "unit": { "argv": ["npm", "run", "test:unit"], "timeout_seconds": 120 },
+      "integration": { "argv": ["npm", "run", "test:integration"], "timeout_seconds": 120 },
+      "e2e": { "argv": ["npm", "run", "test:e2e"], "timeout_seconds": 300 },
+      "dependency_audit": { "argv": ["npm", "run", "audit"], "timeout_seconds": 120 },
+      "build": { "argv": ["npm", "run", "build"], "timeout_seconds": 300 }
+    },
+    "dependency_audit_justification": "Run npm audit with approved network before production readiness."
+  }
+}

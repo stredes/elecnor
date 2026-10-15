@@ -1,0 +1,29 @@
+{
+  "schema_version": "2.0",
+  "story": {
+    "id": "NP-0001",
+    "title": "Crear base Elecnor con Pages Router y límites hexagonales",
+    "actor": "equipo de ingeniería",
+    "need": "una base separada para evolucionar dashboard, API y backend sin mezclar responsabilidades",
+    "business_value": "reducir el riesgo de la reorganización del workspace histórico",
+    "context": "Proyecto nuevo elecnor-next; no reemplaza repositorios NP-0027 ni NP-0028.",
+    "preconditions": ["Next.js Pages Router disponible", "Brain 5.0.1 fijado localmente"],
+    "acceptance_criteria": [
+      { "id": "AC-01", "given": ["un proyecto Next aislado"], "when": ["se inspeccionan sus rutas y capas"], "then": ["dashboard, API y backend están separados", "el núcleo no depende de frameworks"], "test_ids": ["TEST-01"] },
+      { "id": "AC-02", "given": ["payloads sintéticos del dashboard"], "when": ["se validan en la frontera"], "then": ["payloads incompletos se rechazan", "no se exponen datos reales"], "test_ids": ["TEST-02"] },
+      { "id": "AC-03", "given": ["la ruta dashboard y el endpoint health"], "when": ["se ejecuta el flujo HTTP"], "then": ["Pages Router sirve la vista", "el BFF responde mediante un contrato estable"], "test_ids": ["TEST-03"] }
+    ],
+    "business_rules": [
+      { "id": "BR-01", "rule": "El navegador no accede directamente a backend ni persistencia." },
+      { "id": "BR-02", "rule": "Los adaptadores externos se cablean únicamente en composition." }
+    ],
+    "edge_cases": ["Backend ausente", "Payload incompleto", "Método HTTP no permitido"],
+    "out_of_scope": ["Migrar datos históricos", "Construir persistencia productiva", "Desplegar"],
+    "dependencies": [],
+    "non_functional_requirements": [
+      { "id": "NFR-01", "rule": "Las fronteras deben ser comprobables con tests rápidos y sintéticos.", "risk_tags": ["public-api", "dependency", "external-input", "persistence"], "test_ids": ["TEST-01", "TEST-02", "TEST-03"], "review_ids": ["REVIEW-01"] }
+    ],
+    "definition_of_ready": { "ready": false, "evidence": ["La base está creada; la autorización de producción y los owners aún no están definidos."] },
+    "definition_of_done": ["Pruebas y gates pasan", "Revisión arquitectónica aceptada", "No quedan datos reales ni secretos en el proyecto"]
+  }
+}

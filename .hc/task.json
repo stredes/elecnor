@@ -1,0 +1,26 @@
+{
+  "schema_version": "2.0",
+  "task": {
+    "id": "NP-0001",
+    "type": "feature",
+    "story_path": ".hc/stories/NP-0001.json",
+    "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
+    "change_areas": ["domain", "application", "presentation", "infrastructure", "configuration"],
+    "risk_tags": ["public-api", "dependency", "external-input", "persistence"],
+    "test_plan": [
+      { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/domain"], "expected_failure": "Domain contract is not verified.", "fixture": "tests/domain/dashboard.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts"], "expected_failure": "API payload contract is not verified.", "fixture": "tests/contracts/dashboard-contract.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-03", "order": 3, "level": "e2e", "check": "e2e", "args": ["tests/e2e/dashboard.spec.ts"], "expected_failure": "Dashboard route is not verified end to end.", "fixture": "tests/e2e/dashboard.spec.ts", "regression": { "check": "e2e", "args": [] } }
+    ]
+  },
+  "scope": {
+    "include": ["pages", "src", "tests", "package.json", "tsconfig.json", "next.config.ts", "vitest.config.ts", "playwright.config.ts"],
+    "exclude": ["Real data, secrets, SQLite, deployments, and historical repositories"],
+    "related_paths": ["pages", "pages/api", "src/backend", "src/dashboard", "tests"]
+  },
+  "constraints": ["Brain 5.0.1", "Pages Router", "No real data", "Authored files at most 99 physical lines"],
+  "authority": {
+    "allowed": ["Create isolated scaffold", "Add synthetic contracts", "Implement local adapters"],
+    "forbidden": ["Modify historical repositories", "Use production data", "Disable gates", "Declare production readiness"]
+  }
+}
