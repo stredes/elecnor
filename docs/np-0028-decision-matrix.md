@@ -1,7 +1,8 @@
 # NP-0028 — Matriz de decisiones para CTIO
 
-Estado: propuesta trazable. Ninguna decisión está marcada como ACCEPTED en
-Elecnor. Las fuentes canónicas son `NP-0026-plan.md` y `NP-0028-readiness.md`.
+Estado: directrices técnicas comunicadas y revisadas por el CTO en la sesión del
+2026-10-15; no se inventan firma, correo ni fingerprint de aprobación Brain.
+Las fuentes canónicas son `NP-0026-plan.md` y `NP-0028-readiness.md`.
 
 ## D-02 — runtime y persistencia
 
@@ -69,13 +70,21 @@ Elecnor. Las fuentes canónicas son `NP-0026-plan.md` y `NP-0028-readiness.md`.
 - Evidencia: inventario externo, allowlist/CSP final y revisión de tokens/PII.
 - Afecta: DoR global y medios de NP-0043; no cambia el contrato C-IMPORT.
 
+## Directrices CTO registradas
+
+- D-02: PDF transitorio; FastAPI procesa y PostgreSQL recibe datos estructurados mediante puertos.
+- D-03: portal público sin login; importar sí, modificar/eliminar no; el backend aplica restricciones.
+- D-05: analizar formatos, normalizar sin inventar campos y extraer mediante adaptadores por formato.
+- D-06: reglas y métricas en FastAPI; dashboards solo presentan resultados entregados.
+- D-10: Next, FastAPI y PostgreSQL en Railway con secretos y controles de seguridad administrados.
+
 ## Clasificación del DoR
 
 - Resuelto: Brain 5.0.1 y validación local; no es una de estas cinco decisiones.
 - Resoluble técnicamente ahora: contrato de compatibilidad, límites hexagonales y
   fixture conceptual de TEST-01, sin efectos externos ni cambios de producción.
-- Pendiente CTIO/owner/evidencia: D-02, D-03, D-05, D-06 y D-10. Ninguna se cierra
-  por recomendación técnica ni permite cambiar `ready=false`.
+- Pendiente de formalizar owner/evidencia para DoR: D-02, D-03, D-05, D-06 y D-10.
+  La directriz revisada no cambia `ready=false` ni cierra la activación.
 
 ## Regularización de TEST-03
 

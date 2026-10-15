@@ -1,20 +1,19 @@
 # Candidato inicial de migración: NP-0028 / C-IMPORT
 
-Estado: **preparado técnicamente como propuesta; no iniciado ni autorizado para
-migración funcional**.
+Estado: **diseño técnico preparado; migración funcional no iniciada ni autorizada**.
 
 ## Legacy analizado
 
 - Entrada UI: `modulo-data-excel/web/src/presentation/components/DataToolbar.tsx`.
 - Regla cliente: `modulo-data-excel/web/src/domain/pdfImport.ts`.
 - BFF App Router: `modulo-data-excel/web/src/app/api/import/route.ts`.
-- Backend Flask: `modulo-data-excel/app/api.py` y `app/services/importer.py`.
+- Backend Flask (snapshots): `modulo-data-excel/app/api.py`, `app/services/importer.py`
+  y `np0028-web/app/api.py`, `app/services/importer.py`.
 - Backend FastAPI: `Fasapi/src/app/api/routes/pdf.py` y `routes/extractions.py`.
 - Pruebas: `modulo-data-excel/web/tests/domain/pdfImport.test.ts`,
   `modulo-data-excel/web/tests/presentation/DataToolbar.test.tsx`,
   `modulo-data-excel/tests/test_importer*.py` y
   `Fasapi/tests/characterization/test_np0027_documents.py`.
-
 La responsabilidad del BFF es validar la selección, reenviar multipart y
 traducir errores. La persistencia observada pertenece a Flask; Fasapi tiene un
 flujo distinto de extracción y registro por lotes.
@@ -87,6 +86,14 @@ TEST-01 documenta su ciclo real y la evidencia se conserva en `.hc/evidence/`.
 
 ## Bloqueos actuales
 
-NP-0028 legacy conserva bloqueos de contexto, TDD, owners/evidencia y deuda de
-99 líneas. No existe autorización CTIO para iniciar esta migración en Elecnor;
-por eso el plan no crea código funcional ni altera repositorios históricos.
+NP-0028 conserva bloqueos de owners/evidencia, TDD administrativo y deuda de
+99 líneas. El diseño puro nuevo no se cablea a rutas, extracción ni persistencia;
+no se altera legacy ni se inicia migración funcional en Elecnor.
+## Propuesta de ampliación (no creada)
+- Historia sugerida: `NP-0033-C-IMPORT-ACTIVATE`, separada de NP-0028.
+- Incluye extractor FastAPI por formato, PostgreSQL por puerto y BFF con forwarding.
+- AC: schema/fixtures aprobados, idempotencia y cero PDF persistido.
+- AC: backend aplica importación pública y rechaza modificar/eliminar registros.
+- AC: métricas se entregan sin fórmulas nuevas y Railway queda probado/seguro.
+- Fuera: cambiar legacy, fórmulas no aprobadas, despliegue sin autorización.
+- CTO debe aprobar owners, schema, auth/allowlist, evidencia y rollback antes de abrirla.
