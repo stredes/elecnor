@@ -398,6 +398,22 @@
             "branch": "NP-0028",
             "dirty": true
           }
+        },
+        {
+          "check": "e2e",
+          "args": [
+            "tests/e2e/c-import.spec.ts"
+          ],
+          "exit_code": 0,
+          "output_digest": "ab48d0ca3f06bc9beaa7fb9c4d17320501fda3bc6b3964e2a178ba7bc58108a8",
+          "source_digest": "24e67000bfbb4efc966596f85ac89ea88091485ffd14adca9841c4080734dcb1",
+          "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+          "recorded_at": "2026-10-15T23:32:44.446Z",
+          "git": {
+            "head": "7b7045a43ae1c444eb51b7d75f0394ceba976c79",
+            "branch": "NP-0028",
+            "dirty": false
+          }
         }
       ]
     }
@@ -1503,6 +1519,39 @@
         }
       },
       "event_digest": "96f82ef4851abcd939a4050b2f6e0115174190637a60aa78063c572b921f80c3"
+    },
+    {
+      "sequence": 30,
+      "type": "REBASELINED",
+      "test_id": "TEST-08",
+      "reason": "NP-0028 added an un-wired normalized document contract after TEST-08 refactor; preserve evidence without activating C-IMPORT",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-15T23:32:44.447Z",
+      "git": {
+        "head": "7b7045a43ae1c444eb51b7d75f0394ceba976c79",
+        "branch": "NP-0028",
+        "dirty": false
+      },
+      "previous_event_digest": "96f82ef4851abcd939a4050b2f6e0115174190637a60aa78063c572b921f80c3",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/c-import.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ab48d0ca3f06bc9beaa7fb9c4d17320501fda3bc6b3964e2a178ba7bc58108a8",
+        "source_digest": "24e67000bfbb4efc966596f85ac89ea88091485ffd14adca9841c4080734dcb1",
+        "test_digest": "52448d9c1cd592cca65e8e57a4dfc70a1b181a4daf5ff41221f2dbcf7e46953c",
+        "recorded_at": "2026-10-15T23:32:44.446Z",
+        "git": {
+          "head": "7b7045a43ae1c444eb51b7d75f0394ceba976c79",
+          "branch": "NP-0028",
+          "dirty": false
+        }
+      },
+      "event_digest": "1d45957672afcbc9d6399b671b46ec407bfdb8309dd928d9d3fe98778ba9e0f0"
     }
   ],
   "git_baseline": {
@@ -1511,13 +1560,13 @@
     "branch": "NP-0028"
   },
   "final": {
-    "source_digest": "c6a83abd6b74b6a2b8e772d15691910f4284e565f4aac7d64ccecfe6560f9a06",
-    "test_suite_digest": "d753ff0c6321e6735bdfae7b70df675a4d96dc2a176d02f7d245dacd621218b3",
-    "recorded_at": "2026-10-15T20:37:50.516Z",
+    "source_digest": "24e67000bfbb4efc966596f85ac89ea88091485ffd14adca9841c4080734dcb1",
+    "test_suite_digest": "9e73a612e20369de191324d32b595cd4d9bbf5b7def3874028ce0bf6f87fd6f0",
+    "recorded_at": "2026-10-15T23:32:44.447Z",
     "git": {
-      "head": "57a07665aa6f9ade8d8833d8347527fe07291565",
+      "head": "7b7045a43ae1c444eb51b7d75f0394ceba976c79",
       "branch": "NP-0028",
-      "dirty": true
+      "dirty": false
     }
   }
 }
