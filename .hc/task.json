@@ -11,7 +11,8 @@
       { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/contracts/context.test.ts"], "expected_failure": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable.", "fixture": "tests/contracts/context.test.ts", "regression": { "check": "unit", "args": [] } },
       { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/import-summary.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-summary.test.ts", "regression": { "check": "unit", "args": [] } },
       { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/decision-register.test.ts"], "expected_failure": "Pendiente de owners y evidencia humana; no fabricar aprobación.", "fixture": "tests/contracts/decision-register.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-04", "order": 4, "level": "unit", "check": "unit", "args": ["tests/contracts/import-selection.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-selection.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-selection.test.ts"] } }
+      { "test_id": "TEST-04", "order": 4, "level": "unit", "check": "unit", "args": ["tests/contracts/import-selection.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-selection.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-selection.test.ts"] } },
+      { "test_id": "TEST-05", "order": 5, "level": "unit", "check": "unit", "args": ["tests/contracts/import-errors.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-errors.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-errors.test.ts"] } }
     ]
   },
   "scope": {
