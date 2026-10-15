@@ -28,9 +28,9 @@ forzar un cierre; su resultado es story no Ready.
 - Unitarias: 30/31; integración: 25/26; el único fallo es TEST-03 esperado.
 - Contrato normalizado sintético: 2/2 PASS.
 - E2E HTTP: 3/3 PASS; ESLint, TypeScript y build: PASS.
+- TEST-08: rebaseline oficial registrado tras el contrato técnico no activante.
 - `hc validate`, `hc doctor`, `hc story validate` y `hc gates`: PASS.
-- `hc verify`: BLOCKED — `TEST-03 has no RED/GREEN evidence`; Brain también marca
-  source/tests changed after final evidence para el ciclo nuevo no registrado.
+- `hc verify`: BLOCKED únicamente por `TEST-03 has no RED/GREEN evidence`.
 - DoR: `ready=false`; `story validate --done`: story no Ready.
 - No existe review humana aceptada ni aprobación CTIO formal registrada.
 
@@ -84,5 +84,5 @@ mantienen bloqueado el DoR global. No se inventaron owners ni aprobaciones.
 ## Trazabilidad e integridad
 
 Commits: `e0fc45d`, `b040726`, `eb75279`, `70e0e38`, `c5c7f33`, `57a0766`,
-`c0fb61c`, `2f34e59` y `5ba22eb`. Legacy, `main` y `Development` permanecen intactos;
+`c0fb61c`, `2f34e59`, `5ba22eb` y `f230758`. Legacy, `main` y `Development` permanecen intactos;
 no hubo push, merge ni despliegue.
