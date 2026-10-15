@@ -1,0 +1,331 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0029",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-lines.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e24e51bbce111ddba629fa19800cbfe09d920ee9e0d172f7e9ee59826d07fb7a",
+        "source_digest": "c553b036eda58520e87728d55f2c47df219f2b9d38676fd3d46241ae8f0ef336",
+        "test_digest": "77ec84755fc7fa75edaa2098c83b72b33ae1cc85dd964ef6f0fd520c968e6a9d",
+        "recorded_at": "2026-10-15T23:49:06.871Z",
+        "git": {
+          "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+          "branch": "NP-0029",
+          "dirty": true
+        },
+        "expected_reason": "Cannot find module"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-lines.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1301914ee7ee088d91dc575567b0b72386ecbba47d5343fc3739fbaf0daa8c9a",
+        "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
+        "test_digest": "77ec84755fc7fa75edaa2098c83b72b33ae1cc85dd964ef6f0fd520c968e6a9d",
+        "recorded_at": "2026-10-15T23:49:30.338Z",
+        "git": {
+          "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "e5d290548795f4e86ca0243cbd887c0501b495fc0e88312cc33a3a15da332225",
+        "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
+        "test_digest": "77ec84755fc7fa75edaa2098c83b72b33ae1cc85dd964ef6f0fd520c968e6a9d",
+        "recorded_at": "2026-10-15T23:50:05.893Z",
+        "git": {
+          "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:48:37.972Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "f6f84323ee9da38c5d81ffac5874f030545f1a600bbc4a6c5e03b106573abf2e"
+    },
+    {
+      "sequence": 2,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:48:41.113Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "f6f84323ee9da38c5d81ffac5874f030545f1a600bbc4a6c5e03b106573abf2e",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "85e5857b1360a14be8eaf75c68ac9fa077a305910e5e6901e3b03ed7f070bc0a"
+    },
+    {
+      "sequence": 3,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:48:43.995Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "85e5857b1360a14be8eaf75c68ac9fa077a305910e5e6901e3b03ed7f070bc0a",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "1deb85b5ca22a673dc96b2010f372482f1088241cb27959bca72d642ac0e698b"
+    },
+    {
+      "sequence": 4,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Cannot find module",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:49:06.871Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "1deb85b5ca22a673dc96b2010f372482f1088241cb27959bca72d642ac0e698b",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-lines.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e24e51bbce111ddba629fa19800cbfe09d920ee9e0d172f7e9ee59826d07fb7a",
+        "source_digest": "c553b036eda58520e87728d55f2c47df219f2b9d38676fd3d46241ae8f0ef336",
+        "test_digest": "77ec84755fc7fa75edaa2098c83b72b33ae1cc85dd964ef6f0fd520c968e6a9d",
+        "recorded_at": "2026-10-15T23:49:06.871Z",
+        "git": {
+          "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+          "branch": "NP-0029",
+          "dirty": true
+        },
+        "expected_reason": "Cannot find module"
+      },
+      "event_digest": "a098828375d1a996df1fa2b748a4b53fc470d719e7aa81bec778e62466de55d0"
+    },
+    {
+      "sequence": 5,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 has no production change",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "scripts/",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:49:23.856Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "a098828375d1a996df1fa2b748a4b53fc470d719e7aa81bec778e62466de55d0",
+      "code": "NO_PRODUCTION_CHANGE",
+      "event_digest": "9d067b740f094bbb6204137cee04d8521b3390ff3b7d4ebc98307d6378fe7ee5"
+    },
+    {
+      "sequence": 6,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/project.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "scripts/",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:49:30.339Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "9d067b740f094bbb6204137cee04d8521b3390ff3b7d4ebc98307d6378fe7ee5",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/quality-lines.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1301914ee7ee088d91dc575567b0b72386ecbba47d5343fc3739fbaf0daa8c9a",
+        "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
+        "test_digest": "77ec84755fc7fa75edaa2098c83b72b33ae1cc85dd964ef6f0fd520c968e6a9d",
+        "recorded_at": "2026-10-15T23:49:30.338Z",
+        "git": {
+          "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      },
+      "event_digest": "08ae326a148d96b5b9fc631df3f5463a419af9d659dc04db70d1eacae2f4fbbc"
+    },
+    {
+      "sequence": 7,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": ".hc/evidence/NP-0028.json: outside declared task scope; .hc/stories/NP-0028.json: outside declared task scope; docs/np-0028-c-import-plan.md: outside declared task scope; docs/np-0028-closure.md: outside declared task scope; docs/np-0028-decision-matrix.md: outside declared task scope; docs/np-0028-test-01.md: outside declared task scope; tests/application/import-files.test.ts: outside declared task scope; tests/e2e/c-import.spec.ts: outside declared task scope; dependency change requires explicit dependency authority",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/project.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "scripts/",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:49:32.211Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "08ae326a148d96b5b9fc631df3f5463a419af9d659dc04db70d1eacae2f4fbbc",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "40b6dc4605c795f0229ffc15b0f43d791e51b07bb368b527a6f0b370f663ecbb"
+    },
+    {
+      "sequence": 8,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 REFACTOR command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/project.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "scripts/",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:49:48.463Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "40b6dc4605c795f0229ffc15b0f43d791e51b07bb368b527a6f0b370f663ecbb",
+      "code": "REFACTOR_COMMAND_FAILED",
+      "event_digest": "e19cfdf698355d62d3471eb8de57ebf2731816f74788945e736b9c4103c71a25"
+    },
+    {
+      "sequence": 9,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0029.json",
+        ".hc/project.json",
+        ".hc/stories/NP-0029.json",
+        ".hc/task.json",
+        "scripts/",
+        "tests/contracts/context.test.ts",
+        "tests/contracts/quality-lines.test.ts"
+      ],
+      "recorded_at": "2026-10-15T23:50:05.894Z",
+      "git": {
+        "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+        "branch": "NP-0029",
+        "dirty": true
+      },
+      "previous_event_digest": "e19cfdf698355d62d3471eb8de57ebf2731816f74788945e736b9c4103c71a25",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "e5d290548795f4e86ca0243cbd887c0501b495fc0e88312cc33a3a15da332225",
+        "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
+        "test_digest": "77ec84755fc7fa75edaa2098c83b72b33ae1cc85dd964ef6f0fd520c968e6a9d",
+        "recorded_at": "2026-10-15T23:50:05.893Z",
+        "git": {
+          "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+          "branch": "NP-0029",
+          "dirty": true
+        }
+      },
+      "event_digest": "dbd68670173c63a0a2118ba785f210f98f1d91103821e8424590a2f68bc703ea"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+    "branch": "NP-0029"
+  },
+  "final": {
+    "source_digest": "517ef9282ae7b2f920c1a40533c24fc6875503a98080aaed25efeee344b9b252",
+    "test_suite_digest": "0d501dbb813fe67f088960c96ecbde491c2963716cdc90108117d42af211aa1d",
+    "recorded_at": "2026-10-15T23:50:05.894Z",
+    "git": {
+      "head": "284698a97088f546c1da16dd90d418110d66c4cd",
+      "branch": "NP-0029",
+      "dirty": true
+    }
+  }
+}

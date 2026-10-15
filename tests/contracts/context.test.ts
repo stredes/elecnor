@@ -15,7 +15,7 @@ function readJson(path: string) {
   return JSON.parse(readFileSync(resolve(projectRoot, path), "utf8"));
 }
 
-describe("NP-0028/AC-01/TEST-01 Brain context contract", () => {
+describe("active story Brain context contract", () => {
   it("validates Brain, task and story context", () => {
     const output = execFileSync(
       process.execPath,
@@ -27,7 +27,7 @@ describe("NP-0028/AC-01/TEST-01 Brain context contract", () => {
     const task = readJson(".hc/task.json");
 
     expect(project.brain_version).toBe("5.0.1");
-    expect(task.task.story_path).toBe(".hc/stories/NP-0028.json");
+    expect(task.task.story_path).toBe(`.hc/stories/${task.task.id}.json`);
     expect(context.capsule.test_id).toBe("TEST-01");
   });
 

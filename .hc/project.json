@@ -10,7 +10,7 @@
     "methodology": "tdd"
   },
   "quality": {
-    "source_roots": ["pages", "src"],
+    "source_roots": ["pages", "src", "scripts"],
     "test_roots": ["tests"],
     "generated_roots": [],
     "tsconfig": "tsconfig.json"

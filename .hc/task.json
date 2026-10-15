@@ -1,31 +1,26 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0028",
+    "id": "NP-0029",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0028.json",
+    "story_path": ".hc/stories/NP-0029.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
     "change_areas": ["infrastructure"],
-    "risk_tags": ["public-api", "dependency"],
+    "risk_tags": ["dependency", "release"],
     "test_plan": [
-      { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/contracts/context.test.ts"], "expected_failure": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable.", "fixture": "tests/contracts/context.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/import-summary.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-summary.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/normalized-document.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/normalized-document.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-04", "order": 4, "level": "unit", "check": "unit", "args": ["tests/contracts/import-selection.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-selection.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-selection.test.ts"] } },
-      { "test_id": "TEST-05", "order": 5, "level": "unit", "check": "unit", "args": ["tests/contracts/import-errors.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-errors.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-errors.test.ts"] } },
-      { "test_id": "TEST-06", "order": 6, "level": "unit", "check": "unit", "args": ["tests/application/import-files.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/application/import-files.test.ts", "regression": { "check": "unit", "args": ["tests/application/import-files.test.ts"] } },
-      { "test_id": "TEST-07", "order": 7, "level": "unit", "check": "unit", "args": ["tests/contracts/import-form.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-form.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-form.test.ts"] } },
-      { "test_id": "TEST-08", "order": 8, "level": "e2e", "check": "e2e", "args": ["tests/e2e/c-import.spec.ts"], "expected_failure": "Expected: 400", "fixture": "tests/e2e/c-import.spec.ts", "regression": { "check": "e2e", "args": ["tests/e2e/c-import.spec.ts"] } }
+      { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/contracts/quality-lines.test.ts"], "expected_failure": "Cannot find module", "fixture": "tests/contracts/quality-lines.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/quality-boundaries.test.ts", "tests/contracts/quality-contracts.test.ts"], "expected_failure": "Quality architecture and contract scanners are not implemented", "fixture": "tests/contracts/quality-boundaries.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/quality-scope.test.ts"], "expected_failure": "Changed-file quality scope is not enforced", "fixture": "tests/contracts/quality-scope.test.ts", "regression": { "check": "unit", "args": [] } }
     ]
   },
   "scope": {
-    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", "package.json", "package-lock.json", "vendor/hc-soluciones-engineering-brain-5.0.1.tgz", "playwright.config.ts", "pages/api/import.ts", "src/backend/domain", "src/backend/application", "src/backend/ports", "src/backend/adapters", "src/backend/composition", "tests/contracts/context.test.ts", "tests/contracts/decision-register.test.ts", "tests/contracts/import-summary.test.ts", "tests/contracts/import-form.test.ts", "tests/contracts/normalized-document.test.ts", "tests/contracts/normalized-document-fixtures.ts", "tests/application/import-files.test.ts", "tests/e2e/c-import.spec.ts", "tests/e2e/support/upstream.mjs", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"],
-    "exclude": ["Datos reales, producción, migraciones y despliegues", "Migración Pages Router completa sin ADR/owners", "Inventar identidad, permisos o fórmulas", "Declarar producción GO/DONE o activar C-IMPORT"],
-    "related_paths": [".hc/stories/NP-0028.json", "tests/contracts", "tests/application", "src/backend/domain", "src/backend/application", "src/backend/ports", "src/backend/adapters", "src/backend/composition", "pages/api", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"]
+    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0029.json", ".hc/evidence/NP-0029.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", "package.json", "package-lock.json", "README.md", "eslint.config.mjs", "vitest.config.ts", "tsconfig.json", "playwright.config.ts", "scripts/quality", "src/backend", "src/dashboard", "pages", "tests/contracts", "tests/application", "tests/e2e", "tests/contracts/quality-lines.test.ts", "tests/contracts/quality-boundaries.test.ts", "tests/contracts/quality-contracts.test.ts", "tests/contracts/quality-scope.test.ts", "docs/np-0029-quality-gates.md", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"],
+    "exclude": ["Legacy repositories outside this checkout", "Datos reales, secretos, SQLite y despliegues", "Excluir tests o código manual para pasar el contador", "Cambiar contratos de negocio de NP-0028"],
+    "related_paths": ["scripts/quality", "tests/contracts", "src/backend", "src/dashboard", "pages", "docs/np-0029-quality-gates.md"]
   },
-  "constraints": ["Brain local 5.0.1", "Aislar fixtures y efectos externos", "No debilitar gates", "Todo archivo authored conserva 99 líneas o menos", "Esta activación no inicia migración funcional C-IMPORT"],
+  "constraints": ["Brain local 5.0.1", "Aislar fixtures y efectos externos", "No debilitar gates", "Todo archivo authored conserva 99 líneas o menos", "No agregar dependencias sin autoridad explícita"],
   "authority": {
-    "allowed": ["Crear tests de contratos sintéticos", "Implementar validación pura del C-IMPORT", "Reemplazar TEST-03 por contrato técnico autorizado", "Actualizar dependencias auditadas con regresión", "Registrar bloqueos y evidencia"],
-    "forbidden": ["Usar datos reales", "Cambiar fórmulas o identidad por suposición", "Desactivar gates", "Declarar producción READY/GO/DONE", "Iniciar migración funcional durante esta activación"]
+    "allowed": ["Crear fixtures sintéticas de calidad", "Implementar scanners deterministas de líneas, límites y contratos", "Externalizar tipos públicos existentes sin cambiar comportamiento", "Adaptar el test de contexto al task activo sin cambiar sus invariantes", "Integrar comandos no mutantes y documentar su alcance", "Mantener y auditar dependencias heredadas de NP-0028", "Registrar bloqueos y evidencia"],
+    "forbidden": ["Usar datos reales", "Añadir dependencias no autorizadas", "Desactivar gates o excluir código manual", "Cambiar contratos de negocio o fórmulas", "Declarar producción READY/GO/DONE"]
   }
 }
