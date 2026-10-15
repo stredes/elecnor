@@ -1,5 +1,5 @@
 import type { ImportFile } from "@/backend/domain/import-files";
-import type { ImportSummary } from "@/backend/adapters/inbound/import-summary";
+import type { ImportSummary } from "@/backend/domain/import-summary";
 
 export type ImportGatewayFailureCode = "REJECTED" | "UNAVAILABLE";
 

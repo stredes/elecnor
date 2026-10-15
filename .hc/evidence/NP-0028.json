@@ -217,6 +217,61 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-06",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/application/import-files.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ebeaac433f3f58d5353afd620d17023f0b907468ca784f37e71e57ced942ec70",
+        "source_digest": "533ccfefb3ef2f95eecbfdba9ed9b97cfe9ba8d17cbf8a0349b644e26c5979b8",
+        "test_digest": "b29c44875e94f726b3a984f99a6e52b95e2824c46ae99759e7d36f66ebeb47dd",
+        "recorded_at": "2026-10-15T20:34:13.073Z",
+        "git": {
+          "head": "70e0e380e77513a6228554bf53b294462452bb03",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/application/import-files.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "c81a93e1a501a7efadce6a5d2fb54c266133f319ea7dd00d66843b6b0c672082",
+        "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
+        "test_digest": "b29c44875e94f726b3a984f99a6e52b95e2824c46ae99759e7d36f66ebeb47dd",
+        "recorded_at": "2026-10-15T20:34:48.198Z",
+        "git": {
+          "head": "70e0e380e77513a6228554bf53b294462452bb03",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [
+          "tests/application/import-files.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9870873103881738f4b45f967dc95640ce9bc0e9db03374c634029def5574037",
+        "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
+        "test_digest": "b29c44875e94f726b3a984f99a6e52b95e2824c46ae99759e7d36f66ebeb47dd",
+        "recorded_at": "2026-10-15T20:34:51.368Z",
+        "git": {
+          "head": "70e0e380e77513a6228554bf53b294462452bb03",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -840,6 +895,162 @@
         }
       },
       "event_digest": "ec3cadbd33efd86d9954c8e553f9e6f459204df982e64b7ee9054a36f5e95f84"
+    },
+    {
+      "sequence": 18,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "tests/application/import-files.test.ts",
+        "tests/contracts/decision-register.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:34:13.074Z",
+      "git": {
+        "head": "70e0e380e77513a6228554bf53b294462452bb03",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "ec3cadbd33efd86d9954c8e553f9e6f459204df982e64b7ee9054a36f5e95f84",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/import-files.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ebeaac433f3f58d5353afd620d17023f0b907468ca784f37e71e57ced942ec70",
+        "source_digest": "533ccfefb3ef2f95eecbfdba9ed9b97cfe9ba8d17cbf8a0349b644e26c5979b8",
+        "test_digest": "b29c44875e94f726b3a984f99a6e52b95e2824c46ae99759e7d36f66ebeb47dd",
+        "recorded_at": "2026-10-15T20:34:13.073Z",
+        "git": {
+          "head": "70e0e380e77513a6228554bf53b294462452bb03",
+          "branch": "NP-0028",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "5b321aa8825779f1e1c2de4219a307f8acf1170a615b7983beaeef3b868a0cdf"
+    },
+    {
+      "sequence": 19,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-06",
+      "reason": "TEST-06 GREEN command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "src/backend/adapters/inbound/import-summary.ts",
+        "src/backend/application/import-files.ts",
+        "src/backend/domain/import-summary.ts",
+        "src/backend/ports/import-gateway.ts",
+        "tests/application/import-files.test.ts",
+        "tests/contracts/decision-register.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:34:28.286Z",
+      "git": {
+        "head": "70e0e380e77513a6228554bf53b294462452bb03",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "5b321aa8825779f1e1c2de4219a307f8acf1170a615b7983beaeef3b868a0cdf",
+      "code": "GREEN_COMMAND_FAILED",
+      "event_digest": "a28928a071739a03d0d19a734fb86f8cc4d5c931161b9395fe7fac1c603315cd"
+    },
+    {
+      "sequence": 20,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "src/backend/adapters/inbound/import-summary.ts",
+        "src/backend/application/import-files.ts",
+        "src/backend/domain/import-summary.ts",
+        "src/backend/ports/import-gateway.ts",
+        "tests/application/import-files.test.ts",
+        "tests/contracts/decision-register.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:34:48.198Z",
+      "git": {
+        "head": "70e0e380e77513a6228554bf53b294462452bb03",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "a28928a071739a03d0d19a734fb86f8cc4d5c931161b9395fe7fac1c603315cd",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/import-files.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "c81a93e1a501a7efadce6a5d2fb54c266133f319ea7dd00d66843b6b0c672082",
+        "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
+        "test_digest": "b29c44875e94f726b3a984f99a6e52b95e2824c46ae99759e7d36f66ebeb47dd",
+        "recorded_at": "2026-10-15T20:34:48.198Z",
+        "git": {
+          "head": "70e0e380e77513a6228554bf53b294462452bb03",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "e8d93b7ff3d3db261069e659768de271b8eea6cfa9f329bfd939264086ca1e2d"
+    },
+    {
+      "sequence": 21,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0028.json",
+        ".hc/stories/NP-0028.json",
+        ".hc/task.json",
+        "docs/np-0028-decision-matrix.md",
+        "src/backend/adapters/inbound/import-summary.ts",
+        "src/backend/application/import-files.ts",
+        "src/backend/domain/import-summary.ts",
+        "src/backend/ports/import-gateway.ts",
+        "tests/application/import-files.test.ts",
+        "tests/contracts/decision-register.test.ts"
+      ],
+      "recorded_at": "2026-10-15T20:34:51.368Z",
+      "git": {
+        "head": "70e0e380e77513a6228554bf53b294462452bb03",
+        "branch": "NP-0028",
+        "dirty": true
+      },
+      "previous_event_digest": "e8d93b7ff3d3db261069e659768de271b8eea6cfa9f329bfd939264086ca1e2d",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/import-files.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9870873103881738f4b45f967dc95640ce9bc0e9db03374c634029def5574037",
+        "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
+        "test_digest": "b29c44875e94f726b3a984f99a6e52b95e2824c46ae99759e7d36f66ebeb47dd",
+        "recorded_at": "2026-10-15T20:34:51.368Z",
+        "git": {
+          "head": "70e0e380e77513a6228554bf53b294462452bb03",
+          "branch": "NP-0028",
+          "dirty": true
+        }
+      },
+      "event_digest": "3f709ca93d23a8457cdf2ade0772370b9abb72c66967063bf3478b7a537a2e81"
     }
   ],
   "git_baseline": {
@@ -848,11 +1059,11 @@
     "branch": "NP-0028"
   },
   "final": {
-    "source_digest": "533ccfefb3ef2f95eecbfdba9ed9b97cfe9ba8d17cbf8a0349b644e26c5979b8",
-    "test_suite_digest": "5a781f3daa7e97d1358059729b171db9e6255c484ffd2d5423ba20efeed2a012",
-    "recorded_at": "2026-10-15T20:33:44.178Z",
+    "source_digest": "be0ef2e8eb478cbd314b11c40336aa56a4ab8bb0708cef3e6338f5630ff621db",
+    "test_suite_digest": "1cab5e35a59f577f6744e8223950686ad6e54d2ae2f8e98dd6749847ba89af73",
+    "recorded_at": "2026-10-15T20:34:51.368Z",
     "git": {
-      "head": "eb7527929f0e5eb3d6e4ee012793803bce55ff1c",
+      "head": "70e0e380e77513a6228554bf53b294462452bb03",
       "branch": "NP-0028",
       "dirty": true
     }
