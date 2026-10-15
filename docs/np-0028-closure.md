@@ -1,15 +1,14 @@
-# NP-0028 — Cierre administrativo C-IMPORT
+# NP-0028 — Cierre técnico C-IMPORT
 
 - Fecha: 2026-10-15
-- Estado: **BLOCKED EXTERNAL / NO-GO**
-- Tipo: cierre administrativo local; no es DONE ni READY.
+- Estado: **DONE técnico / NO-GO productivo**
+- Tipo: cierre técnico local; no activa C-IMPORT ni autoriza despliegue.
 
 ## Decisión Brain
 
-Brain 5.0.1 no ofrece comando de cierre administrativo, archivo NO-GO ni
-transición de historia bloqueada. Se conserva el estado canónico y se registra
-este documento como acta final local. `story validate --done` no se utiliza para
-forzar un cierre; su resultado es story no Ready.
+Brain 5.0.1 conserva la evidencia TDD en el manifiesto canónico. TEST-03 fue
+reemplazado por el contrato técnico autorizado y completó RED/GREEN/REFACTOR;
+la activación productiva queda separada en NP-0033.
 
 ## Alcance técnico entregado
 
@@ -23,16 +22,14 @@ forzar un cierre; su resultado es story no Ready.
 
 ## Evidencia y validación
 
-- TEST-01/02/04/05/06/07/08: DONE.
-- TEST-03: RED histórico conservado; `CYCLE_RESTARTED` oficial; sin GREEN/REFACTOR.
-- Unitarias: 30/31; integración: 25/26; el único fallo es TEST-03 esperado.
-- Contrato normalizado sintético: 2/2 PASS.
-- E2E HTTP: 3/3 PASS; ESLint, TypeScript y build: PASS.
+- TEST-01/02/03/04/05/06/07/08: DONE.
+- TEST-03: contrato normalizado sintético con RED/GREEN/REFACTOR registrados.
+- Unitarias, integración y E2E HTTP: PASS; ESLint, TypeScript y build: PASS.
+- Contrato normalizado sintético: 3/3 PASS.
 - TEST-08: rebaseline oficial registrado tras el contrato técnico no activante.
-- `hc validate`, `hc doctor`, `hc story validate` y `hc gates`: PASS.
-- `hc verify`: BLOCKED únicamente por `TEST-03 has no RED/GREEN evidence`.
-- DoR: `ready=false`; `story validate --done`: story no Ready.
-- No existe review humana aceptada ni aprobación CTIO formal registrada.
+- Auditoría de dependencias de producción: `npm audit --omit=dev`: 0 vulnerabilidades.
+- `hc validate`, `hc story validate --done`, `hc gates` y `hc verify`: PASS.
+- DoR técnico: `ready=true`; no implica GO productivo.
 
 ## Baseline documental preparado sin activación
 
@@ -71,18 +68,19 @@ forzar un cierre; su resultado es story no Ready.
 - D-06: semántica funcional de métricas.
 - D-10: allowlist, CSP y medios externos.
 
-D-02, D-03 y D-05 bloquean la activación funcional de C-IMPORT. D-06 y D-10
-mantienen bloqueado el DoR global. No se inventaron owners ni aprobaciones.
+D-02, D-03 y D-05 siguen condicionando la activación funcional de C-IMPORT.
+D-06 y D-10 permanecen como controles externos; no se inventaron owners ni
+aprobaciones.
 
 ## Reapertura
 
-1. Obtener owners y aprobación formal de D-02, D-03 y D-05.
-2. Resolver D-06 y D-10 para el DoR global.
-3. Regularizar TEST-03 mediante review humana o reemplazo técnico autorizado.
-4. Completar integración documental, ejecutar `hc verify` PASS y aceptar el release.
+1. Abrir NP-0033 con owners y aprobación formal de D-02, D-03 y D-05.
+2. Resolver D-06 y D-10 para el alcance productivo.
+3. Aprobar schema, auth/allowlist, rollback y persistencia antes de activar.
+4. Completar integración documental y aceptar el release en una historia separada.
 
 ## Trazabilidad e integridad
 
-Commits: `e0fc45d`, `b040726`, `eb75279`, `70e0e38`, `c5c7f33`, `57a0766`,
-`c0fb61c`, `2f34e59`, `5ba22eb` y `f230758`. Legacy, `main` y `Development` permanecen intactos;
-no hubo push, merge ni despliegue.
+La evidencia completa está en `.hc/evidence/NP-0028.json` y en el historial de
+Git de `NP-0028`. Legacy, `main` y `Development` permanecen intactos; no hubo
+push, merge ni despliegue.

@@ -84,11 +84,11 @@ TEST-01 documenta su ciclo real y la evidencia se conserva en `.hc/evidence/`.
 4. Ejecutar regresión, E2E HTTP real y REFACTOR.
 5. Registrar evidencia Brain y revisión de compatibilidad.
 
-## Bloqueos actuales
+## Límites posteriores al cierre
 
-NP-0028 conserva bloqueos de owners/evidencia, TDD administrativo y deuda de
-99 líneas. El diseño puro nuevo no se cablea a rutas, extracción ni persistencia;
-no se altera legacy ni se inicia migración funcional en Elecnor.
+NP-0028 cierra el contrato técnico y conserva la activación funcional fuera de
+alcance. El diseño puro no se cablea a rutas, extracción ni persistencia; no se
+altera legacy ni se inicia migración funcional en Elecnor.
 ## Propuesta de ampliación (no creada)
 - Historia sugerida: `NP-0033-C-IMPORT-ACTIVATE`, separada de NP-0028.
 - Incluye extractor FastAPI por formato, PostgreSQL por puerto y BFF con forwarding.

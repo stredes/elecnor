@@ -1,9 +1,13 @@
 import { describe, expect, it } from "vitest";
+import {
+  NormalizedDocumentContractError,
+  parseNormalizedDocument,
+} from "@/backend/domain/normalized-document-contract";
 import { mapFasapiDocument } from "@/backend/adapters/outbound/fasapi-document-mapper";
 import { mapFlaskInspection } from "@/backend/adapters/outbound/flask-document-mapper";
 import { fasapiRecord, flaskRecord } from "./normalized-document-fixtures";
 
-describe("normalized document boundary", () => {
+describe("NP-0028/AC-03/TEST-03 normalized document boundary", () => {
   it("maps Flask fields without retaining a PDF path", () => {
     const document = mapFlaskInspection(flaskRecord);
 
@@ -35,5 +39,13 @@ describe("normalized document boundary", () => {
       number: 1,
       page: 2,
     });
+  });
+
+  it("accepts mapped documents and rejects PDF persistence metadata", () => {
+    const document = mapFlaskInspection(flaskRecord);
+
+    expect(parseNormalizedDocument(document)).toEqual(document);
+    expect(() => parseNormalizedDocument({ ...document, storedPath: "/tmp/a.pdf" }))
+      .toThrow(NormalizedDocumentContractError);
   });
 });

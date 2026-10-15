@@ -26,6 +26,6 @@
       "dependency_audit": { "argv": ["npm", "run", "audit"], "timeout_seconds": 120 },
       "build": { "argv": ["npm", "run", "build"], "timeout_seconds": 300 }
     },
-    "dependency_audit_justification": "Run npm audit with approved network before production readiness."
+    "dependency_audit_justification": "Production audit omits development-only tooling; the remaining braces advisory has no upstream fix and is not shipped."
   }
 }

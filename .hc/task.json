@@ -6,11 +6,11 @@
     "story_path": ".hc/stories/NP-0028.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
     "change_areas": ["infrastructure"],
-    "risk_tags": ["public-api", "identity", "credentials", "dependency"],
+    "risk_tags": ["public-api", "dependency"],
     "test_plan": [
       { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/contracts/context.test.ts"], "expected_failure": "El contexto autorizado y la adaptación de router todavía no tienen una prueba ejecutable.", "fixture": "tests/contracts/context.test.ts", "regression": { "check": "unit", "args": [] } },
       { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/import-summary.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-summary.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/decision-register.test.ts"], "expected_failure": "Pendiente de owners y evidencia humana; no fabricar aprobación.", "fixture": "tests/contracts/decision-register.test.ts", "regression": { "check": "unit", "args": [] } },
+      { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/normalized-document.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/normalized-document.test.ts", "regression": { "check": "unit", "args": [] } },
       { "test_id": "TEST-04", "order": 4, "level": "unit", "check": "unit", "args": ["tests/contracts/import-selection.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-selection.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-selection.test.ts"] } },
       { "test_id": "TEST-05", "order": 5, "level": "unit", "check": "unit", "args": ["tests/contracts/import-errors.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/contracts/import-errors.test.ts", "regression": { "check": "unit", "args": ["tests/contracts/import-errors.test.ts"] } },
       { "test_id": "TEST-06", "order": 6, "level": "unit", "check": "unit", "args": ["tests/application/import-files.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/application/import-files.test.ts", "regression": { "check": "unit", "args": ["tests/application/import-files.test.ts"] } },
@@ -19,13 +19,13 @@
     ]
   },
   "scope": {
-    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", "package.json", "package-lock.json", "vendor/hc-soluciones-engineering-brain-5.0.1.tgz", "playwright.config.ts", "pages/api/import.ts", "src/backend/domain", "src/backend/application", "src/backend/ports", "src/backend/adapters", "src/backend/composition", "tests/contracts/context.test.ts", "tests/contracts/decision-register.test.ts", "tests/contracts/import-summary.test.ts", "tests/contracts/import-form.test.ts", "tests/application/import-files.test.ts", "tests/e2e/c-import.spec.ts", "tests/e2e/support/upstream.mjs", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"],
-    "exclude": ["Datos reales, producción, migraciones y despliegues", "Migración Pages Router completa sin ADR/owners", "Inventar identidad, permisos o fórmulas", "Declarar NP-0028 DONE"],
+    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", "package.json", "package-lock.json", "vendor/hc-soluciones-engineering-brain-5.0.1.tgz", "playwright.config.ts", "pages/api/import.ts", "src/backend/domain", "src/backend/application", "src/backend/ports", "src/backend/adapters", "src/backend/composition", "tests/contracts/context.test.ts", "tests/contracts/decision-register.test.ts", "tests/contracts/import-summary.test.ts", "tests/contracts/import-form.test.ts", "tests/contracts/normalized-document.test.ts", "tests/contracts/normalized-document-fixtures.ts", "tests/application/import-files.test.ts", "tests/e2e/c-import.spec.ts", "tests/e2e/support/upstream.mjs", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"],
+    "exclude": ["Datos reales, producción, migraciones y despliegues", "Migración Pages Router completa sin ADR/owners", "Inventar identidad, permisos o fórmulas", "Declarar producción GO/DONE o activar C-IMPORT"],
     "related_paths": [".hc/stories/NP-0028.json", "tests/contracts", "tests/application", "src/backend/domain", "src/backend/application", "src/backend/ports", "src/backend/adapters", "src/backend/composition", "pages/api", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"]
   },
   "constraints": ["Brain local 5.0.1", "Aislar fixtures y efectos externos", "No debilitar gates", "Todo archivo authored conserva 99 líneas o menos", "Esta activación no inicia migración funcional C-IMPORT"],
   "authority": {
-    "allowed": ["Crear tests de contratos sintéticos", "Implementar validación pura del C-IMPORT", "Registrar bloqueos y evidencia"],
-    "forbidden": ["Usar datos reales", "Cambiar fórmulas o identidad por suposición", "Desactivar gates", "Declarar READY/GO/DONE", "Iniciar migración funcional durante esta activación"]
+    "allowed": ["Crear tests de contratos sintéticos", "Implementar validación pura del C-IMPORT", "Reemplazar TEST-03 por contrato técnico autorizado", "Actualizar dependencias auditadas con regresión", "Registrar bloqueos y evidencia"],
+    "forbidden": ["Usar datos reales", "Cambiar fórmulas o identidad por suposición", "Desactivar gates", "Declarar producción READY/GO/DONE", "Iniciar migración funcional durante esta activación"]
   }
 }
