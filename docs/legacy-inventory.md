@@ -22,6 +22,9 @@ dependencia ni autoriza migrar datos o comportamiento no especificado.
 | `modulo-data-excel/app/services/importer.py` | extracción, deduplicación, transacción SQLite, temporales y logs | contratos `DocumentProcessor`/`ImportRepository`; activación bloqueada por D-02/D-03/D-08 |
 | `np0028-web/web/src/app/api/import/route.ts` | multipart, llamada upstream y mapeo de respuestas | `pages/api/import.ts` como único BFF; upstream no activo |
 | `np0028-web/web/src/presentation/components/DataToolbar.tsx` | selección, feedback y refresh | evidencia UI; no conecta un writer nuevo en NP-0033 |
+| `np0028-web/app/domain/report_queries.py` | KPI aggregate, logs, hallazgos y bandas M-01..M-05/M-07 | `src/backend/domain/reporting/calculate-kpis.ts`, `count-score-bands.ts` con fórmulas preservadas |
+| `np0028-web/app/api.py:506-540` | media, mediana, p25, p75 y snapshot panorama | `calculate-percentiles.ts`, `GetDashboardOverview`; handler público aún no se activa |
+| `np0028-web/web/src/domain/dashboard.ts` + `infrastructure/mappers/dashboard.ts` | contrato de KPI/panorama/distribución y adaptación a camelCase | `reporting-overview-contract.ts`; golden sintético antes de reemplazar mapper |
 
 ## Regla por NP
 

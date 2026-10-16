@@ -175,7 +175,23 @@
           "branch": "NP-0034",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "7650de25b29ca2fa826c9711dc9ec81850e309ae11be680e37a52e3ef8f1f27f",
+          "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
+          "test_digest": "b6b20623f007c772252ed5f3902348ae0c72f5ac666ff7390952ab8fe6136921",
+          "recorded_at": "2026-10-16T13:52:35.698Z",
+          "git": {
+            "head": "fab84d3713b412d2ea5057e05dbe53671aabcfc9",
+            "branch": "NP-0034",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -795,6 +811,44 @@
         }
       },
       "event_digest": "7a4026f18f5d09c12382d40b1dc6e484eee9debe45867a4438a79b521ed23f51"
+    },
+    {
+      "sequence": 22,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Se aisló el reader sintético y se movió TEST-01 fuera del árbol de dominio para cumplir el gate de pureza; la composición sigue GREEN.",
+      "executed": true,
+      "changed_files": [
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0034-reporting.md",
+        "src/backend/adapters/outbound/memory-reporting-facts-reader.ts",
+        "tests/domain/reporting/kpi-parity.test.ts",
+        "tests/integration/reporting/"
+      ],
+      "recorded_at": "2026-10-16T13:52:35.701Z",
+      "git": {
+        "head": "fab84d3713b412d2ea5057e05dbe53671aabcfc9",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "7a4026f18f5d09c12382d40b1dc6e484eee9debe45867a4438a79b521ed23f51",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "7650de25b29ca2fa826c9711dc9ec81850e309ae11be680e37a52e3ef8f1f27f",
+        "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
+        "test_digest": "b6b20623f007c772252ed5f3902348ae0c72f5ac666ff7390952ab8fe6136921",
+        "recorded_at": "2026-10-16T13:52:35.698Z",
+        "git": {
+          "head": "fab84d3713b412d2ea5057e05dbe53671aabcfc9",
+          "branch": "NP-0034",
+          "dirty": true
+        }
+      },
+      "event_digest": "7a9d7ee7505e2280412aa61078e8fc0d53b977dd3b40e1e8732a1e4cba63b2f3"
     }
   ],
   "git_baseline": {
@@ -803,11 +857,11 @@
     "branch": "NP-0034"
   },
   "final": {
-    "source_digest": "67abdcf1381bf4e2ba068fa744e8df462a0c6ae80e58d48386584aa4c4f2886d",
-    "test_suite_digest": "aa1237464b4800be160dd176b256fd41ba5af7c210f9b8fe5d9dac3d943583ba",
-    "recorded_at": "2026-10-16T13:50:49.225Z",
+    "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
+    "test_suite_digest": "b629e54b80717cda2f4d59fc00dec7ed588d9d569cb16aaf18681c22adc6e492",
+    "recorded_at": "2026-10-16T13:52:35.700Z",
     "git": {
-      "head": "ad068dd5597e5863385b7e7d91726b57cc379f60",
+      "head": "fab84d3713b412d2ea5057e05dbe53671aabcfc9",
       "branch": "NP-0034",
       "dirty": true
     }

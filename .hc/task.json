@@ -13,9 +13,9 @@
         "order": 1,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/domain/reporting/kpi-parity.test.ts"],
+        "args": ["tests/integration/reporting/kpi-parity.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/reporting/kpi-parity.test.ts",
+        "fixture": "tests/integration/reporting/kpi-parity.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -54,6 +54,9 @@
       "src/backend/adapters/outbound",
       "src/backend/composition",
       "tests/domain/reporting",
+      "tests/integration/reporting/kpi-parity.test.ts",
+      "tests/integration/reporting/reporting-fixtures.ts",
+      "tests/integration/reporting/memory-reader.test.ts",
       "tests/integration/reporting-overview.test.ts",
       "docs/np-0034-reporting.md",
       "docs/legacy-inventory.md",

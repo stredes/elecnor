@@ -5,6 +5,11 @@ export class MemoryReportingFactsReader implements ReadInspectionFacts {
   public constructor(private readonly facts: ReportingFacts) {}
 
   public async read(): Promise<ReportingFacts> {
-    return this.facts;
+    return {
+      ...this.facts,
+      inspections: [...this.facts.inspections],
+      importLogs: [...this.facts.importLogs],
+      metrics: [...this.facts.metrics],
+    };
   }
 }
