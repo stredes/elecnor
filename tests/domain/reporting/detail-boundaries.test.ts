@@ -14,7 +14,7 @@ describe("NP-0035/AC-02/TEST-02 reporting boundaries", () => {
 
   it("keeps detail compliance null when its metric has no applicable universe", () => {
     const detail = getMetricDetail({ inspections: [], metrics: [{ inspectionId: "i1", code: "NA", metric: "No aplica", section: null, applicable: 0, conforming: 0, state: "NA", observation: null, date: "", technician: null, notApplicable: 1 }] }, "NA");
-    expect(detail).toMatchObject({ observations: 1, applicable: 0, compliance: null, records: [{ technician: "" }] });
+    expect(detail).toMatchObject({ observations: 1, applicable: 0, compliance: null, records: [] });
   });
 
   it("preserves detail technician category counts", () => {

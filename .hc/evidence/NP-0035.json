@@ -76,6 +76,59 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1861c279696047bcc5cc5d4fef2355983b7dcd2c25246278c7977a2d885001e3",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:30.544Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected [] to deeply equal"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d416d2bf6168eba1dad1d3b92255da2be69d75468ec906a2bf6a9f452c0b4ace",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:42.593Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a71b01fc6f900e6d4135cdbbab5ffa972562c531b0319cfc9c49c23a3348e8e3",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:52.399Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -411,6 +464,174 @@
       "previous_event_digest": "5024d7158e953948736415f8d62e948ace149995f591c14b432371c98f54ef86",
       "code": "PRODUCTION_NOT_COMMITTED",
       "event_digest": "9de53d60fa6bdb3fd0c3b2fce1804b47345826cbf7ea052f3361f1f68b78e10b"
+    },
+    {
+      "sequence": 9,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "expected [] to deeply equal",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:12.318Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "9de53d60fa6bdb3fd0c3b2fce1804b47345826cbf7ea052f3361f1f68b78e10b",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "395d3a82d6cba9c638f39eece3382594fb02f095b012e44ac0618adfb092678a",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "d50114a075e552117bda42b61439477c809394a40d13fc5f205e47d9ec10a0ec",
+        "recorded_at": "2026-10-16T15:18:12.318Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected [] to deeply equal"
+      },
+      "event_digest": "02fbd629898e161d12337e05071ca057c73b53a280108497bff815dafc7d7484"
+    },
+    {
+      "sequence": 10,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-02",
+      "reason": "Corrected the characterization: legacy detail records exclude null/empty observations; redo RED against the final assertion.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:27.004Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "02fbd629898e161d12337e05071ca057c73b53a280108497bff815dafc7d7484",
+      "event_digest": "3d6eb96c2fa9b01b08eda5fea3a647975b50e859bd7f56510d409b393ec9a971"
+    },
+    {
+      "sequence": 11,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "expected [] to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:30.545Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3d6eb96c2fa9b01b08eda5fea3a647975b50e859bd7f56510d409b393ec9a971",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1861c279696047bcc5cc5d4fef2355983b7dcd2c25246278c7977a2d885001e3",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:30.544Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected [] to deeply equal"
+      },
+      "event_digest": "d32fe82d71fe2caefdacfd9ec732f36aac531a4a99c2b48875d94c069ba5ed99"
+    },
+    {
+      "sequence": 12,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:42.593Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "d32fe82d71fe2caefdacfd9ec732f36aac531a4a99c2b48875d94c069ba5ed99",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d416d2bf6168eba1dad1d3b92255da2be69d75468ec906a2bf6a9f452c0b4ace",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:42.593Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "e43f8c681573155fdc8b3f5932fb0e8c73413afa3e0f1914cbbbc302c99aa053"
+    },
+    {
+      "sequence": 13,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:52.400Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "e43f8c681573155fdc8b3f5932fb0e8c73413afa3e0f1914cbbbc302c99aa053",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a71b01fc6f900e6d4135cdbbab5ffa972562c531b0319cfc9c49c23a3348e8e3",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:52.399Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "f6ec72c52ded95be1c785b3b45c80b500dffd672f06a34763b703dd12168392c"
     }
   ],
   "git_baseline": {
@@ -419,11 +640,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
-    "test_suite_digest": "6e9f97aee65ecc1c5df7ea229e4cfdcff00f331b142a5cf6a9b16f2ecd81bc00",
-    "recorded_at": "2026-10-16T15:17:02.481Z",
+    "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+    "test_suite_digest": "9de1e36d63161d5438586e08432d27ecc95217f7112f8afe1be6cd20e335ecf9",
+    "recorded_at": "2026-10-16T15:18:52.400Z",
     "git": {
-      "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+      "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
       "branch": "NP-0035",
       "dirty": true
     }
