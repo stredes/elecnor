@@ -3,6 +3,7 @@ import type { HashPort } from "../ports/import-dependencies";
 import type { ExtractedInspectionFacts, ExtractedMetricFact } from "../domain/import-facts-contract";
 import type { ImportDraft, MetricDraft } from "../domain/import-draft-contract";
 import { ImportInterpretationError } from "../domain/import-errors";
+import { determineImportStatus } from "../domain/determine-import-status";
 import { buildLogicalKey } from "../domain/logical-key";
 import { classifyAnswer, normalizeText } from "../domain/import-normalization";
 import { detectRubric } from "../domain/import-rubric";
@@ -19,7 +20,7 @@ export class InterpretDocument {
     if (!facts.metrics.length) throw new ImportInterpretationError("El documento no contiene métricas.");
     const city = facts.city ?? extractCity(facts.address);
     return {
-      status: facts.technician && facts.inspectionDate ? "COMPLETA" : "PARCIAL",
+      status: determineImportStatus(facts),
       technician: facts.technician, auditor: facts.auditor, auditorRole: facts.auditorRole,
       inspectionDate: facts.inspectionDate, inspectionTime: facts.inspectionTime, timezone: facts.timezone,
       address: facts.address, city, region: facts.region ?? resolveRegion(city, facts.address),
