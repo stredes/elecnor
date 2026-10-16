@@ -1,0 +1,324 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0030",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ea01d678688064ef72e60e3e8f3a1f824efaad20b998895f7a3caf436900577c",
+        "source_digest": "faecbb6d0763bf368a558d122524828d9bf57b8218afb9bfffcb60dc81572232",
+        "test_digest": "a2a4152c629401b7e5516c6eb4593c90814975a1391498369c691bfb672b7698",
+        "recorded_at": "2026-10-16T00:17:27.347Z",
+        "git": {
+          "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+          "branch": "NP-0030",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "7d0d77c93261fb9df03c23b276184393987ce0f442e15c266001bea448f69958",
+        "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
+        "test_digest": "a2a4152c629401b7e5516c6eb4593c90814975a1391498369c691bfb672b7698",
+        "recorded_at": "2026-10-16T00:18:33.665Z",
+        "git": {
+          "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "08d688630014bba607f30477f184d7d4befbabe987df565b48ddb952b2257b10",
+        "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
+        "test_digest": "a2a4152c629401b7e5516c6eb4593c90814975a1391498369c691bfb672b7698",
+        "recorded_at": "2026-10-16T00:19:03.285Z",
+        "git": {
+          "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0030.json",
+        ".hc/task.json",
+        "tests/integration/"
+      ],
+      "recorded_at": "2026-10-16T00:17:27.347Z",
+      "git": {
+        "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ea01d678688064ef72e60e3e8f3a1f824efaad20b998895f7a3caf436900577c",
+        "source_digest": "faecbb6d0763bf368a558d122524828d9bf57b8218afb9bfffcb60dc81572232",
+        "test_digest": "a2a4152c629401b7e5516c6eb4593c90814975a1391498369c691bfb672b7698",
+        "recorded_at": "2026-10-16T00:17:27.347Z",
+        "git": {
+          "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+          "branch": "NP-0030",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "86b757d3d4b18b94c1d2972caa6d56871eb852378969bbc15e61d922b3f7a958"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/stories/NP-0030.json",
+        ".hc/task.json",
+        "pages/api/inspections/",
+        "pages/inspecciones/",
+        "src/backend/adapters/outbound/http-inspection-reader.ts",
+        "src/backend/adapters/outbound/memory-inspection-reader.ts",
+        "src/backend/application/list-inspections.ts",
+        "src/backend/composition/inspections.ts",
+        "src/backend/domain/inspection-list-contract.ts",
+        "src/backend/domain/inspection-list-parser.ts",
+        "src/backend/domain/inspection-list-query.ts",
+        "src/backend/domain/inspection-list-selection.ts",
+        "src/backend/ports/inspection-reader.ts",
+        "src/dashboard/components/InspectionListScreen.tsx",
+        "src/dashboard/contracts/inspection-list-page-contract.ts",
+        "tests/integration/"
+      ],
+      "recorded_at": "2026-10-16T00:18:33.666Z",
+      "git": {
+        "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "86b757d3d4b18b94c1d2972caa6d56871eb852378969bbc15e61d922b3f7a958",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "7d0d77c93261fb9df03c23b276184393987ce0f442e15c266001bea448f69958",
+        "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
+        "test_digest": "a2a4152c629401b7e5516c6eb4593c90814975a1391498369c691bfb672b7698",
+        "recorded_at": "2026-10-16T00:18:33.665Z",
+        "git": {
+          "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "event_digest": "95a3eebe44f14b35d5d757dae14191ef689e54857044479489b1c581001555bd"
+    },
+    {
+      "sequence": 3,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "dependency change requires dependency risk tag",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/stories/NP-0030.json",
+        ".hc/task.json",
+        "package.json",
+        "pages/api/inspections/",
+        "pages/inspecciones/",
+        "src/backend/adapters/outbound/http-inspection-reader.ts",
+        "src/backend/adapters/outbound/memory-inspection-reader.ts",
+        "src/backend/application/list-inspections.ts",
+        "src/backend/composition/inspections.ts",
+        "src/backend/domain/inspection-list-contract.ts",
+        "src/backend/domain/inspection-list-parser.ts",
+        "src/backend/domain/inspection-list-query.ts",
+        "src/backend/domain/inspection-list-selection.ts",
+        "src/backend/ports/inspection-reader.ts",
+        "src/dashboard/components/InspectionListScreen.tsx",
+        "src/dashboard/contracts/inspection-list-page-contract.ts",
+        "tests/integration/"
+      ],
+      "recorded_at": "2026-10-16T00:18:39.197Z",
+      "git": {
+        "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "95a3eebe44f14b35d5d757dae14191ef689e54857044479489b1c581001555bd",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "96059cd1f67322dfb5750b948c541add91efb012d12ad5c250262c0780e088b0"
+    },
+    {
+      "sequence": 4,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 REFACTOR command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/stories/NP-0030.json",
+        ".hc/task.json",
+        "package.json",
+        "pages/api/inspections/",
+        "pages/inspecciones/",
+        "src/backend/adapters/outbound/http-inspection-reader.ts",
+        "src/backend/adapters/outbound/memory-inspection-reader.ts",
+        "src/backend/application/list-inspections.ts",
+        "src/backend/composition/inspections.ts",
+        "src/backend/domain/inspection-list-contract.ts",
+        "src/backend/domain/inspection-list-parser.ts",
+        "src/backend/domain/inspection-list-query.ts",
+        "src/backend/domain/inspection-list-selection.ts",
+        "src/backend/ports/inspection-reader.ts",
+        "src/dashboard/components/InspectionListScreen.tsx",
+        "src/dashboard/contracts/inspection-list-page-contract.ts",
+        "tests/integration/"
+      ],
+      "recorded_at": "2026-10-16T00:18:46.050Z",
+      "git": {
+        "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "96059cd1f67322dfb5750b948c541add91efb012d12ad5c250262c0780e088b0",
+      "code": "REFACTOR_COMMAND_FAILED",
+      "event_digest": "073dbfb5c8206d96274f5be1b7d0cb4ab4b4d34f9e996d741ec1d5f712b9a2c2"
+    },
+    {
+      "sequence": 5,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/stories/NP-0030.json",
+        ".hc/task.json",
+        "package.json",
+        "pages/api/inspections/",
+        "pages/inspecciones/",
+        "src/backend/adapters/outbound/http-inspection-reader.ts",
+        "src/backend/adapters/outbound/memory-inspection-reader.ts",
+        "src/backend/application/list-inspections.ts",
+        "src/backend/composition/inspections.ts",
+        "src/backend/domain/inspection-list-contract.ts",
+        "src/backend/domain/inspection-list-parser.ts",
+        "src/backend/domain/inspection-list-query.ts",
+        "src/backend/domain/inspection-list-selection.ts",
+        "src/backend/ports/inspection-reader.ts",
+        "src/dashboard/components/InspectionListScreen.tsx",
+        "src/dashboard/contracts/inspection-list-page-contract.ts",
+        "tests/integration/"
+      ],
+      "recorded_at": "2026-10-16T00:19:03.285Z",
+      "git": {
+        "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "073dbfb5c8206d96274f5be1b7d0cb4ab4b4d34f9e996d741ec1d5f712b9a2c2",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "08d688630014bba607f30477f184d7d4befbabe987df565b48ddb952b2257b10",
+        "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
+        "test_digest": "a2a4152c629401b7e5516c6eb4593c90814975a1391498369c691bfb672b7698",
+        "recorded_at": "2026-10-16T00:19:03.285Z",
+        "git": {
+          "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "event_digest": "336c20c309de5439f3b020ca7cd0d912dd001be0654092a632339e764330e4d2"
+    },
+    {
+      "sequence": 6,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production files remain uncommitted: pages/api/inspections/, pages/inspecciones/, src/backend/adapters/outbound/http-inspection-reader.ts, src/backend/adapters/outbound/memory-inspection-reader.ts, src/backend/application/list-inspections.ts, src/backend/composition/inspections.ts, src/backend/domain/inspection-list-contract.ts, src/backend/domain/inspection-list-parser.ts, src/backend/domain/inspection-list-query.ts, src/backend/domain/inspection-list-selection.ts, src/backend/ports/inspection-reader.ts, src/dashboard/components/InspectionListScreen.tsx, src/dashboard/contracts/inspection-list-page-contract.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/stories/NP-0030.json",
+        ".hc/task.json",
+        "package.json",
+        "pages/api/inspections/",
+        "pages/inspecciones/",
+        "src/backend/adapters/outbound/http-inspection-reader.ts",
+        "src/backend/adapters/outbound/memory-inspection-reader.ts",
+        "src/backend/application/list-inspections.ts",
+        "src/backend/composition/inspections.ts",
+        "src/backend/domain/inspection-list-contract.ts",
+        "src/backend/domain/inspection-list-parser.ts",
+        "src/backend/domain/inspection-list-query.ts",
+        "src/backend/domain/inspection-list-selection.ts",
+        "src/backend/ports/inspection-reader.ts",
+        "src/dashboard/components/InspectionListScreen.tsx",
+        "src/dashboard/contracts/inspection-list-page-contract.ts",
+        "tests/integration/"
+      ],
+      "recorded_at": "2026-10-16T00:20:26.215Z",
+      "git": {
+        "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "336c20c309de5439f3b020ca7cd0d912dd001be0654092a632339e764330e4d2",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "1205a55dc1ae01450bede62b8f986ac462bcffbf0953c7a7ed3d18118074a791"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+    "branch": "NP-0030"
+  },
+  "final": {
+    "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
+    "test_suite_digest": "8da00d66efe50d8a2bdd97784e1b07c74fd6fb2c2b82ac5954b10cab151556a0",
+    "recorded_at": "2026-10-16T00:19:03.285Z",
+    "git": {
+      "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+      "branch": "NP-0030",
+      "dirty": true
+    }
+  }
+}

@@ -1,26 +1,27 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0029",
+    "id": "NP-0030",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0029.json",
+    "story_path": ".hc/stories/NP-0030.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
-    "change_areas": ["infrastructure"],
-    "risk_tags": ["dependency", "release"],
+    "change_areas": ["infrastructure", "presentation"],
+    "risk_tags": ["public-api", "persistence", "migration", "dependency"],
     "test_plan": [
-      { "test_id": "TEST-01", "order": 1, "level": "unit", "check": "unit", "args": ["tests/contracts/quality-lines.test.ts"], "expected_failure": "Cannot find module", "fixture": "tests/contracts/quality-lines.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-02", "order": 2, "level": "unit", "check": "unit", "args": ["tests/contracts/quality-boundaries.test.ts", "tests/contracts/quality-contracts.test.ts"], "expected_failure": "Cannot find module", "fixture": "tests/contracts/quality-boundaries.test.ts", "regression": { "check": "unit", "args": [] } },
-      { "test_id": "TEST-03", "order": 3, "level": "unit", "check": "unit", "args": ["tests/contracts/quality-scope.test.ts"], "expected_failure": "expected undefined", "fixture": "tests/contracts/quality-scope.test.ts", "regression": { "check": "unit", "args": [] } }
+      { "test_id": "TEST-01", "order": 1, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-list-parity.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/integration/inspection-list-parity.test.ts", "regression": { "check": "integration", "args": [] } },
+      { "test_id": "TEST-02", "order": 2, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-list-boundaries.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/integration/inspection-list-boundaries.test.ts", "regression": { "check": "integration", "args": [] } },
+      { "test_id": "TEST-03", "order": 3, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-architecture.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/integration/inspection-architecture.test.ts", "regression": { "check": "integration", "args": [] } },
+      { "test_id": "TEST-04", "order": 4, "level": "e2e", "check": "e2e", "args": ["tests/e2e/inspection-list.spec.ts"], "expected_failure": "Expected: 200", "fixture": "tests/e2e/inspection-list.spec.ts", "regression": { "check": "e2e", "args": [] } }
     ]
   },
   "scope": {
-    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0029.json", ".hc/evidence/NP-0029.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", "package.json", "package-lock.json", "README.md", "eslint.config.mjs", "vitest.config.ts", "tsconfig.json", "playwright.config.ts", "scripts/quality", "src/backend", "src/dashboard", "pages", "tests/contracts", "tests/application", "tests/e2e", "tests/contracts/quality-lines.test.ts", "tests/contracts/quality-boundaries.test.ts", "tests/contracts/quality-contracts.test.ts", "tests/contracts/quality-scope.test.ts", "docs/np-0029-quality-gates.md", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"],
-    "exclude": ["Legacy repositories outside this checkout", "Datos reales, secretos, SQLite y despliegues", "Excluir tests o código manual para pasar el contador", "Cambiar contratos de negocio de NP-0028"],
-    "related_paths": ["scripts/quality", "tests/contracts", "src/backend", "src/dashboard", "pages", "docs/np-0029-quality-gates.md"]
+    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0030.json", ".hc/evidence/NP-0030.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", ".hc/stories/NP-0029.json", ".hc/evidence/NP-0029.json", "package.json", "package-lock.json", "README.md", "eslint.config.mjs", "vitest.config.ts", "tsconfig.json", "playwright.config.ts", "scripts/quality", "src/backend", "src/dashboard", "pages", "tests", "docs/np-0030-inspection-list.md", "docs/np-0029-quality-gates.md", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"],
+    "exclude": ["Legacy repositories outside this checkout", "Datos reales, secretos, SQLite productivo y despliegues", "SQL o acceso DB desde Next/domain/application", "Cambiar contratos de negocio de NP-0028/NP-0029"],
+    "related_paths": ["src/backend", "src/dashboard", "pages", "tests", "docs/np-0030-inspection-list.md"]
   },
-  "constraints": ["Brain local 5.0.1", "Aislar fixtures y efectos externos", "No debilitar gates", "Todo archivo authored conserva 99 líneas o menos", "No agregar dependencias sin autoridad explícita"],
+  "constraints": ["Brain local 5.0.1", "Aislar fixtures y efectos externos", "No debilitar gates", "Todo archivo authored conserva 99 líneas o menos", "Next no importa SQLite ni SQL", "No modificar legacy ni bases reales"],
   "authority": {
-    "allowed": ["Crear fixtures sintéticas de calidad", "Implementar scanners deterministas de líneas, límites y contratos", "Externalizar tipos públicos existentes sin cambiar comportamiento", "Adaptar el test de contexto al task activo sin cambiar sus invariantes", "Integrar comandos no mutantes y documentar su alcance", "Mantener y auditar dependencias heredadas de NP-0028", "Registrar bloqueos y evidencia"],
-    "forbidden": ["Usar datos reales", "Añadir dependencias no autorizadas", "Desactivar gates o excluir código manual", "Cambiar contratos de negocio o fórmulas", "Declarar producción READY/GO/DONE"]
+    "allowed": ["Implementar la vertical read-only de inspecciones", "Crear contratos, puerto, caso de uso y Gateway HTTP", "Crear fixtures y adapters sintéticos sin datos reales", "Implementar Pages SSR, API BFF y presenter", "Mantener y auditar dependencias heredadas de NP-0028/NP-0029", "Registrar bloqueos y evidencia"],
+    "forbidden": ["Usar o copiar PDFs/datos reales", "Modificar legacy o bases reales", "Añadir dependencias no autorizadas", "Acceder DB/SQL desde Next/domain/application", "Desactivar gates o cambiar fórmulas", "Declarar producción READY/GO/DONE"]
   }
 }

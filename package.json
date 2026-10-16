@@ -10,7 +10,7 @@
     "format:check": "eslint . --max-warnings=0 && npm run quality:check",
     "typecheck": "tsc --noEmit",
     "test:unit": "vitest run",
-    "test:integration": "vitest run tests/contracts",
+    "test:integration": "vitest run tests/contracts tests/integration",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "quality:lines": "node scripts/quality/check-lines.mjs",
