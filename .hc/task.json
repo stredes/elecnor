@@ -62,6 +62,16 @@
         "expected_failure": "expected { conforming: [], nonConforming: [] } to deeply equal",
         "fixture": "tests/domain/reporting/reporting-complete-parity.test.ts",
         "regression": { "check": "unit", "args": [] }
+      },
+      {
+        "test_id": "TEST-06",
+        "order": 6,
+        "level": "integration",
+        "check": "integration",
+        "args": ["tests/integration/reporting/reporting-narrative-overview.test.ts"],
+        "expected_failure": "expected +0 to be 1",
+        "fixture": "tests/integration/reporting/reporting-narrative-overview.test.ts",
+        "regression": { "check": "integration", "args": [] }
       }
     ]
   },
@@ -84,6 +94,7 @@
       "tests/domain/reporting",
       "tests/domain/reporting/reporting-complete-parity.test.ts",
       "tests/integration/reporting",
+      "tests/integration/reporting/reporting-narrative-overview.test.ts",
       "tests/e2e/reporting-consumer.spec.ts",
       "docs/np-0035-reporting.md",
       "docs/legacy-inventory.md",

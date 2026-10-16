@@ -29,8 +29,8 @@ No existe en el checkout un reader persistente autorizado ni evidencia golden le
 Se preservan aprobación exacta al 70%, una observación por fila de métrica, `compliance: null`
 cuando no hay universo aplicable, detalle de técnicos y máximo de 200 registros observados. Los
 records dependen de fecha/orden de entrada hasta que el puerto entregue el orden estable legacy.
-Las métricas M-20..23 necesitan conectar el resumen M-01..07 completo; esta composición mantiene
-por ahora sus defaults (sin banda/global input) y no debe usarse como resumen productivo.
+La narrativa recibe el overview por un puerto separado y reutiliza las reglas M-01..07; si no se
+inyecta, conserva el comportamiento de universo vacío. No hay aún reader persistente en producción.
 
 ## Estado / rollback
 
