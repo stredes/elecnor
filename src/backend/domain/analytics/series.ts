@@ -16,10 +16,11 @@ export type WeeklySeriesPoint = {
 export function calculateMonthlySeries(items: readonly AnalyticInspection[]): readonly MonthlySeriesPoint[] {
   const groups = new Map<string, number[]>();
   for (const item of items) {
-    if (!item.date || item.percentage === null || !/^\d{4}-\d{2}-\d{2}$/u.test(item.date)) continue;
-    const values = groups.get(item.date.slice(0, 7)) ?? [];
+    const date = item.date;
+    if (!date || !parseDate(date) || item.percentage === null) continue;
+    const values = groups.get(date.slice(0, 7)) ?? [];
     values.push(item.percentage);
-    groups.set(item.date.slice(0, 7), values);
+    groups.set(date.slice(0, 7), values);
   }
   return [...groups].sort(([left], [right]) => left.localeCompare(right)).map(([period, values]) => ({
     period, inspections: values.length,
@@ -59,11 +60,17 @@ export function completeWeeklySeries(items: readonly WeeklySeriesPoint[]): reado
 }
 
 function weekStart(value: string | null | undefined): string | null {
+  const date = parseDate(value);
+  if (!date) return null;
+  date.setUTCDate(date.getUTCDate() - ((date.getUTCDay() + 6) % 7));
+  return date.toISOString().slice(0, 10);
+}
+
+function parseDate(value: string | null | undefined): Date | null {
   if (!value || !/^\d{4}-\d{2}-\d{2}$/u.test(value)) return null;
   const date = new Date(`${value}T00:00:00Z`);
   if (Number.isNaN(date.getTime())) return null;
-  date.setUTCDate(date.getUTCDate() - ((date.getUTCDay() + 6) % 7));
-  return date.toISOString().slice(0, 10);
+  return date.toISOString().slice(0, 10) === value ? date : null;
 }
 
 function addDays(value: string, days: number): string {

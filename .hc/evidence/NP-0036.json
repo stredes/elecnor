@@ -55,7 +55,23 @@
           "branch": "NP-0036",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "5e7bec337cd94633352b41029c949cc9edffbddef5a1ebeb3e0b853e87e8c71d",
+          "source_digest": "ad0af74c38bb83e2db5a74226ce22b950473d6b7ebe1c3af110eaafc99d0fcd2",
+          "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+          "recorded_at": "2026-10-16T15:32:38.695Z",
+          "git": {
+            "head": "6e603175f92abb823f2729ba36e927368de66ece",
+            "branch": "NP-0036",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -220,6 +236,184 @@
         }
       },
       "event_digest": "596bbc981e99920e61bc2a1c20b6fb1234bcbd614a9f0d76c59b54a8cbf39eae"
+    },
+    {
+      "sequence": 6,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/geography/ambiguous-addresses.test.ts",
+        "tests/domain/reporting/date-boundaries.test.ts",
+        "tests/domain/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:31:45.588Z",
+      "git": {
+        "head": "6e603175f92abb823f2729ba36e927368de66ece",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "596bbc981e99920e61bc2a1c20b6fb1234bcbd614a9f0d76c59b54a8cbf39eae",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/ambiguous-addresses.test.ts",
+          "tests/domain/reporting/date-boundaries.test.ts",
+          "tests/domain/technicians/profile-limit.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "b700ce7c5b7a44077049b808a51066a03d2fd33c406befca9b92c5638b591e9c",
+        "source_digest": "7e5f64b67647f372cb5bc6bbe90ae28051c1785876852578235809b83339b2a6",
+        "test_digest": "39925df86d5c2b15470de1741ed7ee1fe6af709e12e9d89af1d130bb2e27c226",
+        "recorded_at": "2026-10-16T15:31:45.587Z",
+        "git": {
+          "head": "6e603175f92abb823f2729ba36e927368de66ece",
+          "branch": "NP-0036",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "52794a481e9524e92f09647141eddbb21791221ca8c13e97555cc2079019e7f3"
+    },
+    {
+      "sequence": 7,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 GREEN command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/domain/analytics/series.ts",
+        "src/backend/domain/geography/resolve-location.ts",
+        "src/backend/domain/technicians/",
+        "tests/domain/geography/ambiguous-addresses.test.ts",
+        "tests/domain/reporting/date-boundaries.test.ts",
+        "tests/domain/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:32:07.419Z",
+      "git": {
+        "head": "6e603175f92abb823f2729ba36e927368de66ece",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "52794a481e9524e92f09647141eddbb21791221ca8c13e97555cc2079019e7f3",
+      "code": "GREEN_COMMAND_FAILED",
+      "event_digest": "33cc09aadb23cae7c6411d0d4d00ff91cbc9037f5bf2d0373d4f9f3562062eda"
+    },
+    {
+      "sequence": 8,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-02",
+      "reason": "El oracle mensual omitía un score válido de enero; se conserva el comportamiento legacy y se repite el ciclo.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/domain/analytics/series.ts",
+        "src/backend/domain/geography/resolve-location.ts",
+        "src/backend/domain/technicians/",
+        "tests/domain/geography/ambiguous-addresses.test.ts",
+        "tests/domain/reporting/date-boundaries.test.ts",
+        "tests/domain/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:32:15.980Z",
+      "git": {
+        "head": "6e603175f92abb823f2729ba36e927368de66ece",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "33cc09aadb23cae7c6411d0d4d00ff91cbc9037f5bf2d0373d4f9f3562062eda",
+      "event_digest": "9013f6b5465122cf70bd6710eedc329d1a61b36e060e1126e07b114f781341ba"
+    },
+    {
+      "sequence": 9,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/domain/analytics/series.ts",
+        "src/backend/domain/geography/resolve-location.ts",
+        "src/backend/domain/technicians/",
+        "tests/domain/geography/ambiguous-addresses.test.ts",
+        "tests/domain/reporting/date-boundaries.test.ts",
+        "tests/domain/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:32:25.310Z",
+      "git": {
+        "head": "6e603175f92abb823f2729ba36e927368de66ece",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "9013f6b5465122cf70bd6710eedc329d1a61b36e060e1126e07b114f781341ba",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "76e83ac531a0614c3a32080e2388283a5cde738d54e4e4884938d26aaef63c2e"
+    },
+    {
+      "sequence": 10,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "TEST-02 extiende las mismas políticas de series y geografía; se conserva la regresión GREEN de TEST-01 antes de abrir el siguiente ciclo.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/domain/analytics/series.ts",
+        "src/backend/domain/geography/resolve-location.ts",
+        "src/backend/domain/technicians/",
+        "tests/domain/geography/ambiguous-addresses.test.ts",
+        "tests/domain/reporting/date-boundaries.test.ts",
+        "tests/domain/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:32:38.700Z",
+      "git": {
+        "head": "6e603175f92abb823f2729ba36e927368de66ece",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "76e83ac531a0614c3a32080e2388283a5cde738d54e4e4884938d26aaef63c2e",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "5e7bec337cd94633352b41029c949cc9edffbddef5a1ebeb3e0b853e87e8c71d",
+        "source_digest": "ad0af74c38bb83e2db5a74226ce22b950473d6b7ebe1c3af110eaafc99d0fcd2",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:32:38.695Z",
+        "git": {
+          "head": "6e603175f92abb823f2729ba36e927368de66ece",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "fb77c9b84da27606e7e4f3c2b63cbef916ca5cc2ee50493fc4a1f1fece98b5db"
+    },
+    {
+      "sequence": 11,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production files remain uncommitted: src/backend/domain/analytics/series.ts, src/backend/domain/geography/resolve-location.ts, src/backend/domain/technicians/",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/domain/analytics/series.ts",
+        "src/backend/domain/geography/resolve-location.ts",
+        "src/backend/domain/technicians/",
+        "tests/domain/geography/ambiguous-addresses.test.ts",
+        "tests/domain/reporting/date-boundaries.test.ts",
+        "tests/domain/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:32:43.352Z",
+      "git": {
+        "head": "6e603175f92abb823f2729ba36e927368de66ece",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "fb77c9b84da27606e7e4f3c2b63cbef916ca5cc2ee50493fc4a1f1fece98b5db",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "5c11e7f083239e1f55a05b468fe38b997ece3136b421811cb19abcaca5f5f1c2"
     }
   ],
   "git_baseline": {
@@ -228,11 +422,11 @@
     "branch": "NP-0036"
   },
   "final": {
-    "source_digest": "7e5f64b67647f372cb5bc6bbe90ae28051c1785876852578235809b83339b2a6",
-    "test_suite_digest": "2fb1c52a5f1cd513d2c8b17840a94bda9f92b338ca4c8cf27627d49ff43e8473",
-    "recorded_at": "2026-10-16T15:31:03.663Z",
+    "source_digest": "ad0af74c38bb83e2db5a74226ce22b950473d6b7ebe1c3af110eaafc99d0fcd2",
+    "test_suite_digest": "c2026af2c576ecd6856463ebb9e3d0026331432bea968127cd6706fabebb7142",
+    "recorded_at": "2026-10-16T15:32:38.700Z",
     "git": {
-      "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+      "head": "6e603175f92abb823f2729ba36e927368de66ece",
       "branch": "NP-0036",
       "dirty": true
     }

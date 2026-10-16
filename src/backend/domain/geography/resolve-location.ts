@@ -3,6 +3,11 @@ import { cityAliases, cityRegions } from "./city-data";
 import { regionAliases } from "./region-data";
 
 const STREET_PREFIXES = new Set(["c", "calle", "av", "avd", "avda", "avenida", "pje", "pasaje", "villa", "ruta", "camino"]);
+const ADDRESS_HINTS: readonly (readonly [RegExp, string])[] = [
+  [/\b\d+\s*(?:sur|norte|oriente|ote|otiente)\b/u, "Maule"],
+  [/\blos corregidores\b/u, "Ñuble"], [/\breloncavi\b/u, "Ñuble"],
+  [/\bpasaje tres las violetas\b/u, "Maule"], [/\b23\s*n(?:te|orte)\b/u, "Maule"],
+];
 
 export function extractCity(address: string | null): string | null {
   const text = normalizeText(address);
@@ -27,6 +32,8 @@ export function resolveRegion(city: string | null, address: string | null): stri
   const match = regionAliases
     .slice().sort((left, right) => right[0].length - left[0].length)
     .find(([alias]) => new RegExp(`(^| )${escape(alias)}($| )`, "u").test(text));
+  const hint = ADDRESS_HINTS.find(([pattern]) => pattern.test(text));
+  if (hint) return hint[1];
   return match?.[1] ?? null;
 }
 
