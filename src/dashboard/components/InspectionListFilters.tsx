@@ -1,14 +1,8 @@
 import {
   INSPECTION_SCORE_FILTERS,
   INSPECTION_SORTS,
-  type InspectionFilters,
 } from "@/backend/domain/inspection-list-contract";
-
-type InspectionListFiltersProps = {
-  readonly filters: InspectionFilters;
-  readonly auditors: readonly string[];
-  readonly regions: readonly string[];
-};
+import type { InspectionListFiltersProps } from "../contracts/inspection-list-filters-contract";
 
 export function InspectionListFilters({ filters, auditors, regions }: InspectionListFiltersProps) {
   return (

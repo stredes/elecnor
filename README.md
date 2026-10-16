@@ -36,7 +36,8 @@ npm install
 npm run dev
 ```
 
-Rutas iniciales: `/dashboard`, `/api/health` y `/api/dashboard`.
+Rutas iniciales: `/dashboard`, `/inspecciones`, `/api/health`, `/api/dashboard` y
+`/api/inspections`.
 
 ## Verificación
 
