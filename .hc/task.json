@@ -1,12 +1,12 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0035",
+    "id": "NP-0036",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0035.json",
+    "story_path": ".hc/stories/NP-0036.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
     "change_areas": ["application", "infrastructure", "presentation", "documentation"],
-    "risk_tags": ["migration", "public-api", "persistence", "dependency"],
+    "risk_tags": ["migration", "personal-data"],
     "test_plan": [
       {
         "test_id": "TEST-01",
@@ -14,13 +14,11 @@
         "level": "unit",
         "check": "unit",
         "args": [
-          "tests/domain/reporting/section-parity.test.ts",
-          "tests/domain/reporting/metric-ranking-parity.test.ts",
-          "tests/domain/reporting/narrative-parity.test.ts",
-          "tests/integration/reporting/reporting-details-parity.test.ts"
+          "tests/domain/geography/territory-resolution.test.ts",
+          "tests/domain/analytics/series.test.ts"
         ],
-        "expected_failure": "formatSectionName",
-        "fixture": "tests/domain/reporting/section-parity.test.ts",
+        "expected_failure": "Failed to resolve import",
+        "fixture": "tests/domain/geography/territory-resolution.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -28,9 +26,13 @@
         "order": 2,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/domain/reporting/reporting-detail-boundaries.test.ts"],
-        "expected_failure": "expected 'WEAK' to be 'STRONG'",
-        "fixture": "tests/domain/reporting/reporting-detail-boundaries.test.ts",
+        "args": [
+          "tests/domain/geography/ambiguous-addresses.test.ts",
+          "tests/domain/reporting/date-boundaries.test.ts",
+          "tests/domain/technicians/profile-limit.test.ts"
+        ],
+        "expected_failure": "Failed to resolve import",
+        "fixture": "tests/domain/geography/ambiguous-addresses.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -38,9 +40,13 @@
         "order": 3,
         "level": "integration",
         "check": "integration",
-        "args": ["tests/integration/reporting/reporting-consumers.test.ts"],
+        "args": [
+          "tests/integration/reporting/territory-series.test.ts",
+          "tests/integration/technicians/profile.test.ts",
+          "tests/integration/architecture/public-module-contracts.test.ts"
+        ],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/integration/reporting/reporting-consumers.test.ts",
+        "fixture": "tests/integration/reporting/territory-series.test.ts",
         "regression": { "check": "integration", "args": [] }
       }
     ]
@@ -49,18 +55,27 @@
     "include": [
       ".hc/project.json",
       ".hc/task.json",
+      ".hc/stories/NP-0036.json",
+      ".hc/evidence/NP-0036.json",
       ".hc/stories/NP-0035.json",
       ".hc/evidence/NP-0035.json",
-      ".hc/stories/NP-0034.json",
-      ".hc/evidence/NP-0034.json",
+      "src/backend/domain/geography",
+      "src/backend/domain/analytics",
+      "src/backend/domain/technicians",
       "src/backend/domain/reporting",
       "src/backend/application/reporting",
+      "src/backend/application/technicians",
       "src/backend/ports",
       "src/backend/adapters/outbound",
       "src/backend/composition",
+      "tests/domain/geography",
+      "tests/domain/analytics",
       "tests/domain/reporting",
+      "tests/domain/technicians",
       "tests/integration/reporting",
-      "docs/np-0035-reporting.md",
+      "tests/integration/technicians",
+      "tests/integration/architecture",
+      "docs/np-0036-territory-analytics.md",
       "docs/legacy-inventory.md",
       "AGENTS.md",
       "README.md",
@@ -77,8 +92,9 @@
       "Legacy repositories outside this checkout",
       "Real data, SQLite, PostgreSQL and production deployments",
       "Activating pages/api/dashboard.ts before the complete contract",
-      "Changing the existing frontend mappers, hooks or JSX",
-      "Unifying formulas with different legacy universes",
+      "Geocoding services, automatic backfill and historical rewrites",
+      "New temporal metrics or action-closure semantics",
+      "Changing existing frontend mappers, hooks or JSX",
       "Changing approved NP-0030/NP-0034 contracts",
       "Adding dependencies"
     ],
@@ -106,7 +122,7 @@
   },
   "constraints": [
     "Brain local 5.0.1",
-    "D-06 bloquea correcciones semánticas no aprobadas",
+    "D-04 y D-06 bloquean decisiones no aprobadas",
     "Fixtures sintéticas y sin datos reales",
     "No debilitar gates",
     "Todo archivo authored conserva 99 líneas o menos",
@@ -114,22 +130,23 @@
   ],
   "authority": {
     "allowed": [
-      "Ampliar hechos sintéticos de reporting sin romper NP-0034",
-      "Crear contratos separados para secciones, métricas, detalle y narrativa",
-      "Crear políticas puras equivalentes para M-08 a M-13, M-20 a M-23 y M-25",
-      "Crear un caso de uso y puerto de lectura inyectable",
-      "Componer con el reader de memoria sin activar el endpoint existente",
+      "Crear contratos de geografía, perfiles y series analíticas",
+      "Crear políticas puras equivalentes para M-14 a M-19 y M-24",
+      "Crear casos de uso y puertos de lectura inyectables",
+      "Extender el dominio geography con fixtures sintéticas sin geocodificación",
+      "Componer con readers de memoria sin activar endpoints existentes",
       "Auditar dependencias heredadas sin añadir ni cambiar paquetes",
-      "Documentar universos, límites, riesgos, golden pendiente y rollback"
+      "Documentar universos, límites, riesgos, variantes y rollback"
     ],
     "forbidden": [
       "Modificar repositorios legacy o sus datos",
       "Activar SQLite, PostgreSQL, FastAPI o el writer de reporting",
       "Cambiar fórmulas por criterio técnico sin D-06",
+      "Ejecutar backfill o geocodificación externa",
       "Modificar mappers, stores, hooks o componentes frontend existentes",
-      "Declarar D-06 o REVIEW-01 aprobados",
+      "Declarar D-04, D-06 o REVIEW-01 aprobados",
       "Conectar el navegador directamente a un backend interno",
-      "Añadir tarjetas, filtros o métricas nuevas"
+      "Añadir métricas temporales o interpretar actions como cierre"
     ]
   }
 }

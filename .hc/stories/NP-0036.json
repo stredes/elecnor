@@ -1,0 +1,20 @@
+{
+  "schema_version":"2.0",
+  "story":{
+    "id":"NP-0036","title":"Migrar clasificación territorial, perfiles y series analíticas existentes",
+    "actor":"equipo de backend","need":"preservar lecturas territoriales y temporales sin reglas en pages","business_value":"mantener trazabilidad de cada indicador y sus filtros",
+    "context":"Anexo NP-0036 en NP-0026-backlog.md. Evidencia geography.py, api.py:543-607,720-762, tecnicos/[nombre]/page.tsx y analytics.ts. M-14 a M-19 y M-24.",
+    "preconditions":["Read models de reporting disponibles","Golden de Unicode, fechas y regiones","Variantes de trazabilidad declaradas mientras D-06 no apruebe cambio"],
+    "acceptance_criteria":[
+      {"id":"AC-01","given":["hechos equivalentes de territorio, fecha, técnico y acciones"],"when":["se consultan dashboard, perfil y analytics"],"then":["se conservan clasificación regional, series mensuales/semanales, ranking y trazabilidad","el perfil mantiene su universo caracterizado hasta500 registros"],"test_ids":["TEST-01"]},
+      {"id":"AC-02","given":["calle ambigua, filename, región ausente, fecha parcial, score null y501 registros"],"when":["se calcula cada read model"],"then":["no se inventa región, año o geolocalización GPS","se conservan límites, orden, denominadores y tratamiento de faltantes"],"test_ids":["TEST-02"]},
+      {"id":"AC-03","given":["los módulos geography, technicians y reporting"],"when":["se integran sus casos de uso"],"then":["comparten contratos públicos y no repositorios internos","SSR y cliente reciben valores calculados y no recalculan negocio"],"test_ids":["TEST-03"]}
+    ],
+    "business_rules":[{"id":"BR-01","rule":"Clasificación de dirección no equivale a GPS; actions no representa cierre de acciones."}],
+    "edge_cases":["Semana entre años","Acciones en inspección sin score","Técnico con nombre codificado","Media móvil sin consumidor"],
+    "out_of_scope":["Geocodificación externa","Backfill automático","Nueva métrica temporal"],"dependencies":["NP-0034","NP-0035"],
+    "non_functional_requirements":[{"id":"NFR-01","rule":"Comparación determinista de normalización, orden y fechas sin dependencia de zona del servidor.","risk_tags":["migration","personal-data"],"test_ids":["TEST-02","TEST-03"],"review_ids":["REVIEW-01"]}],
+    "definition_of_ready":{"ready":false,"evidence":["Dependencias pendientes; D-04 afecta retiro de analytics sin consumidor y D-06 solo corrección semántica."]},
+    "definition_of_done":["Dashboard read model completo y perfiles equivalentes","Sin reescritura de históricos","Cierre común del backlog"]
+  }
+}
