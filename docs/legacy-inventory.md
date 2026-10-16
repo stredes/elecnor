@@ -25,6 +25,7 @@ dependencia ni autoriza migrar datos o comportamiento no especificado.
 | `np0028-web/app/domain/report_queries.py` | KPI aggregate, logs, hallazgos y bandas M-01..M-05/M-07 | `src/backend/domain/reporting/calculate-kpis.ts`, `count-score-bands.ts` con fórmulas preservadas |
 | `np0028-web/app/api.py:506-540` | media, mediana, p25, p75 y snapshot panorama | `calculate-percentiles.ts`, `GetDashboardOverview`; handler público aún no se activa |
 | `np0028-web/web/src/domain/dashboard.ts` + `infrastructure/mappers/dashboard.ts` | contrato de KPI/panorama/distribución y adaptación a camelCase | `reporting-overview-contract.ts`; golden sintético antes de reemplazar mapper |
+| `np0028-web/app/domain/section_inspections.py`, `app/api.py:293-374,614-721`, `web/src/domain/{narrative,metricSnapshot}.ts` y mappers de inspección | NP-0035: secciones, detalle de métricas, snapshot y narrativa; rutas `/sections`, `/metrics` y `/metrics/<code>` | `src/backend/domain/reporting/`, `src/backend/application/reporting/` y composición inyectable; sin activar endpoint ni frontend |
 
 ## Regla por NP
 

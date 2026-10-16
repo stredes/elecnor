@@ -19,7 +19,7 @@
           "tests/domain/reporting/narrative-parity.test.ts",
           "tests/integration/reporting/reporting-details-parity.test.ts"
         ],
-        "expected_failure": "Failed to resolve import",
+        "expected_failure": "formatSectionName",
         "fixture": "tests/domain/reporting/section-parity.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
@@ -28,9 +28,9 @@
         "order": 2,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/domain/reporting/reporting-boundaries.test.ts"],
-        "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/reporting/reporting-boundaries.test.ts",
+        "args": ["tests/domain/reporting/reporting-detail-boundaries.test.ts"],
+        "expected_failure": "expected 'WEAK' to be 'STRONG'",
+        "fixture": "tests/domain/reporting/reporting-detail-boundaries.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -119,6 +119,7 @@
       "Crear políticas puras equivalentes para M-08 a M-13, M-20 a M-23 y M-25",
       "Crear un caso de uso y puerto de lectura inyectable",
       "Componer con el reader de memoria sin activar el endpoint existente",
+      "Auditar dependencias heredadas sin añadir ni cambiar paquetes",
       "Documentar universos, límites, riesgos, golden pendiente y rollback"
     ],
     "forbidden": [

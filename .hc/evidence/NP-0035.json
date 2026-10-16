@@ -1,0 +1,644 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0035",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "cf96106d6c1fac34c5134252559c44afce257da16dc0239e0bbd9e54ad858579",
+        "source_digest": "7be220b0aa58aca13564d83452ee39a3cf307313479e1c6027e5e36a32b21739",
+        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
+        "recorded_at": "2026-10-16T14:09:45.519Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "formatSectionName"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "b064435b56146b005476b96936f5e4df891ac1ec61d465be1a9e7c47c6507e44",
+        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
+        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
+        "recorded_at": "2026-10-16T14:09:53.378Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "1af5a5db8c0a49cf23e5fdb431693446c4503f0daf1b65055a8f4e8126b75ad6",
+        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
+        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
+        "recorded_at": "2026-10-16T14:10:11.367Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:07:34.069Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "968242dbfd735ba58f80e6baf91735c338afdc3fed843b0e5b2f3376f5fd3e20",
+        "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
+        "test_digest": "c4b4b8bb53529ca53dc998ea64721dfae023dc2c605354692b956bec7bfee7eb",
+        "recorded_at": "2026-10-16T14:07:34.069Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "b0fc6771d247829f8b3934eac1f6ab4d297e77321176b2b0e688a27603914d61"
+    },
+    {
+      "sequence": 2,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 changed between RED and GREEN",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:08:48.795Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "b0fc6771d247829f8b3934eac1f6ab4d297e77321176b2b0e688a27603914d61",
+      "code": "TEST_CHANGED_AFTER_RED",
+      "event_digest": "4946b706f80e4a44a5b591baac19724929e14ae8121449dbceb13ac8b36cf1ec"
+    },
+    {
+      "sequence": 3,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-01",
+      "reason": "La expectativa del fixture de narrativa se corrigió después del RED: el score 0.60 produce una banda baja; se repite el ciclo con el test final.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:08:55.015Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "4946b706f80e4a44a5b591baac19724929e14ae8121449dbceb13ac8b36cf1ec",
+      "event_digest": "b7558d708ca649f3db0924b6e28ad8e6fcdde4bd74d499c76a5e1cc4f5f4d57b"
+    },
+    {
+      "sequence": 4,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:08:58.734Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "b7558d708ca649f3db0924b6e28ad8e6fcdde4bd74d499c76a5e1cc4f5f4d57b",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "918795cf2d94dc6f80870501b59fbad73e27be0f087de12da3021d726fb92693"
+    },
+    {
+      "sequence": 5,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "expected 3 to be 2",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:09:10.598Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "918795cf2d94dc6f80870501b59fbad73e27be0f087de12da3021d726fb92693",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "368efb423e2082cefc62ffa6647dd64750a169f8ac58882feba390b93b0996d0",
+        "source_digest": "7be220b0aa58aca13564d83452ee39a3cf307313479e1c6027e5e36a32b21739",
+        "test_digest": "f6af46de27a4543597334c9090ee689b620116877d21555e4c6f7024487bbb87",
+        "recorded_at": "2026-10-16T14:09:10.597Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected 3 to be 2"
+      },
+      "event_digest": "9a8d181baba6d724a1596b2e92ca3cf0e3a7596146e36a6363ded9c3eb181baf"
+    },
+    {
+      "sequence": 6,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-01",
+      "reason": "El oracle inicial omitía la aprobación válida de la sección EPP; se corrige allApproved a 3 sin cambiar la regla de sumar aprobaciones.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:09:16.540Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "9a8d181baba6d724a1596b2e92ca3cf0e3a7596146e36a6363ded9c3eb181baf",
+      "event_digest": "34ea59011f776e2a200edf9585b9175b073b46b433435adf07fec892b931d895"
+    },
+    {
+      "sequence": 7,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "formatSectionName",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:09:45.519Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "34ea59011f776e2a200edf9585b9175b073b46b433435adf07fec892b931d895",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "cf96106d6c1fac34c5134252559c44afce257da16dc0239e0bbd9e54ad858579",
+        "source_digest": "7be220b0aa58aca13564d83452ee39a3cf307313479e1c6027e5e36a32b21739",
+        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
+        "recorded_at": "2026-10-16T14:09:45.519Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "formatSectionName"
+      },
+      "event_digest": "73e88091e8f5149b79b6d0ff8f650d212cd4122c8e33779314abb4c91c840a5a"
+    },
+    {
+      "sequence": 8,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:09:53.378Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "73e88091e8f5149b79b6d0ff8f650d212cd4122c8e33779314abb4c91c840a5a",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "b064435b56146b005476b96936f5e4df891ac1ec61d465be1a9e7c47c6507e44",
+        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
+        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
+        "recorded_at": "2026-10-16T14:09:53.378Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "d92899015c378b8fc274f3f11338710c8d63c7843af345e35354d84b6c8b20dc"
+    },
+    {
+      "sequence": 9,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "dependency change requires explicit dependency authority",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:09:56.669Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "d92899015c378b8fc274f3f11338710c8d63c7843af345e35354d84b6c8b20dc",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "89a80284f55ccb2b15645f394431e457d45542c8bd15c06a3729f541520955b3"
+    },
+    {
+      "sequence": 10,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:10:11.371Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "89a80284f55ccb2b15645f394431e457d45542c8bd15c06a3729f541520955b3",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "1af5a5db8c0a49cf23e5fdb431693446c4503f0daf1b65055a8f4e8126b75ad6",
+        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
+        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
+        "recorded_at": "2026-10-16T14:10:11.367Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "56946b90ab204c1f232f8354c8e76a0fa0197f9007ffdf98d508f572a45199fc"
+    },
+    {
+      "sequence": 11,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 changed after REFACTOR",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "src/backend/domain/reporting/reporting-metric-contract.ts",
+        "src/backend/domain/reporting/reporting-narrative-contract.ts",
+        "src/backend/domain/reporting/reporting-section-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T14:58:44.066Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "56946b90ab204c1f232f8354c8e76a0fa0197f9007ffdf98d508f572a45199fc",
+      "code": "TEST_CHANGED_AFTER_REFACTOR",
+      "event_digest": "fbb048514b274158be698421e691304acc44f99a5292e0fb1e71806bb0765d26"
+    },
+    {
+      "sequence": 12,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "src/backend/domain/reporting/reporting-metric-contract.ts",
+        "src/backend/domain/reporting/reporting-narrative-contract.ts",
+        "src/backend/domain/reporting/reporting-section-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:09:39.217Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "fbb048514b274158be698421e691304acc44f99a5292e0fb1e71806bb0765d26",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "f98b88758be250bd66f09f95428e2534e7c4dea426f46ceb673044bd909cead7"
+    },
+    {
+      "sequence": 13,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0035-reporting.md",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-detail.ts",
+        "src/backend/domain/reporting/calculate-metric-ranking.ts",
+        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
+        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-section-reports.ts",
+        "src/backend/domain/reporting/reporting-detail-contract.ts",
+        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "src/backend/domain/reporting/reporting-limits.ts",
+        "src/backend/domain/reporting/reporting-metric-contract.ts",
+        "src/backend/domain/reporting/reporting-narrative-contract.ts",
+        "src/backend/domain/reporting/reporting-section-contract.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:11:25.607Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "f98b88758be250bd66f09f95428e2534e7c4dea426f46ceb673044bd909cead7",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "0c2a273434711084508e53a74a0545bfc6814abde7200f05a140dc4fdc471a15"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+    "branch": "NP-0035"
+  },
+  "final": {
+    "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
+    "test_suite_digest": "1c8b80a069be439521fe2f2dffb91a4b532214ca21bd6da386dfb306704a4107",
+    "recorded_at": "2026-10-16T14:10:11.369Z",
+    "git": {
+      "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+      "branch": "NP-0035",
+      "dirty": true
+    }
+  }
+}
