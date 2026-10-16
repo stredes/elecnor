@@ -1,0 +1,69 @@
+{
+  "schema_version": "2.0",
+  "story": {
+    "id": "NP-0032",
+    "title": "Trasladar normalización, catálogo, rúbrica y completitud a TypeScript",
+    "actor": "equipo de backend",
+    "need": "centralizar la interpretación funcional de los hechos documentales",
+    "business_value": "mantener una sola fuente de reglas y resultados equivalentes",
+    "context": "Anexo NP-0032 en NP-0026-backlog.md. Evidencia W normalization.py, parser.py:362-392, importer.py:123-200, services/catalog.py, metrics_equivalence.py y geography.py:15-228. Incluye políticas territoriales usadas al importar; NP-0036 reutiliza su contrato público.",
+    "preconditions": ["Fixtures golden por regla", "Contratos de hechos y puertos de catálogo acordados"],
+    "acceptance_criteria": [
+      {
+        "id": "AC-01",
+        "given": ["hechos y catálogo equivalentes al baseline"],
+        "when": ["se interpretan en TypeScript"],
+        "then": [
+          "clasificación, matching, confianza, rúbrica, logical_key, ciudad/región y completitud coinciden",
+          "se conserva precedencia y comportamiento de SequenceMatcher y Unicode"
+        ],
+        "test_ids": ["TEST-01"]
+      },
+      {
+        "id": "AC-02",
+        "given": ["respuestas desconocidas, NA, cabeceras ausentes o ninguna métrica"],
+        "when": ["se construye el borrador de inspección"],
+        "then": [
+          "desconocido conserva cuatro flags null y NA no suma aplicables",
+          "sin cabeceras puede ser PARCIAL y sin métricas se rechaza",
+          "no se calcula porcentaje no impreso ni se inventa año"
+        ],
+        "test_ids": ["TEST-02"]
+      },
+      {
+        "id": "AC-03",
+        "given": ["las políticas de dominio"],
+        "when": ["se ejecutan sus pruebas sin servidor ni DB"],
+        "then": [
+          "funcionan con dependencias explícitas y contratos dedicados",
+          "no importan HTTP, env, frameworks ni procesadores de PDF"
+        ],
+        "test_ids": ["TEST-03"]
+      }
+    ],
+    "business_rules": [
+      { "id": "BR-01", "rule": "Dedupe por hash no equivale a dedupe por logical_key; preservar los umbrales existentes sin inventar otros." }
+    ],
+    "edge_cases": ["Empates de keywords", "Umbral fuzzy0.88", "Rúbrica24/47/desconocida", "Yes y N/A"],
+    "out_of_scope": ["Lectura de PDFs en JS", "Actualizar históricos", "Cambiar catálogo por similitud aproximada distinta"],
+    "dependencies": ["NP-0027", "NP-0028", "NP-0029"],
+    "non_functional_requirements": [
+      {
+        "id": "NFR-01",
+        "rule": "Dominio puro y todos los contratos independientes, sin any ni casts inseguros.",
+        "risk_tags": ["migration", "dependency"],
+        "test_ids": ["TEST-03"],
+        "review_ids": ["REVIEW-01"]
+      }
+    ],
+    "definition_of_ready": {
+      "ready": false,
+      "evidence": ["Requiere baseline y contratos; no necesita nuevas reglas de negocio."]
+    },
+    "definition_of_done": [
+      "Golden Python/TS equivalente por política",
+      "Unidades cohesivas y contratos independientes de infraestructura",
+      "Cierre común del backlog"
+    ]
+  }
+}
