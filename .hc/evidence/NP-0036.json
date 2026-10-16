@@ -86,6 +86,63 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/ambiguous-addresses.test.ts",
+          "tests/domain/reporting/date-boundaries.test.ts",
+          "tests/domain/technicians/profile-limit.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "33cefffb83648d05b17002756c527229466534eb6662511cf31bfcb43a84d79e",
+        "source_digest": "874cf83bc9b04d6e41708ec7afe5890130505d5ac5f0f3e9182aa5033006ad76",
+        "test_digest": "3138977d217cfca7c47477934b420ba92df9269766d4c00cdac4a179f7a8db64",
+        "recorded_at": "2026-10-16T15:34:47.714Z",
+        "git": {
+          "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+          "branch": "NP-0036",
+          "dirty": true
+        },
+        "expected_reason": "expected null to be 'Maule'"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/ambiguous-addresses.test.ts",
+          "tests/domain/reporting/date-boundaries.test.ts",
+          "tests/domain/technicians/profile-limit.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "23441118c0e7d7f483de969f1ec1d65642113dfba8aad559bb03d02a10df453d",
+        "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
+        "test_digest": "3138977d217cfca7c47477934b420ba92df9269766d4c00cdac4a179f7a8db64",
+        "recorded_at": "2026-10-16T15:34:58.922Z",
+        "git": {
+          "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "400ffdab837de323ab1abdb840b804de573c2d2e51a9bb025f9f6a7b8d740e6a",
+        "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
+        "test_digest": "3138977d217cfca7c47477934b420ba92df9269766d4c00cdac4a179f7a8db64",
+        "recorded_at": "2026-10-16T15:35:18.261Z",
+        "git": {
+          "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -520,6 +577,141 @@
       "previous_event_digest": "2b9f3def32f0adc187e1f7085e0f43b7b013e99213e6b2f06999b8eae4379748",
       "code": "PREVIOUS_CYCLE_NOT_COMMITTED",
       "event_digest": "e9a15330e2a58da4d51b2ea186512ec4064aaf1cc12292ff1f81f903100914df"
+    },
+    {
+      "sequence": 16,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/geography/ambiguous-addresses.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:27.694Z",
+      "git": {
+        "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "e9a15330e2a58da4d51b2ea186512ec4064aaf1cc12292ff1f81f903100914df",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "845c385220db1ecdc7310e9a9a26c0329ebd14cd1b7a01ce705ccba3acee9d30"
+    },
+    {
+      "sequence": 17,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "expected null to be 'Maule'",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        ".hc/task.json",
+        "tests/domain/geography/ambiguous-addresses.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:47.714Z",
+      "git": {
+        "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "845c385220db1ecdc7310e9a9a26c0329ebd14cd1b7a01ce705ccba3acee9d30",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/ambiguous-addresses.test.ts",
+          "tests/domain/reporting/date-boundaries.test.ts",
+          "tests/domain/technicians/profile-limit.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "33cefffb83648d05b17002756c527229466534eb6662511cf31bfcb43a84d79e",
+        "source_digest": "874cf83bc9b04d6e41708ec7afe5890130505d5ac5f0f3e9182aa5033006ad76",
+        "test_digest": "3138977d217cfca7c47477934b420ba92df9269766d4c00cdac4a179f7a8db64",
+        "recorded_at": "2026-10-16T15:34:47.714Z",
+        "git": {
+          "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+          "branch": "NP-0036",
+          "dirty": true
+        },
+        "expected_reason": "expected null to be 'Maule'"
+      },
+      "event_digest": "e6384c40b0177fc6586c1a6b4565f67b18d51b64e68ca554b98e94d2497ee4b8"
+    },
+    {
+      "sequence": 18,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        ".hc/task.json",
+        "src/backend/domain/geography/resolve-location.ts",
+        "tests/domain/geography/ambiguous-addresses.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:58.923Z",
+      "git": {
+        "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "e6384c40b0177fc6586c1a6b4565f67b18d51b64e68ca554b98e94d2497ee4b8",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/ambiguous-addresses.test.ts",
+          "tests/domain/reporting/date-boundaries.test.ts",
+          "tests/domain/technicians/profile-limit.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "23441118c0e7d7f483de969f1ec1d65642113dfba8aad559bb03d02a10df453d",
+        "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
+        "test_digest": "3138977d217cfca7c47477934b420ba92df9269766d4c00cdac4a179f7a8db64",
+        "recorded_at": "2026-10-16T15:34:58.922Z",
+        "git": {
+          "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "e9cfd70caa579aaf15d06996444a204e9d8a6896125d430ff927f2462e2259e2"
+    },
+    {
+      "sequence": 19,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        ".hc/task.json",
+        "src/backend/domain/geography/resolve-location.ts",
+        "tests/domain/geography/ambiguous-addresses.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:35:18.262Z",
+      "git": {
+        "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "e9cfd70caa579aaf15d06996444a204e9d8a6896125d430ff927f2462e2259e2",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "400ffdab837de323ab1abdb840b804de573c2d2e51a9bb025f9f6a7b8d740e6a",
+        "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
+        "test_digest": "3138977d217cfca7c47477934b420ba92df9269766d4c00cdac4a179f7a8db64",
+        "recorded_at": "2026-10-16T15:35:18.261Z",
+        "git": {
+          "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "2f848628041dd7a2c40b297e373a2642681b2f25170a3d97b19fc415883485f9"
     }
   ],
   "git_baseline": {
@@ -528,11 +720,11 @@
     "branch": "NP-0036"
   },
   "final": {
-    "source_digest": "874cf83bc9b04d6e41708ec7afe5890130505d5ac5f0f3e9182aa5033006ad76",
-    "test_suite_digest": "c2026af2c576ecd6856463ebb9e3d0026331432bea968127cd6706fabebb7142",
-    "recorded_at": "2026-10-16T15:34:10.125Z",
+    "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
+    "test_suite_digest": "979ed646127b2aecce3c3540466356279c8249bdcee5e4fcf8a3e6ceb3b920c8",
+    "recorded_at": "2026-10-16T15:35:18.262Z",
     "git": {
-      "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
+      "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
       "branch": "NP-0036",
       "dirty": true
     }

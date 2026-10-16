@@ -7,6 +7,7 @@ const ADDRESS_HINTS: readonly (readonly [RegExp, string])[] = [
   [/\b\d+\s*(?:sur|norte|oriente|ote|otiente)\b/u, "Maule"],
   [/\blos corregidores\b/u, "Ñuble"], [/\breloncavi\b/u, "Ñuble"],
   [/\bpasaje tres las violetas\b/u, "Maule"], [/\b23\s*n(?:te|orte)\b/u, "Maule"],
+  [/\(-35\.409009,\s*-71\.6258038\)/u, "Maule"],
 ];
 
 export function extractCity(address: string | null): string | null {
@@ -32,7 +33,7 @@ export function resolveRegion(city: string | null, address: string | null): stri
   const match = regionAliases
     .slice().sort((left, right) => right[0].length - left[0].length)
     .find(([alias]) => new RegExp(`(^| )${escape(alias)}($| )`, "u").test(text));
-  const hint = ADDRESS_HINTS.find(([pattern]) => pattern.test(text));
+  const hint = ADDRESS_HINTS.find(([pattern]) => pattern.test(text) || pattern.test(address ?? ""));
   if (hint) return hint[1];
   return match?.[1] ?? null;
 }

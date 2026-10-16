@@ -31,7 +31,7 @@
           "tests/domain/reporting/date-boundaries.test.ts",
           "tests/domain/technicians/profile-limit.test.ts"
         ],
-        "expected_failure": "Failed to resolve import",
+        "expected_failure": "expected null to be 'Maule'",
         "fixture": "tests/domain/geography/ambiguous-addresses.test.ts",
         "regression": { "check": "unit", "args": [] }
       },

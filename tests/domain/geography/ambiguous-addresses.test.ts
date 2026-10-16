@@ -12,6 +12,7 @@ describe("NP-0036/AC-02/TEST-02 geography boundaries", () => {
 
   it("keeps legacy address hints and filename recovery", () => {
     expect(resolveRegion(null, "Calle 23 Nte 10")).toBe("Maule");
+    expect(resolveRegion(null, "(-35.409009, -71.6258038)")).toBe("Maule");
     expect(recoverRegion(null, null, "informe_Concepcion.pdf")).toBe("Biobío");
   });
 
