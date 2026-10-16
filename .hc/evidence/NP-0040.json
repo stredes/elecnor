@@ -1,0 +1,218 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0040",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/application/reporting/report-snapshot.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "7bf85b6ef22369e971b04c3dabe46825efc7fb62a29cb1fa65cee1f0038797f7",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "03f4130bcd74d9ae467994ae8ca6477d0c78aa548a3309bdf194627665e44020",
+        "recorded_at": "2026-10-16T23:57:32.059Z",
+        "git": {
+          "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+          "branch": "NP-0040",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/application/reporting/report-snapshot.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "eb7da2b68ef883884d8bc6a16eec209ac7edec9f29c0c39f064a50cc5e7bffb3",
+        "source_digest": "c08b0e690fbdbf710157aadb868dc3b1db6f75aeee3bd2068fe4df10c139e92b",
+        "test_digest": "03f4130bcd74d9ae467994ae8ca6477d0c78aa548a3309bdf194627665e44020",
+        "recorded_at": "2026-10-16T23:57:38.367Z",
+        "git": {
+          "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "7cdefbffa2ea37c1ff4e3ae5092488927bf713ff9ea9d4c4ec9e2b5d7c754255",
+        "source_digest": "c08b0e690fbdbf710157aadb868dc3b1db6f75aeee3bd2068fe4df10c139e92b",
+        "test_digest": "03f4130bcd74d9ae467994ae8ca6477d0c78aa548a3309bdf194627665e44020",
+        "recorded_at": "2026-10-16T23:58:05.034Z",
+        "git": {
+          "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "tests/application/reporting/"
+      ],
+      "recorded_at": "2026-10-16T23:57:32.060Z",
+      "git": {
+        "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/reporting/report-snapshot.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "7bf85b6ef22369e971b04c3dabe46825efc7fb62a29cb1fa65cee1f0038797f7",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "03f4130bcd74d9ae467994ae8ca6477d0c78aa548a3309bdf194627665e44020",
+        "recorded_at": "2026-10-16T23:57:32.059Z",
+        "git": {
+          "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+          "branch": "NP-0040",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "5cafaf6a5ae3ebe485d9936463a85340444d9503ea3c55b2c65a9467f553cdda"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/build-report-snapshot.ts",
+        "src/backend/application/reporting/report-snapshot-contract.ts",
+        "tests/application/reporting/"
+      ],
+      "recorded_at": "2026-10-16T23:57:38.367Z",
+      "git": {
+        "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "5cafaf6a5ae3ebe485d9936463a85340444d9503ea3c55b2c65a9467f553cdda",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/reporting/report-snapshot.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "eb7da2b68ef883884d8bc6a16eec209ac7edec9f29c0c39f064a50cc5e7bffb3",
+        "source_digest": "c08b0e690fbdbf710157aadb868dc3b1db6f75aeee3bd2068fe4df10c139e92b",
+        "test_digest": "03f4130bcd74d9ae467994ae8ca6477d0c78aa548a3309bdf194627665e44020",
+        "recorded_at": "2026-10-16T23:57:38.367Z",
+        "git": {
+          "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "event_digest": "78712574dea41a4b7b5665dab4ea05ee05d3718bf93839a1bda7b06e7e0a0b37"
+    },
+    {
+      "sequence": 3,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/build-report-snapshot.ts",
+        "src/backend/application/reporting/report-snapshot-contract.ts",
+        "tests/application/reporting/"
+      ],
+      "recorded_at": "2026-10-16T23:58:05.034Z",
+      "git": {
+        "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "78712574dea41a4b7b5665dab4ea05ee05d3718bf93839a1bda7b06e7e0a0b37",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "7cdefbffa2ea37c1ff4e3ae5092488927bf713ff9ea9d4c4ec9e2b5d7c754255",
+        "source_digest": "c08b0e690fbdbf710157aadb868dc3b1db6f75aeee3bd2068fe4df10c139e92b",
+        "test_digest": "03f4130bcd74d9ae467994ae8ca6477d0c78aa548a3309bdf194627665e44020",
+        "recorded_at": "2026-10-16T23:58:05.034Z",
+        "git": {
+          "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "event_digest": "6745dbe8a01ef1fc35a46c7b240246f190963b9edf23b69cb0fe2b259fe81631"
+    },
+    {
+      "sequence": 4,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production files remain uncommitted: src/backend/application/reporting/build-report-snapshot.ts, src/backend/application/reporting/report-snapshot-contract.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/build-report-snapshot.ts",
+        "src/backend/application/reporting/report-snapshot-contract.ts",
+        "tests/application/reporting/",
+        "tests/integration/reporting/report-renderer-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:59:29.133Z",
+      "git": {
+        "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "6745dbe8a01ef1fc35a46c7b240246f190963b9edf23b69cb0fe2b259fe81631",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "ef10727e9b87554714f8a5bc7454de12c3deccb343230ecc7c478247efac05a9"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+    "branch": "NP-0040"
+  },
+  "final": {
+    "source_digest": "c08b0e690fbdbf710157aadb868dc3b1db6f75aeee3bd2068fe4df10c139e92b",
+    "test_suite_digest": "5af15628ae03f5fb5cca2dd46764bf1c9342f1542d33b8f8105b07e0b6748318",
+    "recorded_at": "2026-10-16T23:58:05.034Z",
+    "git": {
+      "head": "17ec93f0879fc5d8d1cd9e4d69e155c77a3acd00",
+      "branch": "NP-0040",
+      "dirty": true
+    }
+  }
+}

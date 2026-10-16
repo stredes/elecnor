@@ -1,0 +1,24 @@
+{
+  "schema_version":"2.0",
+  "story":{
+    "id":"NP-0040",
+    "title":"Preparar contrato sintético de exportación Excel",
+    "actor":"equipo de backend e integración",
+    "need":"separar el snapshot oficial del renderer documental",
+    "business_value":"permitir paridad XLSX sin duplicar cálculos ni dependencias",
+    "context":"Anexo NP-0040 en NP-0026-backlog.md; C-REPORT es propuesto.",
+    "preconditions":["Read models sintéticos de NP-0034/35/36","fixtures de reporte sin datos reales"],
+    "acceptance_criteria":[
+      {"id":"AC-01","given":["overview y detalle sintéticos"],"when":["se construye un snapshot"],"then":["se conserva el contrato tipado sin recalcular KPI en el renderer"],"test_ids":["TEST-01"]},
+      {"id":"AC-02","given":["texto no confiable, vacío o renderer indisponible"],"when":["se solicita el render"],"then":["los valores se tratan como datos y el error es seguro"],"test_ids":["TEST-02"]},
+      {"id":"AC-03","given":["snapshot, puerto y doble sintético"],"when":["se inspeccionan las capas"],"then":["no hay SQL, Next, XLSX ni infraestructura real en dominio/aplicación"],"test_ids":["TEST-03"]}
+    ],
+    "business_rules":[{"id":"BR-01","rule":"No se crean fórmulas nuevas ni se unifican variantes de Excel y dashboard en este slice."}],
+    "edge_cases":["dataset vacío","texto que comienza con =","renderer fallido","snapshot incompleto"],
+    "out_of_scope":["openpyxl real","endpoint de exportación activo","SQLite/FastAPI/Blob","datos reales"],
+    "dependencies":["NP-0034","NP-0035","NP-0036"],
+    "non_functional_requirements":[{"id":"NFR-01","rule":"El contrato separa cálculo, transporte y render; no ejecuta texto documental como fórmula.","risk_tags":["public-api","external-input","migration"],"test_ids":["TEST-01","TEST-02","TEST-03"],"review_ids":["REVIEW-01"]}],
+    "definition_of_ready":{"ready":false,"evidence":["Slice técnico sintético; renderer real y baseline OOXML quedan pendientes"]},
+    "definition_of_done":["Snapshot y puerto sintéticos probados","Sin activación ni dependencia real"]
+  }
+}
