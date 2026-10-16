@@ -212,7 +212,23 @@
           "branch": "NP-0030",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "e2e",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "3134036e01b204c5e21f338400d73a6b28fb9baa5b1bf84615c8fac79de90d39",
+          "source_digest": "7194568d4baa788249566d899ef5f0abc9d8363af120f9c5573279d7e8cadd14",
+          "test_digest": "eaf704e74652a5680d46a5b2a2818b1cb73c822f3494a239d1288b6480a6bb82",
+          "recorded_at": "2026-10-16T00:25:17.408Z",
+          "git": {
+            "head": "a98a8d4b5e99ae5dbdd0691eb08455053201c227",
+            "branch": "NP-0030",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -876,6 +892,56 @@
         }
       },
       "event_digest": "052005298219cd3876689c4a8491980d1f7e65aa11cc2c218f8ee89c2bb5666a"
+    },
+    {
+      "sequence": 19,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "TEST-04 already has REFACTOR evidence",
+      "executed": false,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T00:25:09.731Z",
+      "git": {
+        "head": "a98a8d4b5e99ae5dbdd0691eb08455053201c227",
+        "branch": "NP-0030",
+        "dirty": false
+      },
+      "previous_event_digest": "052005298219cd3876689c4a8491980d1f7e65aa11cc2c218f8ee89c2bb5666a",
+      "code": "REFACTOR_ALREADY_RECORDED",
+      "event_digest": "ee3a443f0b4b828c9c49282c16324b0a61587d9e683ed8527ce958cc97ee0d32"
+    },
+    {
+      "sequence": 20,
+      "type": "REBASELINED",
+      "test_id": "TEST-04",
+      "reason": "Extracted the filter presentation props into its contract module after the final quality gate; behavior was unchanged and the full regression remained green.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json"
+      ],
+      "recorded_at": "2026-10-16T00:25:17.409Z",
+      "git": {
+        "head": "a98a8d4b5e99ae5dbdd0691eb08455053201c227",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "ee3a443f0b4b828c9c49282c16324b0a61587d9e683ed8527ce958cc97ee0d32",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "3134036e01b204c5e21f338400d73a6b28fb9baa5b1bf84615c8fac79de90d39",
+        "source_digest": "7194568d4baa788249566d899ef5f0abc9d8363af120f9c5573279d7e8cadd14",
+        "test_digest": "eaf704e74652a5680d46a5b2a2818b1cb73c822f3494a239d1288b6480a6bb82",
+        "recorded_at": "2026-10-16T00:25:17.408Z",
+        "git": {
+          "head": "a98a8d4b5e99ae5dbdd0691eb08455053201c227",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "event_digest": "0b3303abbb4e720708012668575c75c5f71f2a5b4cedf311de1908772b7a70e1"
     }
   ],
   "git_baseline": {
@@ -884,11 +950,11 @@
     "branch": "NP-0030"
   },
   "final": {
-    "source_digest": "250224941c50e49eb7534767f8e0bf12b0d6511546929e93b8c1e9f3f075aab0",
+    "source_digest": "7194568d4baa788249566d899ef5f0abc9d8363af120f9c5573279d7e8cadd14",
     "test_suite_digest": "27eb9000187a7a7519e5ba4e258cc324168df4a9865e07d231cc82cb8b4b3865",
-    "recorded_at": "2026-10-16T00:23:48.575Z",
+    "recorded_at": "2026-10-16T00:25:17.409Z",
     "git": {
-      "head": "a5dbe40498cfbd95670610ad5a074f80d087043e",
+      "head": "a98a8d4b5e99ae5dbdd0691eb08455053201c227",
       "branch": "NP-0030",
       "dirty": true
     }
