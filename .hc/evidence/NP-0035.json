@@ -181,7 +181,23 @@
           "branch": "NP-0035",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "a30a55b003b3064f010c9f7f3bfa3b9d9cecc9c79563617e5b2f918d8ac29923",
+          "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+          "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+          "recorded_at": "2026-10-16T15:21:49.533Z",
+          "git": {
+            "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
+            "branch": "NP-0035",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -795,6 +811,42 @@
         }
       },
       "event_digest": "bdb778364ff1082dfcd7476f7df5e59a352bbc1178cd2e7a5a960c9591889055"
+    },
+    {
+      "sequence": 17,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Fixed TypeScript readonly/narrowing diagnostics discovered by hc verify; re-running TEST-03 regression against current source.",
+      "executed": true,
+      "changed_files": [
+        "docs/legacy-inventory.md",
+        "docs/np-0035-reporting.md",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts"
+      ],
+      "recorded_at": "2026-10-16T15:21:49.535Z",
+      "git": {
+        "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "bdb778364ff1082dfcd7476f7df5e59a352bbc1178cd2e7a5a960c9591889055",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a30a55b003b3064f010c9f7f3bfa3b9d9cecc9c79563617e5b2f918d8ac29923",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:21:49.533Z",
+        "git": {
+          "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "d13b1686f663d5024a312ab698e1f09afb56c0077a3a2d80f49f13b117225f48"
     }
   ],
   "git_baseline": {
@@ -803,11 +855,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "98dcb7e7ff5d2e9e5fcb61403deb10328cb344d249ae91a71c3a9f6691a43d14",
+    "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
     "test_suite_digest": "c46934291345b5d91f6c15feb77359d291dcbae0f01c375114df1a35edba2903",
-    "recorded_at": "2026-10-16T15:19:50.518Z",
+    "recorded_at": "2026-10-16T15:21:49.535Z",
     "git": {
-      "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+      "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
       "branch": "NP-0035",
       "dirty": true
     }

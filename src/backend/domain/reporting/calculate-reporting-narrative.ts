@@ -5,7 +5,8 @@ type Input = { sections: readonly Section[]; weak: readonly Metric[]; strong: re
 
 export function calculateReportingNarrative(input: Input) {
   const rated = input.sections.filter((item): item is Section & { percentage: number } => item.percentage !== null);
-  const weakest = rated.reduce<Section | null>((a, b) => !a || b.percentage < a.percentage ? b : a, null);
+  let weakest: (Section & { percentage: number }) | null = null;
+  for (const section of rated) if (!weakest || section.percentage < weakest.percentage) weakest = section;
   const others = rated.filter((item) => item.name !== weakest?.name);
   const epp = input.scatter.filter((point) => point.section === "inspeccion y uso de epp" && point.y !== null);
   const checklist = input.weak.find((metric) => metric.code === "PREP_EPP_CHECK" ||

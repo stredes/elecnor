@@ -25,6 +25,9 @@ dependencia ni autoriza migrar datos o comportamiento no especificado.
 | `np0028-web/app/domain/report_queries.py` | KPI aggregate, logs, hallazgos y bandas M-01..M-05/M-07 | `src/backend/domain/reporting/calculate-kpis.ts`, `count-score-bands.ts` con fórmulas preservadas |
 | `np0028-web/app/api.py:506-540` | media, mediana, p25, p75 y snapshot panorama | `calculate-percentiles.ts`, `GetDashboardOverview`; handler público aún no se activa |
 | `np0028-web/web/src/domain/dashboard.ts` + `infrastructure/mappers/dashboard.ts` | contrato de KPI/panorama/distribución y adaptación a camelCase | `reporting-overview-contract.ts`; golden sintético antes de reemplazar mapper |
+| `modul_excel_web/app/domain/section_inspections.py` + `app/api.py:293-374,610-717` | GET `/sections`, `/metrics`, `/metrics/<code>`; M-08..13/M-25, detalle, técnicos, observaciones | `calculate-sections.ts`, `calculate-section-approvals.ts`, `calculate-metric-rankings.ts`, `get-metric-detail.ts`; solo políticas puras y reader sintético |
+| `modul_excel_web/web/src/domain/{narrative,metricSnapshot}.ts` + visualizaciones EPP/secciones | M-11/M-20..23; narrativa y snapshot derivado para panel | `calculate-reporting-narrative.ts` + `ReportingInsights`; no se conecta a datos reales ni se activa ruta |
+| `modul_excel_web/tests/test_section_inspections.py`, `web/tests/domain/narrative.test.ts`, `metricSnapshot.test.ts`, `app/api.py` | caracterización legacy inspeccionada, no ejecutada como golden de NP-0035 | `tests/domain/reporting/*parity.test.ts`; golden formal pendiente |
 
 ## Regla por NP
 

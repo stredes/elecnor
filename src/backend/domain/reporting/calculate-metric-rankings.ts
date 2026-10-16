@@ -1,6 +1,8 @@
 import type { ReportingDetailFacts, ReportingMetricResult } from "./reporting-details-contract";
 
-type MetricAggregate = ReportingMetricResult & { observations: number };
+type MetricAggregate = Omit<ReportingMetricResult, "applicable" | "conforming" | "nonConforming"> & {
+  applicable: number; conforming: number; nonConforming: number; observations: number;
+};
 const keyOf = (row: ReportingDetailFacts["metrics"][number]) => [row.metric, row.code, row.section].join("\u001f");
 const round2 = (value: number) => Number(value.toFixed(2));
 
