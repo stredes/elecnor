@@ -465,21 +465,109 @@
         }
       },
       "event_digest": "b142cd2378880221f904d281da49da604b98de58399b25e1dabd5ce6d06376c7"
+    },
+    {
+      "sequence": 10,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:17:02.543Z",
+      "git": {
+        "head": "8997781c7fe5ddcef4104da3377c08dde0a1df84",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "b142cd2378880221f904d281da49da604b98de58399b25e1dabd5ce6d06376c7",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/import-domain-purity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "acd78fade40f8c6188f1503c4ea4c32fc3b097c31887f051a0d5ac7f7ced9089",
+        "source_digest": "f867546adf070d8058cdfe3b0dbbf4f6b976b7a404be8f377a14e6d47abbb60f",
+        "test_digest": "092f5157fcc5bbf4beb04d3fb85d4b353f8b769955b38078ba6a02c030645d8a",
+        "recorded_at": "2026-10-16T13:17:02.541Z",
+        "git": {
+          "head": "8997781c7fe5ddcef4104da3377c08dde0a1df84",
+          "branch": "NP-0032",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "28932882ce5789c8d1fe55453116c99094f1b0f29eb53d0fd490713038911300"
+    },
+    {
+      "sequence": 11,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "TEST-03 GREEN command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/domain/import-domain.ts",
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:17:12.150Z",
+      "git": {
+        "head": "8997781c7fe5ddcef4104da3377c08dde0a1df84",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "28932882ce5789c8d1fe55453116c99094f1b0f29eb53d0fd490713038911300",
+      "code": "GREEN_COMMAND_FAILED",
+      "event_digest": "12d19c30bc2c2e988f9d846ae57c19a1ea47752020d7f12d44ebbc6fe1e0e317"
+    },
+    {
+      "sequence": 12,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-03",
+      "reason": "La comprobación de pureza confundió nombres legítimos como ImportStatus con la palabra prohibida ports; se corrige el matcher y se conserva el RED por una fachada aún inexistente.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/domain/import-domain.ts",
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:17:36.962Z",
+      "git": {
+        "head": "8997781c7fe5ddcef4104da3377c08dde0a1df84",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "12d19c30bc2c2e988f9d846ae57c19a1ea47752020d7f12d44ebbc6fe1e0e317",
+      "event_digest": "4f1f4d1a71d791bb5123b219b8d8a57b413643ac55895cfd60c1651add11b0d9"
+    },
+    {
+      "sequence": 13,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/domain/import-domain.ts",
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:17:45.151Z",
+      "git": {
+        "head": "8997781c7fe5ddcef4104da3377c08dde0a1df84",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "4f1f4d1a71d791bb5123b219b8d8a57b413643ac55895cfd60c1651add11b0d9",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "4be1bebe4d609c8524b63cf741ae084f4878e253065f7bea381a988e9fd12670"
     }
   ],
   "git_baseline": {
     "kind": "UNMANAGED_INITIAL",
     "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
     "branch": "NP-0032"
-  },
-  "final": {
-    "source_digest": "f867546adf070d8058cdfe3b0dbbf4f6b976b7a404be8f377a14e6d47abbb60f",
-    "test_suite_digest": "47c63be6fcccb899bb2198dfb7aa369fb33298d9ecf02c8e095f55edc0811b86",
-    "recorded_at": "2026-10-16T13:16:32.425Z",
-    "git": {
-      "head": "39c4824f12b39ca9c0f60f2be832ae6a2b9931c5",
-      "branch": "NP-0032",
-      "dirty": true
-    }
   }
 }
