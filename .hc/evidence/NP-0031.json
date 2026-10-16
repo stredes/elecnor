@@ -1,0 +1,233 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0031",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/c-extract-http.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "517c11df523477fd54811d03e0771efdc6383685ccdda91886897021f4b8de2a",
+        "source_digest": "fcf5c1ddd3673c9c31ef8268496afb7e81996cef65da810cd969d7ce311931b3",
+        "test_digest": "afd1e614855e744d0c1696cbb6d6515f868c2754e8aeaa2b184f67ac218bc8dd",
+        "recorded_at": "2026-10-16T12:57:47.809Z",
+        "git": {
+          "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+          "branch": "NP-0031",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/c-extract-http.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "bd3a59a41ff68dd874ccbac8e28bed9cd183264f80205b87e8d5d896e31e5478",
+        "source_digest": "9943135422753389b53a66c9243ec32c5d0274892e42a9933856f67487c7d06e",
+        "test_digest": "afd1e614855e744d0c1696cbb6d6515f868c2754e8aeaa2b184f67ac218bc8dd",
+        "recorded_at": "2026-10-16T12:58:09.234Z",
+        "git": {
+          "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "0186b6811728209ac4111b2301be8b24eacf949132d332864becdea71d639fcb",
+        "source_digest": "2c2c1db10eb94e6591db879e4c5d922f4f9926575e82475fa354236b953b3244",
+        "test_digest": "afd1e614855e744d0c1696cbb6d6515f868c2754e8aeaa2b184f67ac218bc8dd",
+        "recorded_at": "2026-10-16T12:58:46.116Z",
+        "git": {
+          "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 does not match its planned command",
+      "executed": false,
+      "changed_files": [
+        "tests/integration/c-extract-http.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:57:42.197Z",
+      "git": {
+        "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "PLANNED_COMMAND_MISMATCH",
+      "event_digest": "94dd53a93c1ccebb0e5570f7a0f11dae24602a87988e8787d27f2e4ffb5dce63"
+    },
+    {
+      "sequence": 2,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0031.json",
+        "tests/integration/c-extract-http.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:57:47.811Z",
+      "git": {
+        "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "94dd53a93c1ccebb0e5570f7a0f11dae24602a87988e8787d27f2e4ffb5dce63",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/c-extract-http.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "517c11df523477fd54811d03e0771efdc6383685ccdda91886897021f4b8de2a",
+        "source_digest": "fcf5c1ddd3673c9c31ef8268496afb7e81996cef65da810cd969d7ce311931b3",
+        "test_digest": "afd1e614855e744d0c1696cbb6d6515f868c2754e8aeaa2b184f67ac218bc8dd",
+        "recorded_at": "2026-10-16T12:57:47.809Z",
+        "git": {
+          "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+          "branch": "NP-0031",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "240a3adb63e89e82082696b342e8a32af6f90b38d91bc343bba6d104e2fc9070"
+    },
+    {
+      "sequence": 3,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0031.json",
+        "src/backend/adapters/outbound/http-c-extract-reader.ts",
+        "src/backend/domain/document-extraction-error.ts",
+        "src/backend/ports/c-extract-reader.ts",
+        "tests/integration/c-extract-http.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:58:09.234Z",
+      "git": {
+        "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "240a3adb63e89e82082696b342e8a32af6f90b38d91bc343bba6d104e2fc9070",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/c-extract-http.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "bd3a59a41ff68dd874ccbac8e28bed9cd183264f80205b87e8d5d896e31e5478",
+        "source_digest": "9943135422753389b53a66c9243ec32c5d0274892e42a9933856f67487c7d06e",
+        "test_digest": "afd1e614855e744d0c1696cbb6d6515f868c2754e8aeaa2b184f67ac218bc8dd",
+        "recorded_at": "2026-10-16T12:58:09.234Z",
+        "git": {
+          "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      },
+      "event_digest": "724f2c68d854eb875a26a9e52dac6a0d9dd129a0128fa561a882945a4fb49abb"
+    },
+    {
+      "sequence": 4,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": ".hc/evidence/NP-0028.json: outside declared task scope; .hc/evidence/NP-0029.json: outside declared task scope; .hc/stories/NP-0028.json: outside declared task scope; .hc/stories/NP-0029.json: outside declared task scope; AGENTS.md: outside declared task scope; README.md: outside declared task scope; docs/np-0028-c-import-plan.md: outside declared task scope; docs/np-0028-closure.md: outside declared task scope; docs/np-0028-decision-matrix.md: outside declared task scope; docs/np-0028-test-01.md: outside declared task scope; docs/np-0029-quality-gates.md: outside declared task scope; docs/np-0030-inspection-list.md: outside declared task scope; package-lock.json: outside declared task scope; package.json: outside declared task scope; pages/api/dashboard.ts: outside declared task scope; pages/api/health.ts: outside declared task scope; pages/api/import.ts: outside declared task scope; pages/api/inspections/index.ts: outside declared task scope; pages/inspecciones/index.tsx: outside declared task scope; scripts/quality/check-boundaries.mjs: outside declared task scope; scripts/quality/check-contracts.mjs: outside declared task scope; scripts/quality/check-lines.mjs: outside declared task scope; src/backend/adapters/inbound/dashboard-response-contract.ts: outside declared task scope; src/backend/adapters/inbound/health-response-contract.ts: outside declared task scope; src/backend/adapters/inbound/import-errors-contract.ts: outside declared task scope; src/backend/adapters/inbound/import-errors.ts: outside declared task scope; src/backend/adapters/inbound/import-form.ts: outside declared task scope; src/backend/adapters/inbound/import-response-contract.ts: outside declared task scope; src/backend/adapters/inbound/import-summary-contract.ts: outside declared task scope; src/backend/adapters/inbound/import-summary.ts: outside declared task scope; src/dashboard/components/DashboardScreen.tsx: outside declared task scope; src/dashboard/components/InspectionListFilters.tsx: outside declared task scope; src/dashboard/components/InspectionListScreen.tsx: outside declared task scope; src/dashboard/components/MetricCard.tsx: outside declared task scope; src/dashboard/contracts/dashboard-screen-contract.ts: outside declared task scope; src/dashboard/contracts/inspection-list-filters-contract.ts: outside declared task scope; src/dashboard/contracts/inspection-list-page-contract.ts: outside declared task scope; src/dashboard/contracts/metric-card-contract.ts: outside declared task scope; tests/application/import-files.test.ts: outside declared task scope; tests/e2e/c-import.spec.ts: outside declared task scope; tests/e2e/inspection-list.spec.ts: outside declared task scope; dependency change requires explicit dependency authority",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0031.json",
+        "src/backend/adapters/outbound/http-c-extract-reader.ts",
+        "src/backend/domain/document-extraction-error.ts",
+        "src/backend/ports/c-extract-reader.ts",
+        "tests/integration/c-extract-http.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:58:16.174Z",
+      "git": {
+        "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "724f2c68d854eb875a26a9e52dac6a0d9dd129a0128fa561a882945a4fb49abb",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "231f3c2e7d65f9a669bbe9f52d59296bae216225b727475b8609e9c3c8329c8b"
+    },
+    {
+      "sequence": 5,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0031.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/http-c-extract-reader.ts",
+        "src/backend/domain/document-extraction-error.ts",
+        "src/backend/ports/c-extract-reader.ts",
+        "tests/integration/c-extract-http.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:58:46.117Z",
+      "git": {
+        "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "231f3c2e7d65f9a669bbe9f52d59296bae216225b727475b8609e9c3c8329c8b",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "0186b6811728209ac4111b2301be8b24eacf949132d332864becdea71d639fcb",
+        "source_digest": "2c2c1db10eb94e6591db879e4c5d922f4f9926575e82475fa354236b953b3244",
+        "test_digest": "afd1e614855e744d0c1696cbb6d6515f868c2754e8aeaa2b184f67ac218bc8dd",
+        "recorded_at": "2026-10-16T12:58:46.116Z",
+        "git": {
+          "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      },
+      "event_digest": "fbbfe0f511a867e7a03a8b7919b2cbb8e949b241e8567472534ff37b7f1fedda"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+    "branch": "NP-0031"
+  },
+  "final": {
+    "source_digest": "2c2c1db10eb94e6591db879e4c5d922f4f9926575e82475fa354236b953b3244",
+    "test_suite_digest": "0d6b5a93d16d875ebfc315def73f937b232dc01abf7f18339d60d71c714adb98",
+    "recorded_at": "2026-10-16T12:58:46.116Z",
+    "git": {
+      "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+      "branch": "NP-0031",
+      "dirty": true
+    }
+  }
+}

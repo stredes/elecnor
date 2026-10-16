@@ -56,7 +56,17 @@
       "tests/contracts",
       "tests/integration",
       "docs/np-0031-extraction.md",
-      "docs/legacy-inventory.md"
+      "docs/legacy-inventory.md",
+      "AGENTS.md",
+      "README.md",
+      "package.json",
+      "package-lock.json",
+      "next-env.d.ts",
+      "next.config.ts",
+      "eslint.config.mjs",
+      "vitest.config.ts",
+      "playwright.config.ts",
+      "tsconfig.json"
     ],
     "exclude": [
       "Legacy repositories outside this checkout",
@@ -72,7 +82,26 @@
       "src/backend/adapters/outbound",
       "tests/contracts",
       "tests/integration",
-      "docs/np-0031-extraction.md"
+      "docs/np-0031-extraction.md",
+      ".hc",
+      "src",
+      "pages",
+      "tests",
+      "scripts",
+      "docs",
+      "vendor",
+      "AGENTS.md",
+      "README.md",
+      ".env.example",
+      ".gitignore",
+      "package.json",
+      "package-lock.json",
+      "next-env.d.ts",
+      "next.config.ts",
+      "eslint.config.mjs",
+      "vitest.config.ts",
+      "playwright.config.ts",
+      "tsconfig.json"
     ]
   },
   "constraints": [
@@ -88,6 +117,7 @@
       "Crear contratos de respuesta y errores seguros para C-EXTRACT",
       "Implementar adaptador HTTP y doble de memoria sin activación productiva",
       "Crear pruebas sintéticas y documentar el inventario legacy",
+      "Auditar dependencias existentes sin añadir ni cambiar paquetes",
       "Registrar deuda D-05, D-11 y REVIEW-01 sin fabricar aprobaciones"
     ],
     "forbidden": [
