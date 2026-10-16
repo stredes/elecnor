@@ -19,6 +19,9 @@ dependencia ni autoriza migrar datos o comportamiento no especificado.
 | `modulo-data-excel/app/services/catalog.py` | exacto, contenido y SequenceMatcher ≥0.88 | `src/backend/domain/catalog/catalog-match.ts` |
 | `modulo-data-excel/app/domain/geography.py` | ciudades, aliases, regiones y coordenadas | `src/backend/domain/geography/`; sin fuentes nuevas |
 | `modulo-data-excel/app/services/importer.py:123-200` | validación, rúbrica, clave y completitud | `src/backend/domain/import-rubric.ts`, `logical-key.ts`, `determine-import-status.ts` |
+| `modulo-data-excel/app/services/importer.py` | extracción, deduplicación, transacción SQLite, temporales y logs | contratos `DocumentProcessor`/`ImportRepository`; activación bloqueada por D-02/D-03/D-08 |
+| `np0028-web/web/src/app/api/import/route.ts` | multipart, llamada upstream y mapeo de respuestas | `pages/api/import.ts` como único BFF; upstream no activo |
+| `np0028-web/web/src/presentation/components/DataToolbar.tsx` | selección, feedback y refresh | evidencia UI; no conecta un writer nuevo en NP-0033 |
 
 ## Regla por NP
 
