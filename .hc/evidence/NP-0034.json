@@ -54,6 +54,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "848e28eaca810fbf5cb41fff8371d73f6765a983391a940d88ac8beb06852f96",
+        "source_digest": "042468f0997b8770c806d432950876ac7674a2f0ef9494b6c41859dd04ba7f35",
+        "test_digest": "ffb2cdc5c7a3c1a627bca01f68effa745818d34e7c527b9c0ccf685f6998cc32",
+        "recorded_at": "2026-10-16T13:48:23.893Z",
+        "git": {
+          "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+          "branch": "NP-0034",
+          "dirty": true
+        },
+        "expected_reason": "70.12%"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "2601985691d1b946e9d1414f9f812596f29d83f9a3bd428b7abf762cc50d0b9c",
+        "source_digest": "e841495cc81bd555111354ff9468a4b5aa2a8eb6f1311e132b3606f98702feb5",
+        "test_digest": "ffb2cdc5c7a3c1a627bca01f68effa745818d34e7c527b9c0ccf685f6998cc32",
+        "recorded_at": "2026-10-16T13:48:33.413Z",
+        "git": {
+          "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+          "branch": "NP-0034",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "3fed8f2886dcec98a806dd467f440bd8a3d99725dc772d4bfe12103700259c9e",
+        "source_digest": "e841495cc81bd555111354ff9468a4b5aa2a8eb6f1311e132b3606f98702feb5",
+        "test_digest": "ffb2cdc5c7a3c1a627bca01f68effa745818d34e7c527b9c0ccf685f6998cc32",
+        "recorded_at": "2026-10-16T13:48:41.364Z",
+        "git": {
+          "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+          "branch": "NP-0034",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -194,6 +247,199 @@
         }
       },
       "event_digest": "9eaab230cfe20542f61bf4cd5b895737b2e211670dc342c94ff8c08b10ec3c4f"
+    },
+    {
+      "sequence": 5,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 was born green",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:47:30.528Z",
+      "git": {
+        "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "9eaab230cfe20542f61bf4cd5b895737b2e211670dc342c94ff8c08b10ec3c4f",
+      "code": "BORN_GREEN",
+      "event_digest": "31c434a335a3890b4f49b17acb6d7c5085ce0407a5591d63556a32da5f7b88c4"
+    },
+    {
+      "sequence": 6,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0034.json",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:47:41.703Z",
+      "git": {
+        "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "31c434a335a3890b4f49b17acb6d7c5085ce0407a5591d63556a32da5f7b88c4",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "9a775149b19159d94516ab8e7659140c8794e6fa7b0a823c73c854c05635fa1f"
+    },
+    {
+      "sequence": 7,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0034.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:48:00.516Z",
+      "git": {
+        "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "9a775149b19159d94516ab8e7659140c8794e6fa7b0a823c73c854c05635fa1f",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "53a86bfd3e29c123a602179626afee885c656fd55df5dd5a7680bce4ac64b17b"
+    },
+    {
+      "sequence": 8,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0034.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:48:04.254Z",
+      "git": {
+        "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "53a86bfd3e29c123a602179626afee885c656fd55df5dd5a7680bce4ac64b17b",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "d74f7e93ba31cfb65d8bbed6ac7678f858ded9f0aad8944580eb235bc3eb04af"
+    },
+    {
+      "sequence": 9,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "70.12%",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0034.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:48:23.895Z",
+      "git": {
+        "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "d74f7e93ba31cfb65d8bbed6ac7678f858ded9f0aad8944580eb235bc3eb04af",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "848e28eaca810fbf5cb41fff8371d73f6765a983391a940d88ac8beb06852f96",
+        "source_digest": "042468f0997b8770c806d432950876ac7674a2f0ef9494b6c41859dd04ba7f35",
+        "test_digest": "ffb2cdc5c7a3c1a627bca01f68effa745818d34e7c527b9c0ccf685f6998cc32",
+        "recorded_at": "2026-10-16T13:48:23.893Z",
+        "git": {
+          "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+          "branch": "NP-0034",
+          "dirty": true
+        },
+        "expected_reason": "70.12%"
+      },
+      "event_digest": "4b6e7bfb44bcf20b3cced8b29cd61b9250af6c0e096375ea93480548359b3ba8"
+    },
+    {
+      "sequence": 10,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0034.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/reporting-rounding.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:48:33.413Z",
+      "git": {
+        "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "4b6e7bfb44bcf20b3cced8b29cd61b9250af6c0e096375ea93480548359b3ba8",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "2601985691d1b946e9d1414f9f812596f29d83f9a3bd428b7abf762cc50d0b9c",
+        "source_digest": "e841495cc81bd555111354ff9468a4b5aa2a8eb6f1311e132b3606f98702feb5",
+        "test_digest": "ffb2cdc5c7a3c1a627bca01f68effa745818d34e7c527b9c0ccf685f6998cc32",
+        "recorded_at": "2026-10-16T13:48:33.413Z",
+        "git": {
+          "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+          "branch": "NP-0034",
+          "dirty": true
+        }
+      },
+      "event_digest": "84f426ff1f465fa685dbf9f5a3f4b829d29a169b0704a76ab3636638e362c418"
+    },
+    {
+      "sequence": 11,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0034.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/reporting-rounding.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:48:41.366Z",
+      "git": {
+        "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+        "branch": "NP-0034",
+        "dirty": true
+      },
+      "previous_event_digest": "84f426ff1f465fa685dbf9f5a3f4b829d29a169b0704a76ab3636638e362c418",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "3fed8f2886dcec98a806dd467f440bd8a3d99725dc772d4bfe12103700259c9e",
+        "source_digest": "e841495cc81bd555111354ff9468a4b5aa2a8eb6f1311e132b3606f98702feb5",
+        "test_digest": "ffb2cdc5c7a3c1a627bca01f68effa745818d34e7c527b9c0ccf685f6998cc32",
+        "recorded_at": "2026-10-16T13:48:41.364Z",
+        "git": {
+          "head": "51c36e4bd769900a394f7552b373a8c04392690e",
+          "branch": "NP-0034",
+          "dirty": true
+        }
+      },
+      "event_digest": "48ee6a60d5331f1d1d360f2fc07d978037a87259d05fa9f49588ca321dd5116e"
     }
   ],
   "git_baseline": {
@@ -202,11 +448,11 @@
     "branch": "NP-0034"
   },
   "final": {
-    "source_digest": "042468f0997b8770c806d432950876ac7674a2f0ef9494b6c41859dd04ba7f35",
-    "test_suite_digest": "a000f1630b391cc22bf14ee140d66f2b148899561d5e0fbc4a39375e48b3e7c2",
-    "recorded_at": "2026-10-16T13:46:33.095Z",
+    "source_digest": "e841495cc81bd555111354ff9468a4b5aa2a8eb6f1311e132b3606f98702feb5",
+    "test_suite_digest": "af4e3c074d78b353c0671ad6225363ea6f50e4090b90558eb7ce216cd7ba0925",
+    "recorded_at": "2026-10-16T13:48:41.365Z",
     "git": {
-      "head": "cc4a186395a178c703206e28f51ac29376f96d42",
+      "head": "51c36e4bd769900a394f7552b373a8c04392690e",
       "branch": "NP-0034",
       "dirty": true
     }

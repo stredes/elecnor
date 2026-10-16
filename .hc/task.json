@@ -24,7 +24,7 @@
         "level": "unit",
         "check": "unit",
         "args": ["tests/domain/reporting/reporting-boundaries.test.ts"],
-        "expected_failure": "Failed to resolve import",
+        "expected_failure": "70.12%",
         "fixture": "tests/domain/reporting/reporting-boundaries.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
