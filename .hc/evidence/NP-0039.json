@@ -282,6 +282,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-06",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "efe751ce339ade0ec1b11ad067a57d1536af4602706b489f7b7aca65909dcee5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:17.175Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNCERTAIN"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a790a9a3313147159c3f0fdb6f7209ebac11996094c11d2563ecd9098235d760",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:45.236Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "5b6442e6568b600f1c1f6308d1a3b5dcd3b2c2b626b6168bb8dfbbefe87c4c74",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:57.850Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -1198,6 +1251,120 @@
         }
       },
       "event_digest": "b9e50224f7ad90a72863a9e7eeace18e01554ec8236f491d066d67c62ddcee8c"
+    },
+    {
+      "sequence": 26,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "STORAGE_UNCERTAIN",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/integration/procedures/storage-uncertainty.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:39:17.181Z",
+      "git": {
+        "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "b9e50224f7ad90a72863a9e7eeace18e01554ec8236f491d066d67c62ddcee8c",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "efe751ce339ade0ec1b11ad067a57d1536af4602706b489f7b7aca65909dcee5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:17.175Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNCERTAIN"
+      },
+      "event_digest": "a492524ff9e167c36353a53d52a87061051bab988b06ac7cc6915f18e463ef48"
+    },
+    {
+      "sequence": 27,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/application/procedures/create-procedure.ts",
+        "tests/integration/procedures/storage-uncertainty.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:39:45.252Z",
+      "git": {
+        "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "a492524ff9e167c36353a53d52a87061051bab988b06ac7cc6915f18e463ef48",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a790a9a3313147159c3f0fdb6f7209ebac11996094c11d2563ecd9098235d760",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:45.236Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "602307b9462bbd65293400b7130f434f8c6b6a310457d88dd7b0d193405b6f74"
+    },
+    {
+      "sequence": 28,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/application/procedures/create-procedure.ts",
+        "tests/integration/procedures/storage-uncertainty.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:39:57.851Z",
+      "git": {
+        "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "602307b9462bbd65293400b7130f434f8c6b6a310457d88dd7b0d193405b6f74",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "5b6442e6568b600f1c1f6308d1a3b5dcd3b2c2b626b6168bb8dfbbefe87c4c74",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:57.850Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "f8f4ba5a86d8f491e5eb9d8e384e9a6464f6d2c7550c18ea78ff67ddcfc45dd5"
     }
   ],
   "git_baseline": {
@@ -1206,11 +1373,11 @@
     "branch": "NP-0039"
   },
   "final": {
-    "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
-    "test_suite_digest": "0451a220d5b1fb4b20238c0db2c2b423d7c9d048e4ce2469c631e65f1f55671a",
-    "recorded_at": "2026-10-16T23:32:44.596Z",
+    "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+    "test_suite_digest": "894de9b5b2113e40db2ecd08c3b7be7415ac28ab2038fec9c5085caf62f06ab8",
+    "recorded_at": "2026-10-16T23:39:57.851Z",
     "git": {
-      "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+      "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
       "branch": "NP-0039",
       "dirty": true
     }

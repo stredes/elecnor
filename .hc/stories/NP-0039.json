@@ -10,14 +10,14 @@
     "preconditions": ["NP-0037/NP-0038", "D-02/03/08 y C-VALIDATE para activación"],
     "acceptance_criteria": [
       {"id":"AC-01","given":["metadata y PDF sintéticos válidos"],"when":["se coordina el alta"],"then":["se validan PDF genéricos y se confirma el commit por puertos"],"test_ids":["TEST-01"]},
-      {"id":"AC-02","given":["fallo de storage, commit, cleanup o retry"],"when":["se completa la operación"],"then":["no hay duplicado silencioso y la recuperación es observable"],"test_ids":["TEST-02","TEST-05"]},
+      {"id":"AC-02","given":["fallo de storage, commit, cleanup o retry"],"when":["se completa la operación"],"then":["no hay duplicado silencioso y la recuperación es observable"],"test_ids":["TEST-02","TEST-05","TEST-06"]},
       {"id":"AC-03","given":["contratos y dobles sintéticos"],"when":["se inspeccionan las capas"],"then":["no se activan HTTP, DB, Blob ni handlers mutables"],"test_ids":["TEST-03","TEST-04"]}
     ],
     "business_rules": [{"id":"BR-01","rule":"PDF escaneado estructuralmente válido no exige formato Mitti; no se añade OCR."}],
     "edge_cases": ["DB incierta tras storage", "cleanup fallido", "retry con misma clave", "fingerprint distinto"],
     "out_of_scope": ["endpoint mutable", "storage real", "OCR", "datos reales"],
     "dependencies": ["NP-0031", "NP-0037", "NP-0038"],
-    "non_functional_requirements": [{"id":"NFR-01","rule":"Idempotencia y compensación observables sin contenido documental en logs.","risk_tags":["external-input","persistence","concurrency","personal-data"],"test_ids":["TEST-02","TEST-03","TEST-04","TEST-05"],"review_ids":["REVIEW-01"]}],
+    "non_functional_requirements": [{"id":"NFR-01","rule":"Idempotencia y compensación observables sin contenido documental en logs.","risk_tags":["external-input","persistence","concurrency","personal-data"],"test_ids":["TEST-02","TEST-03","TEST-04","TEST-05","TEST-06"],"review_ids":["REVIEW-01"]}],
     "definition_of_ready": {"ready": false, "evidence": ["D-02/03/08 y C-VALIDATE pendientes"]},
     "definition_of_done": ["Contratos y dobles sintéticos probados", "Activación real solo tras decisiones y evidencia"]
   }

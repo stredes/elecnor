@@ -57,6 +57,16 @@
         "expected_failure": "CONFLICT",
         "fixture": "tests/integration/procedures/concurrency-contract.test.ts",
         "regression": {"check": "integration", "args": []}
+      },
+      {
+        "test_id": "TEST-06",
+        "order": 6,
+        "level": "integration",
+        "check": "integration",
+        "args": ["tests/integration/procedures/storage-uncertainty.test.ts"],
+        "expected_failure": "STORAGE_UNCERTAIN",
+        "fixture": "tests/integration/procedures/storage-uncertainty.test.ts",
+        "regression": {"check": "integration", "args": []}
       }
     ]
   },

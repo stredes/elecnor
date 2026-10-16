@@ -29,6 +29,8 @@ multipart, FastAPI, DB, Blob, filesystem, SQLite, OCR ni datos reales.
    otro fingerprint produce conflicto.
 7. Una reserva pendiente para la misma clave produce conflicto; sólo una
    cancelación conocida libera la clave para otro intento.
+8. Un error de storage sin estado conocido se trata como incierto y queda
+   para conciliación; no se libera la reserva ni se borra a ciegas.
 
 ## Evidencia
 
