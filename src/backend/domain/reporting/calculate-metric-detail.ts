@@ -14,7 +14,9 @@ import { countState, sumKnown } from "./reporting-detail-utils";
 export function calculateMetricDetail(facts: ReportingFacts, code: string): MetricDetail | null {
   const items = facts.metrics.filter((item) => item.code === code);
   if (!items.length) return null;
-  const inspectionMap = new Map(facts.inspections.map((item) => [item.id, item]));
+  const inspectionMap = new Map(
+    facts.inspections.filter((item) => item.id).map((item) => [item.id, item]),
+  );
   const applicable = sumKnown(items.map((item) => item.applicable)) ?? 0;
   const conforming = sumKnown(items.map((item) => item.conforming));
   return {

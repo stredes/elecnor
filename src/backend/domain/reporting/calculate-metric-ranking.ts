@@ -11,7 +11,6 @@ import {
   sumKnown,
   techniciansFor,
 } from "./reporting-detail-utils";
-
 type MetricBucket = {
   metric: string;
   code: string | null;
@@ -21,7 +20,9 @@ type MetricBucket = {
 
 export function calculateMetricStats(facts: ReportingFacts): readonly MetricStat[] {
   const groups = new Map<string, MetricBucket>();
-  const inspections = new Map(facts.inspections.map((item) => [item.id, item]));
+  const inspections = new Map(
+    facts.inspections.filter((item) => item.id).map((item) => [item.id, item]),
+  );
   for (const item of facts.metrics) {
     if (item.metric == null) continue;
     const key = keyOf(item.metric, item.code, item.section);

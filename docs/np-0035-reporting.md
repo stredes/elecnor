@@ -24,6 +24,7 @@ dependencia de ejecución de esta rama.
   ranking sólo incluye grupos con suma de aplicables mayor que cero.
 - Los técnicos se resuelven desde la inspección relacionada y usan el técnico
   del hecho de métrica sólo como fallback de un fixture sin relación.
+- Sin identificador de inspección no se asigna un técnico por posición o azar.
 - Weak/strong mantienen desempate por `applicable` y orden estable de entrada.
 - La narrativa conserva bandas bajas, riesgo scatter, EPP, sección más débil y
   toma el mínimo desde `weak` y el máximo desde `strong`.

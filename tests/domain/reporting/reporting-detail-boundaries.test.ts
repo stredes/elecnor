@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { calculateMetricDetail } from "@/backend/domain/reporting/calculate-metric-detail";
+import { calculateGlobalGap } from "@/backend/domain/reporting/calculate-global-gap";
 import {
   calculateMetricRanking,
   calculateMetricStats,
@@ -17,6 +18,8 @@ const empty: ReportingFacts = { inspections: [], importLogs: [], metrics: [] };
 describe("NP-0035/AC-02/TEST-02 reporting boundaries", () => {
   it("keeps no evidence as empty/null and does not synthesize EPP", () => {
     expect(calculateSectionApprovals(empty)).toEqual({ sections: [], allApproved: 0 });
+    expect(calculateGlobalGap({ score: Number.NaN, validScores: 0, below70: 0 }))
+      .toEqual({ global: 0, gap: 100, healthy: 0 });
     expect(calculateNarrative({
       global: { score: 0, validScores: 0, below70: 0 },
       sections: [], distribution: [], scatter: [], weak: [], strong: [],
@@ -60,6 +63,11 @@ describe("NP-0035/AC-02/TEST-02 reporting boundaries", () => {
     const detail = calculateMetricDetail(facts, "M");
     expect(stats[0].technicians.conforming).toEqual(["Ana"]);
     expect(detail?.technicians[0].technician).toBe("Ana");
+    const orphanFacts = {
+      inspections: [{ technician: "Luis", percentage: null, actions: null }],
+      importLogs: [], metrics: [{ ...metricRow("I-1", 10, 7, "CONFORME"), inspectionId: undefined }],
+    } as ReportingFacts;
+    expect(calculateMetricStats(orphanFacts)[0].technicians.conforming).toEqual([]);
   });
 
   it("uses the strong universe for the highest synthesis", () => {

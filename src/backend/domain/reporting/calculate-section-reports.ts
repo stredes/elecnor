@@ -22,7 +22,9 @@ type MetricResult = { section: string; metric: SectionMetric };
 
 export function calculateSectionReports(facts: ReportingFacts): readonly SectionReport[] {
   const groups = new Map<string, MetricBucket>();
-  const inspections = new Map(facts.inspections.map((item) => [item.id, item]));
+  const inspections = new Map(
+    facts.inspections.filter((item) => item.id).map((item) => [item.id, item]),
+  );
   for (const item of facts.metrics) {
     if (item.metric == null || item.applicable == null) continue;
     const section = normalizeSection(item.section);
