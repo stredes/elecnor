@@ -28,6 +28,7 @@ dependencia ni autoriza migrar datos o comportamiento no especificado.
 | `modul_excel_web/app/domain/section_inspections.py` + `app/api.py:293-374,610-717` | GET `/sections`, `/metrics`, `/metrics/<code>`; M-08..13/M-25, detalle, técnicos, observaciones | `calculate-sections.ts`, `calculate-section-approvals.ts`, `calculate-metric-rankings.ts`, `get-metric-detail.ts`; solo políticas puras y reader sintético |
 | `modul_excel_web/web/src/domain/{narrative,metricSnapshot}.ts` + visualizaciones EPP/secciones | M-11/M-20..23; narrativa y snapshot derivado para panel | `calculate-reporting-narrative.ts` + `ReportingInsights`; no se conecta a datos reales ni se activa ruta |
 | `modul_excel_web/tests/test_section_inspections.py`, `web/tests/domain/narrative.test.ts`, `metricSnapshot.test.ts`, `app/api.py` | caracterización legacy inspeccionada, no ejecutada como golden de NP-0035 | `tests/domain/reporting/*parity.test.ts`; golden formal pendiente |
+| `np0028-web/app/domain/procedures.py`, `app/services/procedure_store.py`, `app/api.py:252-290` | NP-0038: validación, YouTube, normalización, filtros q/area, detalle, orden área/título y contrato público sin `stored_path`; SQLite y alta documental quedan fuera | `src/backend/domain/procedures/`, aplicación y ports tipados con doubles sintéticos; sin writer ni upload antes de NP-0039 |
 
 ## Regla por NP
 

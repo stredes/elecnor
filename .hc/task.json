@@ -1,217 +1,66 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0035",
+    "id": "NP-0038",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0035.json",
+    "story_path": ".hc/stories/NP-0038.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
-    "change_areas": ["application", "infrastructure", "presentation", "documentation"],
-    "risk_tags": ["migration", "public-api", "persistence", "dependency"],
+    "change_areas": ["domain", "application", "infrastructure", "documentation"],
+    "risk_tags": ["persistence", "public-api", "migration"],
     "test_plan": [
       {
         "test_id": "TEST-01",
         "order": 1,
-        "level": "unit",
-        "check": "unit",
-        "args": [
-          "tests/domain/reporting/section-parity.test.ts",
-          "tests/domain/reporting/metric-ranking-parity.test.ts",
-          "tests/domain/reporting/narrative-parity.test.ts",
-          "tests/integration/reporting/reporting-details-parity.test.ts"
-        ],
+        "level": "integration",
+        "check": "integration",
+        "args": ["tests/domain/procedures/families.test.ts", "tests/integration/procedures/catalog-parity.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/reporting/section-parity.test.ts",
-        "regression": { "check": "unit", "args": [] }
+        "fixture": "tests/domain/procedures/families.test.ts",
+        "regression": {"check": "integration", "args": []}
       },
       {
         "test_id": "TEST-02",
         "order": 2,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/domain/reporting/detail-boundaries.test.ts"],
-        "expected_failure": "expected [] to deeply equal",
-        "fixture": "tests/domain/reporting/detail-boundaries.test.ts",
-        "regression": { "check": "unit", "args": [] }
+        "args": ["tests/domain/procedures/metadata-validation.test.ts", "tests/domain/procedures/youtube-id.test.ts"],
+        "expected_failure": "Failed to resolve import",
+        "fixture": "tests/domain/procedures/metadata-validation.test.ts",
+        "regression": {"check": "unit", "args": []}
       },
       {
         "test_id": "TEST-03",
         "order": 3,
         "level": "integration",
         "check": "integration",
-        "args": ["tests/integration/reporting/reporting-consumers.test.ts"],
+        "args": ["tests/integration/procedures/repository-contract.test.ts", "tests/integration/architecture/procedures.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/integration/reporting/reporting-consumers.test.ts",
-        "regression": { "check": "integration", "args": [] }
-      },
-      {
-        "test_id": "TEST-04",
-        "order": 4,
-        "level": "e2e",
-        "check": "e2e",
-        "args": ["tests/e2e/reporting-consumer.spec.ts"],
-        "expected_failure": "element(s) not found",
-        "fixture": "tests/e2e/reporting-consumer.spec.ts",
-        "regression": { "check": "e2e", "args": [] }
-      },
-      {
-        "test_id": "TEST-05",
-        "order": 5,
-        "level": "unit",
-        "check": "unit",
-        "args": ["tests/domain/reporting/reporting-complete-parity.test.ts"],
-        "expected_failure": "expected { conforming: [], nonConforming: [] } to deeply equal",
-        "fixture": "tests/domain/reporting/reporting-complete-parity.test.ts",
-        "regression": { "check": "unit", "args": [] }
-      },
-      {
-        "test_id": "TEST-06",
-        "order": 6,
-        "level": "integration",
-        "check": "integration",
-        "args": ["tests/integration/reporting/reporting-narrative-overview.test.ts"],
-        "expected_failure": "expected +0 to be 1",
-        "fixture": "tests/integration/reporting/reporting-narrative-overview.test.ts",
-        "regression": { "check": "integration", "args": [] }
-      },
-      {
-        "test_id": "TEST-07",
-        "order": 7,
-        "level": "unit",
-        "check": "unit",
-        "args": ["tests/domain/reporting/reporting-detail-parity.test.ts"],
-        "expected_failure": "expected { conforming: [], nonConforming: [] } to deeply equal",
-        "fixture": "tests/domain/reporting/reporting-detail-parity.test.ts",
-        "regression": { "check": "unit", "args": [] }
-      },
-      {
-        "test_id": "TEST-08",
-        "order": 8,
-        "level": "unit",
-        "check": "unit",
-        "args": ["tests/domain/reporting/reporting-derived-policies.test.ts"],
-        "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/reporting/reporting-derived-policies.test.ts",
-        "regression": { "check": "unit", "args": [] }
-      },
-      {
-        "test_id": "TEST-09",
-        "order": 9,
-        "level": "unit",
-        "check": "unit",
-        "args": ["tests/domain/reporting/reporting-complement-rounding.test.ts"],
-        "expected_failure": "expected undefined to be 78.6",
-        "fixture": "tests/domain/reporting/reporting-complement-rounding.test.ts",
-        "regression": { "check": "unit", "args": [] }
-      },
-      {
-        "test_id": "TEST-10",
-        "order": 10,
-        "level": "unit",
-        "check": "unit",
-        "args": ["tests/domain/reporting/inspection-metric-mapping.test.ts"],
-        "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/reporting/inspection-metric-mapping.test.ts",
-        "regression": { "check": "unit", "args": [] }
+        "fixture": "tests/integration/procedures/repository-contract.test.ts",
+        "regression": {"check": "integration", "args": []}
       }
     ]
   },
   "scope": {
     "include": [
-      ".hc/project.json",
-      ".hc/task.json",
-      ".hc/stories/NP-0035.json",
-      ".hc/evidence/NP-0035.json",
-      ".hc/stories/NP-0034.json",
-      ".hc/evidence/NP-0034.json",
-      "src/backend/domain/reporting",
-      "src/backend/application/reporting",
-      "src/backend/ports",
-      "src/backend/adapters/outbound",
-      "src/backend/composition",
-      "src/dashboard",
-      "pages/dashboard",
-      "pages/test-reporting.tsx",
-      "tests/domain/reporting",
-      "tests/domain/reporting/reporting-complete-parity.test.ts",
-      "tests/domain/reporting/reporting-detail-parity.test.ts",
-      "tests/domain/reporting/reporting-derived-policies.test.ts",
-      "tests/domain/reporting/reporting-complement-rounding.test.ts",
-      "tests/domain/reporting/inspection-metric-mapping.test.ts",
-      "tests/integration/reporting",
-      "tests/integration/reporting/reporting-narrative-overview.test.ts",
-      "tests/e2e/reporting-consumer.spec.ts",
-      "docs/np-0035-reporting.md",
-      "docs/legacy-inventory.md",
-      "AGENTS.md",
-      "README.md",
-      "package.json",
-      "package-lock.json",
-      "next-env.d.ts",
-      "next.config.ts",
-      "eslint.config.mjs",
-      "vitest.config.ts",
-      "playwright.config.ts",
-      "tsconfig.json"
+      ".hc/project.json", ".hc/task.json", ".hc/stories/NP-0038.json", ".hc/evidence/NP-0038.json",
+      "src/backend/domain/procedures", "src/backend/application/procedures", "src/backend/ports/procedures",
+      "src/backend/adapters/inbound", "src/backend/adapters/outbound", "src/backend/composition",
+      "tests/domain/procedures", "tests/integration/procedures", "tests/integration/architecture",
+      "docs/np-0038-procedures.md", "docs/legacy-inventory.md", "AGENTS.md", "README.md", "package.json",
+      "package-lock.json", "next-env.d.ts", "next.config.ts", "eslint.config.mjs", "vitest.config.ts",
+      "playwright.config.ts", "tsconfig.json"
     ],
     "exclude": [
-      "Legacy repositories outside this checkout",
-      "Real data, SQLite, PostgreSQL and production deployments",
-      "Activating pages/api/dashboard.ts before the complete contract",
-      "Changing frontend consumers in legacy repositories outside this checkout",
-      "Unifying formulas with different legacy universes",
-      "Changing approved NP-0030/NP-0034 contracts",
-      "Adding dependencies"
+      "Legacy repositories and real data", "SQLite/PostgreSQL writers, migrations and production storage",
+      "Activating procedure creation or document upload before NP-0039", "Exposing stored_path, tokens or arbitrary URLs",
+      "Browser direct access to FastAPI, DB, filesystem or Blob", "Changing approved NP-0030/NP-0032 read contracts",
+      "Calling YouTube or storage during tests", "Adding dependencies"
     ],
-    "related_paths": [
-      ".hc",
-      "src",
-      "pages",
-      "tests",
-      "scripts",
-      "docs",
-      "vendor",
-      "AGENTS.md",
-      "README.md",
-      ".env.example",
-      ".gitignore",
-      "package.json",
-      "package-lock.json",
-      "next-env.d.ts",
-      "next.config.ts",
-      "eslint.config.mjs",
-      "vitest.config.ts",
-      "playwright.config.ts",
-      "tsconfig.json"
-    ]
+    "related_paths": [".hc", "src", "pages", "tests", "scripts", "docs", "vendor", "AGENTS.md", "README.md", "package.json", "package-lock.json", "next-env.d.ts", "next.config.ts", "eslint.config.mjs", "vitest.config.ts", "playwright.config.ts", "tsconfig.json"]
   },
-  "constraints": [
-    "Brain local 5.0.1",
-    "D-06 bloquea correcciones semánticas no aprobadas",
-    "Fixtures sintéticas y sin datos reales",
-    "No debilitar gates",
-    "Todo archivo authored conserva 99 líneas o menos",
-    "No modificar legacy ni añadir dependencias"
-  ],
+  "constraints": ["Brain local 5.0.1", "NP-0039 owns document upload activation", "Fixtures synthetic only", "No weakening gates", "Authored code ≤99 lines", "No legacy modification or dependencies"],
   "authority": {
-    "allowed": [
-      "Ampliar hechos sintéticos de reporting sin romper NP-0034",
-      "Crear contratos separados para secciones, métricas, detalle y narrativa",
-      "Crear políticas puras equivalentes para M-08 a M-13, M-20 a M-23 y M-25",
-      "Crear un caso de uso y puerto de lectura inyectable",
-      "Componer con el reader de memoria sin activar el endpoint existente",
-      "Crear preview E2E sintético, aislado y con 404 en producción para verificar el consumidor Next",
-      "Registrar REVIEW-01 como aceptada solo con aprobación humana y attestation en commit firmado",
-      "Documentar universos, límites, riesgos, golden pendiente y rollback"
-    ],
-    "forbidden": [
-      "Modificar repositorios legacy o sus datos",
-      "Activar SQLite, PostgreSQL, FastAPI o el writer de reporting",
-      "Cambiar fórmulas por criterio técnico sin D-06",
-      "Conectar consumidores de presentación existentes en este checkout a contratos reporting, con autorización explícita del propietario",
-      "Modificar consumidores frontend en repositorios legacy externos a este checkout",
-      "Declarar D-06 aprobado",
-      "Conectar el navegador directamente a un backend interno",
-      "Añadir tarjetas, filtros o métricas nuevas"
-    ]
+    "allowed": ["Characterize legacy procedure contracts and risks", "Create pure metadata, YouTube and grouping policies", "Create application cases with typed ports and memory doubles", "Document rollback and storage decisions", "Compose only read-only memory adapters"],
+    "forbidden": ["Persist to SQLite/PostgreSQL or create migrations", "Activate Pages/FastAPI procedure handlers", "Upload, stream or delete real PDFs", "Call YouTube, Blob or arbitrary URLs", "Expose stored_path or tokens", "Declare REVIEW-01 approved", "Change legacy repositories or real files"]
   }
 }

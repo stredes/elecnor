@@ -1,0 +1,211 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0038",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a12d494d4261ef2a3edb1008a0a15db55a6d83aa541a913395adf6bcf52e6e97",
+        "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:13.770Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "7b50844246e57938068a2d8a6afd7836785f31aa6a81db18cfa09fae93ac2edd",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:37.417Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "930f964b8193a7e0d681d8ba6919376c8c4718fd67df13be164b2588fa81f86e",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:46.144Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0038-procedures.md",
+        "tests/domain/procedures/",
+        "tests/integration/procedures/"
+      ],
+      "recorded_at": "2026-10-16T16:24:13.779Z",
+      "git": {
+        "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a12d494d4261ef2a3edb1008a0a15db55a6d83aa541a913395adf6bcf52e6e97",
+        "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:13.770Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "7f465b6494ad879c76486ae84ab78b2f7ebd89f25acb5349eb08a0ac275c509c"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0038-procedures.md",
+        "src/backend/adapters/outbound/memory-procedure-reader.ts",
+        "src/backend/application/procedures/",
+        "src/backend/domain/procedures/",
+        "src/backend/ports/procedures/",
+        "tests/domain/procedures/",
+        "tests/integration/procedures/"
+      ],
+      "recorded_at": "2026-10-16T16:24:37.419Z",
+      "git": {
+        "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "7f465b6494ad879c76486ae84ab78b2f7ebd89f25acb5349eb08a0ac275c509c",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "7b50844246e57938068a2d8a6afd7836785f31aa6a81db18cfa09fae93ac2edd",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:37.417Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "4182bf9bb66c40bafc08c870fc2566f21b340793da4ffeb84b16e26b0b26ede0"
+    },
+    {
+      "sequence": 3,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0038-procedures.md",
+        "src/backend/adapters/outbound/memory-procedure-reader.ts",
+        "src/backend/application/procedures/",
+        "src/backend/domain/procedures/",
+        "src/backend/ports/procedures/",
+        "tests/domain/procedures/",
+        "tests/integration/procedures/"
+      ],
+      "recorded_at": "2026-10-16T16:24:46.151Z",
+      "git": {
+        "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "4182bf9bb66c40bafc08c870fc2566f21b340793da4ffeb84b16e26b0b26ede0",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "930f964b8193a7e0d681d8ba6919376c8c4718fd67df13be164b2588fa81f86e",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:46.144Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "a49997afb0f26fc24a4fa2596099f5df4609c9b3358d0277f2b2df1733e2dacb"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+    "branch": "NP-0038"
+  },
+  "final": {
+    "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+    "test_suite_digest": "0f0301a856d93341d0a51fd5cd0886820d2ba08789ee53280e69fa59efe6ab6e",
+    "recorded_at": "2026-10-16T16:24:46.148Z",
+    "git": {
+      "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+      "branch": "NP-0038",
+      "dirty": true
+    }
+  }
+}
