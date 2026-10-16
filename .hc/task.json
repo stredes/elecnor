@@ -114,6 +114,7 @@
       "Crear coordinador de importación con dobles sintéticos y cancelación explícita",
       "Crear contratos de errores y contexto sin exponer cuerpos upstream",
       "Mantener composición C-IMPORT deshabilitada por defecto",
+      "Auditar dependencias heredadas sin añadir ni cambiar paquetes",
       "Documentar inventario, bloqueadores y rollback sin fabricar aprobaciones"
     ],
     "forbidden": [

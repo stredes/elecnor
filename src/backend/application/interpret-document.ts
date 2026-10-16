@@ -9,8 +9,9 @@ import { classifyAnswer, normalizeText } from "../domain/import-normalization";
 import { detectRubric } from "../domain/import-rubric";
 import { extractCity, resolveRegion } from "../domain/geography/resolve-location";
 import { matchMetric } from "../domain/catalog/catalog-match";
+import type { ImportInterpreter } from "../ports/import-interpreter";
 
-export class InterpretDocument {
+export class InterpretDocument implements ImportInterpreter {
   public constructor(
     private readonly catalog: CatalogReader,
     private readonly hash: HashPort,
