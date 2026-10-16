@@ -56,6 +56,61 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e475470f80f322ea0e2e7e89d58e50520227500e9e736532c157fd177522ff79",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:18.028Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "eaee366e57544cd5a8ef54e0ca9faed33f35279a4c553c896aca33d879a2f501",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:56.496Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "8f9a79aaed78ec16aa943080012eb52d901fd265ea5f3292aa91b619ac17fd8d",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:26:10.252Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -191,6 +246,121 @@
         }
       },
       "event_digest": "a49997afb0f26fc24a4fa2596099f5df4609c9b3358d0277f2b2df1733e2dacb"
+    },
+    {
+      "sequence": 4,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/procedures/metadata-validation.test.ts",
+        "tests/domain/procedures/youtube-id.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:25:18.029Z",
+      "git": {
+        "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "a49997afb0f26fc24a4fa2596099f5df4609c9b3358d0277f2b2df1733e2dacb",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e475470f80f322ea0e2e7e89d58e50520227500e9e736532c157fd177522ff79",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:18.028Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "603c70b81dec6f0a166a3283f7561a2c6c5c9288b8621d4905d8fa40d78793c8"
+    },
+    {
+      "sequence": 5,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        "src/backend/domain/procedures/parse-youtube-id.ts",
+        "src/backend/domain/procedures/validate-procedure.ts",
+        "tests/domain/procedures/metadata-validation.test.ts",
+        "tests/domain/procedures/youtube-id.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:25:56.497Z",
+      "git": {
+        "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "603c70b81dec6f0a166a3283f7561a2c6c5c9288b8621d4905d8fa40d78793c8",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "eaee366e57544cd5a8ef54e0ca9faed33f35279a4c553c896aca33d879a2f501",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:56.496Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "79b4c83acb6db48651fd178168a5b59a0a710d0bf1ebc2b2ba364af5354f0d75"
+    },
+    {
+      "sequence": 6,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        "src/backend/domain/procedures/parse-youtube-id.ts",
+        "src/backend/domain/procedures/validate-procedure.ts",
+        "tests/domain/procedures/metadata-validation.test.ts",
+        "tests/domain/procedures/youtube-id.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:26:10.257Z",
+      "git": {
+        "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "79b4c83acb6db48651fd178168a5b59a0a710d0bf1ebc2b2ba364af5354f0d75",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "8f9a79aaed78ec16aa943080012eb52d901fd265ea5f3292aa91b619ac17fd8d",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:26:10.252Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "ad23282e043b1c753151d72cc690d40ebcd52534c81f6744047d635bda60a566"
     }
   ],
   "git_baseline": {
@@ -199,11 +369,11 @@
     "branch": "NP-0038"
   },
   "final": {
-    "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
-    "test_suite_digest": "0f0301a856d93341d0a51fd5cd0886820d2ba08789ee53280e69fa59efe6ab6e",
-    "recorded_at": "2026-10-16T16:24:46.148Z",
+    "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+    "test_suite_digest": "d23755b9dae601cdf36481454c72d1a3b32747e5588662a5eeddc3b7afaa0746",
+    "recorded_at": "2026-10-16T16:26:10.256Z",
     "git": {
-      "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+      "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
       "branch": "NP-0038",
       "dirty": true
     }
