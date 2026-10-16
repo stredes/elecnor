@@ -143,6 +143,63 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/territory-series.test.ts",
+          "tests/integration/technicians/profile.test.ts",
+          "tests/integration/architecture/public-module-contracts.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "97305615618d327a420180db2b38dd6d63fdb488109a0419bdd04cae5a2ec03d",
+        "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
+        "test_digest": "412edac1dd2013c184aab584292bfeb5de4f99531a1f90c9f1a8e7231955fc6a",
+        "recorded_at": "2026-10-16T15:40:18.512Z",
+        "git": {
+          "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+          "branch": "NP-0036",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/territory-series.test.ts",
+          "tests/integration/technicians/profile.test.ts",
+          "tests/integration/architecture/public-module-contracts.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "e24b6325ebe8a5c607fc43a6dd65c5831b7348b41b4b5b31d9820f8cc39e8d02",
+        "source_digest": "0761f8a97b98b644493e77e0aaed443eadbf899f10c3be3a1ba79264e9e15bd8",
+        "test_digest": "412edac1dd2013c184aab584292bfeb5de4f99531a1f90c9f1a8e7231955fc6a",
+        "recorded_at": "2026-10-16T15:41:15.846Z",
+        "git": {
+          "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "5aef6a5e389f734c7e87b9d3063dd2f59085b8e571fba19dda02b7cff123d76a",
+        "source_digest": "0761f8a97b98b644493e77e0aaed443eadbf899f10c3be3a1ba79264e9e15bd8",
+        "test_digest": "412edac1dd2013c184aab584292bfeb5de4f99531a1f90c9f1a8e7231955fc6a",
+        "recorded_at": "2026-10-16T15:41:29.413Z",
+        "git": {
+          "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -712,6 +769,149 @@
         }
       },
       "event_digest": "2f848628041dd7a2c40b297e373a2642681b2f25170a3d97b19fc415883485f9"
+    },
+    {
+      "sequence": 20,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/architecture/",
+        "tests/integration/reporting/territory-fixtures.ts",
+        "tests/integration/reporting/territory-series.test.ts",
+        "tests/integration/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:40:18.513Z",
+      "git": {
+        "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "2f848628041dd7a2c40b297e373a2642681b2f25170a3d97b19fc415883485f9",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/territory-series.test.ts",
+          "tests/integration/technicians/profile.test.ts",
+          "tests/integration/architecture/public-module-contracts.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "97305615618d327a420180db2b38dd6d63fdb488109a0419bdd04cae5a2ec03d",
+        "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
+        "test_digest": "412edac1dd2013c184aab584292bfeb5de4f99531a1f90c9f1a8e7231955fc6a",
+        "recorded_at": "2026-10-16T15:40:18.512Z",
+        "git": {
+          "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+          "branch": "NP-0036",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "cdc48818fd0127dc04f4afe0ac8af2f26b82466b5cbfe2b041788acbe9808d9c"
+    },
+    {
+      "sequence": 21,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/application/reporting/get-reporting-analytics.ts",
+        "src/backend/application/technicians/",
+        "src/backend/composition/reporting-analytics.ts",
+        "src/backend/composition/technician-profile.ts",
+        "src/backend/domain/analytics/analytics-contract.ts",
+        "src/backend/domain/analytics/geolocation.ts",
+        "src/backend/domain/analytics/ranking.ts",
+        "src/backend/domain/analytics/series.ts",
+        "src/backend/domain/analytics/traceability.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "src/backend/domain/technicians/calculate-profile.ts",
+        "src/backend/domain/technicians/profile-contract.ts",
+        "tests/integration/architecture/",
+        "tests/integration/reporting/territory-fixtures.ts",
+        "tests/integration/reporting/territory-series.test.ts",
+        "tests/integration/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:41:15.847Z",
+      "git": {
+        "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "cdc48818fd0127dc04f4afe0ac8af2f26b82466b5cbfe2b041788acbe9808d9c",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/territory-series.test.ts",
+          "tests/integration/technicians/profile.test.ts",
+          "tests/integration/architecture/public-module-contracts.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "e24b6325ebe8a5c607fc43a6dd65c5831b7348b41b4b5b31d9820f8cc39e8d02",
+        "source_digest": "0761f8a97b98b644493e77e0aaed443eadbf899f10c3be3a1ba79264e9e15bd8",
+        "test_digest": "412edac1dd2013c184aab584292bfeb5de4f99531a1f90c9f1a8e7231955fc6a",
+        "recorded_at": "2026-10-16T15:41:15.846Z",
+        "git": {
+          "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "56576508eac8552cc41a14505364c4a8e422bb7f42c1632af99a292272a56d4b"
+    },
+    {
+      "sequence": 22,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/application/reporting/get-reporting-analytics.ts",
+        "src/backend/application/technicians/",
+        "src/backend/composition/reporting-analytics.ts",
+        "src/backend/composition/technician-profile.ts",
+        "src/backend/domain/analytics/analytics-contract.ts",
+        "src/backend/domain/analytics/geolocation.ts",
+        "src/backend/domain/analytics/ranking.ts",
+        "src/backend/domain/analytics/series.ts",
+        "src/backend/domain/analytics/traceability.ts",
+        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "src/backend/domain/technicians/calculate-profile.ts",
+        "src/backend/domain/technicians/profile-contract.ts",
+        "tests/integration/architecture/",
+        "tests/integration/reporting/territory-fixtures.ts",
+        "tests/integration/reporting/territory-series.test.ts",
+        "tests/integration/technicians/"
+      ],
+      "recorded_at": "2026-10-16T15:41:29.424Z",
+      "git": {
+        "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "56576508eac8552cc41a14505364c4a8e422bb7f42c1632af99a292272a56d4b",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "5aef6a5e389f734c7e87b9d3063dd2f59085b8e571fba19dda02b7cff123d76a",
+        "source_digest": "0761f8a97b98b644493e77e0aaed443eadbf899f10c3be3a1ba79264e9e15bd8",
+        "test_digest": "412edac1dd2013c184aab584292bfeb5de4f99531a1f90c9f1a8e7231955fc6a",
+        "recorded_at": "2026-10-16T15:41:29.413Z",
+        "git": {
+          "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "cdcc697b6f14ab7fdad67d8925b0770d3ffc72f2b048702f0bc6458ba63d773f"
     }
   ],
   "git_baseline": {
@@ -720,11 +920,11 @@
     "branch": "NP-0036"
   },
   "final": {
-    "source_digest": "ce741fa43b957997d04289b1bd45cfa0ac24563bbde62b14b06f04fe2ec63e1b",
-    "test_suite_digest": "979ed646127b2aecce3c3540466356279c8249bdcee5e4fcf8a3e6ceb3b920c8",
-    "recorded_at": "2026-10-16T15:35:18.262Z",
+    "source_digest": "0761f8a97b98b644493e77e0aaed443eadbf899f10c3be3a1ba79264e9e15bd8",
+    "test_suite_digest": "924282e09772e13546056a0ea8324df7cd5435b053b8610dc5e9a868149cd388",
+    "recorded_at": "2026-10-16T15:41:29.420Z",
     "git": {
-      "head": "cd289e9d46a0f06b2c07e0a0e7c493bb2ee79ea8",
+      "head": "2f50fa93e8b2e262f9b5ee0622ccb1e136496e15",
       "branch": "NP-0036",
       "dirty": true
     }

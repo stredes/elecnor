@@ -2,6 +2,11 @@ export type ReportingInspectionFact = {
   readonly id?: string;
   readonly date?: string | null;
   readonly technician: string | null;
+  readonly auditor?: string | null;
+  readonly address?: string | null;
+  readonly city?: string | null;
+  readonly region?: string | null;
+  readonly filename?: string | null;
   readonly percentage: number | null;
   readonly actions: number | null;
 };
