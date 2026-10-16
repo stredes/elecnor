@@ -22,6 +22,7 @@ type MetricResult = { section: string; metric: SectionMetric };
 
 export function calculateSectionReports(facts: ReportingFacts): readonly SectionReport[] {
   const groups = new Map<string, MetricBucket>();
+  const inspections = new Map(facts.inspections.map((item) => [item.id, item]));
   for (const item of facts.metrics) {
     if (item.metric == null || item.applicable == null) continue;
     const section = normalizeSection(item.section);
@@ -35,7 +36,9 @@ export function calculateSectionReports(facts: ReportingFacts): readonly Section
     bucket.items.push(item);
     groups.set(key, bucket);
   }
-  const metrics = [...groups.values()].map(toMetric).filter((item) => item.metric.applicable > 0);
+  const metrics = [...groups.values()]
+    .map((bucket) => toMetric(bucket, inspections))
+    .filter((item) => item.metric.applicable > 0);
   const sections = new Map<string, SectionMetric[]>();
   for (const result of metrics) {
     const current = sections.get(result.section) ?? [];
@@ -44,7 +47,10 @@ export function calculateSectionReports(facts: ReportingFacts): readonly Section
   return [...sections].map(([name, items]) => toSection(name, items)).sort(byPercentage);
 }
 
-function toMetric(bucket: MetricBucket): MetricResult {
+function toMetric(
+  bucket: MetricBucket,
+  inspections: ReadonlyMap<string | undefined, { technician: string | null }>,
+): MetricResult {
   const applicable = sumKnown(bucket.items.map((item) => item.applicable)) ?? 0;
   const conforming = sumKnown(bucket.items.map((item) => item.conforming));
   return {
@@ -59,7 +65,7 @@ function toMetric(bucket: MetricBucket): MetricResult {
       nonConformingPercentage: conforming === null
         ? null
         : roundPython(100 * (applicable - conforming) / applicable, 1),
-      technicians: techniciansFor(bucket.items),
+      technicians: techniciansFor(bucket.items, inspections),
     },
   };
 }

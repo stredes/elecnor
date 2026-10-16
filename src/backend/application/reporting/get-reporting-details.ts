@@ -1,4 +1,5 @@
 import { calculateMetricDetail } from "../../domain/reporting/calculate-metric-detail";
+import { calculateKpis } from "../../domain/reporting/calculate-kpis";
 import {
   calculateMetricRanking,
   calculateMetricStats,
@@ -18,6 +19,7 @@ export class GetReportingDetails {
 
   public async execute(): Promise<ReportingDetails> {
     const facts = await this.reader.read();
+    const kpis = calculateKpis(facts);
     const sections = calculateSectionReports(facts);
     const metrics = calculateMetricRanking(calculateMetricStats(facts));
     return {
@@ -25,6 +27,11 @@ export class GetReportingDetails {
       sectionInspections: calculateSectionApprovals(facts),
       metrics,
       narrative: calculateNarrative({
+        global: {
+          score: Number.parseFloat(kpis["Promedio global"]) || 0,
+          validScores: kpis["Puntajes válidos"],
+          below70: kpis["Bajo 70%"],
+        },
         sections: sections.map(({ name, percentage }) => ({ name, percentage })),
         distribution: countScoreBands(facts),
         scatter: metrics.scatter,

@@ -8,6 +8,7 @@ import type { NarrativeInput } from "@/backend/domain/reporting/reporting-detail
 describe("NP-0035 narrative parity", () => {
   it("moves section gap, risk and EPP synthesis to the backend policy", () => {
     const input: NarrativeInput = {
+      global: { score: 73.33, validScores: 10, below70: 3 },
       sections: [
         { name: "preparacion", percentage: 50 },
         { name: "ejecucion", percentage: 90 },
@@ -36,6 +37,7 @@ describe("NP-0035 narrative parity", () => {
     };
 
     expect(calculateNarrative(input)).toMatchObject({
+      globalGap: { global: 73.33, gap: 26.67, healthy: 7 },
       sectionGap: { weakest: { name: "preparacion" }, restAverage: 90 },
       lowBandCount: 6,
       scatterRisk: { risk: 1, total: 3 },

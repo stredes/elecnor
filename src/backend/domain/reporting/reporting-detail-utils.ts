@@ -14,12 +14,16 @@ export function countState(items: readonly ReportingMetricFact[], state: string)
   return items.filter((item) => item.state === state).length;
 }
 
-export function techniciansFor(items: readonly ReportingMetricFact[]): MetricTechnicians {
+export function techniciansFor(
+  items: readonly ReportingMetricFact[],
+  inspections: ReadonlyMap<string | undefined, { technician: string | null }> = new Map(),
+): MetricTechnicians {
   const conforming = new Set<string>();
   const nonConforming = new Set<string>();
   for (const item of items) {
-    if (!item.technician || !["CONFORME", "NO_CONFORME"].includes(item.state)) continue;
-    (item.state === "CONFORME" ? conforming : nonConforming).add(item.technician);
+    const technician = inspections.get(item.inspectionId)?.technician ?? item.technician;
+    if (!technician || !["CONFORME", "NO_CONFORME"].includes(item.state)) continue;
+    (item.state === "CONFORME" ? conforming : nonConforming).add(technician);
   }
   return { conforming: ordered(conforming), nonConforming: ordered(nonConforming) };
 }

@@ -4,6 +4,7 @@ import type {
   NarrativeSummary,
   NarrativeSection,
 } from "./reporting-detail-contract";
+import { calculateGlobalGap } from "./calculate-global-gap";
 
 const LOW_BANDS = new Set(["0-49", "50-59", "60-69"]);
 
@@ -11,6 +12,7 @@ export function calculateNarrative(input: NarrativeInput): NarrativeSummary {
   const weakest = weakestSection(input.sections);
   const rated = input.sections.filter((section) => section.percentage !== null);
   return {
+    globalGap: calculateGlobalGap(input.global),
     sectionGap: { weakest, restAverage: averageRest(rated, weakest) },
     lowBandCount: input.distribution
       .filter((point) => LOW_BANDS.has(point.label))

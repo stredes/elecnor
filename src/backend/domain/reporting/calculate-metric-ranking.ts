@@ -21,6 +21,7 @@ type MetricBucket = {
 
 export function calculateMetricStats(facts: ReportingFacts): readonly MetricStat[] {
   const groups = new Map<string, MetricBucket>();
+  const inspections = new Map(facts.inspections.map((item) => [item.id, item]));
   for (const item of facts.metrics) {
     if (item.metric == null) continue;
     const key = keyOf(item.metric, item.code, item.section);
@@ -33,7 +34,9 @@ export function calculateMetricStats(facts: ReportingFacts): readonly MetricStat
     bucket.items.push(item);
     groups.set(key, bucket);
   }
-  return [...groups.values()].map(toStat).filter((item) => item.applicable > 0);
+  return [...groups.values()]
+    .map((bucket) => toStat(bucket, inspections))
+    .filter((item) => item.applicable > 0);
 }
 
 export function calculateMetricRanking(
@@ -60,7 +63,10 @@ export function selectMetricBand(
   }).slice(0, limit).map((item) => item.metric);
 }
 
-function toStat(bucket: MetricBucket): MetricStat {
+function toStat(
+  bucket: MetricBucket,
+  inspections: ReadonlyMap<string | undefined, { technician: string | null }>,
+): MetricStat {
   const applicable = sumKnown(bucket.items.map((item) => item.applicable)) ?? 0;
   const conforming = sumKnown(bucket.items.map((item) => item.conforming));
   return {
@@ -72,7 +78,7 @@ function toStat(bucket: MetricBucket): MetricStat {
     conforming: conforming ?? 0,
     nonConforming: countState(bucket.items, "NO_CONFORME"),
     compliance: conforming === null ? null : roundSql(100 * conforming / applicable),
-    technicians: techniciansFor(bucket.items),
+    technicians: techniciansFor(bucket.items, inspections),
   };
 }
 

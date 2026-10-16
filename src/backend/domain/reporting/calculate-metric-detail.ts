@@ -42,7 +42,7 @@ function technicianBreakdown(
 ): readonly TechnicianBreakdown[] {
   const groups = new Map<string, ReportingMetricFact[]>();
   for (const item of items) {
-    const name = item.technician ?? inspections.get(item.inspectionId)?.technician;
+    const name = inspections.get(item.inspectionId)?.technician ?? item.technician;
     if (name) groups.set(name, [...(groups.get(name) ?? []), item]);
   }
   return [...groups].map(([technician, rows]) => ({

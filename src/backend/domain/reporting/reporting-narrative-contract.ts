@@ -11,7 +11,20 @@ export type NarrativeSection = {
 
 export type NarrativeMetric = MetricStat;
 
+export type NarrativeGlobalInput = {
+  readonly score: number;
+  readonly validScores: number;
+  readonly below70: number;
+};
+
+export type NarrativeGlobalGap = {
+  readonly global: number;
+  readonly gap: number;
+  readonly healthy: number;
+};
+
 export type NarrativeInput = {
+  readonly global: NarrativeGlobalInput;
   readonly sections: readonly NarrativeSection[];
   readonly distribution: readonly ScoreBand[];
   readonly scatter: readonly ScatterPoint[];
@@ -20,6 +33,7 @@ export type NarrativeInput = {
 };
 
 export type NarrativeSummary = {
+  readonly globalGap: NarrativeGlobalGap;
   readonly sectionGap: {
     weakest: NarrativeSection | null;
     restAverage: number | null;

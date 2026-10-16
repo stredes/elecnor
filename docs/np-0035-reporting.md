@@ -22,9 +22,13 @@ dependencia de ejecución de esta rama.
   applicable`, y separan evaluadas, debajo del umbral y no evaluadas.
 - Métricas cuentan observaciones incluyendo estados `NA`/desconocidos, pero el
   ranking sólo incluye grupos con suma de aplicables mayor que cero.
+- Los técnicos se resuelven desde la inspección relacionada y usan el técnico
+  del hecho de métrica sólo como fallback de un fixture sin relación.
 - Weak/strong mantienen desempate por `applicable` y orden estable de entrada.
 - La narrativa conserva bandas bajas, riesgo scatter, EPP, sección más débil y
   toma el mínimo desde `weak` y el máximo desde `strong`.
+- La brecha global conserva el cálculo legacy: score inválido/vacío se vuelve 0,
+  la brecha es `max(0, 100 - score)` y saludable es válido menos bajo-70.
 - El snapshot conserva el complemento Python de sección y el complemento
   `100 - compliance` con dos decimales para estadísticas.
 
