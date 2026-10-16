@@ -54,6 +54,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "b2cbd82fed2b28ca2264ff35891c8dcd47194a9a9df057c2a5b8fe3a238ff38f",
+        "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
+        "test_digest": "b1fb317e35e94d261926f00497064d1212eb6629a272ccfea127fc2a2a482bb1",
+        "recorded_at": "2026-10-16T00:20:47.305Z",
+        "git": {
+          "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+          "branch": "NP-0030",
+          "dirty": true
+        },
+        "expected_reason": "expected 25 to be 500"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "924311263e3b8cfca8fd9baeff3853814de151206cab4cfd93cc2e04debe4018",
+        "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
+        "test_digest": "b1fb317e35e94d261926f00497064d1212eb6629a272ccfea127fc2a2a482bb1",
+        "recorded_at": "2026-10-16T00:20:58.186Z",
+        "git": {
+          "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "614131eb7daa55a9d3e8ec6b9c190938deffd0d9989e98bf8ea8fbf80979df55",
+        "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
+        "test_digest": "b1fb317e35e94d261926f00497064d1212eb6629a272ccfea127fc2a2a482bb1",
+        "recorded_at": "2026-10-16T00:21:02.981Z",
+        "git": {
+          "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -304,6 +357,139 @@
       "previous_event_digest": "336c20c309de5439f3b020ca7cd0d912dd001be0654092a632339e764330e4d2",
       "code": "PRODUCTION_NOT_COMMITTED",
       "event_digest": "1205a55dc1ae01450bede62b8f986ac462bcffbf0953c7a7ed3d18118074a791"
+    },
+    {
+      "sequence": 7,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/inspection-list-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T00:20:34.106Z",
+      "git": {
+        "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "1205a55dc1ae01450bede62b8f986ac462bcffbf0953c7a7ed3d18118074a791",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "993f53c18632a569f13c8be0e5b673d672ab2297039eb51b3bb42516e149c24b"
+    },
+    {
+      "sequence": 8,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "expected 25 to be 500",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/task.json",
+        "tests/integration/inspection-list-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T00:20:47.306Z",
+      "git": {
+        "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "993f53c18632a569f13c8be0e5b673d672ab2297039eb51b3bb42516e149c24b",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "b2cbd82fed2b28ca2264ff35891c8dcd47194a9a9df057c2a5b8fe3a238ff38f",
+        "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
+        "test_digest": "b1fb317e35e94d261926f00497064d1212eb6629a272ccfea127fc2a2a482bb1",
+        "recorded_at": "2026-10-16T00:20:47.305Z",
+        "git": {
+          "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+          "branch": "NP-0030",
+          "dirty": true
+        },
+        "expected_reason": "expected 25 to be 500"
+      },
+      "event_digest": "bd62298fc8832d09fe8c6bc2d975286d5afece97898ceb0b4cce9bc907b11449"
+    },
+    {
+      "sequence": 9,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/task.json",
+        "src/backend/domain/inspection-list-contract.ts",
+        "src/backend/domain/inspection-list-query.ts",
+        "tests/integration/inspection-list-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T00:20:58.187Z",
+      "git": {
+        "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "bd62298fc8832d09fe8c6bc2d975286d5afece97898ceb0b4cce9bc907b11449",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-list-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "924311263e3b8cfca8fd9baeff3853814de151206cab4cfd93cc2e04debe4018",
+        "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
+        "test_digest": "b1fb317e35e94d261926f00497064d1212eb6629a272ccfea127fc2a2a482bb1",
+        "recorded_at": "2026-10-16T00:20:58.186Z",
+        "git": {
+          "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "event_digest": "9efb447481c538898cc95ce32e82f239d9b4cc79a02461a975878cb8b63e121d"
+    },
+    {
+      "sequence": 10,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/task.json",
+        "src/backend/domain/inspection-list-contract.ts",
+        "src/backend/domain/inspection-list-query.ts",
+        "tests/integration/inspection-list-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T00:21:02.981Z",
+      "git": {
+        "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "9efb447481c538898cc95ce32e82f239d9b4cc79a02461a975878cb8b63e121d",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "614131eb7daa55a9d3e8ec6b9c190938deffd0d9989e98bf8ea8fbf80979df55",
+        "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
+        "test_digest": "b1fb317e35e94d261926f00497064d1212eb6629a272ccfea127fc2a2a482bb1",
+        "recorded_at": "2026-10-16T00:21:02.981Z",
+        "git": {
+          "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "event_digest": "c5adc6adb1d19dd0b87df69f3e6f2093d14af8fb7efe44f2313a5bc1d54945d2"
     }
   ],
   "git_baseline": {
@@ -312,11 +498,11 @@
     "branch": "NP-0030"
   },
   "final": {
-    "source_digest": "d18a95ea12681743c004de7a3c3447215558576431f7b21f464b20ec0020ec78",
-    "test_suite_digest": "8da00d66efe50d8a2bdd97784e1b07c74fd6fb2c2b82ac5954b10cab151556a0",
-    "recorded_at": "2026-10-16T00:19:03.285Z",
+    "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
+    "test_suite_digest": "8d037c4bccd61560a07bc664acb233e810705fd5c20af0b5a6dffb01aabe9d7c",
+    "recorded_at": "2026-10-16T00:21:02.981Z",
     "git": {
-      "head": "5acdebc380ccec70d58c9807f6b51492fc52cce2",
+      "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
       "branch": "NP-0030",
       "dirty": true
     }

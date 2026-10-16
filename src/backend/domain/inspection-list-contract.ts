@@ -9,6 +9,11 @@ export const INSPECTION_SORTS = [
   "status_asc", "status_desc",
 ] as const;
 
+export const INSPECTION_SCORE_FILTERS = [
+  "0to9", "10to19", "20to29", "30to39", "40to49", "50to59", "60to69",
+  "70to79", "80to89", "90to99", "below70", "70to89", "perfect", "missing",
+] as const;
+
 export type InspectionSort = (typeof INSPECTION_SORTS)[number];
 export type InspectionStatus = "COMPLETA" | "PARCIAL";
 

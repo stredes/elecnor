@@ -9,7 +9,7 @@
     "risk_tags": ["public-api", "persistence", "migration", "dependency"],
     "test_plan": [
       { "test_id": "TEST-01", "order": 1, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-list-parity.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/integration/inspection-list-parity.test.ts", "regression": { "check": "integration", "args": [] } },
-      { "test_id": "TEST-02", "order": 2, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-list-boundaries.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/integration/inspection-list-boundaries.test.ts", "regression": { "check": "integration", "args": [] } },
+      { "test_id": "TEST-02", "order": 2, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-list-boundaries.test.ts"], "expected_failure": "expected 25 to be 500", "fixture": "tests/integration/inspection-list-boundaries.test.ts", "regression": { "check": "integration", "args": [] } },
       { "test_id": "TEST-03", "order": 3, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-architecture.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/integration/inspection-architecture.test.ts", "regression": { "check": "integration", "args": [] } },
       { "test_id": "TEST-04", "order": 4, "level": "e2e", "check": "e2e", "args": ["tests/e2e/inspection-list.spec.ts"], "expected_failure": "Expected: 200", "fixture": "tests/e2e/inspection-list.spec.ts", "regression": { "check": "e2e", "args": [] } }
     ]

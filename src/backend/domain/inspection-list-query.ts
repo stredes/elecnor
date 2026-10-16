@@ -1,6 +1,7 @@
 import {
   DEFAULT_INSPECTION_LIMIT,
   DEFAULT_INSPECTION_SORT,
+  INSPECTION_SCORE_FILTERS,
   INSPECTION_SORTS,
   MAX_INSPECTION_LIMIT,
   type InspectionListQuery,
@@ -9,7 +10,7 @@ import {
 
 type RawValue = string | string[] | undefined;
 const SORT_SET = new Set<string>(INSPECTION_SORTS);
-const SCORE_SET = new Set(["below70", "70to89", "perfect", "missing"]);
+const SCORE_SET = new Set<string>(INSPECTION_SCORE_FILTERS);
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const MONTH_PATTERN = /^\d{4}-\d{2}$/;
 
@@ -23,7 +24,7 @@ export function parseInspectionQuery(params: Record<string, RawValue> = {}): Ins
       q: text(params.q), date: date(params.date), from: date(params.from), to: date(params.to),
       technician: text(params.technician), auditor: text(params.auditor), region: text(params.region),
       status: status === "COMPLETA" || status === "PARCIAL" ? status : "",
-      score: SCORE_SET.has(score) || /^\d{1,2}to\d{1,2}$/.test(score) ? score : "",
+      score: SCORE_SET.has(score) ? score : "",
       month: MONTH_PATTERN.test(month) ? month : "",
       sort: (SORT_SET.has(sort) ? sort : DEFAULT_INSPECTION_SORT) as InspectionSort,
     },
@@ -61,6 +62,7 @@ function date(value: RawValue): string {
 }
 
 function integer(value: RawValue, fallback: number, low: number, high: number): number {
-  const parsed = typeof value === "string" ? Number.parseInt(value, 10) : Number.NaN;
+  const parsed = typeof value === "string" && /^-?\d+$/.test(value)
+    ? Number(value) : Number.NaN;
   return Number.isFinite(parsed) ? Math.max(low, Math.min(high, parsed)) : fallback;
 }
