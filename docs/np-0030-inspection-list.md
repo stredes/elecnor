@@ -48,6 +48,28 @@ versionadas y baseline visual reproducible con entorno y herramientas registrado
 aprobación formal de D-05 y autorización formal de D-11. D-02, D-03, D-04, D-06,
 D-08, D-09 y D-10 siguen condicionando producción o importación real.
 
+## Evidencia automatizada para REVIEW-01
+
+Revisión técnica ejecutada sobre el commit de implementación `9fc976d` y la
+evidencia TDD `841a0be`. Se revisaron el contrato candidato y su validador
+(`src/backend/domain/c-extract-*.ts`), la composición y Gateway de inspecciones,
+`pages/api/inspections/index.ts`, `pages/api/import.ts`, el Gateway de importación
+deshabilitado, los tests sintéticos de contratos y los scanners de calidad.
+
+Resultados observados: `hc gates` PASS; unitarias 44/44; integración 39/39; E2E
+4/4 durante el rebaseline; build, lint, typecheck, líneas, límites, contratos y
+audit PASS. El validador rechaza versiones incompatibles, campos de persistencia,
+índices desordenados, coordenadas sin fuente y rúbricas sin trazabilidad.
+
+Controles de seguridad observados: la lista acepta sólo GET y responde 405 a otros
+métodos; el navegador no accede a DB; C-IMPORT mantiene el Gateway upstream
+deshabilitado; no hay SQL, SQLite, PDF original ni secreto en el nuevo código.
+
+Riesgos pendientes: la attestation `HC-Review` no existe; C-EXTRACT sigue siendo
+candidato D-05; no hay PDFs reales autorizados ni baseline D-11; no se probó un
+FastAPI/PostgreSQL productivo. `hc verify` pasa la evidencia técnica y falla sólo
+por `NFR-01 references unresolved REVIEW-01`.
+
 ## Evidencia legacy inspeccionada
 
 | Contexto | Evidencia | Comportamiento conservado |
