@@ -7,13 +7,14 @@ import { countScoreBands } from "../../domain/reporting/count-score-bands";
 import type { ReportingFacts } from "../../domain/reporting/reporting-facts-contract";
 import type { ReadInspectionFacts } from "../../ports/read-inspection-facts";
 import type { ReadReportingDetails } from "../../ports/read-reporting-details";
+import type { ReportingDetailsResult } from "./reporting-details-result-contract";
 
 const emptyOverview: ReportingFacts = { inspections: [], importLogs: [], metrics: [] };
 
 export class GetReportingDetails {
   public constructor(private readonly reader: ReadReportingDetails, private readonly overviewReader?: ReadInspectionFacts) {}
 
-  public async execute() {
+  public async execute(): Promise<ReportingDetailsResult> {
     const [facts, overviewFacts] = await Promise.all([
       this.reader.read(), this.overviewReader?.read() ?? Promise.resolve(emptyOverview),
     ]);
@@ -28,5 +29,3 @@ export class GetReportingDetails {
     return { sections, approvals, rankings, narrative };
   }
 }
-
-export type ReportingDetailsResult = Awaited<ReturnType<GetReportingDetails["execute"]>>;

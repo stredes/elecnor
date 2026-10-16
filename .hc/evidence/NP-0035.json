@@ -568,7 +568,23 @@
           "branch": "NP-0035",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "84fface1740b798a92b269d10d8c24641a3cee2ee996bc21524741e48d33b327",
+          "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+          "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+          "recorded_at": "2026-10-16T15:38:56.025Z",
+          "git": {
+            "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
+            "branch": "NP-0035",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -2320,6 +2336,44 @@
         }
       },
       "event_digest": "406870d4bf068c8db00940f99143042e27b169681de0753cdd35df68854b2e46"
+    },
+    {
+      "sequence": 50,
+      "type": "REBASELINED",
+      "test_id": "TEST-10",
+      "reason": "Moved presentation/result types into contract modules and removed the resulting dependency cycle required by quality gates.",
+      "executed": true,
+      "changed_files": [
+        "pages/test-reporting.tsx",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/application/reporting/reporting-details-result-contract.ts",
+        "src/dashboard/components/ReportingInsights.tsx",
+        "src/dashboard/contracts/reporting-insights-contract.ts",
+        "src/dashboard/contracts/test-reporting-page-contract.ts"
+      ],
+      "recorded_at": "2026-10-16T15:38:56.028Z",
+      "git": {
+        "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "406870d4bf068c8db00940f99143042e27b169681de0753cdd35df68854b2e46",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "84fface1740b798a92b269d10d8c24641a3cee2ee996bc21524741e48d33b327",
+        "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:38:56.025Z",
+        "git": {
+          "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "fbb8fd62806f54732cdbce7ee0fc676170c1c49846f82c13515e7b9067971700"
     }
   ],
   "git_baseline": {
@@ -2328,11 +2382,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "853c248e42b3116e5114b253a31c1d86f40cb944fa51bf9e049b64d1c2acdd01",
+    "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
     "test_suite_digest": "c44d66a86b2c486eace61a77bc7a1ee14c4e71561930cbfdacba0a5cb5dfe8ad",
-    "recorded_at": "2026-10-16T15:37:40.468Z",
+    "recorded_at": "2026-10-16T15:38:56.028Z",
     "git": {
-      "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+      "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
       "branch": "NP-0035",
       "dirty": true
     }

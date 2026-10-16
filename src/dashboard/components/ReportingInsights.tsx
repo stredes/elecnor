@@ -1,6 +1,4 @@
-import type { ReportingDetailsResult } from "@/backend/application/reporting/get-reporting-details";
-
-type ReportingInsightsProps = { readonly report: ReportingDetailsResult };
+import type { ReportingInsightsProps } from "../contracts/reporting-insights-contract";
 
 export function ReportingInsights({ report }: ReportingInsightsProps) {
   return (
