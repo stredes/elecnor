@@ -1,9 +1,9 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0034",
+    "id": "NP-0035",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0034.json",
+    "story_path": ".hc/stories/NP-0035.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
     "change_areas": ["application", "infrastructure", "presentation", "documentation"],
     "risk_tags": ["migration", "public-api", "persistence", "dependency"],
@@ -13,9 +13,14 @@
         "order": 1,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/integration/reporting/kpi-parity.test.ts"],
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/integration/reporting/kpi-parity.test.ts",
+        "fixture": "tests/domain/reporting/section-parity.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -24,7 +29,7 @@
         "level": "unit",
         "check": "unit",
         "args": ["tests/domain/reporting/reporting-boundaries.test.ts"],
-        "expected_failure": "70.12%",
+        "expected_failure": "Failed to resolve import",
         "fixture": "tests/domain/reporting/reporting-boundaries.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
@@ -33,9 +38,9 @@
         "order": 3,
         "level": "integration",
         "check": "integration",
-        "args": ["tests/integration/reporting-overview.test.ts"],
+        "args": ["tests/integration/reporting/reporting-consumers.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/integration/reporting-overview.test.ts",
+        "fixture": "tests/integration/reporting/reporting-consumers.test.ts",
         "regression": { "check": "integration", "args": [] }
       }
     ]
@@ -44,21 +49,18 @@
     "include": [
       ".hc/project.json",
       ".hc/task.json",
+      ".hc/stories/NP-0035.json",
+      ".hc/evidence/NP-0035.json",
       ".hc/stories/NP-0034.json",
       ".hc/evidence/NP-0034.json",
-      ".hc/stories/NP-0033.json",
-      ".hc/evidence/NP-0033.json",
       "src/backend/domain/reporting",
       "src/backend/application/reporting",
       "src/backend/ports",
       "src/backend/adapters/outbound",
       "src/backend/composition",
       "tests/domain/reporting",
-      "tests/integration/reporting/kpi-parity.test.ts",
-      "tests/integration/reporting/reporting-fixtures.ts",
-      "tests/integration/reporting/memory-reader.test.ts",
-      "tests/integration/reporting-overview.test.ts",
-      "docs/np-0034-reporting.md",
+      "tests/integration/reporting",
+      "docs/np-0035-reporting.md",
       "docs/legacy-inventory.md",
       "AGENTS.md",
       "README.md",
@@ -75,8 +77,9 @@
       "Legacy repositories outside this checkout",
       "Real data, SQLite, PostgreSQL and production deployments",
       "Activating pages/api/dashboard.ts before the complete contract",
-      "New dashboard cards or unapproved formula corrections",
-      "Changing approved NP-0030/NP-0032 contracts",
+      "Changing the existing frontend mappers, hooks or JSX",
+      "Unifying formulas with different legacy universes",
+      "Changing approved NP-0030/NP-0034 contracts",
       "Adding dependencies"
     ],
     "related_paths": [
@@ -111,21 +114,21 @@
   ],
   "authority": {
     "allowed": [
-      "Crear contratos de hechos y snapshot de reporting",
-      "Crear políticas puras equivalentes para M-01 a M-07",
-      "Crear GetDashboardOverview y un ReadInspectionFacts port",
-      "Crear un adaptador de lectura sintético sin activar el endpoint",
-      "Componer con dobles sintéticos sin activar el endpoint existente",
-      "Auditar dependencias heredadas sin añadir ni cambiar paquetes",
-      "Documentar fórmulas, riesgos, golden pendiente y rollback"
+      "Ampliar hechos sintéticos de reporting sin romper NP-0034",
+      "Crear contratos separados para secciones, métricas, detalle y narrativa",
+      "Crear políticas puras equivalentes para M-08 a M-13, M-20 a M-23 y M-25",
+      "Crear un caso de uso y puerto de lectura inyectable",
+      "Componer con el reader de memoria sin activar el endpoint existente",
+      "Documentar universos, límites, riesgos, golden pendiente y rollback"
     ],
     "forbidden": [
       "Modificar repositorios legacy o sus datos",
       "Activar SQLite, PostgreSQL, FastAPI o el writer de reporting",
       "Cambiar fórmulas por criterio técnico sin D-06",
-      "Añadir tarjetas, filtros o métricas nuevas",
+      "Modificar mappers, stores, hooks o componentes frontend existentes",
       "Declarar D-06 o REVIEW-01 aprobados",
-      "Conectar el navegador directamente a un backend interno"
+      "Conectar el navegador directamente a un backend interno",
+      "Añadir tarjetas, filtros o métricas nuevas"
     ]
   }
 }

@@ -1,0 +1,72 @@
+{
+  "schema_version": "2.0",
+  "story": {
+    "id": "NP-0035",
+    "title": "Migrar aprobación por sección, detalle de métricas y narrativa calculada",
+    "actor": "equipo de backend",
+    "need": "sacar de frontend y handlers los cálculos de métricas y su interpretación",
+    "business_value": "mantener universos y conclusiones consistentes con los datos",
+    "context": "Anexo NP-0035 en NP-0026-backlog.md. Evidencia section_inspections.py, api.py:293-374,610-717, narrative.ts, metricSnapshot.ts y mapper inspections. M-08 a M-13, M-20 a M-23 y M-25.",
+    "preconditions": [
+      "Overview y lectura de hechos disponibles",
+      "Contratos granular, detalle, top y narrativa caracterizados con fixtures sintéticas"
+    ],
+    "acceptance_criteria": [
+      {
+        "id": "AC-01",
+        "given": ["respuestas por inspección, catálogo y secciones"],
+        "when": ["se consultan aprobación, detalle, top métricas y narrativa"],
+        "then": [
+          "se conservan fórmulas, técnicos, observaciones, límites10/12/200 y orden",
+          "las conclusiones EPP y síntesis proceden del backend"
+        ],
+        "test_ids": ["TEST-01"]
+      },
+      {
+        "id": "AC-02",
+        "given": ["NA, desconocidos, sección ausente, sin aplicables y empates"],
+        "when": ["se calculan resultados"],
+        "then": [
+          "no se convierten no evaluadas en reprobadas",
+          "aprobación exacta70 se acepta y todas suma aprobaciones, no inspecciones únicas",
+          "faltantes EPP y null panel conservan baseline"
+        ],
+        "test_ids": ["TEST-02"]
+      },
+      {
+        "id": "AC-03",
+        "given": ["consumidores de panel, detalle, síntesis y secciones"],
+        "when": ["se conectan al nuevo contrato"],
+        "then": [
+          "no duplican porcentajes ni reglas en JSX, hooks, stores o mappers frontend",
+          "contratos y pruebas están fuera de pages y respetan capas"
+        ],
+        "test_ids": ["TEST-03"]
+      }
+    ],
+    "business_rules": [
+      { "id": "BR-01", "rule": "Conservar universos de métrica e inspección separados; no introducir nuevos umbrales." }
+    ],
+    "edge_cases": ["Métrica sin catálogo pero evaluada", "Checklist fuera del top débil", "Complemento con redondeo distinto"],
+    "out_of_scope": ["Unificar fórmulas distintas sin aprobación", "Rediseñar visualizaciones", "Activar endpoint con datos reales"],
+    "dependencies": ["NP-0034"],
+    "non_functional_requirements": [
+      {
+        "id": "NFR-01",
+        "rule": "Ciclos por sección, detalle y narrativa con pruebas propias; archivos y tests hasta99 líneas.",
+        "risk_tags": ["migration", "public-api", "persistence", "dependency"],
+        "test_ids": ["TEST-01", "TEST-02", "TEST-03"],
+        "review_ids": ["REVIEW-01"]
+      }
+    ],
+    "definition_of_ready": {
+      "ready": false,
+      "evidence": ["Depende de NP-0034 y de la caracterización aprobada por fórmula; la implementación queda limitada a contratos y dobles sintéticos."]
+    },
+    "definition_of_done": [
+      "Contratos completos y cálculo único en backend",
+      "Paridad de universos, errores, límites y orden demostrada",
+      "Cierre común del backlog"
+    ]
+  }
+}
