@@ -587,7 +587,19 @@
       ]
     }
   ],
-  "reviews": [],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "9aeb42b8a3dfc2145991db3b683e84b510f36f250f399268cb0c4259061f96ca",
+      "status": "accepted",
+      "reason": "Human technical acceptance for Development only; no production GO. Synthetic reader and formal legacy golden remain pending.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {
+        "provider": "git-signed-commit",
+        "commit": "6e241cdc678a1f7414bee63eaee76dfe04990687"
+      }
+    }
+  ],
   "events": [
     {
       "sequence": 1,
