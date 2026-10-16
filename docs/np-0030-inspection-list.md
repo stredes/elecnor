@@ -6,6 +6,28 @@ Esta vertical migra la lectura del listado a Pages Router, un BFF de Next y un
 puerto de lectura. El comportamiento se prueba con tres inspecciones sintéticas;
 no se leen PDFs, bases reales ni secretos, y no se declara activación productiva.
 
+## Decisiones propuestas recibidas
+
+Estas definiciones son una base técnica de trabajo, no una aprobación de
+Arquitectura, QA, Seguridad ni del propietario de datos.
+
+- **REVIEW-01:** revisión humana de arquitectura, contratos, pruebas y evidencia,
+  con revisor, fecha, commit, resultado y attestation `HC-Review`.
+- **D-05:** `C-EXTRACT v1.0.0`, schema JSON versionado y estricto; preservar nulls,
+  fechas parciales, orden explícito, ubicación separada y rúbrica sin inventar
+  datos. Las fixtures deben cubrir válidos, incompletos, variantes y errores.
+- **D-11:** PDFs reales anonimizados autorizados, fuentes versionadas y baseline
+  visual reproducible. La propuesta no autoriza todavía su incorporación.
+- **Producción:** Next como portal/BFF, FastAPI como procesador y único escritor,
+  PostgreSQL como persistencia; límites, permisos, retención, integración externa,
+  legacy, métricas y recursos externos siguen requiriendo sus decisiones D-02,
+  D-03, D-04, D-06, D-08, D-09 y D-10.
+
+El checklist de desbloqueo exige seis evidencias: revisión arquitectónica,
+attestation vinculada al commit, contrato C-EXTRACT versionado, mapping y fixtures
+aprobados, autorización de PDFs y baseline visual reproducible. Marcar esta lista
+en documentación no sustituye ninguna aprobación formal.
+
 ## Evidencia legacy inspeccionada
 
 | Contexto | Evidencia | Comportamiento conservado |
