@@ -14,6 +14,11 @@ dependencia ni autoriza migrar datos o comportamiento no especificado.
 | `np0028-fasapi/src/app/api/routes/pdf.py` | Upload, extracción por ID y `extract-and-send` | `src/backend/adapters/outbound/http-c-extract-reader.ts`; sin activar sender |
 | `np0028-fasapi/src/app/services/{extraction_service,pdf_validator,pdf_extractor}.py` | Composición concreta, límites y recursos PyMuPDF | `src/backend/application/extract-document.ts` + puerto C-EXTRACT; parser Python permanece legacy |
 | `np0028-fasapi/src/app/domain/evaluacion.py` | Preguntas, secciones y resumen de hechos | C-EXTRACT candidato; orden y campos ampliados requieren D-05 |
+| `modulo-data-excel/app/domain/normalization.py` | NFKD, acentos, estados y flags | `src/backend/domain/import-normalization.ts` |
+| `modulo-data-excel/app/domain/metrics_equivalence.py` | 49 métricas, keywords y limpieza de texto | `src/backend/domain/catalog/` y `catalog-match.ts` |
+| `modulo-data-excel/app/services/catalog.py` | exacto, contenido y SequenceMatcher ≥0.88 | `src/backend/domain/catalog/catalog-match.ts` |
+| `modulo-data-excel/app/domain/geography.py` | ciudades, aliases, regiones y coordenadas | `src/backend/domain/geography/`; sin fuentes nuevas |
+| `modulo-data-excel/app/services/importer.py:123-200` | validación, rúbrica, clave y completitud | `src/backend/domain/import-rubric.ts`, `logical-key.ts`, `determine-import-status.ts` |
 
 ## Regla por NP
 
