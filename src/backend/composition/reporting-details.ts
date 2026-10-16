@@ -1,6 +1,6 @@
 import { GetReportingDetails } from "../application/reporting/get-reporting-details";
-import type { ReadInspectionFacts } from "../ports/read-inspection-facts";
+import type { ReadReportingDetails } from "../ports/read-reporting-details";
 
-export function createReportingDetails(reader: ReadInspectionFacts): GetReportingDetails {
+export function createReportingDetails(reader: ReadReportingDetails): GetReportingDetails {
   return new GetReportingDetails(reader);
 }

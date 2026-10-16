@@ -1,3 +1,0 @@
-export const METRIC_DASHBOARD_LIMIT = 10;
-export const METRIC_ENDPOINT_LIMIT = 12;
-export const METRIC_RECORD_LIMIT = 200;

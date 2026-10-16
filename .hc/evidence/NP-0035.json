@@ -16,16 +16,16 @@
           "tests/integration/reporting/reporting-details-parity.test.ts"
         ],
         "exit_code": 1,
-        "output_digest": "cf96106d6c1fac34c5134252559c44afce257da16dc0239e0bbd9e54ad858579",
-        "source_digest": "7be220b0aa58aca13564d83452ee39a3cf307313479e1c6027e5e36a32b21739",
-        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
-        "recorded_at": "2026-10-16T14:09:45.519Z",
+        "output_digest": "f3c89aabf904d68f7ab6e74aba04c16df29cf92dd446c88a93eb228f0631274f",
+        "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:14:50.864Z",
         "git": {
           "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
           "branch": "NP-0035",
           "dirty": true
         },
-        "expected_reason": "formatSectionName"
+        "expected_reason": "Failed to resolve import"
       },
       "green": {
         "check": "unit",
@@ -36,10 +36,10 @@
           "tests/integration/reporting/reporting-details-parity.test.ts"
         ],
         "exit_code": 0,
-        "output_digest": "b064435b56146b005476b96936f5e4df891ac1ec61d465be1a9e7c47c6507e44",
-        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
-        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
-        "recorded_at": "2026-10-16T14:09:53.378Z",
+        "output_digest": "ed16ca05e37ad4cae87d35a207e402433488a85e556b4069b8a434ab10898476",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:30.916Z",
         "git": {
           "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
           "branch": "NP-0035",
@@ -50,40 +50,605 @@
         "check": "unit",
         "args": [],
         "exit_code": 0,
-        "output_digest": "1af5a5db8c0a49cf23e5fdb431693446c4503f0daf1b65055a8f4e8126b75ad6",
-        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
-        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
-        "recorded_at": "2026-10-16T14:10:11.367Z",
+        "output_digest": "540fd849ad80b86a1a206adb704283a6135b042f30ebddfa19614ef435419772",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:39.881Z",
         "git": {
           "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
           "branch": "NP-0035",
           "dirty": true
         }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "a427227d4f36beb9dc3bc444bfbe1e690e8b112286f768dddf4e20b7ebf6d4ce",
+          "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+          "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+          "recorded_at": "2026-10-16T15:17:02.478Z",
+          "git": {
+            "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+            "branch": "NP-0035",
+            "dirty": true
+          }
+        }
+      ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1861c279696047bcc5cc5d4fef2355983b7dcd2c25246278c7977a2d885001e3",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:30.544Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected [] to deeply equal"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d416d2bf6168eba1dad1d3b92255da2be69d75468ec906a2bf6a9f452c0b4ace",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:42.593Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a71b01fc6f900e6d4135cdbbab5ffa972562c531b0319cfc9c49c23a3348e8e3",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:52.399Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-consumers.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "7c5b3001ebc4bc7f1292802ef156c87e4f4351fcdba4fa5f21f5f09d2a72b4ab",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:19:26.466Z",
+        "git": {
+          "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-consumers.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9959f58f64bc9df61807509a7b24f9e9549f481dee8d92e70871a1dd364b48dc",
+        "source_digest": "98dcb7e7ff5d2e9e5fcb61403deb10328cb344d249ae91a71c3a9f6691a43d14",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:19:43.863Z",
+        "git": {
+          "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f3b03e808cc0c309a157a815ad8b7543ecec012b97c71b8e286f1f2434975d80",
+        "source_digest": "98dcb7e7ff5d2e9e5fcb61403deb10328cb344d249ae91a71c3a9f6691a43d14",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:19:50.517Z",
+        "git": {
+          "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "a30a55b003b3064f010c9f7f3bfa3b9d9cecc9c79563617e5b2f918d8ac29923",
+          "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+          "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+          "recorded_at": "2026-10-16T15:21:49.533Z",
+          "git": {
+            "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
+            "branch": "NP-0035",
+            "dirty": true
+          }
+        }
+      ]
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "bb0ebc02fe5097e0da30fc822091fea0ab6606c044a637470f98aadadb01af68",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:35.203Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "90f63ed18aaa786d532984bcf2587b7a276305fa4b22c92035ca2414bfac5e84",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:45.407Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "91347f380a46b7d0e13687cc86ff7e48bdf4fa1ee66b3f7f1e21a8c3ba267e39",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:52.829Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-05",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "217f4cea92adca295a57b5dcf007764ecd408f88c3554b9beb06bdca8b9d75e3",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:30.903Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "61acd7199982408a18324da2c9fd4a6c6d706d68e620c9757a5a5462f11d825d",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:41.008Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "bc815421438fe853f44b07b1cead839d7111473cabf45b29c06be5d31efafa07",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:50.598Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-06",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-narrative-overview.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "30ea54e80c9042e54e6b9b9c2ea9b9c26435d6840ce74485a3fe8b4ef4573b80",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "93d1d92814c11c802c145011f7992a16b9d007fa77a647dbf3815817d7e1bf3b",
+        "recorded_at": "2026-10-16T15:32:46.080Z",
+        "git": {
+          "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected +0 to be 1"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-narrative-overview.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ad4fd1ffab22e5dc58d03e290e17d1cb01c1339e964c1c04f41cbed1ea84c929",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "93d1d92814c11c802c145011f7992a16b9d007fa77a647dbf3815817d7e1bf3b",
+        "recorded_at": "2026-10-16T15:33:18.868Z",
+        "git": {
+          "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "49ca41d4b59628ff479d9434c995c6024bb89b6c96ce5666f84dde2f5aeadfba",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "93d1d92814c11c802c145011f7992a16b9d007fa77a647dbf3815817d7e1bf3b",
+        "recorded_at": "2026-10-16T15:33:27.140Z",
+        "git": {
+          "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-07",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "b6ebf66d11ad8a561a4b183bd0357301d0129c04c8c79a935b9c5fa2684142db",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:28.016Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d3a482ab0130e5ec1fc682eaf49f3374e3863e969846d85776c190c5668ca50c",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:43.377Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "193bd0bbd3f15d826fa7d1ef8280d7828dc65fe59a9afabe00fe90c994aabd42",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:55.935Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-08",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "675137c95160923795a7d6a60d9dbef2e7f6255c76abf3f60efec8870a606164",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:32.511Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9901dba401fef921227dddf9739732c4ef39b888c9d96959919a2ea0becd0502",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:41.148Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2756d279a9e4e44cad4d3fbd3619683cb36793b515a0e52eaa96b05dd260c202",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:48.496Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-09",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d628b404cbddd8a544d91843272d035184d9ce08c5fc9984cc422193acf4a449",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:44.122Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected undefined to be 78.6"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a6c2f4c59a0d28ceda97e4672de19b30fab44f62f49f0783aafe8111f3ad1cd4",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:53.744Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "1e5521ffd3dfc38a5fc7aa15dadf4af1ac4c7ab251e96cf54f8d17fede032252",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:37:00.850Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-10",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/inspection-metric-mapping.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ab384c1644cce58c69515cc1a8d584c11c703922084682290fd18efc08bfaabd",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:37:22.786Z",
+        "git": {
+          "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/inspection-metric-mapping.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "e668e37a084c7120b305a16d86a76986ed3583f5e2944d50b5880ce1228fb77b",
+        "source_digest": "853c248e42b3116e5114b253a31c1d86f40cb944fa51bf9e049b64d1c2acdd01",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:37:33.260Z",
+        "git": {
+          "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6ab5598fbcb3839f50c1dbdf42530fc455d2909b14bbae15980b1d8b8cf4f91b",
+        "source_digest": "853c248e42b3116e5114b253a31c1d86f40cb944fa51bf9e049b64d1c2acdd01",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:37:40.468Z",
+        "git": {
+          "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "84fface1740b798a92b269d10d8c24641a3cee2ee996bc21524741e48d33b327",
+          "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+          "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+          "recorded_at": "2026-10-16T15:38:56.025Z",
+          "git": {
+            "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
+            "branch": "NP-0035",
+            "dirty": true
+          }
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "9aeb42b8a3dfc2145991db3b683e84b510f36f250f399268cb0c4259061f96ca",
+      "status": "accepted",
+      "reason": "Human technical acceptance for Development only; no production GO. Synthetic reader and formal legacy golden remain pending.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {
+        "provider": "git-signed-commit",
+        "commit": "6e241cdc678a1f7414bee63eaee76dfe04990687"
       }
     }
   ],
-  "reviews": [],
   "events": [
     {
       "sequence": 1,
-      "type": "RED_RECORDED",
+      "type": "ATTEMPT_FAILED",
       "test_id": "TEST-01",
-      "reason": "Failed to resolve import",
-      "executed": true,
+      "reason": "TEST-01 does not match its planned command",
+      "executed": false,
       "changed_files": [
+        ".hc/task.json",
         "tests/domain/reporting/metric-ranking-parity.test.ts",
         "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
         "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
         "tests/integration/reporting/reporting-details-parity.test.ts"
       ],
-      "recorded_at": "2026-10-16T14:07:34.069Z",
+      "recorded_at": "2026-10-16T15:14:46.119Z",
       "git": {
         "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
         "branch": "NP-0035",
         "dirty": true
       },
       "previous_event_digest": null,
+      "code": "PLANNED_COMMAND_MISMATCH",
+      "event_digest": "c151a997aafbd9e411f168671335e82472ddcae2b36da4e302515f933280a8dd"
+    },
+    {
+      "sequence": 2,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:14:50.864Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "c151a997aafbd9e411f168671335e82472ddcae2b36da4e302515f933280a8dd",
       "code": "RED_RECORDED",
       "observation": {
         "check": "unit",
@@ -94,10 +659,10 @@
           "tests/integration/reporting/reporting-details-parity.test.ts"
         ],
         "exit_code": 1,
-        "output_digest": "968242dbfd735ba58f80e6baf91735c338afdc3fed843b0e5b2f3376f5fd3e20",
+        "output_digest": "f3c89aabf904d68f7ab6e74aba04c16df29cf92dd446c88a93eb228f0631274f",
         "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
-        "test_digest": "c4b4b8bb53529ca53dc998ea64721dfae023dc2c605354692b956bec7bfee7eb",
-        "recorded_at": "2026-10-16T14:07:34.069Z",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:14:50.864Z",
         "git": {
           "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
           "branch": "NP-0035",
@@ -105,261 +670,10 @@
         },
         "expected_reason": "Failed to resolve import"
       },
-      "event_digest": "b0fc6771d247829f8b3934eac1f6ab4d297e77321176b2b0e688a27603914d61"
-    },
-    {
-      "sequence": 2,
-      "type": "ATTEMPT_FAILED",
-      "test_id": "TEST-01",
-      "reason": "TEST-01 changed between RED and GREEN",
-      "executed": false,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:08:48.795Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "b0fc6771d247829f8b3934eac1f6ab4d297e77321176b2b0e688a27603914d61",
-      "code": "TEST_CHANGED_AFTER_RED",
-      "event_digest": "4946b706f80e4a44a5b591baac19724929e14ae8121449dbceb13ac8b36cf1ec"
+      "event_digest": "ed1a4900633d7eaf61e0132ae9376c9e80e025d85b36c3757caeb3598b0e0fd9"
     },
     {
       "sequence": 3,
-      "type": "CYCLE_RESTARTED",
-      "test_id": "TEST-01",
-      "reason": "La expectativa del fixture de narrativa se corrigió después del RED: el score 0.60 produce una banda baja; se repite el ciclo con el test final.",
-      "executed": false,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:08:55.015Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "4946b706f80e4a44a5b591baac19724929e14ae8121449dbceb13ac8b36cf1ec",
-      "event_digest": "b7558d708ca649f3db0924b6e28ad8e6fcdde4bd74d499c76a5e1cc4f5f4d57b"
-    },
-    {
-      "sequence": 4,
-      "type": "ATTEMPT_FAILED",
-      "test_id": "TEST-01",
-      "reason": "RED output does not contain --expect text",
-      "executed": true,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:08:58.734Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "b7558d708ca649f3db0924b6e28ad8e6fcdde4bd74d499c76a5e1cc4f5f4d57b",
-      "code": "RED_REASON_MISMATCH",
-      "event_digest": "918795cf2d94dc6f80870501b59fbad73e27be0f087de12da3021d726fb92693"
-    },
-    {
-      "sequence": 5,
-      "type": "RED_RECORDED",
-      "test_id": "TEST-01",
-      "reason": "expected 3 to be 2",
-      "executed": true,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        ".hc/task.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:09:10.598Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "918795cf2d94dc6f80870501b59fbad73e27be0f087de12da3021d726fb92693",
-      "code": "RED_RECORDED",
-      "observation": {
-        "check": "unit",
-        "args": [
-          "tests/domain/reporting/section-parity.test.ts",
-          "tests/domain/reporting/metric-ranking-parity.test.ts",
-          "tests/domain/reporting/narrative-parity.test.ts",
-          "tests/integration/reporting/reporting-details-parity.test.ts"
-        ],
-        "exit_code": 1,
-        "output_digest": "368efb423e2082cefc62ffa6647dd64750a169f8ac58882feba390b93b0996d0",
-        "source_digest": "7be220b0aa58aca13564d83452ee39a3cf307313479e1c6027e5e36a32b21739",
-        "test_digest": "f6af46de27a4543597334c9090ee689b620116877d21555e4c6f7024487bbb87",
-        "recorded_at": "2026-10-16T14:09:10.597Z",
-        "git": {
-          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-          "branch": "NP-0035",
-          "dirty": true
-        },
-        "expected_reason": "expected 3 to be 2"
-      },
-      "event_digest": "9a8d181baba6d724a1596b2e92ca3cf0e3a7596146e36a6363ded9c3eb181baf"
-    },
-    {
-      "sequence": 6,
-      "type": "CYCLE_RESTARTED",
-      "test_id": "TEST-01",
-      "reason": "El oracle inicial omitía la aprobación válida de la sección EPP; se corrige allApproved a 3 sin cambiar la regla de sumar aprobaciones.",
-      "executed": false,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        ".hc/task.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:09:16.540Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "9a8d181baba6d724a1596b2e92ca3cf0e3a7596146e36a6363ded9c3eb181baf",
-      "event_digest": "34ea59011f776e2a200edf9585b9175b073b46b433435adf07fec892b931d895"
-    },
-    {
-      "sequence": 7,
-      "type": "RED_RECORDED",
-      "test_id": "TEST-01",
-      "reason": "formatSectionName",
-      "executed": true,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        ".hc/task.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:09:45.519Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "34ea59011f776e2a200edf9585b9175b073b46b433435adf07fec892b931d895",
-      "code": "RED_RECORDED",
-      "observation": {
-        "check": "unit",
-        "args": [
-          "tests/domain/reporting/section-parity.test.ts",
-          "tests/domain/reporting/metric-ranking-parity.test.ts",
-          "tests/domain/reporting/narrative-parity.test.ts",
-          "tests/integration/reporting/reporting-details-parity.test.ts"
-        ],
-        "exit_code": 1,
-        "output_digest": "cf96106d6c1fac34c5134252559c44afce257da16dc0239e0bbd9e54ad858579",
-        "source_digest": "7be220b0aa58aca13564d83452ee39a3cf307313479e1c6027e5e36a32b21739",
-        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
-        "recorded_at": "2026-10-16T14:09:45.519Z",
-        "git": {
-          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-          "branch": "NP-0035",
-          "dirty": true
-        },
-        "expected_reason": "formatSectionName"
-      },
-      "event_digest": "73e88091e8f5149b79b6d0ff8f650d212cd4122c8e33779314abb4c91c840a5a"
-    },
-    {
-      "sequence": 8,
       "type": "GREEN_RECORDED",
       "test_id": "TEST-01",
       "reason": "GREEN command passed",
@@ -367,30 +681,30 @@
       "changed_files": [
         ".hc/evidence/NP-0035.json",
         ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
         "src/backend/application/reporting/get-reporting-details.ts",
         "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
         "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
         "tests/domain/reporting/metric-ranking-parity.test.ts",
         "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
         "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
         "tests/integration/reporting/reporting-details-parity.test.ts"
       ],
-      "recorded_at": "2026-10-16T14:09:53.378Z",
+      "recorded_at": "2026-10-16T15:15:30.916Z",
       "git": {
         "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
         "branch": "NP-0035",
         "dirty": true
       },
-      "previous_event_digest": "73e88091e8f5149b79b6d0ff8f650d212cd4122c8e33779314abb4c91c840a5a",
+      "previous_event_digest": "ed1a4900633d7eaf61e0132ae9376c9e80e025d85b36c3757caeb3598b0e0fd9",
       "code": "GREEN_RECORDED",
       "observation": {
         "check": "unit",
@@ -401,56 +715,20 @@
           "tests/integration/reporting/reporting-details-parity.test.ts"
         ],
         "exit_code": 0,
-        "output_digest": "b064435b56146b005476b96936f5e4df891ac1ec61d465be1a9e7c47c6507e44",
-        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
-        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
-        "recorded_at": "2026-10-16T14:09:53.378Z",
+        "output_digest": "ed16ca05e37ad4cae87d35a207e402433488a85e556b4069b8a434ab10898476",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:30.916Z",
         "git": {
           "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
           "branch": "NP-0035",
           "dirty": true
         }
       },
-      "event_digest": "d92899015c378b8fc274f3f11338710c8d63c7843af345e35354d84b6c8b20dc"
+      "event_digest": "c4b36b24fedce174b23f37a233a16a5aa75cdd0f6f175036924a0fd3c8fffdf9"
     },
     {
-      "sequence": 9,
-      "type": "ATTEMPT_FAILED",
-      "test_id": "TEST-01",
-      "reason": "dependency change requires explicit dependency authority",
-      "executed": false,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        ".hc/task.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:09:56.669Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "d92899015c378b8fc274f3f11338710c8d63c7843af345e35354d84b6c8b20dc",
-      "code": "TASK_SCOPE_VIOLATION",
-      "event_digest": "89a80284f55ccb2b15645f394431e457d45542c8bd15c06a3729f541520955b3"
-    },
-    {
-      "sequence": 10,
+      "sequence": 4,
       "type": "REFACTOR_RECORDED",
       "test_id": "TEST-01",
       "reason": "REFACTOR command passed",
@@ -458,89 +736,49 @@
       "changed_files": [
         ".hc/evidence/NP-0035.json",
         ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
         "src/backend/application/reporting/get-reporting-details.ts",
         "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
         "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
         "tests/domain/reporting/metric-ranking-parity.test.ts",
         "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
         "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
         "tests/integration/reporting/reporting-details-parity.test.ts"
       ],
-      "recorded_at": "2026-10-16T14:10:11.371Z",
+      "recorded_at": "2026-10-16T15:15:39.881Z",
       "git": {
         "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
         "branch": "NP-0035",
         "dirty": true
       },
-      "previous_event_digest": "89a80284f55ccb2b15645f394431e457d45542c8bd15c06a3729f541520955b3",
+      "previous_event_digest": "c4b36b24fedce174b23f37a233a16a5aa75cdd0f6f175036924a0fd3c8fffdf9",
       "code": "REFACTOR_RECORDED",
       "observation": {
         "check": "unit",
         "args": [],
         "exit_code": 0,
-        "output_digest": "1af5a5db8c0a49cf23e5fdb431693446c4503f0daf1b65055a8f4e8126b75ad6",
-        "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
-        "test_digest": "459e826aaff00aa8aa8952091736b2722076111cf771940d84178ac81a91ec88",
-        "recorded_at": "2026-10-16T14:10:11.367Z",
+        "output_digest": "540fd849ad80b86a1a206adb704283a6135b042f30ebddfa19614ef435419772",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:39.881Z",
         "git": {
           "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
           "branch": "NP-0035",
           "dirty": true
         }
       },
-      "event_digest": "56946b90ab204c1f232f8354c8e76a0fa0197f9007ffdf98d508f572a45199fc"
+      "event_digest": "f30a686ef43108150499b3db28b97981dfcaade4d84adc588f533e4e1a2c788c"
     },
     {
-      "sequence": 11,
-      "type": "ATTEMPT_FAILED",
-      "test_id": "TEST-01",
-      "reason": "TEST-01 changed after REFACTOR",
-      "executed": false,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        ".hc/task.json",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-details-contract.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "src/backend/domain/reporting/reporting-metric-contract.ts",
-        "src/backend/domain/reporting/reporting-narrative-contract.ts",
-        "src/backend/domain/reporting/reporting-section-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T14:58:44.066Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "56946b90ab204c1f232f8354c8e76a0fa0197f9007ffdf98d508f572a45199fc",
-      "code": "TEST_CHANGED_AFTER_REFACTOR",
-      "event_digest": "fbb048514b274158be698421e691304acc44f99a5292e0fb1e71806bb0765d26"
-    },
-    {
-      "sequence": 12,
+      "sequence": 5,
       "type": "ATTEMPT_FAILED",
       "test_id": "TEST-02",
       "reason": "production changed before next RED",
@@ -548,82 +786,1606 @@
       "changed_files": [
         ".hc/evidence/NP-0035.json",
         ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
         "src/backend/application/reporting/get-reporting-details.ts",
         "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
         "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
         "src/backend/domain/reporting/reporting-details-contract.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "src/backend/domain/reporting/reporting-metric-contract.ts",
-        "src/backend/domain/reporting/reporting-narrative-contract.ts",
-        "src/backend/domain/reporting/reporting-section-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
         "tests/domain/reporting/metric-ranking-parity.test.ts",
         "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-boundaries.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
-        "tests/domain/reporting/section-parity.test.ts",
-        "tests/integration/reporting/reporting-details-parity.test.ts"
-      ],
-      "recorded_at": "2026-10-16T15:09:39.217Z",
-      "git": {
-        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
-        "branch": "NP-0035",
-        "dirty": true
-      },
-      "previous_event_digest": "fbb048514b274158be698421e691304acc44f99a5292e0fb1e71806bb0765d26",
-      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
-      "event_digest": "f98b88758be250bd66f09f95428e2534e7c4dea426f46ceb673044bd909cead7"
-    },
-    {
-      "sequence": 13,
-      "type": "ATTEMPT_FAILED",
-      "test_id": "TEST-03",
-      "reason": "production changed before next RED",
-      "executed": false,
-      "changed_files": [
-        ".hc/evidence/NP-0035.json",
-        ".hc/task.json",
-        "docs/legacy-inventory.md",
-        "docs/np-0035-reporting.md",
-        "src/backend/application/reporting/get-reporting-details.ts",
-        "src/backend/composition/reporting-details.ts",
-        "src/backend/domain/reporting/calculate-metric-detail.ts",
-        "src/backend/domain/reporting/calculate-metric-ranking.ts",
-        "src/backend/domain/reporting/calculate-metric-snapshot.ts",
-        "src/backend/domain/reporting/calculate-narrative.ts",
-        "src/backend/domain/reporting/calculate-section-approvals.ts",
-        "src/backend/domain/reporting/calculate-section-reports.ts",
-        "src/backend/domain/reporting/reporting-detail-contract.ts",
-        "src/backend/domain/reporting/reporting-detail-utils.ts",
-        "src/backend/domain/reporting/reporting-details-contract.ts",
-        "src/backend/domain/reporting/reporting-facts-contract.ts",
-        "src/backend/domain/reporting/reporting-limits.ts",
-        "src/backend/domain/reporting/reporting-metric-contract.ts",
-        "src/backend/domain/reporting/reporting-narrative-contract.ts",
-        "src/backend/domain/reporting/reporting-section-contract.ts",
-        "tests/domain/reporting/metric-ranking-parity.test.ts",
-        "tests/domain/reporting/narrative-parity.test.ts",
-        "tests/domain/reporting/reporting-detail-boundaries.test.ts",
-        "tests/domain/reporting/reporting-detail-fixtures.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
         "tests/domain/reporting/section-parity.test.ts",
         "tests/integration/reporting/reporting-consumers.test.ts",
         "tests/integration/reporting/reporting-details-parity.test.ts"
       ],
-      "recorded_at": "2026-10-16T15:11:25.607Z",
+      "recorded_at": "2026-10-16T15:16:11.890Z",
       "git": {
         "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
         "branch": "NP-0035",
         "dirty": true
       },
-      "previous_event_digest": "f98b88758be250bd66f09f95428e2534e7c4dea426f46ceb673044bd909cead7",
+      "previous_event_digest": "f30a686ef43108150499b3db28b97981dfcaade4d84adc588f533e4e1a2c788c",
       "code": "SOURCE_CHANGED_AFTER_REFACTOR",
-      "event_digest": "0c2a273434711084508e53a74a0545bfc6814abde7200f05a140dc4fdc471a15"
+      "event_digest": "e218059c1e1e16bfc417bbb5e1166c44695fec669de0ddffbb362f1d3c087513"
+    },
+    {
+      "sequence": 6,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 rebaseline command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:16:24.838Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "e218059c1e1e16bfc417bbb5e1166c44695fec669de0ddffbb362f1d3c087513",
+      "code": "REBASELINE_COMMAND_FAILED",
+      "event_digest": "a89e167a210723df8801d207f3cf7559ce7a0079edd02bbb1993d7026ca0fc65"
+    },
+    {
+      "sequence": 7,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Restored detail module and ran TEST-01 regression after adding the TEST-02 null-universe assertion; recording the updated source baseline.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:17:02.481Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "a89e167a210723df8801d207f3cf7559ce7a0079edd02bbb1993d7026ca0fc65",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a427227d4f36beb9dc3bc444bfbe1e690e8b112286f768dddf4e20b7ebf6d4ce",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:17:02.478Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "5024d7158e953948736415f8d62e948ace149995f591c14b432371c98f54ef86"
+    },
+    {
+      "sequence": 8,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production files remain uncommitted: src/backend/adapters/outbound/memory-reporting-details-reader.ts, src/backend/application/reporting/get-reporting-details.ts, src/backend/composition/reporting-details.ts, src/backend/domain/reporting/calculate-metric-rankings.ts, src/backend/domain/reporting/calculate-reporting-narrative.ts, src/backend/domain/reporting/calculate-section-approvals.ts, src/backend/domain/reporting/calculate-sections.ts, src/backend/domain/reporting/get-metric-detail.ts, src/backend/domain/reporting/reporting-details-contract.ts, src/backend/ports/read-reporting-details.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:17:36.317Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "5024d7158e953948736415f8d62e948ace149995f591c14b432371c98f54ef86",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "9de53d60fa6bdb3fd0c3b2fce1804b47345826cbf7ea052f3361f1f68b78e10b"
+    },
+    {
+      "sequence": 9,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "expected [] to deeply equal",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:12.318Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "9de53d60fa6bdb3fd0c3b2fce1804b47345826cbf7ea052f3361f1f68b78e10b",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "395d3a82d6cba9c638f39eece3382594fb02f095b012e44ac0618adfb092678a",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "d50114a075e552117bda42b61439477c809394a40d13fc5f205e47d9ec10a0ec",
+        "recorded_at": "2026-10-16T15:18:12.318Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected [] to deeply equal"
+      },
+      "event_digest": "02fbd629898e161d12337e05071ca057c73b53a280108497bff815dafc7d7484"
+    },
+    {
+      "sequence": 10,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-02",
+      "reason": "Corrected the characterization: legacy detail records exclude null/empty observations; redo RED against the final assertion.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:27.004Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "02fbd629898e161d12337e05071ca057c73b53a280108497bff815dafc7d7484",
+      "event_digest": "3d6eb96c2fa9b01b08eda5fea3a647975b50e859bd7f56510d409b393ec9a971"
+    },
+    {
+      "sequence": 11,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "expected [] to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:30.545Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3d6eb96c2fa9b01b08eda5fea3a647975b50e859bd7f56510d409b393ec9a971",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1861c279696047bcc5cc5d4fef2355983b7dcd2c25246278c7977a2d885001e3",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:30.544Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected [] to deeply equal"
+      },
+      "event_digest": "d32fe82d71fe2caefdacfd9ec732f36aac531a4a99c2b48875d94c069ba5ed99"
+    },
+    {
+      "sequence": 12,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:42.593Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "d32fe82d71fe2caefdacfd9ec732f36aac531a4a99c2b48875d94c069ba5ed99",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/detail-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d416d2bf6168eba1dad1d3b92255da2be69d75468ec906a2bf6a9f452c0b4ace",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:42.593Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "e43f8c681573155fdc8b3f5932fb0e8c73413afa3e0f1914cbbbc302c99aa053"
+    },
+    {
+      "sequence": 13,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "tests/domain/reporting/detail-boundaries.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:18:52.400Z",
+      "git": {
+        "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "e43f8c681573155fdc8b3f5932fb0e8c73413afa3e0f1914cbbbc302c99aa053",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a71b01fc6f900e6d4135cdbbab5ffa972562c531b0319cfc9c49c23a3348e8e3",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "f1d744b55dc516fbd5dfa167107474dd41264feb01fbe70956c8c16f79eead55",
+        "recorded_at": "2026-10-16T15:18:52.399Z",
+        "git": {
+          "head": "60da2ffdf2c3660211cbdc12b16ed0c86e648631",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "f6ec72c52ded95be1c785b3b45c80b500dffd672f06a34763b703dd12168392c"
+    },
+    {
+      "sequence": 14,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/reporting/reporting-consumers.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:19:26.467Z",
+      "git": {
+        "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "f6ec72c52ded95be1c785b3b45c80b500dffd672f06a34763b703dd12168392c",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-consumers.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "7c5b3001ebc4bc7f1292802ef156c87e4f4351fcdba4fa5f21f5f09d2a72b4ab",
+        "source_digest": "45a924883df8568b94fa347cc6cd84f496092a8f0ba1877649403a9b7069cdc3",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:19:26.466Z",
+        "git": {
+          "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "103f309ed8b417c1981e9f5dd7e41f387f047dee1c1452aba42fdf5c2e55cfb6"
+    },
+    {
+      "sequence": 15,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/dashboard/components/ReportingInsights.tsx",
+        "tests/integration/reporting/reporting-consumers.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:19:43.863Z",
+      "git": {
+        "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "103f309ed8b417c1981e9f5dd7e41f387f047dee1c1452aba42fdf5c2e55cfb6",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-consumers.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9959f58f64bc9df61807509a7b24f9e9549f481dee8d92e70871a1dd364b48dc",
+        "source_digest": "98dcb7e7ff5d2e9e5fcb61403deb10328cb344d249ae91a71c3a9f6691a43d14",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:19:43.863Z",
+        "git": {
+          "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "3ac8f8152d85f8f53ef3bc16e6ce4fb0f155f393d19a396c1ccdc6b14cb2407a"
+    },
+    {
+      "sequence": 16,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/dashboard/components/ReportingInsights.tsx",
+        "tests/integration/reporting/reporting-consumers.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:19:50.518Z",
+      "git": {
+        "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3ac8f8152d85f8f53ef3bc16e6ce4fb0f155f393d19a396c1ccdc6b14cb2407a",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f3b03e808cc0c309a157a815ad8b7543ecec012b97c71b8e286f1f2434975d80",
+        "source_digest": "98dcb7e7ff5d2e9e5fcb61403deb10328cb344d249ae91a71c3a9f6691a43d14",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:19:50.517Z",
+        "git": {
+          "head": "9852b9407f20ce79a8e2ba76bd1cec2f0bd58a60",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "bdb778364ff1082dfcd7476f7df5e59a352bbc1178cd2e7a5a960c9591889055"
+    },
+    {
+      "sequence": 17,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Fixed TypeScript readonly/narrowing diagnostics discovered by hc verify; re-running TEST-03 regression against current source.",
+      "executed": true,
+      "changed_files": [
+        "docs/legacy-inventory.md",
+        "docs/np-0035-reporting.md",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts"
+      ],
+      "recorded_at": "2026-10-16T15:21:49.535Z",
+      "git": {
+        "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "bdb778364ff1082dfcd7476f7df5e59a352bbc1178cd2e7a5a960c9591889055",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a30a55b003b3064f010c9f7f3bfa3b9d9cecc9c79563617e5b2f918d8ac29923",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "6c6bef7152e8a29f730ed582067d6af5735c38cb512ac5d5bdce188185658bd4",
+        "recorded_at": "2026-10-16T15:21:49.533Z",
+        "git": {
+          "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "d13b1686f663d5024a312ab698e1f09afb56c0077a3a2d80f49f13b117225f48"
+    },
+    {
+      "sequence": 18,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:25:09.918Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "d13b1686f663d5024a312ab698e1f09afb56c0077a3a2d80f49f13b117225f48",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "be12122a8469df8850b1dfd139b964da9c28dbd992821f054b2a503b674f5086"
+    },
+    {
+      "sequence": 19,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "element(s) not found",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:25:42.085Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "be12122a8469df8850b1dfd139b964da9c28dbd992821f054b2a503b674f5086",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "dc01346b7af7151882c474945409028b074dbab5dc4da112e4979cb3a1550b92",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "3b2f320519576e02121e3a6dbfaf61b95381bd0377af103eb3739df89c3b9087",
+        "recorded_at": "2026-10-16T15:25:42.085Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "event_digest": "addd400a9961f4a2a0ac24f3dc5d59547f26ff15df1ad24e9799e9294715dc2d"
+    },
+    {
+      "sequence": 20,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "TEST-04 GREEN command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:25:59.302Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "addd400a9961f4a2a0ac24f3dc5d59547f26ff15df1ad24e9799e9294715dc2d",
+      "code": "GREEN_COMMAND_FAILED",
+      "event_digest": "8daddb859cbf9ab63277ab88d30df5dd2ee41b90fb32670e00bdcef39fd4ac3f"
+    },
+    {
+      "sequence": 21,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-04",
+      "reason": "The consumer exposes an accessible region rather than a heading; correct the test locator and repeat the cycle.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:19.252Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "8daddb859cbf9ab63277ab88d30df5dd2ee41b90fb32670e00bdcef39fd4ac3f",
+      "event_digest": "05a0aa38f29a5f640d350b1cc12936efaddc4e31dbcc7915537dddfe51656f8b"
+    },
+    {
+      "sequence": 22,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "element(s) not found",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:35.203Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "05a0aa38f29a5f640d350b1cc12936efaddc4e31dbcc7915537dddfe51656f8b",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "bb0ebc02fe5097e0da30fc822091fea0ab6606c044a637470f98aadadb01af68",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:35.203Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "event_digest": "c3a6a5e573c0bfaab53c01c16879ac01070c0556cf110b52e5f08e4f756c6543"
+    },
+    {
+      "sequence": 23,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:45.408Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "c3a6a5e573c0bfaab53c01c16879ac01070c0556cf110b52e5f08e4f756c6543",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "90f63ed18aaa786d532984bcf2587b7a276305fa4b22c92035ca2414bfac5e84",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:45.407Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "fd684304c5b50a32b456fed84cbcb5dccff282d94b5896a0e734e4613d7009f6"
+    },
+    {
+      "sequence": 24,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:52.830Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "fd684304c5b50a32b456fed84cbcb5dccff282d94b5896a0e734e4613d7009f6",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "91347f380a46b7d0e13687cc86ff7e48bdf4fa1ee66b3f7f1e21a8c3ba267e39",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:52.829Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "3acb5df6bf836c4e096b599634c525a1ea82705ecb8b7d7f1901f1a7d58b1045"
+    },
+    {
+      "sequence": 25,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-05",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:30:45.484Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3acb5df6bf836c4e096b599634c525a1ea82705ecb8b7d7f1901f1a7d58b1045",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "354df8be237d51bf6e72732d0e8b4941c801f2643c3d48ac54855eea3ceb2a3d"
+    },
+    {
+      "sequence": 26,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:30:56.961Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "354df8be237d51bf6e72732d0e8b4941c801f2643c3d48ac54855eea3ceb2a3d",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a4483d01d17d4b21492de55d1e118fc2d506a4c56c652ab16892a6d57f4abb82",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "75414131decc81ac0f2505cf4bc15374d7b811457cfeaeab3e966851df9c35d7",
+        "recorded_at": "2026-10-16T15:30:56.961Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "01f365201f8186403fcb58c12f5bcde0b16af4a598287a9e2d696b8d2f0e6451"
+    },
+    {
+      "sequence": 27,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-05",
+      "reason": "Correct the characterization to identify metric M1 explicitly rather than assume it is the weakest ranked item.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:02.715Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "01f365201f8186403fcb58c12f5bcde0b16af4a598287a9e2d696b8d2f0e6451",
+      "event_digest": "bda23957f82324410010a08718caafaa53ef5cdb401effd217e9624a6931e95a"
+    },
+    {
+      "sequence": 28,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:08.938Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "bda23957f82324410010a08718caafaa53ef5cdb401effd217e9624a6931e95a",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1b634d4180e3520c1d9e4118ca5cc15eb30896e478deb769ae3e4bbd4922d7b6",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "62889a22d194b1cc3729aed715c7d346445f8dec5dd04e61fcfa76872c1464e8",
+        "recorded_at": "2026-10-16T15:31:08.938Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "f72291ed64f4d2b2b9d83126b546bf0f19ca491837a6699755840f02180e4727"
+    },
+    {
+      "sequence": 29,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-05",
+      "reason": "Characterization will exercise top-12 through the calculation's explicit endpoint limit rather than a new response field.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:24.570Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "f72291ed64f4d2b2b9d83126b546bf0f19ca491837a6699755840f02180e4727",
+      "event_digest": "4b4f950fa611451f012f3527ceff34796bde1f5c1202da77db5e84f6e0a52770"
+    },
+    {
+      "sequence": 30,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:30.904Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "4b4f950fa611451f012f3527ceff34796bde1f5c1202da77db5e84f6e0a52770",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "217f4cea92adca295a57b5dcf007764ecd408f88c3554b9beb06bdca8b9d75e3",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:30.903Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "3e40d72c1f72f58b95ea744da4fd0828f5b3ef456d0eb399bb1e820afbbede0c"
+    },
+    {
+      "sequence": 31,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:41.008Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3e40d72c1f72f58b95ea744da4fd0828f5b3ef456d0eb399bb1e820afbbede0c",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "61acd7199982408a18324da2c9fd4a6c6d706d68e620c9757a5a5462f11d825d",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:41.008Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "0fd4f473a7a7a50b297111347374a25b0b856d8801ae210bb902e492a3f9715f"
+    },
+    {
+      "sequence": 32,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:50.599Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "0fd4f473a7a7a50b297111347374a25b0b856d8801ae210bb902e492a3f9715f",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "bc815421438fe853f44b07b1cead839d7111473cabf45b29c06be5d31efafa07",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:50.598Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "324d6b23afc13710173ef3ca26181f641302b961a6b3eefa7ad26cd48761e157"
+    },
+    {
+      "sequence": 33,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-06",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/integration/reporting/reporting-narrative-overview.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:32:28.023Z",
+      "git": {
+        "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "324d6b23afc13710173ef3ca26181f641302b961a6b3eefa7ad26cd48761e157",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "d0f66b55800ad917c2da8918509e16619fb6f8885bff38f23e64a7def3c4da2d"
+    },
+    {
+      "sequence": 34,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "expected +0 to be 1",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/integration/reporting/reporting-narrative-overview.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:32:46.080Z",
+      "git": {
+        "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "d0f66b55800ad917c2da8918509e16619fb6f8885bff38f23e64a7def3c4da2d",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-narrative-overview.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "30ea54e80c9042e54e6b9b9c2ea9b9c26435d6840ce74485a3fe8b4ef4573b80",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "93d1d92814c11c802c145011f7992a16b9d007fa77a647dbf3815817d7e1bf3b",
+        "recorded_at": "2026-10-16T15:32:46.080Z",
+        "git": {
+          "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected +0 to be 1"
+      },
+      "event_digest": "50d5d7840b96fb0c45f35074abe2e62654fe122719fe36058d2d85e6dc439aa4"
+    },
+    {
+      "sequence": 35,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "tests/integration/reporting/reporting-narrative-overview.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:33:18.868Z",
+      "git": {
+        "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "50d5d7840b96fb0c45f35074abe2e62654fe122719fe36058d2d85e6dc439aa4",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/reporting/reporting-narrative-overview.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ad4fd1ffab22e5dc58d03e290e17d1cb01c1339e964c1c04f41cbed1ea84c929",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "93d1d92814c11c802c145011f7992a16b9d007fa77a647dbf3815817d7e1bf3b",
+        "recorded_at": "2026-10-16T15:33:18.868Z",
+        "git": {
+          "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "13247a3c491e94224be306ae69caf7e4a804c8cc4995a9424df89e88c78575cb"
+    },
+    {
+      "sequence": 36,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "tests/integration/reporting/reporting-narrative-overview.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:33:27.141Z",
+      "git": {
+        "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "13247a3c491e94224be306ae69caf7e4a804c8cc4995a9424df89e88c78575cb",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "49ca41d4b59628ff479d9434c995c6024bb89b6c96ce5666f84dde2f5aeadfba",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "93d1d92814c11c802c145011f7992a16b9d007fa77a647dbf3815817d7e1bf3b",
+        "recorded_at": "2026-10-16T15:33:27.140Z",
+        "git": {
+          "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "cd5acb14f890cce06eabcfc040be22ee1426e2517d52b33abf7ce5d15bc9d8f6"
+    },
+    {
+      "sequence": 37,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-07",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:17.452Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "cd5acb14f890cce06eabcfc040be22ee1426e2517d52b33abf7ce5d15bc9d8f6",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "0aaca4243bd4b7ae0592faa3d1b9202edd1f6eca90f07c1ca92cc3dbeadc68e6"
+    },
+    {
+      "sequence": 38,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:28.017Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "0aaca4243bd4b7ae0592faa3d1b9202edd1f6eca90f07c1ca92cc3dbeadc68e6",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "b6ebf66d11ad8a561a4b183bd0357301d0129c04c8c79a935b9c5fa2684142db",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:28.016Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "f19f51a0e0b3bed01516c780463d0e535afce39ab503b730a610b68d2d82d1b7"
+    },
+    {
+      "sequence": 39,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:43.377Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "f19f51a0e0b3bed01516c780463d0e535afce39ab503b730a610b68d2d82d1b7",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d3a482ab0130e5ec1fc682eaf49f3374e3863e969846d85776c190c5668ca50c",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:43.377Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "a949518b11e4a765891c783a704859b75229ab9020e139506d596c339ebc0f14"
+    },
+    {
+      "sequence": 40,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:55.935Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "a949518b11e4a765891c783a704859b75229ab9020e139506d596c339ebc0f14",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "193bd0bbd3f15d826fa7d1ef8280d7828dc65fe59a9afabe00fe90c994aabd42",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:55.935Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "3893d497f18872beb555609bea0f59a3a8ba2ad9ba2f2626bf36cc030da59855"
+    },
+    {
+      "sequence": 41,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-derived-policies.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:35:32.511Z",
+      "git": {
+        "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3893d497f18872beb555609bea0f59a3a8ba2ad9ba2f2626bf36cc030da59855",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "675137c95160923795a7d6a60d9dbef2e7f6255c76abf3f60efec8870a606164",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:32.511Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "e3fb98599ca31f7503b57e9033b35a7b8df3af5c7ac989b8d73f7767e90aefa6"
+    },
+    {
+      "sequence": 42,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-non-compliance.ts",
+        "src/backend/domain/reporting/calculate-total-approvals.ts",
+        "tests/domain/reporting/reporting-derived-policies.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:35:41.149Z",
+      "git": {
+        "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "e3fb98599ca31f7503b57e9033b35a7b8df3af5c7ac989b8d73f7767e90aefa6",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9901dba401fef921227dddf9739732c4ef39b888c9d96959919a2ea0becd0502",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:41.148Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "2c8a1afd0fe394d21c1afc56dc40a7aa7abe7f25a69fd25db8624e4d464f4568"
+    },
+    {
+      "sequence": 43,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-non-compliance.ts",
+        "src/backend/domain/reporting/calculate-total-approvals.ts",
+        "tests/domain/reporting/reporting-derived-policies.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:35:48.497Z",
+      "git": {
+        "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "2c8a1afd0fe394d21c1afc56dc40a7aa7abe7f25a69fd25db8624e4d464f4568",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2756d279a9e4e44cad4d3fbd3619683cb36793b515a0e52eaa96b05dd260c202",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:48.496Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "0837a8c21f41de315d0bc14405c56a523f94c66aeee295faee3bba7c239244bb"
+    },
+    {
+      "sequence": 44,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-09",
+      "reason": "expected undefined to be 78.6",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complement-rounding.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:36:44.123Z",
+      "git": {
+        "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "0837a8c21f41de315d0bc14405c56a523f94c66aeee295faee3bba7c239244bb",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d628b404cbddd8a544d91843272d035184d9ce08c5fc9984cc422193acf4a449",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:44.122Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected undefined to be 78.6"
+      },
+      "event_digest": "43016012d791b51dbad5fa56ea834ec513f82f5e688e0e3764798757520e88b2"
+    },
+    {
+      "sequence": 45,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-09",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "tests/domain/reporting/reporting-complement-rounding.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:36:53.745Z",
+      "git": {
+        "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "43016012d791b51dbad5fa56ea834ec513f82f5e688e0e3764798757520e88b2",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a6c2f4c59a0d28ceda97e4672de19b30fab44f62f49f0783aafe8111f3ad1cd4",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:53.744Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "b3c6468b5232e69bcb82f3f98b0088ced7e4214369aa7db6d507bb8e40612be9"
+    },
+    {
+      "sequence": 46,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-09",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "tests/domain/reporting/reporting-complement-rounding.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:37:00.851Z",
+      "git": {
+        "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "b3c6468b5232e69bcb82f3f98b0088ced7e4214369aa7db6d507bb8e40612be9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "1e5521ffd3dfc38a5fc7aa15dadf4af1ac4c7ab251e96cf54f8d17fede032252",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:37:00.850Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "abb1692e4e89237c175a604eda67e7ee2928c313bcb9896e04ab2984b9056133"
+    },
+    {
+      "sequence": 47,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-10",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/inspection-metric-mapping.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:37:22.787Z",
+      "git": {
+        "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "abb1692e4e89237c175a604eda67e7ee2928c313bcb9896e04ab2984b9056133",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/inspection-metric-mapping.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ab384c1644cce58c69515cc1a8d584c11c703922084682290fd18efc08bfaabd",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:37:22.786Z",
+        "git": {
+          "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "7f856b07ef089f5cff70c0a4493541a1ccdb964abb4a87b7c07bf37c534f58f9"
+    },
+    {
+      "sequence": 48,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-10",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/map-inspection-metric.ts",
+        "tests/domain/reporting/inspection-metric-mapping.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:37:33.260Z",
+      "git": {
+        "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "7f856b07ef089f5cff70c0a4493541a1ccdb964abb4a87b7c07bf37c534f58f9",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/inspection-metric-mapping.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "e668e37a084c7120b305a16d86a76986ed3583f5e2944d50b5880ce1228fb77b",
+        "source_digest": "853c248e42b3116e5114b253a31c1d86f40cb944fa51bf9e049b64d1c2acdd01",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:37:33.260Z",
+        "git": {
+          "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "422bb9c0996f44cefac63b6a3cfe77ef59971da2bb55388a633877fffcafd2c3"
+    },
+    {
+      "sequence": 49,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-10",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/map-inspection-metric.ts",
+        "tests/domain/reporting/inspection-metric-mapping.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:37:40.469Z",
+      "git": {
+        "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "422bb9c0996f44cefac63b6a3cfe77ef59971da2bb55388a633877fffcafd2c3",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6ab5598fbcb3839f50c1dbdf42530fc455d2909b14bbae15980b1d8b8cf4f91b",
+        "source_digest": "853c248e42b3116e5114b253a31c1d86f40cb944fa51bf9e049b64d1c2acdd01",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:37:40.468Z",
+        "git": {
+          "head": "da785fba54f9fb3389448b3ba925610fd9ba501a",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "406870d4bf068c8db00940f99143042e27b169681de0753cdd35df68854b2e46"
+    },
+    {
+      "sequence": 50,
+      "type": "REBASELINED",
+      "test_id": "TEST-10",
+      "reason": "Moved presentation/result types into contract modules and removed the resulting dependency cycle required by quality gates.",
+      "executed": true,
+      "changed_files": [
+        "pages/test-reporting.tsx",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/application/reporting/reporting-details-result-contract.ts",
+        "src/dashboard/components/ReportingInsights.tsx",
+        "src/dashboard/contracts/reporting-insights-contract.ts",
+        "src/dashboard/contracts/test-reporting-page-contract.ts"
+      ],
+      "recorded_at": "2026-10-16T15:38:56.028Z",
+      "git": {
+        "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "406870d4bf068c8db00940f99143042e27b169681de0753cdd35df68854b2e46",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "84fface1740b798a92b269d10d8c24641a3cee2ee996bc21524741e48d33b327",
+        "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+        "test_digest": "9a829c7f801d4c3e5234afdd7a9ef9e5834f27c845108846f244efa35c45f321",
+        "recorded_at": "2026-10-16T15:38:56.025Z",
+        "git": {
+          "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "fbb8fd62806f54732cdbce7ee0fc676170c1c49846f82c13515e7b9067971700"
     }
   ],
   "git_baseline": {
@@ -632,11 +2394,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "1fdc4af63dbd8238e5d02d51fd0d3bf4932cba297162d34e00e24eaef22b3587",
-    "test_suite_digest": "1c8b80a069be439521fe2f2dffb91a4b532214ca21bd6da386dfb306704a4107",
-    "recorded_at": "2026-10-16T14:10:11.369Z",
+    "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+    "test_suite_digest": "c44d66a86b2c486eace61a77bc7a1ee14c4e71561930cbfdacba0a5cb5dfe8ad",
+    "recorded_at": "2026-10-16T15:38:56.028Z",
     "git": {
-      "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+      "head": "271fa63e53e9a022b2bddbfa19765d354af8f7a7",
       "branch": "NP-0035",
       "dirty": true
     }

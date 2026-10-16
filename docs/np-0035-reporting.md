@@ -1,61 +1,39 @@
 # NP-0035 — Secciones, detalle y narrativa de reporting
 
-## Estado y alcance
+## Inventario de migración
 
-La implementación proyecta a `src/backend` las políticas observadas para
-aprobación por sección, métricas, detalle de observaciones y síntesis narrativa.
-Sólo usa `ReportingFacts` y `MemoryReportingFactsReader` con fixtures sintéticas.
-No activa SQLite, PostgreSQL, FastAPI, datos reales ni un endpoint nuevo.
+- **Bounded contexts:** reporting de inspecciones y detalle de métricas.
+- **Legacy:** `modul_excel_web/app/domain/section_inspections.py`; `app/api.py` GET
+  `/sections`, `/metrics`, `/metrics/<code>` y `_section_granular`; frontend
+  `web/src/domain/narrative.ts`, `metricSnapshot.ts`, `metricDetail.ts`, mapper
+  `infrastructure/mappers/inspections.ts` y componentes de secciones/detalle.
+- **Contratos:** sección/agregado y por ítem; aprobación por inspección/sección;
+  ranking débil/fuerte/scatter; detalle con observaciones, técnicos y records; narrativa EPP,
+  brecha de sección, riesgo scatter y low bands. Universos no se unifican.
+- **Dependencias:** Flask/SQLite en legacy; presentación Next/React en legacy. En este checkout,
+  políticas TypeScript puras y `ReadReportingDetails`; no DB, HTTP ni dependencia nueva.
+- **Tests legacy identificados:** `tests/test_section_inspections.py`, `web/tests/domain/narrative.test.ts`,
+  `metricSnapshot.test.ts`, tests de `api.py` y mapper. Se inspeccionaron como evidencia; no son
+  una ejecución golden reproducible de NP-0035.
+- **Riesgos:** límite/orden de top 10/12, redondeo SQLite/Python/JS, universo de técnicos,
+  ausencias y nulos, empate conservando orden de entrada, límite 200, sección sin nombre.
 
-## Evidencia legacy
+## Proyección y límites
 
-Se revisaron `section_inspections.py`, `api.py` (`/sections`, `/metrics` y
-`/metrics/<code>`), `web/src/domain/narrative.ts`, `metricSnapshot.ts` y los
-mappers de inspecciones. Las rutas legacy quedan como evidencia; no son una
-dependencia de ejecución de esta rama.
+El backend agrega políticas sin activar `pages/api/dashboard.ts` ni cambiar fórmulas por criterio
+técnico. `ReportingInsights` acepta el resultado del caso de uso y no recalcula métricas. El reader
+disponible es sintético de memoria para tests. `pages/test-reporting.tsx` es un preview exclusivo de
+pruebas E2E y devuelve 404 en producción; no representa datos reales ni se conecta al dashboard.
+No existe en el checkout un reader persistente autorizado ni evidencia golden legacy firmada.
 
-## Políticas preservadas
+Se preservan aprobación exacta al 70%, una observación por fila de métrica, `compliance: null`
+cuando no hay universo aplicable, detalle de técnicos y máximo de 200 registros observados. Los
+records dependen de fecha/orden de entrada hasta que el puerto entregue el orden estable legacy.
+La narrativa recibe el overview por un puerto separado y reutiliza las reglas M-01..07; si no se
+inyecta, conserva el comportamiento de universo vacío. No hay aún reader persistente en producción.
 
-- Secciones granulares agrupan por sección, métrica y código; `applicable <= 0`
-  queda fuera del listado granular.
-- Aprobaciones agrupan por sección e inspección, usan `100 * conforming >= 70 *
-  applicable`, y separan evaluadas, debajo del umbral y no evaluadas.
-- Métricas cuentan observaciones incluyendo estados `NA`/desconocidos, pero el
-  ranking sólo incluye grupos con suma de aplicables mayor que cero.
-- Los técnicos se resuelven desde la inspección relacionada y usan el técnico
-  del hecho de métrica sólo como fallback de un fixture sin relación.
-- Sin identificador de inspección no se asigna un técnico por posición o azar.
-- Weak/strong mantienen desempate por `applicable` y orden estable de entrada.
-- La narrativa conserva bandas bajas, riesgo scatter, EPP, sección más débil y
-  toma el mínimo desde `weak` y el máximo desde `strong`.
-- La brecha global conserva el cálculo legacy: score inválido/vacío se vuelve 0,
-  la brecha es `max(0, 100 - score)` y saludable es válido menos bajo-70.
-- El snapshot conserva el complemento Python de sección y el complemento
-  `100 - compliance` con dos decimales para estadísticas.
+## Estado / rollback
 
-## Límites y composición
-
-Los límites están nombrados en `reporting-limits.ts`: dashboard top-10,
-consulta de métricas top-12 y registros de detalle top-200. El caso de uso
-`GetReportingDetails` lee una vez por proyección y se compone sólo mediante
-`ReadInspectionFacts`. El endpoint `pages/api/dashboard.ts` permanece con su
-contrato sintético anterior y no consume este caso de uso.
-
-## Verificación y deudas
-
-- Typecheck, lint, quality gates y pruebas dirigidas pasan.
-- La suite de integración pasa con el consumidor arquitectónico NP-0035.
-- `TEST-01` conserva el bloqueo histórico `TEST_CHANGED_AFTER_REFACTOR`; no se
-  reescribió su digest ni se fabricó rebaseline.
-- Brain bloquea abrir `TEST-02`/`TEST-03` por `SOURCE_CHANGED_AFTER_REFACTOR`.
-  Las pruebas nuevas se ejecutaron manualmente y su resultado queda separado de
-  la evidencia TDD gestionada.
-- `REVIEW-01` debe revisar el golden aprobado, la paridad de redondeos y el
-  cambio de síntesis weak/strong. `D-06` sigue abierto: no se declara corrección
-  semántica ni aceptación humana.
-
-## Rollback y activación futura
-
-El rollback consiste en no componer `createReportingDetails` desde rutas o
-presentación y conservar el reader sintético existente. La activación requiere
-primero golden aprobado, revisión humana y un adaptador de lectura autorizado.
+Implementación técnica parcial; golden formal, review ligada a commit y reader real permanecen
+pendientes. No habilitar tráfico ni promover a `Development` hasta cerrar esos gates. Rollback:
+retirar el consumer `ReportingInsights` y mantener las lecturas actuales; no hay migración de datos.

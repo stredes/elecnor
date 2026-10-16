@@ -1,16 +1,18 @@
-import type { ReportingFacts } from "./reporting-facts-contract";
-import type {
-  SectionApprovalReport,
-  SectionReport,
-} from "./reporting-section-contract";
-import type { MetricRanking } from "./reporting-metric-contract";
-import type { NarrativeSummary } from "./reporting-narrative-contract";
-
-export type ReportingDetails = {
-  readonly sections: readonly SectionReport[];
-  readonly sectionInspections: SectionApprovalReport;
-  readonly metrics: MetricRanking;
-  readonly narrative: NarrativeSummary;
+export type ReportingDetailInspection = { readonly id: string; readonly technician: string | null };
+export type ReportingDetailMetric = {
+  readonly inspectionId: string; readonly code: string | null; readonly metric: string | null;
+  readonly section: string | null; readonly applicable: number | null; readonly conforming: number | null;
+  readonly state: string | null; readonly observation: string | null; readonly date: string;
+  readonly technician: string | null; readonly notApplicable: number | null;
 };
-
-export type ReportingDetailFacts = ReportingFacts;
+export type ReportingDetailFacts = {
+  readonly inspections: readonly ReportingDetailInspection[];
+  readonly metrics: readonly ReportingDetailMetric[];
+};
+export type ReportingMetricResult = {
+  readonly code: string; readonly metric: string; readonly section: string; readonly applicable: number;
+  readonly conforming: number; readonly nonConforming: number; readonly observations: number;
+  readonly compliance: number | null; readonly nonCompliance?: number | null;
+  readonly technicians: { readonly conforming: string[]; readonly nonConforming: string[] };
+};
+export type ReportingSectionResult = ReportingMetricResult & { readonly name: string; readonly metrics: ReportingMetricResult[] };

@@ -1,47 +1,31 @@
-import { calculateMetricDetail } from "../../domain/reporting/calculate-metric-detail";
-import { calculateKpis } from "../../domain/reporting/calculate-kpis";
-import {
-  calculateMetricRanking,
-  calculateMetricStats,
-} from "../../domain/reporting/calculate-metric-ranking";
-import { calculateNarrative } from "../../domain/reporting/calculate-narrative";
+import { calculateMetricRankings } from "../../domain/reporting/calculate-metric-rankings";
+import { calculateReportingNarrative } from "../../domain/reporting/calculate-reporting-narrative";
 import { calculateSectionApprovals } from "../../domain/reporting/calculate-section-approvals";
-import { calculateSectionReports } from "../../domain/reporting/calculate-section-reports";
+import { calculateSections } from "../../domain/reporting/calculate-sections";
+import { calculateKpis } from "../../domain/reporting/calculate-kpis";
 import { countScoreBands } from "../../domain/reporting/count-score-bands";
-import type {
-  ReportingDetails,
-  MetricDetail,
-} from "../../domain/reporting/reporting-detail-contract";
+import type { ReportingFacts } from "../../domain/reporting/reporting-facts-contract";
 import type { ReadInspectionFacts } from "../../ports/read-inspection-facts";
+import type { ReadReportingDetails } from "../../ports/read-reporting-details";
+import type { ReportingDetailsResult } from "./reporting-details-result-contract";
+
+const emptyOverview: ReportingFacts = { inspections: [], importLogs: [], metrics: [] };
 
 export class GetReportingDetails {
-  public constructor(private readonly reader: ReadInspectionFacts) {}
+  public constructor(private readonly reader: ReadReportingDetails, private readonly overviewReader?: ReadInspectionFacts) {}
 
-  public async execute(): Promise<ReportingDetails> {
-    const facts = await this.reader.read();
-    const kpis = calculateKpis(facts);
-    const sections = calculateSectionReports(facts);
-    const metrics = calculateMetricRanking(calculateMetricStats(facts));
-    return {
-      sections,
-      sectionInspections: calculateSectionApprovals(facts),
-      metrics,
-      narrative: calculateNarrative({
-        global: {
-          score: Number.parseFloat(kpis["Promedio global"]) || 0,
-          validScores: kpis["Puntajes válidos"],
-          below70: kpis["Bajo 70%"],
-        },
-        sections: sections.map(({ name, percentage }) => ({ name, percentage })),
-        distribution: countScoreBands(facts),
-        scatter: metrics.scatter,
-        weak: metrics.weak,
-        strong: metrics.strong,
-      }),
-    };
-  }
-
-  public async metricDetail(code: string): Promise<MetricDetail | null> {
-    return calculateMetricDetail(await this.reader.read(), code);
+  public async execute(): Promise<ReportingDetailsResult> {
+    const [facts, overviewFacts] = await Promise.all([
+      this.reader.read(), this.overviewReader?.read() ?? Promise.resolve(emptyOverview),
+    ]);
+    const sections = calculateSections(facts);
+    const approvals = calculateSectionApprovals(facts);
+    const rankings = calculateMetricRankings(facts);
+    const kpis = calculateKpis(overviewFacts);
+    const lowBands = countScoreBands(overviewFacts).slice(0, 3).reduce((sum, band) => sum + band.count, 0);
+    const narrative = calculateReportingNarrative({ sections: sections.map(({ name, compliance }) => ({ name, percentage: compliance })),
+      weak: rankings.weak, strong: rankings.strong, scatter: rankings.scatter, lowBands,
+      global: kpis["Promedio global"], validScores: kpis["Puntajes válidos"], below70: kpis["Bajo 70%"] });
+    return { sections, approvals, rankings, narrative };
   }
 }
