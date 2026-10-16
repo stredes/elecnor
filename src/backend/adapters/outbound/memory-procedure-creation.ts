@@ -25,20 +25,25 @@ export class MemoryDocumentStorage implements StoreProcedureDocument {
 export class MemoryProcedureCommitter implements CommitProcedure {
   public readonly records: Procedure[] = [];
   private readonly completed = new Map<string, { fingerprint: string; procedure: Procedure }>();
+  private readonly pending = new Map<string, { key: string; fingerprint: string }>();
   public constructor(private readonly failure?: ProcedureCommitError) {}
   public reserve(key: string, fingerprint: string): Promise<ProcedureReservation> {
     const existing = this.completed.get(key);
     if (existing) return Promise.resolve(existing.fingerprint === fingerprint ? { kind: "DUPLICATE", procedure: existing.procedure } : { kind: "CONFLICT" });
-    return Promise.resolve({ kind: "NEW", token: `${key}-token` });
+    const token = `${key}-token`;
+    this.pending.set(token, { key, fingerprint });
+    return Promise.resolve({ kind: "NEW", token });
   }
   public commit(reservation: ProcedureReservation & { readonly kind: "NEW" }, draft: ProcedureWriteDraft): Promise<Procedure> {
     if (this.failure) return Promise.reject(this.failure);
     const procedure = { id: `procedure-${this.records.length + 1}`, title: draft.metadata.title ?? "", code: draft.metadata.code, area: draft.metadata.area, description: draft.metadata.description, youtubeVideoId: draft.metadata.youtubeVideoId, pdfUrl: null, filename: draft.document.filename, createdAt: "2026-01-01", updatedAt: "2026-01-01" };
     this.records.push(procedure);
-    this.completed.set(reservation.token.replace(/-token$/, ""), { fingerprint: "same", procedure });
+    const pending = this.pending.get(reservation.token);
+    if (pending) this.completed.set(pending.key, { fingerprint: pending.fingerprint, procedure });
+    this.pending.delete(reservation.token);
     return Promise.resolve(procedure);
   }
-  public cancel(reservation: ProcedureReservation & { readonly kind: "NEW" }): Promise<void> { void reservation; return Promise.resolve(); }
+  public cancel(reservation: ProcedureReservation & { readonly kind: "NEW" }): Promise<void> { this.pending.delete(reservation.token); return Promise.resolve(); }
 }
 
 export class MemoryProcedureRecovery implements RecordProcedureRecovery {

@@ -34,7 +34,7 @@
         "level": "integration",
         "check": "integration",
         "args": ["tests/integration/architecture/procedure-creation.test.ts"],
-        "expected_failure": "Failed to resolve import",
+        "expected_failure": "CONFLICT",
         "fixture": "tests/integration/architecture/procedure-creation.test.ts",
         "regression": {"check": "integration", "args": []}
       }

@@ -107,6 +107,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d97c569037b34b5a3a339f0af88f55d57b0911538ea5ce9acc3fad1d0a091d8f",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:44.584Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "8dfa56dae4c02527bae0ea0df868edd1867ae06203e72d9a8c5b094adc1c5409",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:56.224Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "686c0ada0d27f5d1e808213bff333b0d09ba8300030c8af910c212e567f78a3d",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:43:04.597Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -647,6 +700,117 @@
         }
       },
       "event_digest": "9f782c3652e0c3349f503ed351886d5c8688bf5cca7a35f4daf874f2689d18fb"
+    },
+    {
+      "sequence": 16,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "CONFLICT",
+      "executed": true,
+      "changed_files": [
+        ".hc/task.json",
+        "tests/integration/architecture/procedure-creation.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:42:44.595Z",
+      "git": {
+        "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "9f782c3652e0c3349f503ed351886d5c8688bf5cca7a35f4daf874f2689d18fb",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d97c569037b34b5a3a339f0af88f55d57b0911538ea5ce9acc3fad1d0a091d8f",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:44.584Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "event_digest": "cb464e62254c714c38740d53cdfcbf3e39e94598c526f4712c63f9a2affb6df6"
+    },
+    {
+      "sequence": 17,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/architecture/procedure-creation.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:42:56.235Z",
+      "git": {
+        "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "cb464e62254c714c38740d53cdfcbf3e39e94598c526f4712c63f9a2affb6df6",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "8dfa56dae4c02527bae0ea0df868edd1867ae06203e72d9a8c5b094adc1c5409",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:56.224Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "928fd7d4efdf6d76ed33c8fb178d8e90a8c4ae25c504c20cba0a6154c967baad"
+    },
+    {
+      "sequence": 18,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/architecture/procedure-creation.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:43:04.597Z",
+      "git": {
+        "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "928fd7d4efdf6d76ed33c8fb178d8e90a8c4ae25c504c20cba0a6154c967baad",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "686c0ada0d27f5d1e808213bff333b0d09ba8300030c8af910c212e567f78a3d",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:43:04.597Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "dd48f82cf34015a90d9441b034d4c531b481eb3d171155276e6010039175e1ec"
     }
   ],
   "git_baseline": {
@@ -655,11 +819,11 @@
     "branch": "NP-0039"
   },
   "final": {
-    "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
-    "test_suite_digest": "adbaba56a96a076025e5ef3269101f337d1e2744f2c76abff39fd1e8ce15228b",
-    "recorded_at": "2026-10-16T22:39:43.922Z",
+    "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+    "test_suite_digest": "1557dc20e4131095791a5f3f02fcc36e63137687ee00449bcefb9c30d99f8c15",
+    "recorded_at": "2026-10-16T22:43:04.597Z",
     "git": {
-      "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+      "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
       "branch": "NP-0039",
       "dirty": true
     }
