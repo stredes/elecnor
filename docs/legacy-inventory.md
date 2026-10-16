@@ -11,6 +11,9 @@ dependencia ni autoriza migrar datos o comportamiento no especificado.
 | `Fasapi/src/app` | FastAPI, rutas y adaptadores de backend | Adaptador outbound, no import directo |
 | `np0028-web/web` | Slice NP-0028 y contratos Brain | Evidencia y contratos, no copia automática |
 | `np0028-fasapi` | Worktree FastAPI de NP-0028 | Fuente de contratos aprobados únicamente |
+| `np0028-fasapi/src/app/api/routes/pdf.py` | Upload, extracción por ID y `extract-and-send` | `src/backend/adapters/outbound/http-c-extract-reader.ts`; sin activar sender |
+| `np0028-fasapi/src/app/services/{extraction_service,pdf_validator,pdf_extractor}.py` | Composición concreta, límites y recursos PyMuPDF | `src/backend/application/extract-document.ts` + puerto C-EXTRACT; parser Python permanece legacy |
+| `np0028-fasapi/src/app/domain/evaluacion.py` | Preguntas, secciones y resumen de hechos | C-EXTRACT candidato; orden y campos ampliados requieren D-05 |
 
 ## Regla por NP
 
