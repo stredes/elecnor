@@ -107,6 +107,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-architecture.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "7f73b089a000277c160006e31182925b35cf4b2a8d070de5f27d26d42f437a10",
+        "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
+        "test_digest": "a9be6aaba3e4417550d3c9e09b5a2a547e4a56ddd027ae33df8d6f927bf54b89",
+        "recorded_at": "2026-10-16T00:21:35.909Z",
+        "git": {
+          "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+          "branch": "NP-0030",
+          "dirty": true
+        },
+        "expected_reason": "fastapi.test/inspections"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-architecture.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "cf95b09d2a70294d85efa703ab96668cac43c796bf88b8ccab2db0239fbad430",
+        "source_digest": "ea26cfe1a51cfc4abd2308ff1926851b29f2307e46a0d62fbc8a80fe636fd29d",
+        "test_digest": "a9be6aaba3e4417550d3c9e09b5a2a547e4a56ddd027ae33df8d6f927bf54b89",
+        "recorded_at": "2026-10-16T00:21:44.704Z",
+        "git": {
+          "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "26660755c9e0dd83952f679de86db214acf8da3406eadbbff2f1bce69092b99c",
+        "source_digest": "ea26cfe1a51cfc4abd2308ff1926851b29f2307e46a0d62fbc8a80fe636fd29d",
+        "test_digest": "a9be6aaba3e4417550d3c9e09b5a2a547e4a56ddd027ae33df8d6f927bf54b89",
+        "recorded_at": "2026-10-16T00:21:48.401Z",
+        "git": {
+          "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -490,6 +543,117 @@
         }
       },
       "event_digest": "c5adc6adb1d19dd0b87df69f3e6f2093d14af8fb7efe44f2313a5bc1d54945d2"
+    },
+    {
+      "sequence": 11,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "fastapi.test/inspections",
+      "executed": true,
+      "changed_files": [
+        ".hc/task.json",
+        "tests/integration/inspection-architecture.test.ts"
+      ],
+      "recorded_at": "2026-10-16T00:21:35.909Z",
+      "git": {
+        "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "c5adc6adb1d19dd0b87df69f3e6f2093d14af8fb7efe44f2313a5bc1d54945d2",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-architecture.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "7f73b089a000277c160006e31182925b35cf4b2a8d070de5f27d26d42f437a10",
+        "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
+        "test_digest": "a9be6aaba3e4417550d3c9e09b5a2a547e4a56ddd027ae33df8d6f927bf54b89",
+        "recorded_at": "2026-10-16T00:21:35.909Z",
+        "git": {
+          "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+          "branch": "NP-0030",
+          "dirty": true
+        },
+        "expected_reason": "fastapi.test/inspections"
+      },
+      "event_digest": "261874ced9445ff87563c5bd9c1662162727af9cbfc2a0887d7b3f8ad8052bb7"
+    },
+    {
+      "sequence": 12,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/http-inspection-reader.ts",
+        "tests/integration/inspection-architecture.test.ts"
+      ],
+      "recorded_at": "2026-10-16T00:21:44.704Z",
+      "git": {
+        "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "261874ced9445ff87563c5bd9c1662162727af9cbfc2a0887d7b3f8ad8052bb7",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/inspection-architecture.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "cf95b09d2a70294d85efa703ab96668cac43c796bf88b8ccab2db0239fbad430",
+        "source_digest": "ea26cfe1a51cfc4abd2308ff1926851b29f2307e46a0d62fbc8a80fe636fd29d",
+        "test_digest": "a9be6aaba3e4417550d3c9e09b5a2a547e4a56ddd027ae33df8d6f927bf54b89",
+        "recorded_at": "2026-10-16T00:21:44.704Z",
+        "git": {
+          "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "event_digest": "708704e9af49014807806c800fbaa90ed26cfb79420e34423371af6f63aab857"
+    },
+    {
+      "sequence": 13,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0030.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/http-inspection-reader.ts",
+        "tests/integration/inspection-architecture.test.ts"
+      ],
+      "recorded_at": "2026-10-16T00:21:48.402Z",
+      "git": {
+        "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+        "branch": "NP-0030",
+        "dirty": true
+      },
+      "previous_event_digest": "708704e9af49014807806c800fbaa90ed26cfb79420e34423371af6f63aab857",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "26660755c9e0dd83952f679de86db214acf8da3406eadbbff2f1bce69092b99c",
+        "source_digest": "ea26cfe1a51cfc4abd2308ff1926851b29f2307e46a0d62fbc8a80fe636fd29d",
+        "test_digest": "a9be6aaba3e4417550d3c9e09b5a2a547e4a56ddd027ae33df8d6f927bf54b89",
+        "recorded_at": "2026-10-16T00:21:48.401Z",
+        "git": {
+          "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
+          "branch": "NP-0030",
+          "dirty": true
+        }
+      },
+      "event_digest": "d3232bbb1faaf21a18738d4bd9474be57b8399fb433588ed45a3395bc3104add"
     }
   ],
   "git_baseline": {
@@ -498,11 +662,11 @@
     "branch": "NP-0030"
   },
   "final": {
-    "source_digest": "a7bfd2c832306f1e4e85e1b7ce2629d69b6f0539827bed7837f1efc7e5bc6107",
-    "test_suite_digest": "8d037c4bccd61560a07bc664acb233e810705fd5c20af0b5a6dffb01aabe9d7c",
-    "recorded_at": "2026-10-16T00:21:02.981Z",
+    "source_digest": "ea26cfe1a51cfc4abd2308ff1926851b29f2307e46a0d62fbc8a80fe636fd29d",
+    "test_suite_digest": "9f80ea3019a535e5406b059d3e33deb70fc1c8ad911848d7e846e54ef0263db7",
+    "recorded_at": "2026-10-16T00:21:48.402Z",
     "git": {
-      "head": "8a37d7d456dc73e9fcd5e1e5afee651c4a847558",
+      "head": "4f6bb592d6329b59b28994996cf2bf1ef262d6a5",
       "branch": "NP-0030",
       "dirty": true
     }

@@ -13,7 +13,8 @@ export class HttpInspectionReader implements InspectionReader {
   ) {}
 
   public async list(query: InspectionListQuery): Promise<InspectionListResult> {
-    const response = await this.fetcher(`${this.endpoint}/inspections?${buildInspectionQuery(query)}`);
+    const endpoint = this.endpoint.replace(/\/$/, "");
+    const response = await this.fetcher(`${endpoint}/api/inspections?${buildInspectionQuery(query)}`);
     if (!response.ok) throw new Error(`Inspection backend responded ${response.status}`);
     return parseInspectionList(await response.json());
   }
