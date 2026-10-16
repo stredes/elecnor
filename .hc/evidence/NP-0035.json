@@ -410,6 +410,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-08",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "675137c95160923795a7d6a60d9dbef2e7f6255c76abf3f60efec8870a606164",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:32.511Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9901dba401fef921227dddf9739732c4ef39b888c9d96959919a2ea0becd0502",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:41.148Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2756d279a9e4e44cad4d3fbd3619683cb36793b515a0e52eaa96b05dd260c202",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:48.496Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -1813,6 +1866,122 @@
         }
       },
       "event_digest": "3893d497f18872beb555609bea0f59a3a8ba2ad9ba2f2626bf36cc030da59855"
+    },
+    {
+      "sequence": 41,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-derived-policies.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:35:32.511Z",
+      "git": {
+        "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3893d497f18872beb555609bea0f59a3a8ba2ad9ba2f2626bf36cc030da59855",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "675137c95160923795a7d6a60d9dbef2e7f6255c76abf3f60efec8870a606164",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:32.511Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "e3fb98599ca31f7503b57e9033b35a7b8df3af5c7ac989b8d73f7767e90aefa6"
+    },
+    {
+      "sequence": 42,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-non-compliance.ts",
+        "src/backend/domain/reporting/calculate-total-approvals.ts",
+        "tests/domain/reporting/reporting-derived-policies.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:35:41.149Z",
+      "git": {
+        "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "e3fb98599ca31f7503b57e9033b35a7b8df3af5c7ac989b8d73f7767e90aefa6",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-derived-policies.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9901dba401fef921227dddf9739732c4ef39b888c9d96959919a2ea0becd0502",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:41.148Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "2c8a1afd0fe394d21c1afc56dc40a7aa7abe7f25a69fd25db8624e4d464f4568"
+    },
+    {
+      "sequence": 43,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-08",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-non-compliance.ts",
+        "src/backend/domain/reporting/calculate-total-approvals.ts",
+        "tests/domain/reporting/reporting-derived-policies.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:35:48.497Z",
+      "git": {
+        "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "2c8a1afd0fe394d21c1afc56dc40a7aa7abe7f25a69fd25db8624e4d464f4568",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2756d279a9e4e44cad4d3fbd3619683cb36793b515a0e52eaa96b05dd260c202",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "ac39cf93358168a1c3a7fc6e1f4e25c2a0d286dee7225391eec154a61ca91fee",
+        "recorded_at": "2026-10-16T15:35:48.496Z",
+        "git": {
+          "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "0837a8c21f41de315d0bc14405c56a523f94c66aeee295faee3bba7c239244bb"
     }
   ],
   "git_baseline": {
@@ -1821,11 +1990,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
-    "test_suite_digest": "bec0da895c56062ac362e22094a9f13959e5096cb113373e29fa017c28db1d83",
-    "recorded_at": "2026-10-16T15:34:55.935Z",
+    "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+    "test_suite_digest": "dc12a8a649f29fd9dae837d5a3edd18e8fdcc60885576646702049443e998bf9",
+    "recorded_at": "2026-10-16T15:35:48.497Z",
     "git": {
-      "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+      "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
       "branch": "NP-0035",
       "dirty": true
     }
