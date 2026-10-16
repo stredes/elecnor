@@ -1,0 +1,71 @@
+{
+  "schema_version": "2.0",
+  "story": {
+    "id": "NP-0034",
+    "title": "Migrar KPIs, percentiles y distribución al backend Next",
+    "actor": "equipo de backend",
+    "need": "calcular en una capacidad de reporting las métricas existentes",
+    "business_value": "conservar cifras verificables y eliminar reglas HTTP monolíticas",
+    "context": "Anexo NP-0034 en NP-0026-backlog.md. Evidencia report_queries.py y api.py:502-540,689-693. Métricas M-01 a M-07 del diccionario.",
+    "preconditions": [
+      "Read port de inspecciones y golden disponibles",
+      "Política de redondeo por métrica caracterizada"
+    ],
+    "acceptance_criteria": [
+      {
+        "id": "AC-01",
+        "given": ["mismos hechos de inspecciones, métricas y logs"],
+        "when": ["se obtiene el overview del dashboard"],
+        "then": [
+          "KPI, media, mediana, percentiles y bandas coinciden con baseline",
+          "PDF recibidos sigue contando logs y no archivos únicos"
+        ],
+        "test_ids": ["TEST-01"]
+      },
+      {
+        "id": "AC-02",
+        "given": ["universo vacío, scores null, mitades numéricas y límites70/100"],
+        "when": ["se agregan los datos"],
+        "then": [
+          "se conservan defaults, nulls, intervalos y redondeos caracterizados",
+          "no se interpreta falta de evidencia como nueva conclusión"
+        ],
+        "test_ids": ["TEST-02"]
+      },
+      {
+        "id": "AC-03",
+        "given": ["presenter Next, caso de uso y read port FastAPI"],
+        "when": ["se revisa el cálculo"],
+        "then": [
+          "las políticas pertenecen a la aplicación y no al handler ni cliente",
+          "Next recibe hechos por Gateway y la persistencia queda en adaptadores FastAPI"
+        ],
+        "test_ids": ["TEST-03"]
+      }
+    ],
+    "business_rules": [
+      { "id": "BR-01", "rule": "Conservar las fórmulas M-01 a M-07; las correcciones semánticas necesitan aprobación D-06." }
+    ],
+    "edge_cases": ["n0/n1/n2 percentiles", "Logs duplicado/error", "Acción sin score"],
+    "out_of_scope": ["Nuevas tarjetas", "Cambiar promedio por ponderado", "Activar el endpoint con datos reales"],
+    "dependencies": ["NP-0030", "NP-0032"],
+    "non_functional_requirements": [
+      {
+        "id": "NFR-01",
+        "rule": "Pruebas deterministas de equivalencia numérica, límites de capas y 99 líneas.",
+        "risk_tags": ["migration", "public-api", "persistence"],
+        "test_ids": ["TEST-02", "TEST-03"],
+        "review_ids": ["REVIEW-01"]
+      }
+    ],
+    "definition_of_ready": {
+      "ready": false,
+      "evidence": ["El read port y el golden formal todavía no están disponibles; D-06 bloquea corregir semánticas, no preservar las observadas."]
+    },
+    "definition_of_done": [
+      "Valores y serialización equivalentes",
+      "Fuente única de políticas KPI",
+      "Cierre común del backlog"
+    ]
+  }
+}
