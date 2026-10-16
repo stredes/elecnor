@@ -70,6 +70,20 @@
             "branch": "NP-0036",
             "dirty": true
           }
+        },
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "472ba1af807b48686a5b9697d36e3509637784558da5ef563f94d48e9eb02ca7",
+          "source_digest": "874cf83bc9b04d6e41708ec7afe5890130505d5ac5f0f3e9182aa5033006ad76",
+          "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+          "recorded_at": "2026-10-16T15:34:10.122Z",
+          "git": {
+            "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
+            "branch": "NP-0036",
+            "dirty": true
+          }
         }
       ]
     }
@@ -414,6 +428,98 @@
       "previous_event_digest": "fb77c9b84da27606e7e4f3c2b63cbef916ca5cc2ee50493fc4a1f1fece98b5db",
       "code": "PRODUCTION_NOT_COMMITTED",
       "event_digest": "5c11e7f083239e1f55a05b468fe38b997ece3136b421811cb19abcaca5f5f1c2"
+    },
+    {
+      "sequence": 12,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        "tests/domain/geography/ambiguous-addresses.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:33:39.217Z",
+      "git": {
+        "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "5c11e7f083239e1f55a05b468fe38b997ece3136b421811cb19abcaca5f5f1c2",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "9bc2fde63fbdab292bfadb5a7929081d86247992e294e4f6df69e475bc3d4919"
+    },
+    {
+      "sequence": 13,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 rebaseline command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "tests/domain/geography/ambiguous-addresses.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:33:51.643Z",
+      "git": {
+        "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "9bc2fde63fbdab292bfadb5a7929081d86247992e294e4f6df69e475bc3d4919",
+      "code": "REBASELINE_COMMAND_FAILED",
+      "event_digest": "6edb88b52062099aca8100b723eeb26d3ef486c2f9082f4e877efe56cfe9843f"
+    },
+    {
+      "sequence": 14,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Se confirmó el ajuste de validación de fechas y se comprometió el baseline antes de TEST-02.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json"
+      ],
+      "recorded_at": "2026-10-16T15:34:10.126Z",
+      "git": {
+        "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "6edb88b52062099aca8100b723eeb26d3ef486c2f9082f4e877efe56cfe9843f",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "472ba1af807b48686a5b9697d36e3509637784558da5ef563f94d48e9eb02ca7",
+        "source_digest": "874cf83bc9b04d6e41708ec7afe5890130505d5ac5f0f3e9182aa5033006ad76",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:34:10.122Z",
+        "git": {
+          "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "2b9f3def32f0adc187e1f7085e0f43b7b013e99213e6b2f06999b8eae4379748"
+    },
+    {
+      "sequence": 15,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-01 has no commit after REFACTOR",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "tests/domain/geography/ambiguous-addresses.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:17.766Z",
+      "git": {
+        "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "2b9f3def32f0adc187e1f7085e0f43b7b013e99213e6b2f06999b8eae4379748",
+      "code": "PREVIOUS_CYCLE_NOT_COMMITTED",
+      "event_digest": "e9a15330e2a58da4d51b2ea186512ec4064aaf1cc12292ff1f81f903100914df"
     }
   ],
   "git_baseline": {
@@ -422,11 +528,11 @@
     "branch": "NP-0036"
   },
   "final": {
-    "source_digest": "ad0af74c38bb83e2db5a74226ce22b950473d6b7ebe1c3af110eaafc99d0fcd2",
+    "source_digest": "874cf83bc9b04d6e41708ec7afe5890130505d5ac5f0f3e9182aa5033006ad76",
     "test_suite_digest": "c2026af2c576ecd6856463ebb9e3d0026331432bea968127cd6706fabebb7142",
-    "recorded_at": "2026-10-16T15:32:38.700Z",
+    "recorded_at": "2026-10-16T15:34:10.125Z",
     "git": {
-      "head": "6e603175f92abb823f2729ba36e927368de66ece",
+      "head": "4005e160f02cc10d8629396962ff0cb5b7d0c300",
       "branch": "NP-0036",
       "dirty": true
     }
