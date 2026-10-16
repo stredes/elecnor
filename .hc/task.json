@@ -92,6 +92,16 @@
         "expected_failure": "Failed to resolve import",
         "fixture": "tests/domain/reporting/reporting-derived-policies.test.ts",
         "regression": { "check": "unit", "args": [] }
+      },
+      {
+        "test_id": "TEST-09",
+        "order": 9,
+        "level": "unit",
+        "check": "unit",
+        "args": ["tests/domain/reporting/reporting-complement-rounding.test.ts"],
+        "expected_failure": "expected undefined to be 78.6",
+        "fixture": "tests/domain/reporting/reporting-complement-rounding.test.ts",
+        "regression": { "check": "unit", "args": [] }
       }
     ]
   },
@@ -115,6 +125,7 @@
       "tests/domain/reporting/reporting-complete-parity.test.ts",
       "tests/domain/reporting/reporting-detail-parity.test.ts",
       "tests/domain/reporting/reporting-derived-policies.test.ts",
+      "tests/domain/reporting/reporting-complement-rounding.test.ts",
       "tests/integration/reporting",
       "tests/integration/reporting/reporting-narrative-overview.test.ts",
       "tests/e2e/reporting-consumer.spec.ts",

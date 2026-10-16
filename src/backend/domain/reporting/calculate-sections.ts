@@ -24,6 +24,7 @@ export function calculateSections(facts: ReportingDetailFacts): ReportingSection
   return [...groups].map(([name, map]) => {
     const metrics = [...map.values()].filter((metric) => metric.applicable > 0).map((metric) => ({
       ...metric, compliance: round1(100 * metric.conforming / metric.applicable),
+      nonCompliance: round1(100 * (metric.applicable - metric.conforming) / metric.applicable),
       technicians: { conforming: [...metric.technicians.conforming].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })),
         nonConforming: [...metric.technicians.nonConforming].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })) },
     }));

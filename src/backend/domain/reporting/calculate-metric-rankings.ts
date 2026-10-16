@@ -1,4 +1,5 @@
 import type { ReportingDetailFacts, ReportingMetricResult } from "./reporting-details-contract";
+import { calculateMetricNonCompliance } from "./calculate-metric-non-compliance";
 
 type MetricAggregate = Omit<ReportingMetricResult, "applicable" | "conforming" | "nonConforming"> & {
   applicable: number; conforming: number; nonConforming: number; observations: number;
@@ -27,6 +28,7 @@ export function calculateMetricRankings(facts: ReportingDetailFacts, limit = 10)
   }
   const all = [...groups.values()].filter((item) => item.applicable > 0).map((item) => ({
     ...item, compliance: round2(100 * item.conforming / item.applicable),
+    nonCompliance: calculateMetricNonCompliance(round2(100 * item.conforming / item.applicable), item.applicable),
     technicians: { conforming: [...item.technicians.conforming].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })),
       nonConforming: [...item.technicians.nonConforming].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })) },
   }));

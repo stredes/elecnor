@@ -12,6 +12,7 @@ export type ReportingDetailFacts = {
 export type ReportingMetricResult = {
   readonly code: string; readonly metric: string; readonly section: string; readonly applicable: number;
   readonly conforming: number; readonly nonConforming: number; readonly observations: number;
-  readonly compliance: number | null; readonly technicians: { readonly conforming: string[]; readonly nonConforming: string[] };
+  readonly compliance: number | null; readonly nonCompliance?: number | null;
+  readonly technicians: { readonly conforming: string[]; readonly nonConforming: string[] };
 };
 export type ReportingSectionResult = ReportingMetricResult & { readonly name: string; readonly metrics: ReportingMetricResult[] };

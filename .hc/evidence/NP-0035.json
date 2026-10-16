@@ -463,6 +463,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-09",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d628b404cbddd8a544d91843272d035184d9ce08c5fc9984cc422193acf4a449",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:44.122Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected undefined to be 78.6"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a6c2f4c59a0d28ceda97e4672de19b30fab44f62f49f0783aafe8111f3ad1cd4",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:53.744Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "1e5521ffd3dfc38a5fc7aa15dadf4af1ac4c7ab251e96cf54f8d17fede032252",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:37:00.850Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -1982,6 +2035,124 @@
         }
       },
       "event_digest": "0837a8c21f41de315d0bc14405c56a523f94c66aeee295faee3bba7c239244bb"
+    },
+    {
+      "sequence": 44,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-09",
+      "reason": "expected undefined to be 78.6",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complement-rounding.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:36:44.123Z",
+      "git": {
+        "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "0837a8c21f41de315d0bc14405c56a523f94c66aeee295faee3bba7c239244bb",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d628b404cbddd8a544d91843272d035184d9ce08c5fc9984cc422193acf4a449",
+        "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:44.122Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected undefined to be 78.6"
+      },
+      "event_digest": "43016012d791b51dbad5fa56ea834ec513f82f5e688e0e3764798757520e88b2"
+    },
+    {
+      "sequence": 45,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-09",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "tests/domain/reporting/reporting-complement-rounding.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:36:53.745Z",
+      "git": {
+        "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "43016012d791b51dbad5fa56ea834ec513f82f5e688e0e3764798757520e88b2",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complement-rounding.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a6c2f4c59a0d28ceda97e4672de19b30fab44f62f49f0783aafe8111f3ad1cd4",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:36:53.744Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "b3c6468b5232e69bcb82f3f98b0088ced7e4214369aa7db6d507bb8e40612be9"
+    },
+    {
+      "sequence": 46,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-09",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "tests/domain/reporting/reporting-complement-rounding.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:37:00.851Z",
+      "git": {
+        "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "b3c6468b5232e69bcb82f3f98b0088ced7e4214369aa7db6d507bb8e40612be9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "1e5521ffd3dfc38a5fc7aa15dadf4af1ac4c7ab251e96cf54f8d17fede032252",
+        "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+        "test_digest": "0866a217bedbe82e910c82608c43a8026625e5d1f97c53bbef4b1e9e87e0b394",
+        "recorded_at": "2026-10-16T15:37:00.850Z",
+        "git": {
+          "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "abb1692e4e89237c175a604eda67e7ee2928c313bcb9896e04ab2984b9056133"
     }
   ],
   "git_baseline": {
@@ -1990,11 +2161,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "84b6629e1429328d7b56c280557addd4eeabae34ec62d46b0ce8cd49bb45a8e6",
-    "test_suite_digest": "dc12a8a649f29fd9dae837d5a3edd18e8fdcc60885576646702049443e998bf9",
-    "recorded_at": "2026-10-16T15:35:48.497Z",
+    "source_digest": "1f79dc09d7c438e0b25c9e8855ee364b42500f06714b2203b5dc6669e3ed3641",
+    "test_suite_digest": "611aaf23847f349ef2621837046bf93c0b47e8bec9f6baf01b7ef2ceb7d76af0",
+    "recorded_at": "2026-10-16T15:37:00.851Z",
     "git": {
-      "head": "6ec03c3633007a3e836491bfa2581f4486383ea5",
+      "head": "f0847fd3349ba8c7bf43ac6776e284326cc239d7",
       "branch": "NP-0035",
       "dirty": true
     }
