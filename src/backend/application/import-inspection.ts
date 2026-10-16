@@ -1,4 +1,5 @@
 import { validateImportFiles, type ImportFile } from "../domain/import-files";
+import { ImportOperationError } from "../domain/import-operation-error";
 import type { ImportSummary } from "../domain/import-summary";
 import type { DocumentProcessor } from "../ports/document-processor";
 import type { ImportInterpreter } from "../ports/import-interpreter";
@@ -19,12 +20,29 @@ export class ImportInspection {
     validateImportFiles(files);
     let summary = emptySummary(files.length);
     for (const file of files) {
-      const facts = await this.processor.process(file, context);
-      const draft = this.interpreter.execute(facts);
-      const result = await this.repository.persist(draft, file, context);
-      summary = applyResult(summary, result.status, result.metricsInserted, result.unknownMetrics);
+      ensureActive(context, summary);
+      try {
+        const facts = await this.processor.process(file, context);
+        ensureActive(context, summary);
+        const draft = this.interpreter.execute(facts);
+        ensureActive(context, summary);
+        const result = await this.repository.persist(draft, file, context);
+        summary = applyResult(summary, result.status, result.metricsInserted, result.unknownMetrics);
+      } catch (error) {
+        if (error instanceof ImportOperationError) throw error;
+        summary = { ...summary, errores: summary.errores + 1 };
+      }
     }
     return summary;
+  }
+}
+
+function ensureActive(
+  context: ImportExecutionContext,
+  summary: ImportSummary,
+): void {
+  if (context.cancellation.isCancelled()) {
+    throw new ImportOperationError("CANCELLED", summary);
   }
 }
 

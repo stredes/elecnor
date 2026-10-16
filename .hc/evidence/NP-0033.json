@@ -53,7 +53,23 @@
           "branch": "NP-0033",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "6bf38e00e52b0c51b10ab58c926f60d648fa86b250f0418e30b13c3185a8ed77",
+          "source_digest": "a0ae33ac0237ee2aca3664b94a369be779572fc5006cadfe316ee8b915a528f5",
+          "test_digest": "3cdcc6165dfbc187616953a17a7f8dfbd7056f16aeff0ab61f87360d826892d9",
+          "recorded_at": "2026-10-16T13:36:05.284Z",
+          "git": {
+            "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+            "branch": "NP-0033",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -228,6 +244,165 @@
         }
       },
       "event_digest": "f84f75eb806b1069b88412f69f27adf359d9662fbe02217a6072f84df1f62568"
+    },
+    {
+      "sequence": 6,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:35:05.444Z",
+      "git": {
+        "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "f84f75eb806b1069b88412f69f27adf359d9662fbe02217a6072f84df1f62568",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-operation-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a3b67729ffbf7bd4589a3c18839ae83a06ca2b6fc3772b6675b88ce8ecdfcf83",
+        "source_digest": "daf0f4e4f7153d1de0f6fe4e74e8233580515ff6b516b11379e7cff37319664e",
+        "test_digest": "d4d120efbc9a469d9a2ea6aaee12a31dd874671cfaf31dc61e6dc5347cf5d97e",
+        "recorded_at": "2026-10-16T13:35:05.443Z",
+        "git": {
+          "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+          "branch": "NP-0033",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "14d237b42a5bdf9486f9ac9073a2835a3388ac8afa2300a54948ca4352db4a06"
+    },
+    {
+      "sequence": 7,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 GREEN command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "src/backend/application/import-inspection.ts",
+        "src/backend/domain/import-operation-error.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:35:18.204Z",
+      "git": {
+        "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "14d237b42a5bdf9486f9ac9073a2835a3388ac8afa2300a54948ca4352db4a06",
+      "code": "GREEN_COMMAND_FAILED",
+      "event_digest": "f1649ec7ad03eaba729ff04d8bb542eca3e36b351abf19f7c93fa2b987334447"
+    },
+    {
+      "sequence": 8,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 changed between RED and GREEN",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "src/backend/application/import-inspection.ts",
+        "src/backend/domain/import-operation-error.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:35:42.413Z",
+      "git": {
+        "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "f1649ec7ad03eaba729ff04d8bb542eca3e36b351abf19f7c93fa2b987334447",
+      "code": "TEST_CHANGED_AFTER_RED",
+      "event_digest": "9fd8e60b79f0881c5dfcc76703be3f46b570851dd590806dd8d76d806ded619e"
+    },
+    {
+      "sequence": 9,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-02",
+      "reason": "El doble de DocumentProcessor del test tenía una forma incorrecta; se corrige el fixture y se repite RED/GREEN.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "src/backend/application/import-inspection.ts",
+        "src/backend/domain/import-operation-error.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:35:47.026Z",
+      "git": {
+        "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "9fd8e60b79f0881c5dfcc76703be3f46b570851dd590806dd8d76d806ded619e",
+      "event_digest": "4b4860af6ba402cc8dbd6ecf58656a6e7e139a990f6d96eee6a863d8e42cecd0"
+    },
+    {
+      "sequence": 10,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "src/backend/application/import-inspection.ts",
+        "src/backend/domain/import-operation-error.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:35:49.458Z",
+      "git": {
+        "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "4b4860af6ba402cc8dbd6ecf58656a6e7e139a990f6d96eee6a863d8e42cecd0",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "6ef73d7a6232702771f4a7673540a4b589c9e7959ca1f6de336387882b39ea4e"
+    },
+    {
+      "sequence": 11,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Se añadió manejo de errores por documento y cancelación antes de persistir para el siguiente ciclo; la regresión completa conserva TEST-01.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "src/backend/application/import-inspection.ts",
+        "src/backend/domain/import-operation-error.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:36:05.292Z",
+      "git": {
+        "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "6ef73d7a6232702771f4a7673540a4b589c9e7959ca1f6de336387882b39ea4e",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6bf38e00e52b0c51b10ab58c926f60d648fa86b250f0418e30b13c3185a8ed77",
+        "source_digest": "a0ae33ac0237ee2aca3664b94a369be779572fc5006cadfe316ee8b915a528f5",
+        "test_digest": "3cdcc6165dfbc187616953a17a7f8dfbd7056f16aeff0ab61f87360d826892d9",
+        "recorded_at": "2026-10-16T13:36:05.284Z",
+        "git": {
+          "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+          "branch": "NP-0033",
+          "dirty": true
+        }
+      },
+      "event_digest": "acbcce071ce912175da6607651d9b82ec76b762a105e2a66e16477a94f3ebf19"
     }
   ],
   "git_baseline": {
@@ -236,11 +411,11 @@
     "branch": "NP-0033"
   },
   "final": {
-    "source_digest": "daf0f4e4f7153d1de0f6fe4e74e8233580515ff6b516b11379e7cff37319664e",
-    "test_suite_digest": "b00eb0db12c12f35d9fa9de9f5bc6e4cd54af38387f11bcf6ba675c76c4b4741",
-    "recorded_at": "2026-10-16T13:34:32.435Z",
+    "source_digest": "a0ae33ac0237ee2aca3664b94a369be779572fc5006cadfe316ee8b915a528f5",
+    "test_suite_digest": "e6d3dae95aeec6ebf5f9b9a34d20542fbd1511e09c2bcd338fa81eec7b560785",
+    "recorded_at": "2026-10-16T13:36:05.291Z",
     "git": {
-      "head": "31109dbac78c6fb2af0c0d8eff35bcc8bd2ac597",
+      "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
       "branch": "NP-0033",
       "dirty": true
     }
