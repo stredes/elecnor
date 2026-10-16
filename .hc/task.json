@@ -1,21 +1,21 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0032",
+    "id": "NP-0033",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0032.json",
+    "story_path": ".hc/stories/NP-0033.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
-    "change_areas": ["domain", "application", "infrastructure", "documentation"],
-    "risk_tags": ["migration", "dependency"],
+    "change_areas": ["application", "infrastructure", "presentation", "documentation"],
+    "risk_tags": ["external-input", "transaction", "concurrency", "personal-data", "persistence", "dependency"],
     "test_plan": [
       {
         "test_id": "TEST-01",
         "order": 1,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/contracts/import-interpretation-parity.test.ts"],
+        "args": ["tests/application/import-inspection.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/contracts/import-interpretation-parity.test.ts",
+        "fixture": "tests/application/import-inspection.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -23,9 +23,9 @@
         "order": 2,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/contracts/import-missing-evidence.test.ts"],
+        "args": ["tests/contracts/import-operation-boundaries.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/contracts/import-missing-evidence.test.ts",
+        "fixture": "tests/contracts/import-operation-boundaries.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -33,9 +33,9 @@
         "order": 3,
         "level": "integration",
         "check": "integration",
-        "args": ["tests/integration/import-domain-purity.test.ts"],
+        "args": ["tests/integration/import-architecture.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/integration/import-domain-purity.test.ts",
+        "fixture": "tests/integration/import-architecture.test.ts",
         "regression": { "check": "integration", "args": [] }
       }
     ]
@@ -44,16 +44,20 @@
     "include": [
       ".hc/project.json",
       ".hc/task.json",
+      ".hc/stories/NP-0033.json",
+      ".hc/evidence/NP-0033.json",
       ".hc/stories/NP-0032.json",
       ".hc/evidence/NP-0032.json",
-      ".hc/stories/NP-0031.json",
-      ".hc/evidence/NP-0031.json",
       "src/backend/domain",
       "src/backend/application",
       "src/backend/ports",
+      "src/backend/adapters",
+      "src/backend/composition",
+      "pages/api/import.ts",
+      "tests/application",
       "tests/contracts",
       "tests/integration",
-      "docs/np-0032-import-domain.md",
+      "docs/np-0033-import-integration.md",
       "docs/legacy-inventory.md",
       "AGENTS.md",
       "README.md",
@@ -68,10 +72,11 @@
     ],
     "exclude": [
       "Legacy repositories outside this checkout",
-      "Real data, PDFs, secrets and production deployments",
-      "SQL, SQLite, HTTP, PDF readers and dashboard metric rules",
-      "Changing approved NP-0028/NP-0029 contracts",
-      "Inventing fuzzy thresholds or geography sources"
+      "Real PDFs, secrets, production data and deployments",
+      "FastAPI, PostgreSQL, SQLite and persistent writer activation",
+      "Direct browser-to-FastAPI or browser-to-database calls",
+      "Async jobs without approved durable state",
+      "Changing approved NP-0028/NP-0031/NP-0032 contracts"
     ],
     "related_paths": [
       ".hc",
@@ -97,25 +102,27 @@
   },
   "constraints": [
     "Brain local 5.0.1",
-    "Fixtures sintéticas y reglas trazables al legacy",
+    "D-02/D-03/D-05/D-08 bloquean activación productiva",
+    "Fixtures sintéticas y efectos externos deshabilitados",
     "No debilitar gates",
     "Todo archivo authored conserva 99 líneas o menos",
     "No modificar legacy ni añadir dependencias"
   ],
   "authority": {
     "allowed": [
-      "Crear políticas puras de normalización, estados, catálogo, rúbrica, clave lógica y geografía",
-      "Crear contratos y puertos pequeños para catálogo y dependencias de importación",
-      "Crear fixtures sintéticas y pruebas de paridad local",
-      "Mantener el parser y contratos de extracción sin leer PDF en TypeScript",
-      "Documentar divergencias observables sin cambiar reglas"
+      "Crear DTOs y puertos de coordinación documental",
+      "Crear coordinador de importación con dobles sintéticos y cancelación explícita",
+      "Crear contratos de errores y contexto sin exponer cuerpos upstream",
+      "Mantener composición C-IMPORT deshabilitada por defecto",
+      "Documentar inventario, bloqueadores y rollback sin fabricar aprobaciones"
     ],
     "forbidden": [
       "Modificar repositorios legacy o sus datos",
-      "Usar DB, SQL, HTTP, env, OCR, IA o procesadores PDF en dominio",
-      "Añadir dependencias sin autorización",
-      "Inventar catálogo, geografía, umbrales o métricas",
-      "Declarar D-06, D-05, D-11 o REVIEW-01 aprobados"
+      "Activar FastAPI, SQLite, PostgreSQL, storage o escrituras reales",
+      "Procesar PDFs en TypeScript o usar datos personales",
+      "Enviar documentos a destinos externos",
+      "Crear jobs asíncronos sin persistencia autorizada",
+      "Declarar D-02, D-03, D-05, D-08 o REVIEW-01 aprobados"
     ]
   }
 }

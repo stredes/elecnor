@@ -1,0 +1,77 @@
+{
+  "schema_version": "2.0",
+  "story": {
+    "id": "NP-0033",
+    "title": "Integrar importación PDF mediante Next Gateway y FastAPI hexagonal",
+    "actor": "equipo de backend e integración",
+    "need": "coordinar extracción, interpretación y persistencia transaccional detrás de Next",
+    "business_value": "sustituir la importación Flask conservando resultados y trazabilidad",
+    "context": "Anexo NP-0033 en NP-0026-backlog.md y topología NP-0026-target-architecture.md; C-IMPORT/C-EXTRACT y diseño condicional durable. Evidencia importer.py y web/src/app/api/import/route.ts, DataToolbar.tsx.",
+    "preconditions": [
+      "NP-0030/31/32 operativos",
+      "D-02 resuelve capacidad sync o exige desglose durable antes de implementar",
+      "Política D-03 y retención D-08 resueltas antes de activar"
+    ],
+    "acceptance_criteria": [
+      {
+        "id": "AC-01",
+        "given": ["selección válida con documentos nuevos, parciales y duplicados"],
+        "when": ["se importa desde el navegador"],
+        "then": [
+          "Next Gateway recibe y coordina; FastAPI extrae, el adaptador parsea y el RepositoryPort persiste",
+          "Next interpreta el resultado y se conserva el resumen de siete contadores y la transacción por PDF",
+          "se refrescan datos solo cuando hay nuevas inspecciones"
+        ],
+        "test_ids": ["TEST-01"]
+      },
+      {
+        "id": "AC-02",
+        "given": ["error de archivo, respuesta inválida, timeout, cancelación o duplicados concurrentes"],
+        "when": ["se ejecuta o reintenta la operación"],
+        "then": [
+          "no hay cabeceras sin métricas, doble efecto ni temporales abandonados sin recuperación",
+          "no se hace fallback POST silencioso",
+          "el estado y resultado parcial se representan sin inventar progreso"
+        ],
+        "test_ids": ["TEST-02"]
+      },
+      {
+        "id": "AC-03",
+        "given": ["Next Gateway y FastAPI locales reales con DB sintética"],
+        "when": ["se recorre PDF a procesamiento y dashboard"],
+        "then": [
+          "se demuestra integración real distinta del mock",
+          "el navegador solo accede a Next y los secretos no llegan al bundle",
+          "Gateway y FastAPI delegan en casos de uso y puertos internos"
+        ],
+        "test_ids": ["TEST-03"]
+      }
+    ],
+    "business_rules": [
+      { "id": "BR-01", "rule": "Mantener selección 1..20 y 15 MiB por archivo donde el despliegue lo soporte; cambios requieren aprobación explícita." },
+      { "id": "BR-02", "rule": "FastAPI es dueño de la transacción y escritura DB; Next no mantiene un segundo writer." },
+      { "id": "BR-03", "rule": "No aceptar un job asíncrono sin persistencia y ejecución recuperable." }
+    ],
+    "edge_cases": ["Desconexión antes y después de commit", "Error en inserción métrica", "Solicitud vieja resuelve tarde", "20 archivos superan límite total del proveedor"],
+    "out_of_scope": ["Procesamiento PDF en JavaScript", "Subida directa a FastAPI", "Métricas nuevas"],
+    "dependencies": ["NP-0030", "NP-0031", "NP-0032"],
+    "non_functional_requirements": [
+      {
+        "id": "NFR-01",
+        "rule": "Streaming acotado, idempotencia, cancelación explícita, contexto autorizado y logs sin contenido.",
+        "risk_tags": ["external-input", "transaction", "concurrency", "personal-data", "persistence", "dependency"],
+        "test_ids": ["TEST-02", "TEST-03"],
+        "review_ids": ["REVIEW-01"]
+      }
+    ],
+    "definition_of_ready": {
+      "ready": false,
+      "evidence": ["D-02, D-03, D-05 y D-08 condicionan activación; sólo contratos y dobles sintéticos pueden avanzar."]
+    },
+    "definition_of_done": [
+      "E2E real con éxito, parcial, duplicado y fallos",
+      "Rollback de mutaciones ensayado",
+      "Cierre común del backlog"
+    ]
+  }
+}
