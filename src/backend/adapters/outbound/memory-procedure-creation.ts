@@ -30,6 +30,7 @@ export class MemoryProcedureCommitter implements CommitProcedure {
   public reserve(key: string, fingerprint: string): Promise<ProcedureReservation> {
     const existing = this.completed.get(key);
     if (existing) return Promise.resolve(existing.fingerprint === fingerprint ? { kind: "DUPLICATE", procedure: existing.procedure } : { kind: "CONFLICT" });
+    if ([...this.pending.values()].some((entry) => entry.key === key)) return Promise.resolve({ kind: "CONFLICT" });
     const reservationId = `${key}-reservation`;
     this.pending.set(reservationId, { key, fingerprint });
     return Promise.resolve({ kind: "NEW", reservationId });

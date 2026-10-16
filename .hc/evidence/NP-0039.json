@@ -229,6 +229,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-05",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "56749493619f05bffc58372a80b4183b09dbe2056eb1b1d183befd70ad476620",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:18.451Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "40a1f6d337f49a28acd248a0a458b812a03c49399c26fd758ca99d13c14bf967",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:31.118Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "248e6f64dace91e26deca4c0bc1810a287942c3c86e39e97bb99f86b12c718b5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:44.595Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -1031,6 +1084,120 @@
         }
       },
       "event_digest": "540393530309e238c819ef5a9f5e97e14b32b8cfa4f03a0fe30a446f88d7f1f3"
+    },
+    {
+      "sequence": 23,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "CONFLICT",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/integration/procedures/concurrency-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:32:18.451Z",
+      "git": {
+        "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "540393530309e238c819ef5a9f5e97e14b32b8cfa4f03a0fe30a446f88d7f1f3",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "56749493619f05bffc58372a80b4183b09dbe2056eb1b1d183befd70ad476620",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:18.451Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "event_digest": "e3aac834949f827886f889d8814cbd239d83f6a5ea4f3413a2618a349bedad9b"
+    },
+    {
+      "sequence": 24,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/procedures/concurrency-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:32:31.131Z",
+      "git": {
+        "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "e3aac834949f827886f889d8814cbd239d83f6a5ea4f3413a2618a349bedad9b",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "40a1f6d337f49a28acd248a0a458b812a03c49399c26fd758ca99d13c14bf967",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:31.118Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "3b53971e5c717618c227781dd6983fc7e61fc22e28776ae9a6f3bea30aa64eaa"
+    },
+    {
+      "sequence": 25,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/procedures/concurrency-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:32:44.596Z",
+      "git": {
+        "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "3b53971e5c717618c227781dd6983fc7e61fc22e28776ae9a6f3bea30aa64eaa",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "248e6f64dace91e26deca4c0bc1810a287942c3c86e39e97bb99f86b12c718b5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:44.595Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "b9e50224f7ad90a72863a9e7eeace18e01554ec8236f491d066d67c62ddcee8c"
     }
   ],
   "git_baseline": {
@@ -1039,11 +1206,11 @@
     "branch": "NP-0039"
   },
   "final": {
-    "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
-    "test_suite_digest": "4a4e49fd295a99398b17b18b791d09601e3f80d7325b6142db3a37f601f5b8db",
-    "recorded_at": "2026-10-16T22:48:19.002Z",
+    "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+    "test_suite_digest": "0451a220d5b1fb4b20238c0db2c2b423d7c9d048e4ce2469c631e65f1f55671a",
+    "recorded_at": "2026-10-16T23:32:44.596Z",
     "git": {
-      "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+      "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
       "branch": "NP-0039",
       "dirty": true
     }

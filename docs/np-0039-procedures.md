@@ -27,6 +27,8 @@ multipart, FastAPI, DB, Blob, filesystem, SQLite, OCR ni datos reales.
    reintentar silenciosamente.
 6. Repetir la misma clave y fingerprint devuelve el procedimiento previo;
    otro fingerprint produce conflicto.
+7. Una reserva pendiente para la misma clave produce conflicto; sólo una
+   cancelación conocida libera la clave para otro intento.
 
 ## Evidencia
 

@@ -47,6 +47,16 @@
         "expected_failure": "Received: 413",
         "fixture": "tests/e2e/np0039-safety.spec.ts",
         "regression": {"check": "e2e", "args": []}
+      },
+      {
+        "test_id": "TEST-05",
+        "order": 5,
+        "level": "integration",
+        "check": "integration",
+        "args": ["tests/integration/procedures/concurrency-contract.test.ts"],
+        "expected_failure": "CONFLICT",
+        "fixture": "tests/integration/procedures/concurrency-contract.test.ts",
+        "regression": {"check": "integration", "args": []}
       }
     ]
   },
