@@ -30,6 +30,20 @@ export function resolveRegion(city: string | null, address: string | null): stri
   return match?.[1] ?? null;
 }
 
+export function recoverRegion(
+  city: string | null,
+  address: string | null,
+  filename: string | null,
+): string | null {
+  const fromAddress = resolveRegion(null, address);
+  if (fromAddress) return fromAddress;
+  const fromFields = resolveRegion(city ?? extractCity(address), address);
+  if (fromFields) return fromFields;
+  if (!filename) return null;
+  const cleanName = filename.replaceAll("_", " ").replace(/\.[^.]+$/u, "");
+  return resolveRegion(extractCity(cleanName), null);
+}
+
 function hasRegion(text: string): boolean {
   return regionAliases.some(([alias]) => text.trim().startsWith(alias));
 }

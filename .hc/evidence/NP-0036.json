@@ -1,7 +1,240 @@
 {
   "schema_version": "2.0",
   "task_id": "NP-0036",
-  "cycles": [],
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/territory-resolution.test.ts",
+          "tests/domain/analytics/series.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "09c47d7d495064a29f1e71013012ece911f82abfffb4839a521c34255cce3114",
+        "source_digest": "d079467514e631399140afd319db495da6870ce6ba101d10bfa09f5faca4c1ee",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:29:30.406Z",
+        "git": {
+          "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+          "branch": "NP-0036",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/territory-resolution.test.ts",
+          "tests/domain/analytics/series.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "97257f295e5345e2cd363c9c3ccc0304d1ef4e456fa929d5e851fab7a4f7d0aa",
+        "source_digest": "7e5f64b67647f372cb5bc6bbe90ae28051c1785876852578235809b83339b2a6",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:29:59.920Z",
+        "git": {
+          "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "78080536fd272a399a30c53228cbbb558dab6ae77189af2f234d7d88a084b0c8",
+        "source_digest": "7e5f64b67647f372cb5bc6bbe90ae28051c1785876852578235809b83339b2a6",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:31:03.663Z",
+        "git": {
+          "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      }
+    }
+  ],
   "reviews": [],
-  "events": []
+  "events": [
+    {
+      "sequence": 1,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 does not match its planned command",
+      "executed": false,
+      "changed_files": [
+        "tests/domain/analytics/",
+        "tests/domain/geography/"
+      ],
+      "recorded_at": "2026-10-16T15:29:26.796Z",
+      "git": {
+        "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "PLANNED_COMMAND_MISMATCH",
+      "event_digest": "0d7df98d675b1e35bf13a6b61463c68449e16e2105ac5301c2328d1db8005db1"
+    },
+    {
+      "sequence": 2,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "tests/domain/analytics/",
+        "tests/domain/geography/"
+      ],
+      "recorded_at": "2026-10-16T15:29:30.406Z",
+      "git": {
+        "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "0d7df98d675b1e35bf13a6b61463c68449e16e2105ac5301c2328d1db8005db1",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/territory-resolution.test.ts",
+          "tests/domain/analytics/series.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "09c47d7d495064a29f1e71013012ece911f82abfffb4839a521c34255cce3114",
+        "source_digest": "d079467514e631399140afd319db495da6870ce6ba101d10bfa09f5faca4c1ee",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:29:30.406Z",
+        "git": {
+          "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+          "branch": "NP-0036",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "df65d212162621001259cef78f2e3c769b60d725d3dfec3de26cb5dfc02fe3e4"
+    },
+    {
+      "sequence": 3,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/domain/analytics/",
+        "src/backend/domain/geography/resolve-location.ts",
+        "tests/domain/analytics/",
+        "tests/domain/geography/"
+      ],
+      "recorded_at": "2026-10-16T15:29:59.921Z",
+      "git": {
+        "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "df65d212162621001259cef78f2e3c769b60d725d3dfec3de26cb5dfc02fe3e4",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/geography/territory-resolution.test.ts",
+          "tests/domain/analytics/series.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "97257f295e5345e2cd363c9c3ccc0304d1ef4e456fa929d5e851fab7a4f7d0aa",
+        "source_digest": "7e5f64b67647f372cb5bc6bbe90ae28051c1785876852578235809b83339b2a6",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:29:59.920Z",
+        "git": {
+          "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "5a13b06b69bcad2d0ccc1114a1691d1d881161f5780852c13810e2d626059659"
+    },
+    {
+      "sequence": 4,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "dependency change requires dependency risk tag",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        "src/backend/domain/analytics/",
+        "src/backend/domain/geography/resolve-location.ts",
+        "tests/domain/analytics/",
+        "tests/domain/geography/"
+      ],
+      "recorded_at": "2026-10-16T15:30:13.921Z",
+      "git": {
+        "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "5a13b06b69bcad2d0ccc1114a1691d1d881161f5780852c13810e2d626059659",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "3f4f8c07589f1a80160f93d79c08f1544744bfc55c8e0cc4538eddad4eb81a80"
+    },
+    {
+      "sequence": 5,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0036.json",
+        ".hc/stories/NP-0036.json",
+        ".hc/task.json",
+        "src/backend/domain/analytics/",
+        "src/backend/domain/geography/resolve-location.ts",
+        "tests/domain/analytics/",
+        "tests/domain/geography/"
+      ],
+      "recorded_at": "2026-10-16T15:31:03.664Z",
+      "git": {
+        "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+        "branch": "NP-0036",
+        "dirty": true
+      },
+      "previous_event_digest": "3f4f8c07589f1a80160f93d79c08f1544744bfc55c8e0cc4538eddad4eb81a80",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "78080536fd272a399a30c53228cbbb558dab6ae77189af2f234d7d88a084b0c8",
+        "source_digest": "7e5f64b67647f372cb5bc6bbe90ae28051c1785876852578235809b83339b2a6",
+        "test_digest": "34f6062b122928d83940cdf739a8adbaa1637ad6e64bddaaa6fd139f97640350",
+        "recorded_at": "2026-10-16T15:31:03.663Z",
+        "git": {
+          "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+          "branch": "NP-0036",
+          "dirty": true
+        }
+      },
+      "event_digest": "596bbc981e99920e61bc2a1c20b6fb1234bcbd614a9f0d76c59b54a8cbf39eae"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+    "branch": "NP-0036"
+  },
+  "final": {
+    "source_digest": "7e5f64b67647f372cb5bc6bbe90ae28051c1785876852578235809b83339b2a6",
+    "test_suite_digest": "2fb1c52a5f1cd513d2c8b17840a94bda9f92b338ca4c8cf27627d49ff43e8473",
+    "recorded_at": "2026-10-16T15:31:03.663Z",
+    "git": {
+      "head": "a4d6415393c088be35e3f5cb9a3111d4e16ad5de",
+      "branch": "NP-0036",
+      "dirty": true
+    }
+  }
 }
