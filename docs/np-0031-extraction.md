@@ -41,6 +41,15 @@ Los ciclos `NP-0031/TEST-01`, `TEST-02` y `TEST-03` tienen RED/GREEN/REFACTOR
 registrado en `.hc/evidence/NP-0031.json`. Las pruebas usan únicamente el fixture
 `validCExtractDocument`; no se declara una prueba contra FastAPI real.
 
+Regresión observada en `NP-0031`: unitarias 50/50, integración 45/45, E2E
+existente 4/4, quality/lint/typecheck/build y `hc gates` PASS; audit sin
+vulnerabilidades altas. `hc verify` permanece bloqueado por la attestation humana
+de `REVIEW-01` y por la ausencia deliberada de E2E/recursos reales de esta HU.
+
+Commits del incremento: `f6f00dd` manifiesto, `7e3d720` frontera HTTP, `3f54817`
+límites, `a95e2c4` composición, `1968b2a` corrección de contratos y `8a7bd52`
+rebaseline/evidencia.
+
 ## Deuda y límites formales
 
 - D-05 sigue siendo contrato candidato; falta aprobación de Arquitectura y del
