@@ -17,3 +17,5 @@ export class GetReportingDetails {
     return { sections, approvals, rankings, narrative };
   }
 }
+
+export type ReportingDetailsResult = Awaited<ReturnType<GetReportingDetails["execute"]>>;
