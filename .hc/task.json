@@ -1,27 +1,101 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0030",
+    "id": "NP-0031",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0030.json",
+    "story_path": ".hc/stories/NP-0031.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
-    "change_areas": ["infrastructure", "presentation"],
-    "risk_tags": ["public-api", "persistence", "migration", "dependency"],
+    "change_areas": ["domain", "application", "infrastructure", "documentation"],
+    "risk_tags": ["external-input", "personal-data", "concurrency", "dependency", "persistence"],
     "test_plan": [
-      { "test_id": "TEST-01", "order": 1, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-list-parity.test.ts"], "expected_failure": "Failed to resolve import", "fixture": "tests/integration/inspection-list-parity.test.ts", "regression": { "check": "integration", "args": [] } },
-      { "test_id": "TEST-02", "order": 2, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-list-boundaries.test.ts"], "expected_failure": "expected 25 to be 500", "fixture": "tests/integration/inspection-list-boundaries.test.ts", "regression": { "check": "integration", "args": [] } },
-      { "test_id": "TEST-03", "order": 3, "level": "integration", "check": "integration", "args": ["tests/integration/inspection-architecture.test.ts"], "expected_failure": "fastapi.test/inspections", "fixture": "tests/integration/inspection-architecture.test.ts", "regression": { "check": "integration", "args": [] } },
-      { "test_id": "TEST-04", "order": 4, "level": "e2e", "check": "e2e", "args": ["tests/e2e/inspection-list.spec.ts"], "expected_failure": "getByLabel('Auditor')", "fixture": "tests/e2e/inspection-list.spec.ts", "regression": { "check": "e2e", "args": [] } }
+      {
+        "test_id": "TEST-01",
+        "order": 1,
+        "level": "integration",
+        "check": "integration",
+        "args": ["tests/integration/c-extract-http.test.ts"],
+        "expected_failure": "Failed to resolve import",
+        "fixture": "tests/integration/c-extract-http.test.ts",
+        "regression": { "check": "integration", "args": [] }
+      },
+      {
+        "test_id": "TEST-02",
+        "order": 2,
+        "level": "unit",
+        "check": "unit",
+        "args": ["tests/contracts/document-extraction-boundaries.test.ts"],
+        "expected_failure": "Failed to resolve import",
+        "fixture": "tests/contracts/document-extraction-boundaries.test.ts",
+        "regression": { "check": "unit", "args": [] }
+      },
+      {
+        "test_id": "TEST-03",
+        "order": 3,
+        "level": "integration",
+        "check": "integration",
+        "args": ["tests/integration/document-extraction-architecture.test.ts"],
+        "expected_failure": "Failed to resolve import",
+        "fixture": "tests/integration/document-extraction-architecture.test.ts",
+        "regression": { "check": "integration", "args": [] }
+      }
     ]
   },
   "scope": {
-    "include": [".hc/project.json", ".hc/task.json", ".hc/stories/NP-0030.json", ".hc/evidence/NP-0030.json", ".hc/stories/NP-0028.json", ".hc/evidence/NP-0028.json", ".hc/stories/NP-0029.json", ".hc/evidence/NP-0029.json", "AGENTS.md", "next-env.d.ts", "package.json", "package-lock.json", "README.md", "eslint.config.mjs", "vitest.config.ts", "tsconfig.json", "playwright.config.ts", "scripts/quality", "src/backend", "src/dashboard", "pages", "tests", "docs/np-0030-inspection-list.md", "docs/np-0029-quality-gates.md", "docs/np-0028-c-import-plan.md", "docs/np-0028-decision-matrix.md", "docs/np-0028-test-01.md", "docs/np-0028-closure.md"],
-    "exclude": ["Legacy repositories outside this checkout", "Datos reales, secretos, SQLite productivo y despliegues", "SQL o acceso DB desde Next/domain/application", "Cambiar contratos de negocio de NP-0028/NP-0029"],
-    "related_paths": ["src/backend", "src/dashboard", "pages", "tests", "docs/np-0030-inspection-list.md"]
+    "include": [
+      ".hc/project.json",
+      ".hc/task.json",
+      ".hc/stories/NP-0031.json",
+      ".hc/evidence/NP-0031.json",
+      ".hc/stories/NP-0030.json",
+      ".hc/evidence/NP-0030.json",
+      "src/backend/domain",
+      "src/backend/application",
+      "src/backend/ports",
+      "src/backend/adapters/outbound",
+      "src/backend/composition",
+      "tests/contracts",
+      "tests/integration",
+      "docs/np-0031-extraction.md",
+      "docs/legacy-inventory.md"
+    ],
+    "exclude": [
+      "Legacy repositories outside this checkout",
+      "Real PDFs, personal data, secrets and production deployments",
+      "FastAPI/PostgreSQL activation and business-data writes",
+      "OCR, IA and dashboard metric rules",
+      "Changing approved NP-0028/NP-0029 contracts"
+    ],
+    "related_paths": [
+      "src/backend/domain",
+      "src/backend/application",
+      "src/backend/ports",
+      "src/backend/adapters/outbound",
+      "tests/contracts",
+      "tests/integration",
+      "docs/np-0031-extraction.md"
+    ]
   },
-  "constraints": ["Brain local 5.0.1", "Aislar fixtures y efectos externos", "No debilitar gates", "Todo archivo authored conserva 99 líneas o menos", "Next no importa SQLite ni SQL", "No modificar legacy ni bases reales"],
+  "constraints": [
+    "Brain local 5.0.1",
+    "Aislar fixtures y efectos externos",
+    "No debilitar gates",
+    "Todo archivo authored conserva 99 líneas o menos",
+    "No modificar legacy ni activar extracción real"
+  ],
   "authority": {
-    "allowed": ["Implementar la vertical read-only de inspecciones", "Crear contratos, puerto, caso de uso y Gateway HTTP", "Crear fixtures y adapters sintéticos sin datos reales", "Implementar Pages SSR, API BFF y presenter", "Mantener y auditar dependencias heredadas de NP-0028/NP-0029", "Registrar bloqueos y evidencia"],
-    "forbidden": ["Usar o copiar PDFs/datos reales", "Modificar legacy o bases reales", "Añadir dependencias no autorizadas", "Acceder DB/SQL desde Next/domain/application", "Desactivar gates o cambiar fórmulas", "Declarar producción READY/GO/DONE"]
+    "allowed": [
+      "Crear el puerto de extracción documental en el nuevo repositorio",
+      "Crear contratos de respuesta y errores seguros para C-EXTRACT",
+      "Implementar adaptador HTTP y doble de memoria sin activación productiva",
+      "Crear pruebas sintéticas y documentar el inventario legacy",
+      "Registrar deuda D-05, D-11 y REVIEW-01 sin fabricar aprobaciones"
+    ],
+    "forbidden": [
+      "Modificar Fasapi, Flask u otros repositorios legacy",
+      "Usar PDFs reales o datos personales",
+      "Activar FastAPI, PostgreSQL, SQLite o escrituras de negocio",
+      "Enviar documentos a destinos externos",
+      "Declarar D-05, D-11 o REVIEW-01 aprobados"
+    ]
   }
 }

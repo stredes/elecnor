@@ -1,0 +1,79 @@
+{
+  "schema_version": "2.0",
+  "story": {
+    "id": "NP-0031",
+    "title": "Asegurar extracción FastAPI compatible, limitada y separada de negocio",
+    "actor": "equipo de integración documental",
+    "need": "obtener hechos completos y recursos controlados desde el parser existente",
+    "business_value": "reutilizar FastAPI sin perder información necesaria para la importación",
+    "context": "Anexo NP-0031 en NP-0026-backlog.md y topología NP-0026-target-architecture.md. Evidencia F api/routes/pdf.py:33-82, services/extraction_service.py, pdf_validator.py, pdf_extractor.py y domain/evaluacion.py:23-33.",
+    "preconditions": [
+      "D-05 acordada para campos y versionado",
+      "Fixtures sintéticas y schema C-EXTRACT",
+      "Dependencias exactas del entorno Python fijadas durante implementación"
+    ],
+    "acceptance_criteria": [
+      {
+        "id": "AC-01",
+        "given": ["PDFs soportados con campos, preguntas y resumen"],
+        "when": ["se extraen mediante FastAPI real"],
+        "then": [
+          "se preservan texto fuente, orden, páginas, fechas parciales, zona, puntuación impresa y nulls",
+          "el resumen no duplica preguntas de desarrollo y no se aplican reglas del dashboard"
+        ],
+        "test_ids": ["TEST-01"]
+      },
+      {
+        "id": "AC-02",
+        "given": ["PDF corrupto, cifrado, vacío, escaneado sin texto o demasiado grande"],
+        "when": ["se procesa por upload o ID"],
+        "then": [
+          "se valida en Python con límites efectivos y errores seguros",
+          "se cierran archivos, documentos y temporales también ante cancelación o fallo",
+          "Settings inyectado determina realmente el límite"
+        ],
+        "test_ids": ["TEST-02"]
+      },
+      {
+        "id": "AC-03",
+        "given": ["extractor y parser sustituibles"],
+        "when": ["se construye el caso de extracción"],
+        "then": [
+          "la aplicación depende de puertos y composición explícita",
+          "el adaptador de parser implementa PdfParserPort y el repositorio implementa RepositoryPort",
+          "schemas y errores están fuera de handlers e implementaciones"
+        ],
+        "test_ids": ["TEST-03"]
+      }
+    ],
+    "business_rules": [
+      { "id": "BR-01", "rule": "Extract devuelve hechos parciales sin inventar respuestas; extract-and-send no define import_status del sistema web." }
+    ],
+    "edge_cases": [
+      "Orden de sección no exportado actualmente",
+      "PDF sin capa textual",
+      "Campo de año ausente",
+      "ID con archivo perdido"
+    ],
+    "out_of_scope": ["OCR o IA", "Clasificar métricas en Python", "Reprocesar históricos"],
+    "dependencies": ["NP-0027", "NP-0028", "NP-0029"],
+    "non_functional_requirements": [
+      {
+        "id": "NFR-01",
+        "rule": "Controlar tamaño y recursos sin logs de contenido; mantener 99 líneas.",
+        "risk_tags": ["external-input", "personal-data", "concurrency", "dependency", "persistence"],
+        "test_ids": ["TEST-02", "TEST-03"],
+        "review_ids": ["REVIEW-01"]
+      }
+    ],
+    "definition_of_ready": {
+      "ready": false,
+      "evidence": ["D-05 bloquea contrato final; D-11 afecta regresión con muestras reales ausentes."]
+    },
+    "definition_of_done": [
+      "Contrato validado contra servicio Python local real",
+      "Paridad de hechos y límites comprobada",
+      "Cierre común del backlog"
+    ]
+  }
+}
