@@ -11,16 +11,21 @@ export function calculateSections(facts: ReportingDetailFacts): ReportingSection
     const key = [row.metric, row.code].join("\u001f");
     const value = metrics.get(key) ?? { metric: row.metric, code: row.code ?? "", section, applicable: 0,
       conforming: 0, nonConforming: 0, observations: 0, compliance: null,
-      technicians: { conforming: [], nonConforming: [] } };
+      technicians: { conforming: [] as string[], nonConforming: [] as string[] } };
     value.applicable += row.applicable;
     value.conforming += row.conforming ?? 0;
     value.nonConforming += Number(row.state === "NO_CONFORME");
+    const technicianBucket = row.state === "CONFORME" ? value.technicians.conforming :
+      row.state === "NO_CONFORME" ? value.technicians.nonConforming : null;
+    if (technicianBucket && row.technician && !technicianBucket.includes(row.technician)) technicianBucket.push(row.technician);
     metrics.set(key, value);
     groups.set(section, metrics);
   }
   return [...groups].map(([name, map]) => {
     const metrics = [...map.values()].filter((metric) => metric.applicable > 0).map((metric) => ({
       ...metric, compliance: round1(100 * metric.conforming / metric.applicable),
+      technicians: { conforming: [...metric.technicians.conforming].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })),
+        nonConforming: [...metric.technicians.nonConforming].sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" })) },
     }));
     const applicable = metrics.reduce((sum, item) => sum + item.applicable, 0);
     const conforming = metrics.reduce((sum, item) => sum + item.conforming, 0);

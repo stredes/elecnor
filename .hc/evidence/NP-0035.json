@@ -357,6 +357,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-07",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "b6ebf66d11ad8a561a4b183bd0357301d0129c04c8c79a935b9c5fa2684142db",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:28.016Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d3a482ab0130e5ec1fc682eaf49f3374e3863e969846d85776c190c5668ca50c",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:43.377Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "193bd0bbd3f15d826fa7d1ef8280d7828dc65fe59a9afabe00fe90c994aabd42",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:55.935Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -1624,6 +1677,142 @@
         }
       },
       "event_digest": "cd5acb14f890cce06eabcfc040be22ee1426e2517d52b33abf7ce5d15bc9d8f6"
+    },
+    {
+      "sequence": 37,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-07",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:17.452Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "cd5acb14f890cce06eabcfc040be22ee1426e2517d52b33abf7ce5d15bc9d8f6",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "0aaca4243bd4b7ae0592faa3d1b9202edd1f6eca90f07c1ca92cc3dbeadc68e6"
+    },
+    {
+      "sequence": 38,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:28.017Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "0aaca4243bd4b7ae0592faa3d1b9202edd1f6eca90f07c1ca92cc3dbeadc68e6",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "b6ebf66d11ad8a561a4b183bd0357301d0129c04c8c79a935b9c5fa2684142db",
+        "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:28.016Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "f19f51a0e0b3bed01516c780463d0e535afce39ab503b730a610b68d2d82d1b7"
+    },
+    {
+      "sequence": 39,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:43.377Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "f19f51a0e0b3bed01516c780463d0e535afce39ab503b730a610b68d2d82d1b7",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-detail-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d3a482ab0130e5ec1fc682eaf49f3374e3863e969846d85776c190c5668ca50c",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:43.377Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "a949518b11e4a765891c783a704859b75229ab9020e139506d596c339ebc0f14"
+    },
+    {
+      "sequence": 40,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "tests/domain/reporting/reporting-detail-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:34:55.935Z",
+      "git": {
+        "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "a949518b11e4a765891c783a704859b75229ab9020e139506d596c339ebc0f14",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "193bd0bbd3f15d826fa7d1ef8280d7828dc65fe59a9afabe00fe90c994aabd42",
+        "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+        "test_digest": "9deda308bc693aee48c5fab7b02c9ea917693d086e226367a543d8073ca77319",
+        "recorded_at": "2026-10-16T15:34:55.935Z",
+        "git": {
+          "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "3893d497f18872beb555609bea0f59a3a8ba2ad9ba2f2626bf36cc030da59855"
     }
   ],
   "git_baseline": {
@@ -1632,11 +1821,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "df486d6002f391d6c733b535fab629c63ba84d6fe8912bf788f8c155b4d6f473",
-    "test_suite_digest": "3e9c47fd274aee7bcef096d780bd80c10d3dbcd3695170be3920265141b311cb",
-    "recorded_at": "2026-10-16T15:33:27.141Z",
+    "source_digest": "48bd1b2f74b3716c35451a6d934abc8e753157936bb89f3ed0606497bee8f644",
+    "test_suite_digest": "bec0da895c56062ac362e22094a9f13959e5096cb113373e29fa017c28db1d83",
+    "recorded_at": "2026-10-16T15:34:55.935Z",
     "git": {
-      "head": "4b13ddce3eee2f6d7ced21b5f74d5137c4c7f802",
+      "head": "4ff13218f85d09c6cdeb48a911b6fe2f65a9ff93",
       "branch": "NP-0035",
       "dirty": true
     }

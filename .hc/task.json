@@ -72,6 +72,16 @@
         "expected_failure": "expected +0 to be 1",
         "fixture": "tests/integration/reporting/reporting-narrative-overview.test.ts",
         "regression": { "check": "integration", "args": [] }
+      },
+      {
+        "test_id": "TEST-07",
+        "order": 7,
+        "level": "unit",
+        "check": "unit",
+        "args": ["tests/domain/reporting/reporting-detail-parity.test.ts"],
+        "expected_failure": "expected { conforming: [], nonConforming: [] } to deeply equal",
+        "fixture": "tests/domain/reporting/reporting-detail-parity.test.ts",
+        "regression": { "check": "unit", "args": [] }
       }
     ]
   },
@@ -93,6 +103,7 @@
       "pages/test-reporting.tsx",
       "tests/domain/reporting",
       "tests/domain/reporting/reporting-complete-parity.test.ts",
+      "tests/domain/reporting/reporting-detail-parity.test.ts",
       "tests/integration/reporting",
       "tests/integration/reporting/reporting-narrative-overview.test.ts",
       "tests/e2e/reporting-consumer.spec.ts",
