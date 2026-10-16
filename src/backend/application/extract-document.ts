@@ -2,8 +2,7 @@ import type { CExtractDocument } from "../domain/c-extract-contract";
 import { DocumentExtractionError } from "../domain/document-extraction-error";
 import type { CExtractReader } from "../ports/c-extract-reader";
 import type { TransientPdf } from "../ports/document-processing";
-
-export type ExtractionLimits = { readonly maxBytes: number };
+import type { ExtractionLimits } from "./extraction-contract";
 
 export class ExtractDocument {
   public constructor(
