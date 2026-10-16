@@ -74,6 +74,63 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1b52c82268a617776e8063b12f2bdd652ccaf315a9d728be7f9efa2b886d0baa",
+        "source_digest": "67647eb1a6dbcb224ccefc24122472b28e219c64d6c68872e2812d30bd499b12",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:14.586Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ac224f3d67d1826115357c23fdc50f19057cdd61e4c447cf3d59b763b16b47b7",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:40.123Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d74c41da7f0e653e44ae3f700f6afef87bee3f1f367b9dc542392675fb17c3f9",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:53.922Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -237,6 +294,130 @@
         }
       },
       "event_digest": "54ab7acd80e2eec69006ca6ad15b6af63e148da683554db2e1a047b0adffbd66"
+    },
+    {
+      "sequence": 5,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/inspections/mutation-boundaries.test.ts",
+        "tests/domain/storage/",
+        "tests/integration/inspections/effects.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:05:14.588Z",
+      "git": {
+        "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "54ab7acd80e2eec69006ca6ad15b6af63e148da683554db2e1a047b0adffbd66",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1b52c82268a617776e8063b12f2bdd652ccaf315a9d728be7f9efa2b886d0baa",
+        "source_digest": "67647eb1a6dbcb224ccefc24122472b28e219c64d6c68872e2812d30bd499b12",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:14.586Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "0a7d3e06ba31aaf8f47ed4fca386c6ad163aef22c639ae80fa4fb7fb038314bf"
+    },
+    {
+      "sequence": 6,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/application/inspections/update-inspection-metadata.ts",
+        "src/backend/domain/inspections/mutation-boundaries.ts",
+        "src/backend/domain/storage/",
+        "src/backend/ports/write-inspection-metadata.ts",
+        "tests/domain/inspections/mutation-boundaries.test.ts",
+        "tests/domain/storage/",
+        "tests/integration/inspections/effects.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:05:40.130Z",
+      "git": {
+        "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "0a7d3e06ba31aaf8f47ed4fca386c6ad163aef22c639ae80fa4fb7fb038314bf",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ac224f3d67d1826115357c23fdc50f19057cdd61e4c447cf3d59b763b16b47b7",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:40.123Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "f8d3ca9a3f82cd62c416bc499b34c64f44475380a77b184e4788485da8505590"
+    },
+    {
+      "sequence": 7,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/application/inspections/update-inspection-metadata.ts",
+        "src/backend/domain/inspections/mutation-boundaries.ts",
+        "src/backend/domain/storage/",
+        "src/backend/ports/write-inspection-metadata.ts",
+        "tests/domain/inspections/mutation-boundaries.test.ts",
+        "tests/domain/storage/",
+        "tests/integration/inspections/effects.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:05:53.923Z",
+      "git": {
+        "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "f8d3ca9a3f82cd62c416bc499b34c64f44475380a77b184e4788485da8505590",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d74c41da7f0e653e44ae3f700f6afef87bee3f1f367b9dc542392675fb17c3f9",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:53.922Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "6d9a014de8f80e24c15633ca1175cb73b7028a6726703f1055cd62b8e205ff91"
     }
   ],
   "git_baseline": {
@@ -245,11 +426,11 @@
     "branch": "NP-0037"
   },
   "final": {
-    "source_digest": "67647eb1a6dbcb224ccefc24122472b28e219c64d6c68872e2812d30bd499b12",
-    "test_suite_digest": "d14d31507febfe7e954cb98c3c6096a96e45a7a0fef10c76cbfb0470cfcbb7ae",
-    "recorded_at": "2026-10-16T16:04:25.852Z",
+    "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+    "test_suite_digest": "b058a0cebf29aa39f9e6a98109e4d235749180c176025d76fe807782ca9fc2ab",
+    "recorded_at": "2026-10-16T16:05:53.922Z",
     "git": {
-      "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+      "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
       "branch": "NP-0037",
       "dirty": true
     }
