@@ -251,6 +251,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-05",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "217f4cea92adca295a57b5dcf007764ecd408f88c3554b9beb06bdca8b9d75e3",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:30.903Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "61acd7199982408a18324da2c9fd4a6c6d706d68e620c9757a5a5462f11d825d",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:41.008Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "bc815421438fe853f44b07b1cead839d7111473cabf45b29c06be5d31efafa07",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:50.598Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -1126,6 +1179,262 @@
         }
       },
       "event_digest": "3acb5df6bf836c4e096b599634c525a1ea82705ecb8b7d7f1901f1a7d58b1045"
+    },
+    {
+      "sequence": 25,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-05",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:30:45.484Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3acb5df6bf836c4e096b599634c525a1ea82705ecb8b7d7f1901f1a7d58b1045",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "354df8be237d51bf6e72732d0e8b4941c801f2643c3d48ac54855eea3ceb2a3d"
+    },
+    {
+      "sequence": 26,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:30:56.961Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "354df8be237d51bf6e72732d0e8b4941c801f2643c3d48ac54855eea3ceb2a3d",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a4483d01d17d4b21492de55d1e118fc2d506a4c56c652ab16892a6d57f4abb82",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "75414131decc81ac0f2505cf4bc15374d7b811457cfeaeab3e966851df9c35d7",
+        "recorded_at": "2026-10-16T15:30:56.961Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "01f365201f8186403fcb58c12f5bcde0b16af4a598287a9e2d696b8d2f0e6451"
+    },
+    {
+      "sequence": 27,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-05",
+      "reason": "Correct the characterization to identify metric M1 explicitly rather than assume it is the weakest ranked item.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:02.715Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "01f365201f8186403fcb58c12f5bcde0b16af4a598287a9e2d696b8d2f0e6451",
+      "event_digest": "bda23957f82324410010a08718caafaa53ef5cdb401effd217e9624a6931e95a"
+    },
+    {
+      "sequence": 28,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:08.938Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "bda23957f82324410010a08718caafaa53ef5cdb401effd217e9624a6931e95a",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1b634d4180e3520c1d9e4118ca5cc15eb30896e478deb769ae3e4bbd4922d7b6",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "62889a22d194b1cc3729aed715c7d346445f8dec5dd04e61fcfa76872c1464e8",
+        "recorded_at": "2026-10-16T15:31:08.938Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "f72291ed64f4d2b2b9d83126b546bf0f19ca491837a6699755840f02180e4727"
+    },
+    {
+      "sequence": 29,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-05",
+      "reason": "Characterization will exercise top-12 through the calculation's explicit endpoint limit rather than a new response field.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:24.570Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "f72291ed64f4d2b2b9d83126b546bf0f19ca491837a6699755840f02180e4727",
+      "event_digest": "4b4f950fa611451f012f3527ceff34796bde1f5c1202da77db5e84f6e0a52770"
+    },
+    {
+      "sequence": 30,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "expected { conforming: [], nonConforming: [] } to deeply equal",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:30.904Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "4b4f950fa611451f012f3527ceff34796bde1f5c1202da77db5e84f6e0a52770",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "217f4cea92adca295a57b5dcf007764ecd408f88c3554b9beb06bdca8b9d75e3",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:30.903Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "expected { conforming: [], nonConforming: [] } to deeply equal"
+      },
+      "event_digest": "3e40d72c1f72f58b95ea744da4fd0828f5b3ef456d0eb399bb1e820afbbede0c"
+    },
+    {
+      "sequence": 31,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:41.008Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "3e40d72c1f72f58b95ea744da4fd0828f5b3ef456d0eb399bb1e820afbbede0c",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/reporting-complete-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "61acd7199982408a18324da2c9fd4a6c6d706d68e620c9757a5a5462f11d825d",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:41.008Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "0fd4f473a7a7a50b297111347374a25b0b856d8801ae210bb902e492a3f9715f"
+    },
+    {
+      "sequence": 32,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "tests/domain/reporting/reporting-complete-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:31:50.599Z",
+      "git": {
+        "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "0fd4f473a7a7a50b297111347374a25b0b856d8801ae210bb902e492a3f9715f",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "bc815421438fe853f44b07b1cead839d7111473cabf45b29c06be5d31efafa07",
+        "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+        "test_digest": "ade550c63d12841adf356c6dbc34fefdf770efc142480a074a403f5346380700",
+        "recorded_at": "2026-10-16T15:31:50.598Z",
+        "git": {
+          "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "324d6b23afc13710173ef3ca26181f641302b961a6b3eefa7ad26cd48761e157"
     }
   ],
   "git_baseline": {
@@ -1134,11 +1443,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
-    "test_suite_digest": "3dbff3397f1f71703111cb6c56980331551a62b480f8b7baebe39ea816457fb6",
-    "recorded_at": "2026-10-16T15:26:52.830Z",
+    "source_digest": "23fcc480a44ce844c5cb94de64344927353facff14c538bbac03b18ad055c0f7",
+    "test_suite_digest": "cd896a3482a72d75bb842c11289657e2e38b3ec29566e73539f686a284fce1c7",
+    "recorded_at": "2026-10-16T15:31:50.599Z",
     "git": {
-      "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+      "head": "a49acf626be8d834462c2dc9a40a3eaa60d1be85",
       "branch": "NP-0035",
       "dirty": true
     }

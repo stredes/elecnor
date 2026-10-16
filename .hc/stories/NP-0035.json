@@ -20,7 +20,7 @@
           "se conservan fórmulas, técnicos, observaciones, límites10/12/200 y orden",
           "las conclusiones EPP y síntesis proceden del backend"
         ],
-        "test_ids": ["TEST-01"]
+        "test_ids": ["TEST-01", "TEST-05"]
       },
       {
         "id": "AC-02",
@@ -55,7 +55,7 @@
         "id": "NFR-01",
         "rule": "Ciclos por sección, detalle y narrativa con pruebas propias; archivos y tests hasta99 líneas.",
         "risk_tags": ["migration", "public-api", "persistence", "dependency"],
-        "test_ids": ["TEST-01", "TEST-02", "TEST-03", "TEST-04"],
+        "test_ids": ["TEST-01", "TEST-02", "TEST-03", "TEST-04", "TEST-05"],
         "review_ids": ["REVIEW-01"]
       }
     ],

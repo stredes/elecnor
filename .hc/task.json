@@ -52,6 +52,16 @@
         "expected_failure": "element(s) not found",
         "fixture": "tests/e2e/reporting-consumer.spec.ts",
         "regression": { "check": "e2e", "args": [] }
+      },
+      {
+        "test_id": "TEST-05",
+        "order": 5,
+        "level": "unit",
+        "check": "unit",
+        "args": ["tests/domain/reporting/reporting-complete-parity.test.ts"],
+        "expected_failure": "expected { conforming: [], nonConforming: [] } to deeply equal",
+        "fixture": "tests/domain/reporting/reporting-complete-parity.test.ts",
+        "regression": { "check": "unit", "args": [] }
       }
     ]
   },
@@ -72,6 +82,7 @@
       "pages/dashboard",
       "pages/test-reporting.tsx",
       "tests/domain/reporting",
+      "tests/domain/reporting/reporting-complete-parity.test.ts",
       "tests/integration/reporting",
       "tests/e2e/reporting-consumer.spec.ts",
       "docs/np-0035-reporting.md",
