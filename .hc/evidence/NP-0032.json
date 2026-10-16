@@ -1,0 +1,275 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0032",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-interpretation-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d19b95e324eb61fa392d6850c830bf975ef96083e2c01f121fcfa1a49bc21c8e",
+        "source_digest": "bd6ff527579185ca555d7031015778afa95d91f62c9042f1dc3f4b7fadfe34b5",
+        "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+        "recorded_at": "2026-10-16T13:09:39.531Z",
+        "git": {
+          "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+          "branch": "NP-0032",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-interpretation-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "34f556dc528733d4b1ef9c84e034c27c7b4711cef4c0548c6d9ba1109da389cf",
+        "source_digest": "3c14b238ff812291b2d68c0483a35e6076ba966ccc458572894e5c933d399608",
+        "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+        "recorded_at": "2026-10-16T13:13:48.799Z",
+        "git": {
+          "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "eaa020d409a15fb3b7c507d9151241c9a94faa16a8a89276c7638768c16f6089",
+        "source_digest": "3c14b238ff812291b2d68c0483a35e6076ba966ccc458572894e5c933d399608",
+        "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+        "recorded_at": "2026-10-16T13:14:09.079Z",
+        "git": {
+          "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/contracts/import-fixtures.ts",
+        "tests/contracts/import-interpretation-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:09:39.532Z",
+      "git": {
+        "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-interpretation-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d19b95e324eb61fa392d6850c830bf975ef96083e2c01f121fcfa1a49bc21c8e",
+        "source_digest": "bd6ff527579185ca555d7031015778afa95d91f62c9042f1dc3f4b7fadfe34b5",
+        "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+        "recorded_at": "2026-10-16T13:09:39.531Z",
+        "git": {
+          "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+          "branch": "NP-0032",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "944d0c16d288492df8402b88ffa4627840d96a1800767c68ae6647de3f93b581"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/application/interpret-document.ts",
+        "src/backend/domain/catalog/",
+        "src/backend/domain/geography/",
+        "src/backend/domain/import-draft-contract.ts",
+        "src/backend/domain/import-errors.ts",
+        "src/backend/domain/import-facts-contract.ts",
+        "src/backend/domain/import-normalization.ts",
+        "src/backend/domain/import-rubric.ts",
+        "src/backend/domain/logical-key.ts",
+        "src/backend/ports/catalog-reader.ts",
+        "src/backend/ports/import-dependencies.ts",
+        "tests/contracts/import-fixtures.ts",
+        "tests/contracts/import-interpretation-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:13:48.799Z",
+      "git": {
+        "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "944d0c16d288492df8402b88ffa4627840d96a1800767c68ae6647de3f93b581",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-interpretation-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "34f556dc528733d4b1ef9c84e034c27c7b4711cef4c0548c6d9ba1109da389cf",
+        "source_digest": "3c14b238ff812291b2d68c0483a35e6076ba966ccc458572894e5c933d399608",
+        "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+        "recorded_at": "2026-10-16T13:13:48.799Z",
+        "git": {
+          "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "event_digest": "f5359fcd2c237413f8a2699c25330928b518a53e5f62e9cdc539f8d16822006b"
+    },
+    {
+      "sequence": 3,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-01 must record REFACTOR before the next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/application/interpret-document.ts",
+        "src/backend/domain/catalog/",
+        "src/backend/domain/geography/",
+        "src/backend/domain/import-draft-contract.ts",
+        "src/backend/domain/import-errors.ts",
+        "src/backend/domain/import-facts-contract.ts",
+        "src/backend/domain/import-normalization.ts",
+        "src/backend/domain/import-rubric.ts",
+        "src/backend/domain/logical-key.ts",
+        "src/backend/ports/catalog-reader.ts",
+        "src/backend/ports/import-dependencies.ts",
+        "tests/contracts/import-fixtures.ts",
+        "tests/contracts/import-interpretation-parity.test.ts",
+        "tests/contracts/import-missing-evidence.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:14:01.008Z",
+      "git": {
+        "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "f5359fcd2c237413f8a2699c25330928b518a53e5f62e9cdc539f8d16822006b",
+      "code": "PREVIOUS_REFACTOR_REQUIRED",
+      "event_digest": "556d887e715c3e8d7f7c34b1ce3cf94c1e5b20960c1357b6599550810b665a5e"
+    },
+    {
+      "sequence": 4,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/application/interpret-document.ts",
+        "src/backend/domain/catalog/",
+        "src/backend/domain/geography/",
+        "src/backend/domain/import-draft-contract.ts",
+        "src/backend/domain/import-errors.ts",
+        "src/backend/domain/import-facts-contract.ts",
+        "src/backend/domain/import-normalization.ts",
+        "src/backend/domain/import-rubric.ts",
+        "src/backend/domain/logical-key.ts",
+        "src/backend/ports/catalog-reader.ts",
+        "src/backend/ports/import-dependencies.ts",
+        "tests/contracts/import-fixtures.ts",
+        "tests/contracts/import-interpretation-parity.test.ts",
+        "tests/contracts/import-missing-evidence.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:14:09.079Z",
+      "git": {
+        "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "556d887e715c3e8d7f7c34b1ce3cf94c1e5b20960c1357b6599550810b665a5e",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "eaa020d409a15fb3b7c507d9151241c9a94faa16a8a89276c7638768c16f6089",
+        "source_digest": "3c14b238ff812291b2d68c0483a35e6076ba966ccc458572894e5c933d399608",
+        "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+        "recorded_at": "2026-10-16T13:14:09.079Z",
+        "git": {
+          "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "event_digest": "3389a5bdd93a2af5967ff36fce8cb22487311f02bc272bc1aded1e8e3439bade"
+    },
+    {
+      "sequence": 5,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production files remain uncommitted: src/backend/application/interpret-document.ts, src/backend/domain/catalog/, src/backend/domain/geography/, src/backend/domain/import-draft-contract.ts, src/backend/domain/import-errors.ts, src/backend/domain/import-facts-contract.ts, src/backend/domain/import-normalization.ts, src/backend/domain/import-rubric.ts, src/backend/domain/logical-key.ts, src/backend/ports/catalog-reader.ts, src/backend/ports/import-dependencies.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/application/interpret-document.ts",
+        "src/backend/domain/catalog/",
+        "src/backend/domain/geography/",
+        "src/backend/domain/import-draft-contract.ts",
+        "src/backend/domain/import-errors.ts",
+        "src/backend/domain/import-facts-contract.ts",
+        "src/backend/domain/import-normalization.ts",
+        "src/backend/domain/import-rubric.ts",
+        "src/backend/domain/logical-key.ts",
+        "src/backend/ports/catalog-reader.ts",
+        "src/backend/ports/import-dependencies.ts",
+        "tests/contracts/import-fixtures.ts",
+        "tests/contracts/import-interpretation-parity.test.ts",
+        "tests/contracts/import-missing-evidence.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:14:11.900Z",
+      "git": {
+        "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "3389a5bdd93a2af5967ff36fce8cb22487311f02bc272bc1aded1e8e3439bade",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "0ad7b6a9eb70b4fad95b88a9a7708e104b7c72bf3cfca5d79bb2dca4b79cff4c"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+    "branch": "NP-0032"
+  },
+  "final": {
+    "source_digest": "3c14b238ff812291b2d68c0483a35e6076ba966ccc458572894e5c933d399608",
+    "test_suite_digest": "ad63ff784c68cc82d34535fdbb58cae669846fbaa010966e3b91c044cc246630",
+    "recorded_at": "2026-10-16T13:14:09.079Z",
+    "git": {
+      "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+      "branch": "NP-0032",
+      "dirty": true
+    }
+  }
+}
