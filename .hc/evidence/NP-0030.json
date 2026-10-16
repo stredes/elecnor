@@ -227,6 +227,20 @@
             "branch": "NP-0030",
             "dirty": true
           }
+        },
+        {
+          "check": "e2e",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "04f7a0d9b57070cb25f7c49feb942992abc740be147062e79ea8523278efccc2",
+          "source_digest": "fcf5c1ddd3673c9c31ef8268496afb7e81996cef65da810cd969d7ce311931b3",
+          "test_digest": "eaf704e74652a5680d46a5b2a2818b1cb73c822f3494a239d1288b6480a6bb82",
+          "recorded_at": "2026-10-16T01:27:30.929Z",
+          "git": {
+            "head": "9fc976dd40377a991be3d9c5def9355f874d94af",
+            "branch": "NP-0030",
+            "dirty": false
+          }
         }
       ]
     }
@@ -942,6 +956,37 @@
         }
       },
       "event_digest": "0b3303abbb4e720708012668575c75c5f71f2a5b4cedf311de1908772b7a70e1"
+    },
+    {
+      "sequence": 21,
+      "type": "REBASELINED",
+      "test_id": "TEST-04",
+      "reason": "Added the reversible C-EXTRACT v1.0.0 candidate contract and synthetic runtime validation; no NP-0030 route behavior or approval state changed.",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T01:27:30.930Z",
+      "git": {
+        "head": "9fc976dd40377a991be3d9c5def9355f874d94af",
+        "branch": "NP-0030",
+        "dirty": false
+      },
+      "previous_event_digest": "0b3303abbb4e720708012668575c75c5f71f2a5b4cedf311de1908772b7a70e1",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "04f7a0d9b57070cb25f7c49feb942992abc740be147062e79ea8523278efccc2",
+        "source_digest": "fcf5c1ddd3673c9c31ef8268496afb7e81996cef65da810cd969d7ce311931b3",
+        "test_digest": "eaf704e74652a5680d46a5b2a2818b1cb73c822f3494a239d1288b6480a6bb82",
+        "recorded_at": "2026-10-16T01:27:30.929Z",
+        "git": {
+          "head": "9fc976dd40377a991be3d9c5def9355f874d94af",
+          "branch": "NP-0030",
+          "dirty": false
+        }
+      },
+      "event_digest": "d5ea8d18d6f5b741970ca39a3a06139380e1d1bf72e3e1303e21294a047ca566"
     }
   ],
   "git_baseline": {
@@ -950,13 +995,13 @@
     "branch": "NP-0030"
   },
   "final": {
-    "source_digest": "7194568d4baa788249566d899ef5f0abc9d8363af120f9c5573279d7e8cadd14",
-    "test_suite_digest": "27eb9000187a7a7519e5ba4e258cc324168df4a9865e07d231cc82cb8b4b3865",
-    "recorded_at": "2026-10-16T00:25:17.409Z",
+    "source_digest": "fcf5c1ddd3673c9c31ef8268496afb7e81996cef65da810cd969d7ce311931b3",
+    "test_suite_digest": "2bde572068da2c247809da07d022aa8f6c5e7a0c064b3c5a1d89716e769f1c18",
+    "recorded_at": "2026-10-16T01:27:30.930Z",
     "git": {
-      "head": "a98a8d4b5e99ae5dbdd0691eb08455053201c227",
+      "head": "9fc976dd40377a991be3d9c5def9355f874d94af",
       "branch": "NP-0030",
-      "dirty": true
+      "dirty": false
     }
   }
 }
