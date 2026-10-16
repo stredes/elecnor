@@ -53,7 +53,7 @@
       {
         "id": "NFR-01",
         "rule": "Pruebas deterministas de equivalencia numérica, límites de capas y 99 líneas.",
-        "risk_tags": ["migration", "public-api", "persistence"],
+        "risk_tags": ["migration", "public-api", "persistence", "dependency"],
         "test_ids": ["TEST-02", "TEST-03"],
         "review_ids": ["REVIEW-01"]
       }
