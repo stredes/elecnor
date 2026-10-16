@@ -22,7 +22,8 @@
 
 El backend agrega políticas sin activar `pages/api/dashboard.ts` ni cambiar fórmulas por criterio
 técnico. `ReportingInsights` acepta el resultado del caso de uso y no recalcula métricas. El reader
-disponible es sintético de memoria para tests; no se monta en la página ni representa datos reales.
+disponible es sintético de memoria para tests. `pages/test-reporting.tsx` es un preview exclusivo de
+pruebas E2E y devuelve 404 en producción; no representa datos reales ni se conecta al dashboard.
 No existe en el checkout un reader persistente autorizado ni evidencia golden legacy firmada.
 
 Se preservan aprobación exacta al 70%, una observación por fila de métrica, `compliance: null`

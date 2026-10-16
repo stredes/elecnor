@@ -198,6 +198,59 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "bb0ebc02fe5097e0da30fc822091fea0ab6606c044a637470f98aadadb01af68",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:35.203Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "90f63ed18aaa786d532984bcf2587b7a276305fa4b22c92035ca2414bfac5e84",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:45.407Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "91347f380a46b7d0e13687cc86ff7e48bdf4fa1ee66b3f7f1e21a8c3ba267e39",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:52.829Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -847,6 +900,232 @@
         }
       },
       "event_digest": "d13b1686f663d5024a312ab698e1f09afb56c0077a3a2d80f49f13b117225f48"
+    },
+    {
+      "sequence": 18,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:25:09.918Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "d13b1686f663d5024a312ab698e1f09afb56c0077a3a2d80f49f13b117225f48",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "be12122a8469df8850b1dfd139b964da9c28dbd992821f054b2a503b674f5086"
+    },
+    {
+      "sequence": 19,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "element(s) not found",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:25:42.085Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "be12122a8469df8850b1dfd139b964da9c28dbd992821f054b2a503b674f5086",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "dc01346b7af7151882c474945409028b074dbab5dc4da112e4979cb3a1550b92",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "3b2f320519576e02121e3a6dbfaf61b95381bd0377af103eb3739df89c3b9087",
+        "recorded_at": "2026-10-16T15:25:42.085Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "event_digest": "addd400a9961f4a2a0ac24f3dc5d59547f26ff15df1ad24e9799e9294715dc2d"
+    },
+    {
+      "sequence": 20,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "TEST-04 GREEN command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:25:59.302Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "addd400a9961f4a2a0ac24f3dc5d59547f26ff15df1ad24e9799e9294715dc2d",
+      "code": "GREEN_COMMAND_FAILED",
+      "event_digest": "8daddb859cbf9ab63277ab88d30df5dd2ee41b90fb32670e00bdcef39fd4ac3f"
+    },
+    {
+      "sequence": 21,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-04",
+      "reason": "The consumer exposes an accessible region rather than a heading; correct the test locator and repeat the cycle.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:19.252Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "8daddb859cbf9ab63277ab88d30df5dd2ee41b90fb32670e00bdcef39fd4ac3f",
+      "event_digest": "05a0aa38f29a5f640d350b1cc12936efaddc4e31dbcc7915537dddfe51656f8b"
+    },
+    {
+      "sequence": 22,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "element(s) not found",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:35.203Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "05a0aa38f29a5f640d350b1cc12936efaddc4e31dbcc7915537dddfe51656f8b",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "bb0ebc02fe5097e0da30fc822091fea0ab6606c044a637470f98aadadb01af68",
+        "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:35.203Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "event_digest": "c3a6a5e573c0bfaab53c01c16879ac01070c0556cf110b52e5f08e4f756c6543"
+    },
+    {
+      "sequence": 23,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:45.408Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "c3a6a5e573c0bfaab53c01c16879ac01070c0556cf110b52e5f08e4f756c6543",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/reporting-consumer.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "90f63ed18aaa786d532984bcf2587b7a276305fa4b22c92035ca2414bfac5e84",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:45.407Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "fd684304c5b50a32b456fed84cbcb5dccff282d94b5896a0e734e4613d7009f6"
+    },
+    {
+      "sequence": 24,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/stories/NP-0035.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-reporting.tsx",
+        "tests/e2e/reporting-consumer.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T15:26:52.830Z",
+      "git": {
+        "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "fd684304c5b50a32b456fed84cbcb5dccff282d94b5896a0e734e4613d7009f6",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "91347f380a46b7d0e13687cc86ff7e48bdf4fa1ee66b3f7f1e21a8c3ba267e39",
+        "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+        "test_digest": "9b25066650e5ff53f2c78e880e92e0e1f9242e233d26816547fe0d2f4426a72d",
+        "recorded_at": "2026-10-16T15:26:52.829Z",
+        "git": {
+          "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "3acb5df6bf836c4e096b599634c525a1ea82705ecb8b7d7f1901f1a7d58b1045"
     }
   ],
   "git_baseline": {
@@ -855,11 +1134,11 @@
     "branch": "NP-0035"
   },
   "final": {
-    "source_digest": "f72ff87ffb1f36cbf0742b4996af520cc761f610ac8d7dc8f85fbaa486250bcf",
-    "test_suite_digest": "c46934291345b5d91f6c15feb77359d291dcbae0f01c375114df1a35edba2903",
-    "recorded_at": "2026-10-16T15:21:49.535Z",
+    "source_digest": "51820952d13457f0ff1e215bec03b39063f2ddba126633db03a2a599aecb1a6e",
+    "test_suite_digest": "3dbff3397f1f71703111cb6c56980331551a62b480f8b7baebe39ea816457fb6",
+    "recorded_at": "2026-10-16T15:26:52.830Z",
     "git": {
-      "head": "f3556153cfe9bcb56c42328075a1cbbcc9859a24",
+      "head": "01cbe66b01df7432630707f7d0d53ebf76e48d54",
       "branch": "NP-0035",
       "dirty": true
     }

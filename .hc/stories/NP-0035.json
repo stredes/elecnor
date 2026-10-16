@@ -41,7 +41,7 @@
           "no duplican porcentajes ni reglas en JSX, hooks, stores o mappers frontend",
           "contratos y pruebas están fuera de pages y respetan capas"
         ],
-        "test_ids": ["TEST-03"]
+        "test_ids": ["TEST-03", "TEST-04"]
       }
     ],
     "business_rules": [
@@ -55,7 +55,7 @@
         "id": "NFR-01",
         "rule": "Ciclos por sección, detalle y narrativa con pruebas propias; archivos y tests hasta99 líneas.",
         "risk_tags": ["migration", "public-api", "persistence", "dependency"],
-        "test_ids": ["TEST-01", "TEST-02", "TEST-03"],
+        "test_ids": ["TEST-01", "TEST-02", "TEST-03", "TEST-04"],
         "review_ids": ["REVIEW-01"]
       }
     ],

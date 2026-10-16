@@ -42,6 +42,16 @@
         "expected_failure": "Failed to resolve import",
         "fixture": "tests/integration/reporting/reporting-consumers.test.ts",
         "regression": { "check": "integration", "args": [] }
+      },
+      {
+        "test_id": "TEST-04",
+        "order": 4,
+        "level": "e2e",
+        "check": "e2e",
+        "args": ["tests/e2e/reporting-consumer.spec.ts"],
+        "expected_failure": "element(s) not found",
+        "fixture": "tests/e2e/reporting-consumer.spec.ts",
+        "regression": { "check": "e2e", "args": [] }
       }
     ]
   },
@@ -60,8 +70,10 @@
       "src/backend/composition",
       "src/dashboard",
       "pages/dashboard",
+      "pages/test-reporting.tsx",
       "tests/domain/reporting",
       "tests/integration/reporting",
+      "tests/e2e/reporting-consumer.spec.ts",
       "docs/np-0035-reporting.md",
       "docs/legacy-inventory.md",
       "AGENTS.md",
@@ -121,6 +133,7 @@
       "Crear políticas puras equivalentes para M-08 a M-13, M-20 a M-23 y M-25",
       "Crear un caso de uso y puerto de lectura inyectable",
       "Componer con el reader de memoria sin activar el endpoint existente",
+      "Crear preview E2E sintético, aislado y con 404 en producción para verificar el consumidor Next",
       "Documentar universos, límites, riesgos, golden pendiente y rollback"
     ],
     "forbidden": [
