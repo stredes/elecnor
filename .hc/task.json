@@ -200,6 +200,7 @@
       "Crear un caso de uso y puerto de lectura inyectable",
       "Componer con el reader de memoria sin activar el endpoint existente",
       "Crear preview E2E sintético, aislado y con 404 en producción para verificar el consumidor Next",
+      "Registrar REVIEW-01 como aceptada solo con aprobación humana y attestation en commit firmado",
       "Documentar universos, límites, riesgos, golden pendiente y rollback"
     ],
     "forbidden": [
@@ -208,7 +209,7 @@
       "Cambiar fórmulas por criterio técnico sin D-06",
       "Conectar consumidores de presentación existentes en este checkout a contratos reporting, con autorización explícita del propietario",
       "Modificar consumidores frontend en repositorios legacy externos a este checkout",
-      "Declarar D-06 o REVIEW-01 aprobados",
+      "Declarar D-06 aprobado",
       "Conectar el navegador directamente a un backend interno",
       "Añadir tarjetas, filtros o métricas nuevas"
     ]
