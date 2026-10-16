@@ -51,6 +51,7 @@
       "src/backend/domain/reporting",
       "src/backend/application/reporting",
       "src/backend/ports",
+      "src/backend/adapters/outbound",
       "src/backend/composition",
       "tests/domain/reporting",
       "tests/integration/reporting-overview.test.ts",
@@ -110,6 +111,7 @@
       "Crear contratos de hechos y snapshot de reporting",
       "Crear políticas puras equivalentes para M-01 a M-07",
       "Crear GetDashboardOverview y un ReadInspectionFacts port",
+      "Crear un adaptador de lectura sintético sin activar el endpoint",
       "Componer con dobles sintéticos sin activar el endpoint existente",
       "Auditar dependencias heredadas sin añadir ni cambiar paquetes",
       "Documentar fórmulas, riesgos, golden pendiente y rollback"
