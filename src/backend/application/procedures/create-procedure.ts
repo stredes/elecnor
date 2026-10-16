@@ -36,7 +36,7 @@ export class CreateProcedure {
     try { document = await this.dependencies.storage.put(command.upload, reservation.reservationId); }
     catch (error) {
       await this.compensateStorage(command, reservation, error);
-      throw error;
+      throw storageCreationError(error);
     }
     try {
       const metadata = normalizeProcedure(command.metadata);
@@ -80,4 +80,9 @@ function validationError(code: "INVALID_PDF" | "TOO_LARGE" | "UNAVAILABLE"): "IN
 
 function isUnknownCommit(error: unknown): boolean {
   return error instanceof ProcedureCommitError && error.state === "unknown";
+}
+
+function storageCreationError(error: unknown): unknown {
+  return error instanceof DocumentStorageError && error.state === "not_written"
+    ? new ProcedureCreationError("STORAGE_UNAVAILABLE") : error;
 }

@@ -31,6 +31,8 @@ multipart, FastAPI, DB, Blob, filesystem, SQLite, OCR ni datos reales.
    cancelación conocida libera la clave para otro intento.
 8. Un error de storage sin estado conocido se trata como incierto y queda
    para conciliación; no se libera la reserva ni se borra a ciegas.
+9. La ausencia conocida de storage se traduce a `STORAGE_UNAVAILABLE`; la
+   capa HTTP futura podrá mapearla al estado aprobado sin filtrar detalles.
 
 ## Evidencia
 
