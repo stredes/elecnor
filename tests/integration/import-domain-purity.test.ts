@@ -5,11 +5,14 @@ import {
   determineImportStatus,
   normalizeText,
 } from "@/backend/domain/import-domain";
+import { importDomainContract } from "@/backend/domain/import-domain-contract";
+import type { ImportDomainPolicy } from "@/backend/domain/import-domain-contract";
 import { validImportFacts } from "../contracts/import-fixtures";
 
 const root = process.cwd();
 const pureFiles = [
   "src/backend/domain/import-domain.ts",
+  "src/backend/domain/import-domain-contract.ts",
   "src/backend/domain/import-facts-contract.ts",
   "src/backend/domain/import-draft-contract.ts",
   "src/backend/domain/import-normalization.ts",
@@ -18,11 +21,18 @@ const pureFiles = [
   "src/backend/domain/logical-key.ts",
 ];
 
+const policy: ImportDomainPolicy = {
+  normalizeText,
+  classifyAnswer,
+  determineImportStatus,
+};
+
 describe("NP-0032/AC-03/TEST-03 import domain purity", () => {
   it("exposes pure policies through a stable domain facade", () => {
     expect(normalizeText("ÁREA ß")).toBe("area ss");
     expect(classifyAnswer("N/A").notApplicable).toBe(1);
-    expect(determineImportStatus(validImportFacts)).toBe("COMPLETA");
+    expect(policy.determineImportStatus(validImportFacts)).toBe("COMPLETA");
+    expect(importDomainContract.normalizeText("Sí")).toBe("si");
   });
 
   it("keeps interpretation files free of runtime and persistence dependencies", () => {

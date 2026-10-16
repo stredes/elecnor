@@ -139,6 +139,75 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/import-domain-purity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "3b178a40f2ea141682745aa1a7514faf816810e8674e5c06206fd80938e4fe68",
+        "source_digest": "341197aabf3944575d1ff24d1d1625e1540c6652cd5064a21012f8fc0790863d",
+        "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+        "recorded_at": "2026-10-16T13:18:46.741Z",
+        "git": {
+          "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+          "branch": "NP-0032",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/import-domain-purity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "cf1d5c52840a45beec51d710c58eadc8a0acc5489f43390cbf5a1d01094d92aa",
+        "source_digest": "d67a5cb80b6b2b9a5733f0204fef2fe2532cc3625ce5aee6de8315288e23ece7",
+        "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+        "recorded_at": "2026-10-16T13:18:55.931Z",
+        "git": {
+          "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "974bb6f4ace29d471daec80bcde4e1121d3ac985739a2dd823015450f69d2e0a",
+        "source_digest": "d67a5cb80b6b2b9a5733f0204fef2fe2532cc3625ce5aee6de8315288e23ece7",
+        "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+        "recorded_at": "2026-10-16T13:19:02.940Z",
+        "git": {
+          "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "3309c53142a7a6f102f9cbd08a0d66eee6b7b5f0ad05a840ac0a070a93ebf2a4",
+          "source_digest": "53c2813638eddd5c23f77f453093d6b9b806fb47a74d9c60542305b473fe1ec2",
+          "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+          "recorded_at": "2026-10-16T13:19:41.110Z",
+          "git": {
+            "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+            "branch": "NP-0032",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -610,6 +679,169 @@
         }
       },
       "event_digest": "2d66b0961511a97ca1c49fc3313914d9f6b2fc66215ff87e771a4c4b1a1b3f59"
+    },
+    {
+      "sequence": 15,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:18:33.033Z",
+      "git": {
+        "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "2d66b0961511a97ca1c49fc3313914d9f6b2fc66215ff87e771a4c4b1a1b3f59",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "60877f0522f7d557eb38c00985689ab08a552251291c83a317558c214b792cb5"
+    },
+    {
+      "sequence": 16,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:18:46.742Z",
+      "git": {
+        "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "60877f0522f7d557eb38c00985689ab08a552251291c83a317558c214b792cb5",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/import-domain-purity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "3b178a40f2ea141682745aa1a7514faf816810e8674e5c06206fd80938e4fe68",
+        "source_digest": "341197aabf3944575d1ff24d1d1625e1540c6652cd5064a21012f8fc0790863d",
+        "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+        "recorded_at": "2026-10-16T13:18:46.741Z",
+        "git": {
+          "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+          "branch": "NP-0032",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "85ce0bcdcb38d1f62cf4f38eefd994de45de0bdde039e792e472d9775dcf693a"
+    },
+    {
+      "sequence": 17,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/domain/import-domain-contract.ts",
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:18:55.931Z",
+      "git": {
+        "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "85ce0bcdcb38d1f62cf4f38eefd994de45de0bdde039e792e472d9775dcf693a",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/import-domain-purity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "cf1d5c52840a45beec51d710c58eadc8a0acc5489f43390cbf5a1d01094d92aa",
+        "source_digest": "d67a5cb80b6b2b9a5733f0204fef2fe2532cc3625ce5aee6de8315288e23ece7",
+        "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+        "recorded_at": "2026-10-16T13:18:55.931Z",
+        "git": {
+          "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "event_digest": "446547c8d0b028e558469416b292a333eca978019c024b20b2d99739bb2fc2b7"
+    },
+    {
+      "sequence": 18,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/domain/import-domain-contract.ts",
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:19:02.940Z",
+      "git": {
+        "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "446547c8d0b028e558469416b292a333eca978019c024b20b2d99739bb2fc2b7",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "974bb6f4ace29d471daec80bcde4e1121d3ac985739a2dd823015450f69d2e0a",
+        "source_digest": "d67a5cb80b6b2b9a5733f0204fef2fe2532cc3625ce5aee6de8315288e23ece7",
+        "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+        "recorded_at": "2026-10-16T13:19:02.940Z",
+        "git": {
+          "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "event_digest": "370e21ea91b7c55db59a83a2bffe4d64bf6453fd431ec9ffc7130ee4fc17abef"
+    },
+    {
+      "sequence": 19,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Corrección de tipo: AnswerClassification se importa desde normalización, manteniendo la fachada pública y la prueba de pureza.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0032.json",
+        "src/backend/domain/import-domain-contract.ts",
+        "tests/integration/import-domain-purity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:19:41.112Z",
+      "git": {
+        "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+        "branch": "NP-0032",
+        "dirty": true
+      },
+      "previous_event_digest": "370e21ea91b7c55db59a83a2bffe4d64bf6453fd431ec9ffc7130ee4fc17abef",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "3309c53142a7a6f102f9cbd08a0d66eee6b7b5f0ad05a840ac0a070a93ebf2a4",
+        "source_digest": "53c2813638eddd5c23f77f453093d6b9b806fb47a74d9c60542305b473fe1ec2",
+        "test_digest": "d3171a03dc3d7bbb7ba81b7df010b39216e906fc473bf573af557caa16a5e1d6",
+        "recorded_at": "2026-10-16T13:19:41.110Z",
+        "git": {
+          "head": "0832bf613796e3594075eba639e94f7e5157aa63",
+          "branch": "NP-0032",
+          "dirty": true
+        }
+      },
+      "event_digest": "0ecb8cbf677fa12f29bc9504ecfb10028b3313f9bf12a29ceaa7f1dd7d08170b"
     }
   ],
   "git_baseline": {
@@ -618,13 +850,13 @@
     "branch": "NP-0032"
   },
   "final": {
-    "source_digest": "341197aabf3944575d1ff24d1d1625e1540c6652cd5064a21012f8fc0790863d",
-    "test_suite_digest": "2e4eeff817d876ad9ebb3ae02b65b8e5b1db9cdbd405c73042a67cb7168d95c2",
-    "recorded_at": "2026-10-16T13:18:21.261Z",
+    "source_digest": "53c2813638eddd5c23f77f453093d6b9b806fb47a74d9c60542305b473fe1ec2",
+    "test_suite_digest": "5bb593ad7c17290076149c6afaa5d783a530ace6cf78420058e23a61f050000e",
+    "recorded_at": "2026-10-16T13:19:41.111Z",
     "git": {
-      "head": "8eb32f1c9656b14eac3a1183db742b76e41e4298",
+      "head": "0832bf613796e3594075eba639e94f7e5157aa63",
       "branch": "NP-0032",
-      "dirty": false
+      "dirty": true
     }
   }
 }
