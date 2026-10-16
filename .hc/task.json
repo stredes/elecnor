@@ -37,6 +37,16 @@
         "expected_failure": "CONFLICT",
         "fixture": "tests/integration/architecture/procedure-creation.test.ts",
         "regression": {"check": "integration", "args": []}
+      },
+      {
+        "test_id": "TEST-04",
+        "order": 4,
+        "level": "e2e",
+        "check": "e2e",
+        "args": ["tests/e2e/np0039-safety.spec.ts"],
+        "expected_failure": "Received: 413",
+        "fixture": "tests/e2e/np0039-safety.spec.ts",
+        "regression": {"check": "e2e", "args": []}
       }
     ]
   },
@@ -46,6 +56,7 @@
       "src/backend/domain/procedures", "src/backend/application/procedures", "src/backend/ports/procedures",
       "src/backend/adapters/outbound", "src/backend/composition",
       "tests/application/procedures", "tests/integration/procedures", "tests/integration/architecture",
+      "pages/api/procedures/index.ts", "tests/e2e/np0039-safety.spec.ts",
       "docs/np-0039-procedures.md", "docs/legacy-inventory.md", "AGENTS.md", "README.md", "package.json",
       "package-lock.json", "next-env.d.ts", "next.config.ts", "eslint.config.mjs", "vitest.config.ts",
       "playwright.config.ts", "tsconfig.json"
@@ -60,7 +71,7 @@
   },
   "constraints": ["Brain local 5.0.1", "D-02/03/08 and C-VALIDATE remain pending", "Fixtures synthetic only", "No weakening gates", "Authored code ≤99 lines", "No legacy modification or dependencies"],
   "authority": {
-    "allowed": ["Create PDF validation, storage, commit and recovery ports", "Create synthetic memory doubles and TDD contracts", "Document compensation and idempotency decisions"],
+    "allowed": ["Create PDF validation, storage, commit and recovery ports", "Create synthetic memory doubles and TDD contracts", "Document compensation and idempotency decisions", "Preserve the disabled mutation boundary before approval"],
     "forbidden": ["Persist to SQLite/PostgreSQL or create migrations", "Activate procedure mutation, upload, download or delete handlers", "Upload, stream or delete real PDFs", "Call FastAPI, YouTube, Blob or arbitrary URLs", "Expose stored_path or tokens", "Declare REVIEW-01 approved", "Change legacy repositories or real files"]
   }
 }
