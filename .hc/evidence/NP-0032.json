@@ -53,7 +53,23 @@
           "branch": "NP-0032",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "4d195859983e8499bb885780d5c945e99d53e163a19886a5f89266663cce0882",
+          "source_digest": "43104ef1653a30a8294844a278fce43689b2ede3529e5ab139d7f5ed7502fc8e",
+          "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+          "recorded_at": "2026-10-16T13:16:03.591Z",
+          "git": {
+            "head": "fa05591c92c6862a663d577283ef75de2ac1f285",
+            "branch": "NP-0032",
+            "dirty": false
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -255,6 +271,37 @@
       "previous_event_digest": "3389a5bdd93a2af5967ff36fce8cb22487311f02bc272bc1aded1e8e3439bade",
       "code": "PRODUCTION_NOT_COMMITTED",
       "event_digest": "0ad7b6a9eb70b4fad95b88a9a7708e104b7c72bf3cfca5d79bb2dca4b79cff4c"
+    },
+    {
+      "sequence": 6,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Aislado el contrato HashPort de la capa de dominio tras el gate de boundaries; se conserva el comportamiento golden.",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T13:16:03.593Z",
+      "git": {
+        "head": "fa05591c92c6862a663d577283ef75de2ac1f285",
+        "branch": "NP-0032",
+        "dirty": false
+      },
+      "previous_event_digest": "0ad7b6a9eb70b4fad95b88a9a7708e104b7c72bf3cfca5d79bb2dca4b79cff4c",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "4d195859983e8499bb885780d5c945e99d53e163a19886a5f89266663cce0882",
+        "source_digest": "43104ef1653a30a8294844a278fce43689b2ede3529e5ab139d7f5ed7502fc8e",
+        "test_digest": "493fba719a25bda7e0024348468957353dc1f9321b80d9931aacfabb2faa7622",
+        "recorded_at": "2026-10-16T13:16:03.591Z",
+        "git": {
+          "head": "fa05591c92c6862a663d577283ef75de2ac1f285",
+          "branch": "NP-0032",
+          "dirty": false
+        }
+      },
+      "event_digest": "c0ea398698b3ac4bd01e5bc720f56710653be02a7636801b6fb7170d660e392f"
     }
   ],
   "git_baseline": {
@@ -263,13 +310,13 @@
     "branch": "NP-0032"
   },
   "final": {
-    "source_digest": "3c14b238ff812291b2d68c0483a35e6076ba966ccc458572894e5c933d399608",
+    "source_digest": "43104ef1653a30a8294844a278fce43689b2ede3529e5ab139d7f5ed7502fc8e",
     "test_suite_digest": "ad63ff784c68cc82d34535fdbb58cae669846fbaa010966e3b91c044cc246630",
-    "recorded_at": "2026-10-16T13:14:09.079Z",
+    "recorded_at": "2026-10-16T13:16:03.593Z",
     "git": {
-      "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
+      "head": "fa05591c92c6862a663d577283ef75de2ac1f285",
       "branch": "NP-0032",
-      "dirty": true
+      "dirty": false
     }
   }
 }
