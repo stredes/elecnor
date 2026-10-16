@@ -182,6 +182,59 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d4df66397bf28dcdbbafc83a2f796e60752db9a9b3b714b8eab76eaa1076a896",
+        "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:34:46.632Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Expected: 200"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1506c0217af2f0dc51bdc4c43e62920ad989c57dd00a18c26ea27bd69209c37f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:14.911Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "06d800fddb12951718d9342a05a237bee8254526433a3bfb2d91c24baebf5d2f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:21.621Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -646,6 +699,140 @@
       "previous_event_digest": "7955d0d43a5a63ee01a97a627e697bd5781199e6b60e2e74a4e2f0d68aae2f5f",
       "code": "PRODUCTION_NOT_COMMITTED",
       "event_digest": "8c4258e6436efc94eeb4e8f92d6505e3d7c3eb8a870c9ec6bb7f7d8ea37d4ae1"
+    },
+    {
+      "sequence": 13,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T16:34:27.285Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": false
+      },
+      "previous_event_digest": "8c4258e6436efc94eeb4e8f92d6505e3d7c3eb8a870c9ec6bb7f7d8ea37d4ae1",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "b3e30142ff7bff94e015db4fd1cac3b8fe2654c9623fe335fe66196bebb3eac4"
+    },
+    {
+      "sequence": 14,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "Expected: 200",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/task.json",
+        "next-env.d.ts"
+      ],
+      "recorded_at": "2026-10-16T16:34:46.632Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "b3e30142ff7bff94e015db4fd1cac3b8fe2654c9623fe335fe66196bebb3eac4",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d4df66397bf28dcdbbafc83a2f796e60752db9a9b3b714b8eab76eaa1076a896",
+        "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:34:46.632Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Expected: 200"
+      },
+      "event_digest": "0fe66ddde1f197ccf23e3f02653d50b4d95ef59c405bd23369dee0ff84b1da51"
+    },
+    {
+      "sequence": 15,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "pages/api/procedures/",
+        "src/backend/adapters/inbound/procedure-response.ts",
+        "src/backend/composition/procedures.ts"
+      ],
+      "recorded_at": "2026-10-16T16:35:14.912Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "0fe66ddde1f197ccf23e3f02653d50b4d95ef59c405bd23369dee0ff84b1da51",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1506c0217af2f0dc51bdc4c43e62920ad989c57dd00a18c26ea27bd69209c37f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:14.911Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "abc7dc4388edb97b773c89bf0f4c9eecbb960ca33374e8fbe7079b5ce1c1d2a9"
+    },
+    {
+      "sequence": 16,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "next-env.d.ts",
+        "pages/api/procedures/",
+        "src/backend/adapters/inbound/procedure-response.ts",
+        "src/backend/composition/procedures.ts"
+      ],
+      "recorded_at": "2026-10-16T16:35:21.628Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "abc7dc4388edb97b773c89bf0f4c9eecbb960ca33374e8fbe7079b5ce1c1d2a9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "06d800fddb12951718d9342a05a237bee8254526433a3bfb2d91c24baebf5d2f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:21.621Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "1b41e90d0bf489e6c90aa77b4f3fb92a1a7e5120cb3a8c20ef40e53f49b97862"
     }
   ],
   "git_baseline": {
@@ -654,11 +841,11 @@
     "branch": "NP-0038"
   },
   "final": {
-    "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
-    "test_suite_digest": "f44f61495b02f49a7e18d27721baf46c7bc13683774c099ee47e0ebdd11e379e",
-    "recorded_at": "2026-10-16T16:31:28.544Z",
+    "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+    "test_suite_digest": "85daeeb127bef940fc0a2b88148e8a1745586b5a97358c0c0d48d1a07dee51d8",
+    "recorded_at": "2026-10-16T16:35:21.625Z",
     "git": {
-      "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+      "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
       "branch": "NP-0038",
       "dirty": true
     }

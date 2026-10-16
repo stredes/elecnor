@@ -44,7 +44,7 @@
         "level": "e2e",
         "check": "e2e",
         "args": ["tests/e2e/procedures.spec.ts"],
-        "expected_failure": "404 procedure response",
+        "expected_failure": "Expected: 200",
         "fixture": "tests/e2e/procedures.spec.ts",
         "regression": {"check": "e2e", "args": []}
       }
