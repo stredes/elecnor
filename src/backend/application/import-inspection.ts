@@ -1,4 +1,5 @@
 import { validateImportFiles, type ImportFile } from "../domain/import-files";
+import { validateImportContext } from "../domain/import-operation-context";
 import { ImportOperationError } from "../domain/import-operation-error";
 import type { ImportSummary } from "../domain/import-summary";
 import type { DocumentProcessor } from "../ports/document-processor";
@@ -17,6 +18,7 @@ export class ImportInspection {
     files: readonly ImportFile[],
     context: ImportExecutionContext,
   ): Promise<ImportSummary> {
+    validateImportContext(context);
     validateImportFiles(files);
     let summary = emptySummary(files.length);
     for (const file of files) {

@@ -3,6 +3,7 @@ import { ImportInspection } from "@/backend/application/import-inspection";
 import { InterpretDocument } from "@/backend/application/interpret-document";
 import { catalogDefinitions } from "@/backend/domain/catalog/catalog-data";
 import { ImportOperationError } from "@/backend/domain/import-operation-error";
+import { validateImportContext } from "@/backend/domain/import-operation-context";
 import type { DocumentProcessor } from "@/backend/ports/document-processor";
 import type { ImportRepository } from "@/backend/ports/import-repository";
 import { validImportFacts } from "./import-fixtures";
@@ -20,6 +21,12 @@ function useCase(processor: DocumentProcessor, repository: ImportRepository) {
 }
 
 describe("NP-0033/AC-02/TEST-02 import operation boundaries", () => {
+  it("rejects an operation without an authorized request id", () => {
+    expect(() => validateImportContext({
+      requestId: "",
+    })).toThrow();
+  });
+
   it("continues after a document error and never persists missing metrics", async () => {
     const processor = vi.fn()
       .mockResolvedValueOnce({ ...validImportFacts, metrics: [] })

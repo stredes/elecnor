@@ -70,6 +70,59 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-operation-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ca50a30d8fccd952aca01a1e8bebbf0c676bcf2664da9430a6a366973b46aa6b",
+        "source_digest": "a0ae33ac0237ee2aca3664b94a369be779572fc5006cadfe316ee8b915a528f5",
+        "test_digest": "ca153a028b365c123499dfd8f9dd2dd0593e4970cd388cbadbdbbf77f5f3971b",
+        "recorded_at": "2026-10-16T13:37:00.489Z",
+        "git": {
+          "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+          "branch": "NP-0033",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-operation-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "86d96f8549a1abc1448b12386373cb86b7df718cc4123c4f21fdc2daba58d394",
+        "source_digest": "f4aa745063da1fdda75cb6a3a2b95a3ff8b2b835f6c0c93c0fbbe6bd8a068a00",
+        "test_digest": "ca153a028b365c123499dfd8f9dd2dd0593e4970cd388cbadbdbbf77f5f3971b",
+        "recorded_at": "2026-10-16T13:37:34.744Z",
+        "git": {
+          "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+          "branch": "NP-0033",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6f676905f26d082f7efb14e7fca4cf49b67802bca17657e0477bc34cee5e33c0",
+        "source_digest": "f4aa745063da1fdda75cb6a3a2b95a3ff8b2b835f6c0c93c0fbbe6bd8a068a00",
+        "test_digest": "ca153a028b365c123499dfd8f9dd2dd0593e4970cd388cbadbdbbf77f5f3971b",
+        "recorded_at": "2026-10-16T13:37:44.586Z",
+        "git": {
+          "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+          "branch": "NP-0033",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -403,6 +456,134 @@
         }
       },
       "event_digest": "acbcce071ce912175da6607651d9b82ec76b762a105e2a66e16477a94f3ebf19"
+    },
+    {
+      "sequence": 12,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 was born green",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T13:36:43.728Z",
+      "git": {
+        "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+        "branch": "NP-0033",
+        "dirty": false
+      },
+      "previous_event_digest": "acbcce071ce912175da6607651d9b82ec76b762a105e2a66e16477a94f3ebf19",
+      "code": "BORN_GREEN",
+      "event_digest": "fad9ac926495c7991f64c0557ddebe572ee0d3310b850190c365d7799c10e017"
+    },
+    {
+      "sequence": 13,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:37:00.489Z",
+      "git": {
+        "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "fad9ac926495c7991f64c0557ddebe572ee0d3310b850190c365d7799c10e017",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-operation-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "ca50a30d8fccd952aca01a1e8bebbf0c676bcf2664da9430a6a366973b46aa6b",
+        "source_digest": "a0ae33ac0237ee2aca3664b94a369be779572fc5006cadfe316ee8b915a528f5",
+        "test_digest": "ca153a028b365c123499dfd8f9dd2dd0593e4970cd388cbadbdbbf77f5f3971b",
+        "recorded_at": "2026-10-16T13:37:00.489Z",
+        "git": {
+          "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+          "branch": "NP-0033",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "821cdb29ca0473881da646a0fbda965175154686aabdb7221d1d274b5c85da5f"
+    },
+    {
+      "sequence": 14,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "src/backend/application/import-inspection.ts",
+        "src/backend/domain/import-operation-context.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:37:34.744Z",
+      "git": {
+        "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "821cdb29ca0473881da646a0fbda965175154686aabdb7221d1d274b5c85da5f",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/import-operation-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "86d96f8549a1abc1448b12386373cb86b7df718cc4123c4f21fdc2daba58d394",
+        "source_digest": "f4aa745063da1fdda75cb6a3a2b95a3ff8b2b835f6c0c93c0fbbe6bd8a068a00",
+        "test_digest": "ca153a028b365c123499dfd8f9dd2dd0593e4970cd388cbadbdbbf77f5f3971b",
+        "recorded_at": "2026-10-16T13:37:34.744Z",
+        "git": {
+          "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+          "branch": "NP-0033",
+          "dirty": true
+        }
+      },
+      "event_digest": "22b5c0484bff43f6d080a0424079e17e452c6f88dcaa68401416631df38834ff"
+    },
+    {
+      "sequence": 15,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "src/backend/application/import-inspection.ts",
+        "src/backend/domain/import-operation-context.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:37:44.588Z",
+      "git": {
+        "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "22b5c0484bff43f6d080a0424079e17e452c6f88dcaa68401416631df38834ff",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6f676905f26d082f7efb14e7fca4cf49b67802bca17657e0477bc34cee5e33c0",
+        "source_digest": "f4aa745063da1fdda75cb6a3a2b95a3ff8b2b835f6c0c93c0fbbe6bd8a068a00",
+        "test_digest": "ca153a028b365c123499dfd8f9dd2dd0593e4970cd388cbadbdbbf77f5f3971b",
+        "recorded_at": "2026-10-16T13:37:44.586Z",
+        "git": {
+          "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
+          "branch": "NP-0033",
+          "dirty": true
+        }
+      },
+      "event_digest": "9410eac6fb16f152fc3acbc7720ced1b53473857ee0dbd208bdd31d79ee4ff1b"
     }
   ],
   "git_baseline": {
@@ -411,11 +592,11 @@
     "branch": "NP-0033"
   },
   "final": {
-    "source_digest": "a0ae33ac0237ee2aca3664b94a369be779572fc5006cadfe316ee8b915a528f5",
-    "test_suite_digest": "e6d3dae95aeec6ebf5f9b9a34d20542fbd1511e09c2bcd338fa81eec7b560785",
-    "recorded_at": "2026-10-16T13:36:05.291Z",
+    "source_digest": "f4aa745063da1fdda75cb6a3a2b95a3ff8b2b835f6c0c93c0fbbe6bd8a068a00",
+    "test_suite_digest": "1718fdf46cd19453e78fb0a9b8f5c721bbd09ad88e67d66ab6b00e48dfc58e2a",
+    "recorded_at": "2026-10-16T13:37:44.587Z",
     "git": {
-      "head": "f9d5eb36539401ebb8edda5d81132cbe82c89e61",
+      "head": "c0ff0c360ba4a20c31e35d688c707c512b4d2e93",
       "branch": "NP-0033",
       "dirty": true
     }
