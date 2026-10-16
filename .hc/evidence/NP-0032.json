@@ -122,7 +122,23 @@
           "branch": "NP-0032",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "487d8f9bdf59bf91765ac1e82070330212cbcf11b761e35b891a4367e43b6d8c",
+          "source_digest": "341197aabf3944575d1ff24d1d1625e1540c6652cd5064a21012f8fc0790863d",
+          "test_digest": "7ddaeb468d2e6cc3faf8ad4356426829d953751ff2fd0c38d7800ecd975fdb69",
+          "recorded_at": "2026-10-16T13:18:21.258Z",
+          "git": {
+            "head": "8eb32f1c9656b14eac3a1183db742b76e41e4298",
+            "branch": "NP-0032",
+            "dirty": false
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -563,11 +579,52 @@
       "previous_event_digest": "4f1f4d1a71d791bb5123b219b8d8a57b413643ac55895cfd60c1651add11b0d9",
       "code": "SOURCE_CHANGED_AFTER_REFACTOR",
       "event_digest": "4be1bebe4d609c8524b63cf741ae084f4878e253065f7bea381a988e9fd12670"
+    },
+    {
+      "sequence": 14,
+      "type": "REBASELINED",
+      "test_id": "TEST-02",
+      "reason": "La fachada pública de políticas puras se incorporó antes del ciclo de arquitectura; se valida la suite completa y se fija el nuevo baseline.",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T13:18:21.261Z",
+      "git": {
+        "head": "8eb32f1c9656b14eac3a1183db742b76e41e4298",
+        "branch": "NP-0032",
+        "dirty": false
+      },
+      "previous_event_digest": "4be1bebe4d609c8524b63cf741ae084f4878e253065f7bea381a988e9fd12670",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "487d8f9bdf59bf91765ac1e82070330212cbcf11b761e35b891a4367e43b6d8c",
+        "source_digest": "341197aabf3944575d1ff24d1d1625e1540c6652cd5064a21012f8fc0790863d",
+        "test_digest": "7ddaeb468d2e6cc3faf8ad4356426829d953751ff2fd0c38d7800ecd975fdb69",
+        "recorded_at": "2026-10-16T13:18:21.258Z",
+        "git": {
+          "head": "8eb32f1c9656b14eac3a1183db742b76e41e4298",
+          "branch": "NP-0032",
+          "dirty": false
+        }
+      },
+      "event_digest": "2d66b0961511a97ca1c49fc3313914d9f6b2fc66215ff87e771a4c4b1a1b3f59"
     }
   ],
   "git_baseline": {
     "kind": "UNMANAGED_INITIAL",
     "head": "9172245d23627e7a120c6187e3383c9415ee0a7a",
     "branch": "NP-0032"
+  },
+  "final": {
+    "source_digest": "341197aabf3944575d1ff24d1d1625e1540c6652cd5064a21012f8fc0790863d",
+    "test_suite_digest": "2e4eeff817d876ad9ebb3ae02b65b8e5b1db9cdbd405c73042a67cb7168d95c2",
+    "recorded_at": "2026-10-16T13:18:21.261Z",
+    "git": {
+      "head": "8eb32f1c9656b14eac3a1183db742b76e41e4298",
+      "branch": "NP-0032",
+      "dirty": false
+    }
   }
 }
