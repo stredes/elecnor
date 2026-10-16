@@ -234,7 +234,23 @@
           "branch": "NP-0038",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "e2e",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "8b35bad43b86b1054745979ab48e4b0fdfe04b4e3578d3cf592b264f6455ea36",
+          "source_digest": "45199236a0c22b9f3f26b34113c6cc74bfba77fd35f083cc7501a9aa7d8856c5",
+          "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+          "recorded_at": "2026-10-16T16:36:10.341Z",
+          "git": {
+            "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
+            "branch": "NP-0038",
+            "dirty": false
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -833,6 +849,37 @@
         }
       },
       "event_digest": "1b41e90d0bf489e6c90aa77b4f3fb92a1a7e5120cb3a8c20ef40e53f49b97862"
+    },
+    {
+      "sequence": 17,
+      "type": "REBASELINED",
+      "test_id": "TEST-04",
+      "reason": "Separate inbound public DTO types from route orchestration without changing the E2E contract",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T16:36:10.359Z",
+      "git": {
+        "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
+        "branch": "NP-0038",
+        "dirty": false
+      },
+      "previous_event_digest": "1b41e90d0bf489e6c90aa77b4f3fb92a1a7e5120cb3a8c20ef40e53f49b97862",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "8b35bad43b86b1054745979ab48e4b0fdfe04b4e3578d3cf592b264f6455ea36",
+        "source_digest": "45199236a0c22b9f3f26b34113c6cc74bfba77fd35f083cc7501a9aa7d8856c5",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:36:10.341Z",
+        "git": {
+          "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
+          "branch": "NP-0038",
+          "dirty": false
+        }
+      },
+      "event_digest": "1cd2e8a141c26c62980b90aeffed690ad1ed47b6c0b58184a26d84ba29ff604e"
     }
   ],
   "git_baseline": {
@@ -841,13 +888,13 @@
     "branch": "NP-0038"
   },
   "final": {
-    "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+    "source_digest": "45199236a0c22b9f3f26b34113c6cc74bfba77fd35f083cc7501a9aa7d8856c5",
     "test_suite_digest": "85daeeb127bef940fc0a2b88148e8a1745586b5a97358c0c0d48d1a07dee51d8",
-    "recorded_at": "2026-10-16T16:35:21.625Z",
+    "recorded_at": "2026-10-16T16:36:10.359Z",
     "git": {
-      "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+      "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
       "branch": "NP-0038",
-      "dirty": true
+      "dirty": false
     }
   }
 }
