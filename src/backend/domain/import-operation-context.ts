@@ -1,4 +1,7 @@
-export type ImportContextInput = { readonly requestId: string };
+export type ImportContextInput = {
+  readonly requestId: string;
+  readonly cancellation: { isCancelled(): boolean };
+};
 
 export class ImportContextError extends Error {
   public constructor() {

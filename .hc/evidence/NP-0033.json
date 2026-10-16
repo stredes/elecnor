@@ -190,6 +190,20 @@
             "branch": "NP-0033",
             "dirty": true
           }
+        },
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "c37d44a64b19dc16a2f1abcb9a62e4617e10b195ed029b64d2deb109e2bf5573",
+          "source_digest": "c2ba1de9607534970ee4870171fa61c138b7b3c195d9d29be3a2f60e81a2cd7e",
+          "test_digest": "314f4b0deab49559e14faaae446c7ea3d11858a67588cbff80e4eda56cdd07a8",
+          "recorded_at": "2026-10-16T13:42:02.834Z",
+          "git": {
+            "head": "5bcbaeba54f79034149285d27ea7d45cfd33a734",
+            "branch": "NP-0033",
+            "dirty": true
+          }
         }
       ]
     }
@@ -797,6 +811,61 @@
         }
       },
       "event_digest": "d7247177123390bb4edeb5a76713441d07f8dabb3000eddee3bd4703b4203417"
+    },
+    {
+      "sequence": 20,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 is not the latest completed cycle",
+      "executed": false,
+      "changed_files": [
+        "next-env.d.ts"
+      ],
+      "recorded_at": "2026-10-16T13:41:00.278Z",
+      "git": {
+        "head": "5bcbaeba54f79034149285d27ea7d45cfd33a734",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "d7247177123390bb4edeb5a76713441d07f8dabb3000eddee3bd4703b4203417",
+      "code": "LATEST_REFACTOR_REQUIRED",
+      "event_digest": "b4ec8b22de9fda9d889431c7a891738b8b9f97384b07ba9f1bda2cc97a7a0807"
+    },
+    {
+      "sequence": 21,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Se alineó ImportContextInput con el contexto completo de ejecución para restaurar el fixture exacto del REFACTOR de TEST-02; integración sigue GREEN.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0033.json",
+        "next-env.d.ts",
+        "src/backend/domain/import-operation-context.ts",
+        "tests/contracts/import-operation-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T13:42:02.837Z",
+      "git": {
+        "head": "5bcbaeba54f79034149285d27ea7d45cfd33a734",
+        "branch": "NP-0033",
+        "dirty": true
+      },
+      "previous_event_digest": "b4ec8b22de9fda9d889431c7a891738b8b9f97384b07ba9f1bda2cc97a7a0807",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "c37d44a64b19dc16a2f1abcb9a62e4617e10b195ed029b64d2deb109e2bf5573",
+        "source_digest": "c2ba1de9607534970ee4870171fa61c138b7b3c195d9d29be3a2f60e81a2cd7e",
+        "test_digest": "314f4b0deab49559e14faaae446c7ea3d11858a67588cbff80e4eda56cdd07a8",
+        "recorded_at": "2026-10-16T13:42:02.834Z",
+        "git": {
+          "head": "5bcbaeba54f79034149285d27ea7d45cfd33a734",
+          "branch": "NP-0033",
+          "dirty": true
+        }
+      },
+      "event_digest": "1074ef91b113e62de829cfeb4c711f77eb81a6a1ed12c14de2c4aa1592bd6d8d"
     }
   ],
   "git_baseline": {
@@ -805,11 +874,11 @@
     "branch": "NP-0033"
   },
   "final": {
-    "source_digest": "7dfb8c05a5efdacca64a83e6fcf6294944a60fcdb33f5b23b16b49096e71162f",
-    "test_suite_digest": "f02122a0c9ad9745d653ac591e64d7939f366e3524ae42a11fbb16602ed01d06",
-    "recorded_at": "2026-10-16T13:40:11.956Z",
+    "source_digest": "c2ba1de9607534970ee4870171fa61c138b7b3c195d9d29be3a2f60e81a2cd7e",
+    "test_suite_digest": "89bde9f979c6511ff59cc244e6a99ab95ca79674ebb642b12bab376d345fcaac",
+    "recorded_at": "2026-10-16T13:42:02.837Z",
     "git": {
-      "head": "14bba46d36627bc0f7869749d5b8d93d719756a0",
+      "head": "5bcbaeba54f79034149285d27ea7d45cfd33a734",
       "branch": "NP-0033",
       "dirty": true
     }

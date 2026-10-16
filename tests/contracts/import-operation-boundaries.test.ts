@@ -23,7 +23,7 @@ function useCase(processor: DocumentProcessor, repository: ImportRepository) {
 describe("NP-0033/AC-02/TEST-02 import operation boundaries", () => {
   it("rejects an operation without an authorized request id", () => {
     expect(() => validateImportContext({
-      requestId: "",
+      requestId: "", cancellation: { isCancelled: () => false },
     })).toThrow();
   });
 
