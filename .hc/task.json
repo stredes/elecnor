@@ -1,76 +1,66 @@
 {
   "schema_version": "2.0",
   "task": {
-    "id": "NP-0038",
+    "id": "NP-0039",
     "type": "feature",
-    "story_path": ".hc/stories/NP-0038.json",
+    "story_path": ".hc/stories/NP-0039.json",
     "acceptance_criteria": ["AC-01", "AC-02", "AC-03"],
     "change_areas": ["domain", "application", "infrastructure", "documentation"],
-    "risk_tags": ["persistence", "public-api", "migration"],
+    "risk_tags": ["external-input", "persistence", "concurrency", "personal-data"],
     "test_plan": [
       {
         "test_id": "TEST-01",
         "order": 1,
-        "level": "integration",
-        "check": "integration",
-        "args": ["tests/domain/procedures/families.test.ts", "tests/integration/procedures/catalog-parity.test.ts"],
-        "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/procedures/families.test.ts",
-        "regression": {"check": "integration", "args": []}
+        "level": "unit",
+        "check": "unit",
+        "args": ["tests/application/procedures/create-procedure.test.ts"],
+        "expected_failure": "validator down",
+        "fixture": "tests/application/procedures/create-procedure.test.ts",
+        "regression": {"check": "unit", "args": []}
       },
       {
         "test_id": "TEST-02",
         "order": 2,
-        "level": "unit",
-        "check": "unit",
-        "args": ["tests/domain/procedures/metadata-validation.test.ts", "tests/domain/procedures/youtube-id.test.ts"],
-        "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/procedures/metadata-validation.test.ts",
-        "regression": {"check": "unit", "args": []}
+        "level": "integration",
+        "check": "integration",
+        "args": ["tests/integration/procedures/compensation-contract.test.ts"],
+        "expected_failure": "STORAGE_UNCERTAIN",
+        "fixture": "tests/integration/procedures/compensation-contract.test.ts",
+        "regression": {"check": "integration", "args": []}
       },
       {
         "test_id": "TEST-03",
         "order": 3,
         "level": "integration",
         "check": "integration",
-        "args": ["tests/integration/procedures/repository-contract.test.ts", "tests/integration/architecture/procedures.test.ts"],
+        "args": ["tests/integration/architecture/procedure-creation.test.ts"],
         "expected_failure": "Failed to resolve import",
-        "fixture": "tests/integration/procedures/repository-contract.test.ts",
+        "fixture": "tests/integration/architecture/procedure-creation.test.ts",
         "regression": {"check": "integration", "args": []}
-      },
-      {
-        "test_id": "TEST-04",
-        "order": 4,
-        "level": "e2e",
-        "check": "e2e",
-        "args": ["tests/e2e/procedures.spec.ts"],
-        "expected_failure": "Expected: 200",
-        "fixture": "tests/e2e/procedures.spec.ts",
-        "regression": {"check": "e2e", "args": []}
       }
     ]
   },
   "scope": {
     "include": [
-      ".hc/project.json", ".hc/task.json", ".hc/stories/NP-0038.json", ".hc/evidence/NP-0038.json",
+      ".hc/project.json", ".hc/task.json", ".hc/stories/NP-0039.json", ".hc/evidence/NP-0039.json",
       "src/backend/domain/procedures", "src/backend/application/procedures", "src/backend/ports/procedures",
-      "src/backend/adapters/inbound", "src/backend/adapters/outbound", "src/backend/composition", "pages/api/procedures",
-      "tests/domain/procedures", "tests/integration/procedures", "tests/integration/architecture", "tests/e2e/procedures.spec.ts",
-      "docs/np-0038-procedures.md", "docs/legacy-inventory.md", "AGENTS.md", "README.md", "package.json",
+      "src/backend/adapters/outbound", "src/backend/composition",
+      "tests/application/procedures", "tests/integration/procedures", "tests/integration/architecture",
+      "docs/np-0039-procedures.md", "docs/legacy-inventory.md", "AGENTS.md", "README.md", "package.json",
       "package-lock.json", "next-env.d.ts", "next.config.ts", "eslint.config.mjs", "vitest.config.ts",
       "playwright.config.ts", "tsconfig.json"
     ],
     "exclude": [
       "Legacy repositories and real data", "SQLite/PostgreSQL writers, migrations and production storage",
-      "Activating procedure creation or document upload before NP-0039", "Exposing stored_path, tokens or arbitrary URLs",
+      "Activating procedure creation or document upload before D-02/03/08 and C-VALIDATE", "Exposing stored_path, tokens or arbitrary URLs",
       "Browser direct access to FastAPI, DB, filesystem or Blob", "Changing approved NP-0030/NP-0032 read contracts",
       "Calling YouTube or storage during tests", "Adding dependencies"
     ],
     "related_paths": [".hc", "src", "pages", "tests", "scripts", "docs", "vendor", "AGENTS.md", "README.md", "package.json", "package-lock.json", "next-env.d.ts", "next.config.ts", "eslint.config.mjs", "vitest.config.ts", "playwright.config.ts", "tsconfig.json"]
   },
-  "constraints": ["Brain local 5.0.1", "NP-0039 owns document upload activation", "Fixtures synthetic only", "No weakening gates", "Authored code ≤99 lines", "No legacy modification or dependencies"],
+  "constraints": ["Brain local 5.0.1", "D-02/03/08 and C-VALIDATE remain pending", "Fixtures synthetic only", "No weakening gates", "Authored code ≤99 lines", "No legacy modification or dependencies"],
   "authority": {
-    "allowed": ["Characterize legacy procedure contracts and risks", "Create pure metadata, YouTube and grouping policies", "Create application cases with typed ports and memory doubles", "Document rollback and storage decisions", "Compose read-only memory/Gateway adapters", "Activate read-only GET BFF routes over the public contract"],
-    "forbidden": ["Persist to SQLite/PostgreSQL or create migrations", "Activate procedure mutation, upload, download or delete handlers", "Upload, stream or delete real PDFs", "Call YouTube, Blob or arbitrary URLs", "Expose stored_path or tokens", "Declare REVIEW-01 approved", "Change legacy repositories or real files"]
+    "allowed": ["Create PDF validation, storage, commit and recovery ports", "Create synthetic memory doubles and TDD contracts", "Document compensation and idempotency decisions"],
+    "forbidden": ["Persist to SQLite/PostgreSQL or create migrations", "Activate procedure mutation, upload, download or delete handlers", "Upload, stream or delete real PDFs", "Call FastAPI, YouTube, Blob or arbitrary URLs", "Expose stored_path or tokens", "Declare REVIEW-01 approved", "Change legacy repositories or real files"]
   }
 }
