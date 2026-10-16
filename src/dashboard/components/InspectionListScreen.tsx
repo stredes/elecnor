@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { buildInspectionQuery } from "@/backend/domain/inspection-list-query";
 import type { InspectionListPageProps } from "../contracts/inspection-list-page-contract";
+import { InspectionListFilters } from "./InspectionListFilters";
 
 export function InspectionListScreen({ list, query, page }: InspectionListPageProps) {
   const previousHref = page > 1 ? pageHref(query, page - 1) : null;
@@ -12,6 +13,7 @@ export function InspectionListScreen({ list, query, page }: InspectionListPagePr
         <Link href="/dashboard">Volver al dashboard</Link>
       </header>
       <p data-testid="inspection-total">{list.total} registros indexados.</p>
+      <InspectionListFilters filters={query.filters} auditors={list.auditors} regions={list.regions} />
       <table aria-label="Lista de inspecciones">
         <thead><tr><th>Técnico</th><th>Fecha</th><th>Auditor</th><th>Puntaje</th><th>Estado</th></tr></thead>
         <tbody>{list.data.map((row) => <tr data-testid="inspection-row" key={row.id}>
