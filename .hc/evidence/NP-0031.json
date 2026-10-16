@@ -159,7 +159,23 @@
           "branch": "NP-0031",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "eaea792c965b2efe999c1b79d4e189101b6caf1941ba2223ccc2d9a1dbc0a56e",
+          "source_digest": "bd6ff527579185ca555d7031015778afa95d91f62c9042f1dc3f4b7fadfe34b5",
+          "test_digest": "be0aaefe9972a81d7b3a056c4016d9dc177427a186f9672fe5f97150064f3e6a",
+          "recorded_at": "2026-10-16T13:02:26.323Z",
+          "git": {
+            "head": "1968b2aa5e5800de12654aa92ce6edb7a6423033",
+            "branch": "NP-0031",
+            "dirty": false
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -563,6 +579,37 @@
         }
       },
       "event_digest": "cd14d13a46373c9d69bd0560ef72a165ed05a02b3f2aeb0f60f2be8227e1e623"
+    },
+    {
+      "sequence": 13,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Separated ExtractionLimits into a dedicated contract and corrected the disabled reader return type after full gate validation.",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T13:02:26.325Z",
+      "git": {
+        "head": "1968b2aa5e5800de12654aa92ce6edb7a6423033",
+        "branch": "NP-0031",
+        "dirty": false
+      },
+      "previous_event_digest": "cd14d13a46373c9d69bd0560ef72a165ed05a02b3f2aeb0f60f2be8227e1e623",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "eaea792c965b2efe999c1b79d4e189101b6caf1941ba2223ccc2d9a1dbc0a56e",
+        "source_digest": "bd6ff527579185ca555d7031015778afa95d91f62c9042f1dc3f4b7fadfe34b5",
+        "test_digest": "be0aaefe9972a81d7b3a056c4016d9dc177427a186f9672fe5f97150064f3e6a",
+        "recorded_at": "2026-10-16T13:02:26.323Z",
+        "git": {
+          "head": "1968b2aa5e5800de12654aa92ce6edb7a6423033",
+          "branch": "NP-0031",
+          "dirty": false
+        }
+      },
+      "event_digest": "b4192610a8a3f86fd0e6ee93a6b69ec27596159d4447478832422b6e2b2d6d4e"
     }
   ],
   "git_baseline": {
@@ -571,13 +618,13 @@
     "branch": "NP-0031"
   },
   "final": {
-    "source_digest": "bedfe25f241fe700976ed9e1e263e9181dfa899d1f96d3a356d8bc0c406f78b3",
+    "source_digest": "bd6ff527579185ca555d7031015778afa95d91f62c9042f1dc3f4b7fadfe34b5",
     "test_suite_digest": "da4a2a5dfbbee1cfad0ec53913ab6c6729e5ccc4ea0162d60c7d1aa6f0fe495f",
-    "recorded_at": "2026-10-16T13:00:29.507Z",
+    "recorded_at": "2026-10-16T13:02:26.325Z",
     "git": {
-      "head": "d879368453402ff74a38985e202d2d71143b59a6",
+      "head": "1968b2aa5e5800de12654aa92ce6edb7a6423033",
       "branch": "NP-0031",
-      "dirty": true
+      "dirty": false
     }
   }
 }
