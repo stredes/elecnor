@@ -28,13 +28,13 @@ export class CreateProcedure {
     const reservation = await this.dependencies.committer.reserve(command.idempotencyKey, command.payloadFingerprint);
     if (reservation.kind === "DUPLICATE") return { status: "DUPLICATE", procedure: reservation.procedure };
     if (reservation.kind === "CONFLICT") throw new ProcedureCreationError("CONFLICT");
-    return this.persist(command, reservation);
+    return this.storeAndCommit(command, reservation);
   }
 
-  private async persist(command: CreateProcedureCommand, reservation: ProcedureReservation & { readonly kind: "NEW" }): Promise<CreateProcedureResult> {
+  private async storeAndCommit(command: CreateProcedureCommand, reservation: ProcedureReservation & { readonly kind: "NEW" }): Promise<CreateProcedureResult> {
     let document;
     try {
-      document = await this.dependencies.storage.put(command.upload, reservation.token);
+      document = await this.dependencies.storage.put(command.upload, reservation.reservationId);
       const metadata = normalizeProcedure(command.metadata);
       const procedure = await this.dependencies.committer.commit(reservation, { metadata, document });
       return { status: "CREATED", procedure };
@@ -46,19 +46,19 @@ export class CreateProcedure {
 
   private async compensate(command: CreateProcedureCommand, reservation: ProcedureReservation & { readonly kind: "NEW" }, document: Awaited<ReturnType<StoreProcedureDocument["put"]>> | undefined, error: unknown): Promise<void> {
     if (isUnknownStorage(error)) {
-      await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationToken: reservation.token, documentId: null, reason: "STORAGE_UNCERTAIN" });
+      await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationId: reservation.reservationId, documentId: null, reason: "STORAGE_UNCERTAIN" });
       return;
     }
     if (isUnknownCommit(error)) {
-      await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationToken: reservation.token, documentId: document?.id ?? null, reason: "COMMIT_UNCERTAIN" });
+      await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationId: reservation.reservationId, documentId: document?.id ?? null, reason: "COMMIT_UNCERTAIN" });
       return;
     }
     if (document) {
       try { await this.dependencies.storage.remove(document); }
-      catch { await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationToken: reservation.token, documentId: document.id, reason: "CLEANUP_FAILED" }); }
+      catch { await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationId: reservation.reservationId, documentId: document.id, reason: "CLEANUP_FAILED" }); }
     }
     try { await this.dependencies.committer.cancel(reservation); }
-    catch { await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationToken: reservation.token, documentId: document?.id ?? null, reason: "RESERVATION_RELEASE_FAILED" }); }
+    catch { await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationId: reservation.reservationId, documentId: document?.id ?? null, reason: "RESERVATION_RELEASE_FAILED" }); }
   }
 }
 

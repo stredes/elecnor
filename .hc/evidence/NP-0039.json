@@ -159,7 +159,23 @@
           "branch": "NP-0039",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "88533ad48e0e8d00c03f0ffbba214d268d46fe4c80b76b26e1923da86ee08247",
+          "source_digest": "f69de3f794fd157a96922fe69c179615343f5ffe18e07bd000a93e2cbf9c225e",
+          "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+          "recorded_at": "2026-10-16T22:44:54.101Z",
+          "git": {
+            "head": "4e4a76ab2672a42b2aab227caaf351934595ee93",
+            "branch": "NP-0039",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -811,6 +827,43 @@
         }
       },
       "event_digest": "dd48f82cf34015a90d9441b034d4c531b481eb3d171155276e6010039175e1ec"
+    },
+    {
+      "sequence": 19,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Rename reservation identifiers and commit helper to satisfy web-next runtime boundary gate.",
+      "executed": true,
+      "changed_files": [
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts"
+      ],
+      "recorded_at": "2026-10-16T22:44:54.106Z",
+      "git": {
+        "head": "4e4a76ab2672a42b2aab227caaf351934595ee93",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "dd48f82cf34015a90d9441b034d4c531b481eb3d171155276e6010039175e1ec",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "88533ad48e0e8d00c03f0ffbba214d268d46fe4c80b76b26e1923da86ee08247",
+        "source_digest": "f69de3f794fd157a96922fe69c179615343f5ffe18e07bd000a93e2cbf9c225e",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:44:54.101Z",
+        "git": {
+          "head": "4e4a76ab2672a42b2aab227caaf351934595ee93",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "ccf3719bcfdee06c81ce2cf39b63413678edca788aaf5ba4983c979fb52c202f"
     }
   ],
   "git_baseline": {
@@ -819,11 +872,11 @@
     "branch": "NP-0039"
   },
   "final": {
-    "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+    "source_digest": "f69de3f794fd157a96922fe69c179615343f5ffe18e07bd000a93e2cbf9c225e",
     "test_suite_digest": "1557dc20e4131095791a5f3f02fcc36e63137687ee00449bcefb9c30d99f8c15",
-    "recorded_at": "2026-10-16T22:43:04.597Z",
+    "recorded_at": "2026-10-16T22:44:54.106Z",
     "git": {
-      "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+      "head": "4e4a76ab2672a42b2aab227caaf351934595ee93",
       "branch": "NP-0039",
       "dirty": true
     }

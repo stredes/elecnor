@@ -10,6 +10,6 @@ export class DocumentStorageError extends Error {
 }
 
 export interface StoreProcedureDocument {
-  put(upload: ProcedureUpload, reservationToken: string): Promise<StoredProcedureDocument>;
+  put(upload: ProcedureUpload, reservationId: string): Promise<StoredProcedureDocument>;
   remove(document: StoredProcedureDocument): Promise<void>;
 }

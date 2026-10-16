@@ -2,7 +2,7 @@ import type { Procedure } from "../../domain/procedures/procedure-contract";
 import type { ProcedureWriteDraft } from "../../domain/procedures/create-procedure-contract";
 
 export type ProcedureReservation =
-  | { readonly kind: "NEW"; readonly token: string }
+  | { readonly kind: "NEW"; readonly reservationId: string }
   | { readonly kind: "DUPLICATE"; readonly procedure: Procedure }
   | { readonly kind: "CONFLICT" };
 export type CommitFailureState = "not_committed" | "unknown";

@@ -13,8 +13,8 @@ export class MemoryPdfValidator implements ValidateProcedurePdf {
 export class MemoryDocumentStorage implements StoreProcedureDocument {
   public readonly documents: StoredProcedureDocument[] = [];
   public readonly removed: StoredProcedureDocument[] = [];
-  public put(upload: ProcedureUpload, token: string): Promise<StoredProcedureDocument> {
-    void token;
+  public put(upload: ProcedureUpload, reservationId: string): Promise<StoredProcedureDocument> {
+    void reservationId;
     const document = { id: `document-${this.documents.length + 1}`, filename: upload.filename };
     this.documents.push(document);
     return Promise.resolve(document);
@@ -30,20 +30,20 @@ export class MemoryProcedureCommitter implements CommitProcedure {
   public reserve(key: string, fingerprint: string): Promise<ProcedureReservation> {
     const existing = this.completed.get(key);
     if (existing) return Promise.resolve(existing.fingerprint === fingerprint ? { kind: "DUPLICATE", procedure: existing.procedure } : { kind: "CONFLICT" });
-    const token = `${key}-token`;
-    this.pending.set(token, { key, fingerprint });
-    return Promise.resolve({ kind: "NEW", token });
+    const reservationId = `${key}-reservation`;
+    this.pending.set(reservationId, { key, fingerprint });
+    return Promise.resolve({ kind: "NEW", reservationId });
   }
   public commit(reservation: ProcedureReservation & { readonly kind: "NEW" }, draft: ProcedureWriteDraft): Promise<Procedure> {
     if (this.failure) return Promise.reject(this.failure);
     const procedure = { id: `procedure-${this.records.length + 1}`, title: draft.metadata.title ?? "", code: draft.metadata.code, area: draft.metadata.area, description: draft.metadata.description, youtubeVideoId: draft.metadata.youtubeVideoId, pdfUrl: null, filename: draft.document.filename, createdAt: "2026-01-01", updatedAt: "2026-01-01" };
     this.records.push(procedure);
-    const pending = this.pending.get(reservation.token);
+    const pending = this.pending.get(reservation.reservationId);
     if (pending) this.completed.set(pending.key, { fingerprint: pending.fingerprint, procedure });
-    this.pending.delete(reservation.token);
+    this.pending.delete(reservation.reservationId);
     return Promise.resolve(procedure);
   }
-  public cancel(reservation: ProcedureReservation & { readonly kind: "NEW" }): Promise<void> { this.pending.delete(reservation.token); return Promise.resolve(); }
+  public cancel(reservation: ProcedureReservation & { readonly kind: "NEW" }): Promise<void> { this.pending.delete(reservation.reservationId); return Promise.resolve(); }
 }
 
 export class MemoryProcedureRecovery implements RecordProcedureRecovery {
