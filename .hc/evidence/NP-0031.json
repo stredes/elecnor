@@ -54,6 +54,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/document-extraction-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "9b4fe0e9adfd317a6d9014f0a9029c27b52054dae78b9b74a6e0276bd290b063",
+        "source_digest": "2c2c1db10eb94e6591db879e4c5d922f4f9926575e82475fa354236b953b3244",
+        "test_digest": "bceac374fe60f2def3e066d29a49330e57208bfe02cbe29d8412def7f5afeefd",
+        "recorded_at": "2026-10-16T12:59:07.179Z",
+        "git": {
+          "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+          "branch": "NP-0031",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/document-extraction-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "b05cf866d24644e435a72d1c001f1b9565b5f44c1e336a8deb1c954379a3008e",
+        "source_digest": "249a2ff80605f5c75b470d6be0329e590a2877cff475a6bca60706d11cd1ec75",
+        "test_digest": "bceac374fe60f2def3e066d29a49330e57208bfe02cbe29d8412def7f5afeefd",
+        "recorded_at": "2026-10-16T12:59:32.856Z",
+        "git": {
+          "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "83c4d41c9789a24aa0dc436e0bf432fbf11c120f49eaceb4c1448ffd338d89cd",
+        "source_digest": "249a2ff80605f5c75b470d6be0329e590a2877cff475a6bca60706d11cd1ec75",
+        "test_digest": "bceac374fe60f2def3e066d29a49330e57208bfe02cbe29d8412def7f5afeefd",
+        "recorded_at": "2026-10-16T12:59:40.495Z",
+        "git": {
+          "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -213,6 +266,138 @@
         }
       },
       "event_digest": "fbbfe0f511a867e7a03a8b7919b2cbb8e949b241e8567472534ff37b7f1fedda"
+    },
+    {
+      "sequence": 6,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/contracts/document-extraction-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:59:07.179Z",
+      "git": {
+        "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "fbbfe0f511a867e7a03a8b7919b2cbb8e949b241e8567472534ff37b7f1fedda",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/document-extraction-boundaries.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "9b4fe0e9adfd317a6d9014f0a9029c27b52054dae78b9b74a6e0276bd290b063",
+        "source_digest": "2c2c1db10eb94e6591db879e4c5d922f4f9926575e82475fa354236b953b3244",
+        "test_digest": "bceac374fe60f2def3e066d29a49330e57208bfe02cbe29d8412def7f5afeefd",
+        "recorded_at": "2026-10-16T12:59:07.179Z",
+        "git": {
+          "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+          "branch": "NP-0031",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "bdfa2b53e5ba46fbccbc94da472dad80c28d97623deb6fc6ce2791b9be37ab1f"
+    },
+    {
+      "sequence": 7,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-02 GREEN command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0031.json",
+        "src/backend/application/extract-document.ts",
+        "src/backend/domain/document-extraction-error.ts",
+        "tests/contracts/document-extraction-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:59:20.333Z",
+      "git": {
+        "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "bdfa2b53e5ba46fbccbc94da472dad80c28d97623deb6fc6ce2791b9be37ab1f",
+      "code": "GREEN_COMMAND_FAILED",
+      "event_digest": "457ec790d1f5c3aef7ea6475076d5605225e06ea119eabaf5e9671daf32e107f"
+    },
+    {
+      "sequence": 8,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0031.json",
+        "src/backend/application/extract-document.ts",
+        "src/backend/domain/document-extraction-error.ts",
+        "tests/contracts/document-extraction-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:59:32.857Z",
+      "git": {
+        "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "457ec790d1f5c3aef7ea6475076d5605225e06ea119eabaf5e9671daf32e107f",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/contracts/document-extraction-boundaries.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "b05cf866d24644e435a72d1c001f1b9565b5f44c1e336a8deb1c954379a3008e",
+        "source_digest": "249a2ff80605f5c75b470d6be0329e590a2877cff475a6bca60706d11cd1ec75",
+        "test_digest": "bceac374fe60f2def3e066d29a49330e57208bfe02cbe29d8412def7f5afeefd",
+        "recorded_at": "2026-10-16T12:59:32.856Z",
+        "git": {
+          "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      },
+      "event_digest": "d30c8ad19f9618eea5d1b1760126606726c0d6200203f8e2da78dcb7f9e48ba4"
+    },
+    {
+      "sequence": 9,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0031.json",
+        "src/backend/application/extract-document.ts",
+        "src/backend/domain/document-extraction-error.ts",
+        "tests/contracts/document-extraction-boundaries.test.ts"
+      ],
+      "recorded_at": "2026-10-16T12:59:40.495Z",
+      "git": {
+        "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+        "branch": "NP-0031",
+        "dirty": true
+      },
+      "previous_event_digest": "d30c8ad19f9618eea5d1b1760126606726c0d6200203f8e2da78dcb7f9e48ba4",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "83c4d41c9789a24aa0dc436e0bf432fbf11c120f49eaceb4c1448ffd338d89cd",
+        "source_digest": "249a2ff80605f5c75b470d6be0329e590a2877cff475a6bca60706d11cd1ec75",
+        "test_digest": "bceac374fe60f2def3e066d29a49330e57208bfe02cbe29d8412def7f5afeefd",
+        "recorded_at": "2026-10-16T12:59:40.495Z",
+        "git": {
+          "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
+          "branch": "NP-0031",
+          "dirty": true
+        }
+      },
+      "event_digest": "557c8147b982c28e8a6bdce86879fb9111cea017e54d5195af82be4d9bcdd8e2"
     }
   ],
   "git_baseline": {
@@ -221,11 +406,11 @@
     "branch": "NP-0031"
   },
   "final": {
-    "source_digest": "2c2c1db10eb94e6591db879e4c5d922f4f9926575e82475fa354236b953b3244",
-    "test_suite_digest": "0d6b5a93d16d875ebfc315def73f937b232dc01abf7f18339d60d71c714adb98",
-    "recorded_at": "2026-10-16T12:58:46.116Z",
+    "source_digest": "249a2ff80605f5c75b470d6be0329e590a2877cff475a6bca60706d11cd1ec75",
+    "test_suite_digest": "4ee23e90ff69b972eecc881119c441897852a4baa0d7eb93138e1aaaa3b3b709",
+    "recorded_at": "2026-10-16T12:59:40.495Z",
     "git": {
-      "head": "569ef5f948fc43d2f69a2bf5c3befe14f15528a7",
+      "head": "8ab9726d0766c8e7658baf882ab9f49395857bc9",
       "branch": "NP-0031",
       "dirty": true
     }
