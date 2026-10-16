@@ -1,9 +1,9 @@
 import type { Procedure } from "../../domain/procedures/procedure-contract";
 import { normalizeProcedure, validateProcedure } from "../../domain/procedures/validate-procedure";
 import type { CreateProcedureCommand } from "../../domain/procedures/create-procedure-contract";
-import type { CommitProcedure, ProcedureReservation } from "../../ports/procedures/commit-procedure";
+import { ProcedureCommitError, type CommitProcedure, type ProcedureReservation } from "../../ports/procedures/commit-procedure";
 import type { RecordProcedureRecovery } from "../../ports/procedures/record-recovery";
-import type { StoreProcedureDocument } from "../../ports/procedures/store-document";
+import { DocumentStorageError, type StoreProcedureDocument } from "../../ports/procedures/store-document";
 import type { ValidateProcedurePdf } from "../../ports/procedures/validate-pdf";
 import { ProcedureCreationError } from "./procedure-creation-error";
 
@@ -45,6 +45,10 @@ export class CreateProcedure {
   }
 
   private async compensate(command: CreateProcedureCommand, reservation: ProcedureReservation & { readonly kind: "NEW" }, document: Awaited<ReturnType<StoreProcedureDocument["put"]>> | undefined, error: unknown): Promise<void> {
+    if (isUnknownStorage(error)) {
+      await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationToken: reservation.token, documentId: null, reason: "STORAGE_UNCERTAIN" });
+      return;
+    }
     if (isUnknownCommit(error)) {
       await this.dependencies.recovery.record({ idempotencyKey: command.idempotencyKey, reservationToken: reservation.token, documentId: document?.id ?? null, reason: "COMMIT_UNCERTAIN" });
       return;
@@ -63,5 +67,9 @@ function validationError(code: "INVALID_PDF" | "TOO_LARGE" | "UNAVAILABLE"): "IN
 }
 
 function isUnknownCommit(error: unknown): boolean {
-  return error instanceof Error && error.name === "ProcedureCommitError" && error.message.includes("unknown");
+  return error instanceof ProcedureCommitError && error.state === "unknown";
+}
+
+function isUnknownStorage(error: unknown): boolean {
+  return error instanceof DocumentStorageError && error.state === "unknown";
 }
