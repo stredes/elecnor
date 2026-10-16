@@ -28,6 +28,26 @@ attestation vinculada al commit, contrato C-EXTRACT versionado, mapping y fixtur
 aprobados, autorización de PDFs y baseline visual reproducible. Marcar esta lista
 en documentación no sustituye ninguna aprobación formal.
 
+## Resolución técnica de bloqueos
+
+La arquitectura queda definida como portal Next.js, Gateway, FastAPI como único
+escritor de negocio y PostgreSQL como persistencia estructurada. El frontend no
+escribe directamente en la base, los PDFs no se conservan permanentemente y los
+contratos entre componentes son versionados y verificables.
+
+`C-EXTRACT v1.0.0` queda propuesto con SemVer, campos obligatorios
+`contract_version`, `document_type`, `extraction_status` y `sections`, nulls
+explícitos, fechas parciales separadas, orden documental, geografía trazable y
+mapping documentado hacia persistencia. No se permite persistencia parcial sin
+regla explícita.
+
+La evidencia D-11 debe usar PDFs anonimizados y autorizados, fuentes licenciadas
+versionadas y baseline visual reproducible con entorno y herramientas registrados.
+
+**Estado:** NP-0030 permanece BLOQUEADA. Faltan attestation humana `REVIEW-01`,
+aprobación formal de D-05 y autorización formal de D-11. D-02, D-03, D-04, D-06,
+D-08, D-09 y D-10 siguen condicionando producción o importación real.
+
 ## Evidencia legacy inspeccionada
 
 | Contexto | Evidencia | Comportamiento conservado |
