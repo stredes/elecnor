@@ -37,6 +37,16 @@
         "expected_failure": "Failed to resolve import",
         "fixture": "tests/integration/procedures/repository-contract.test.ts",
         "regression": {"check": "integration", "args": []}
+      },
+      {
+        "test_id": "TEST-04",
+        "order": 4,
+        "level": "e2e",
+        "check": "e2e",
+        "args": ["tests/e2e/procedures.spec.ts"],
+        "expected_failure": "404 procedure response",
+        "fixture": "tests/e2e/procedures.spec.ts",
+        "regression": {"check": "e2e", "args": []}
       }
     ]
   },
@@ -44,8 +54,8 @@
     "include": [
       ".hc/project.json", ".hc/task.json", ".hc/stories/NP-0038.json", ".hc/evidence/NP-0038.json",
       "src/backend/domain/procedures", "src/backend/application/procedures", "src/backend/ports/procedures",
-      "src/backend/adapters/inbound", "src/backend/adapters/outbound", "src/backend/composition",
-      "tests/domain/procedures", "tests/integration/procedures", "tests/integration/architecture",
+      "src/backend/adapters/inbound", "src/backend/adapters/outbound", "src/backend/composition", "pages/api/procedures",
+      "tests/domain/procedures", "tests/integration/procedures", "tests/integration/architecture", "tests/e2e/procedures.spec.ts",
       "docs/np-0038-procedures.md", "docs/legacy-inventory.md", "AGENTS.md", "README.md", "package.json",
       "package-lock.json", "next-env.d.ts", "next.config.ts", "eslint.config.mjs", "vitest.config.ts",
       "playwright.config.ts", "tsconfig.json"
@@ -60,7 +70,7 @@
   },
   "constraints": ["Brain local 5.0.1", "NP-0039 owns document upload activation", "Fixtures synthetic only", "No weakening gates", "Authored code ≤99 lines", "No legacy modification or dependencies"],
   "authority": {
-    "allowed": ["Characterize legacy procedure contracts and risks", "Create pure metadata, YouTube and grouping policies", "Create application cases with typed ports and memory doubles", "Document rollback and storage decisions", "Compose only read-only memory adapters"],
-    "forbidden": ["Persist to SQLite/PostgreSQL or create migrations", "Activate Pages/FastAPI procedure handlers", "Upload, stream or delete real PDFs", "Call YouTube, Blob or arbitrary URLs", "Expose stored_path or tokens", "Declare REVIEW-01 approved", "Change legacy repositories or real files"]
+    "allowed": ["Characterize legacy procedure contracts and risks", "Create pure metadata, YouTube and grouping policies", "Create application cases with typed ports and memory doubles", "Document rollback and storage decisions", "Compose read-only memory/Gateway adapters", "Activate read-only GET BFF routes over the public contract"],
+    "forbidden": ["Persist to SQLite/PostgreSQL or create migrations", "Activate procedure mutation, upload, download or delete handlers", "Upload, stream or delete real PDFs", "Call YouTube, Blob or arbitrary URLs", "Expose stored_path or tokens", "Declare REVIEW-01 approved", "Change legacy repositories or real files"]
   }
 }

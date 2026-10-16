@@ -165,7 +165,23 @@
           "branch": "NP-0038",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "de6f95d7bcbb7fba0a97a121852de60930cb6a1830819de27690a53985a3bedf",
+          "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+          "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+          "recorded_at": "2026-10-16T16:31:28.540Z",
+          "git": {
+            "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+            "branch": "NP-0038",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [],
@@ -569,6 +585,67 @@
       "previous_event_digest": "6e496b63f949baa8883892947de88ad60742eed0a2130f91a414c48de8482d92",
       "code": "REFACTOR_ALREADY_RECORDED",
       "event_digest": "7444de56c2413837d30734d0981bc74535263dc23e7f346b32e05d2d8de849a1"
+    },
+    {
+      "sequence": 11,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Preserve the completed catalog reader compatibility method while restoring recorded test fixtures",
+      "executed": true,
+      "changed_files": [
+        "src/backend/application/procedures/list-procedures.ts",
+        "tests/integration/procedures/catalog-parity.test.ts",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:31:28.544Z",
+      "git": {
+        "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "7444de56c2413837d30734d0981bc74535263dc23e7f346b32e05d2d8de849a1",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "de6f95d7bcbb7fba0a97a121852de60930cb6a1830819de27690a53985a3bedf",
+        "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:31:28.540Z",
+        "git": {
+          "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "7955d0d43a5a63ee01a97a627e697bd5781199e6b60e2e74a4e2f0d68aae2f5f"
+    },
+    {
+      "sequence": 12,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "production files remain uncommitted: src/backend/application/procedures/list-procedures.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/np-0038-procedures.md",
+        "src/backend/application/procedures/list-procedures.ts",
+        "tests/e2e/procedures.spec.ts",
+        "tests/integration/procedures/catalog-parity.test.ts",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:34:14.727Z",
+      "git": {
+        "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "7955d0d43a5a63ee01a97a627e697bd5781199e6b60e2e74a4e2f0d68aae2f5f",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "8c4258e6436efc94eeb4e8f92d6505e3d7c3eb8a870c9ec6bb7f7d8ea37d4ae1"
     }
   ],
   "git_baseline": {
@@ -577,11 +654,11 @@
     "branch": "NP-0038"
   },
   "final": {
-    "source_digest": "b393db38c48b3c12cdd72b1fa0b1b97a0b0bd10a5c5c2d028f78bb8027272054",
-    "test_suite_digest": "d3062e0167fa6f795d15c8d163e5c6fd7100c1eacd028ae8e78af89815f35a8f",
-    "recorded_at": "2026-10-16T16:28:54.166Z",
+    "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+    "test_suite_digest": "f44f61495b02f49a7e18d27721baf46c7bc13683774c099ee47e0ebdd11e379e",
+    "recorded_at": "2026-10-16T16:31:28.544Z",
     "git": {
-      "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+      "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
       "branch": "NP-0038",
       "dirty": true
     }

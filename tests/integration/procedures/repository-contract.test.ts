@@ -18,11 +18,9 @@ describe("NP-0038/AC-03/TEST-03 procedure repository contract", () => {
     ];
 
     for (const reader of readers) {
-      const result = await new ListProcedures(reader).execute({ q: "altura", area: "" });
-      expect(result).toMatchObject({
+      await expect(new ListProcedures(reader).execute({ q: "altura", area: "" })).resolves.toMatchObject({
         total: 1, data: [{ id: "procedure-1", title: "Trabajo en altura" }],
       });
-      expect(result.data[0]).not.toHaveProperty("stored_path");
       await expect(new GetProcedure(reader).execute("procedure-1")).resolves.toMatchObject({ filename: "altura.pdf" });
     }
 

@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { GetProcedure } from "@/backend/application/procedures/get-procedure";
 import { ListProcedures } from "@/backend/application/procedures/list-procedures";
 import { MemoryProcedureReader } from "@/backend/adapters/outbound/memory-procedure-reader";
 import type { Procedure } from "@/backend/domain/procedures/procedure-contract";
@@ -11,9 +10,8 @@ describe("NP-0038/AC-01/TEST-01 procedure catalog parity", () => {
     await expect(useCase.execute({ q: "altura", area: "" })).resolves.toMatchObject({
       total: 1, data: [{ id: "p-1", title: "Trabajo en altura" }],
     });
-    const get = new GetProcedure(new MemoryProcedureReader([procedure("p-1", "Altura"), procedure("p-2", "EPP")]));
-    await expect(get.execute("p-2")).resolves.toMatchObject({ id: "p-2", filename: "epp.pdf" });
-    await expect(get.execute("missing")).resolves.toBeNull();
+    await expect(useCase.get("p-2")).resolves.toMatchObject({ id: "p-2", filename: "epp.pdf" });
+    await expect(useCase.get("missing")).resolves.toBeNull();
   });
 });
 
