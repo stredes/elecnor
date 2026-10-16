@@ -1,0 +1,431 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0035",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "f3c89aabf904d68f7ab6e74aba04c16df29cf92dd446c88a93eb228f0631274f",
+        "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:14:50.864Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ed16ca05e37ad4cae87d35a207e402433488a85e556b4069b8a434ab10898476",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:30.916Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "540fd849ad80b86a1a206adb704283a6135b042f30ebddfa19614ef435419772",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:39.881Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "a427227d4f36beb9dc3bc444bfbe1e690e8b112286f768dddf4e20b7ebf6d4ce",
+          "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+          "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+          "recorded_at": "2026-10-16T15:17:02.478Z",
+          "git": {
+            "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+            "branch": "NP-0035",
+            "dirty": true
+          }
+        }
+      ]
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 does not match its planned command",
+      "executed": false,
+      "changed_files": [
+        ".hc/task.json",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:14:46.119Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "PLANNED_COMMAND_MISMATCH",
+      "event_digest": "c151a997aafbd9e411f168671335e82472ddcae2b36da4e302515f933280a8dd"
+    },
+    {
+      "sequence": 2,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:14:50.864Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "c151a997aafbd9e411f168671335e82472ddcae2b36da4e302515f933280a8dd",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "f3c89aabf904d68f7ab6e74aba04c16df29cf92dd446c88a93eb228f0631274f",
+        "source_digest": "e9116e0d51c416e7a6f734db2dbf778c656a04330a396c7020d5fb8ec3aac626",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:14:50.864Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "ed1a4900633d7eaf61e0132ae9376c9e80e025d85b36c3757caeb3598b0e0fd9"
+    },
+    {
+      "sequence": 3,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:15:30.916Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "ed1a4900633d7eaf61e0132ae9376c9e80e025d85b36c3757caeb3598b0e0fd9",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/reporting/section-parity.test.ts",
+          "tests/domain/reporting/metric-ranking-parity.test.ts",
+          "tests/domain/reporting/narrative-parity.test.ts",
+          "tests/integration/reporting/reporting-details-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ed16ca05e37ad4cae87d35a207e402433488a85e556b4069b8a434ab10898476",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:30.916Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "c4b36b24fedce174b23f37a233a16a5aa75cdd0f6f175036924a0fd3c8fffdf9"
+    },
+    {
+      "sequence": 4,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:15:39.881Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "c4b36b24fedce174b23f37a233a16a5aa75cdd0f6f175036924a0fd3c8fffdf9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "540fd849ad80b86a1a206adb704283a6135b042f30ebddfa19614ef435419772",
+        "source_digest": "f33cfd4710bd1b9699684e7598a7f720087e760108ebe94459f33c45d2024ec0",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:15:39.881Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "f30a686ef43108150499b3db28b97981dfcaade4d84adc588f533e4e1a2c788c"
+    },
+    {
+      "sequence": 5,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:16:11.890Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "f30a686ef43108150499b3db28b97981dfcaade4d84adc588f533e4e1a2c788c",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "e218059c1e1e16bfc417bbb5e1166c44695fec669de0ddffbb362f1d3c087513"
+    },
+    {
+      "sequence": 6,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 rebaseline command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:16:24.838Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "e218059c1e1e16bfc417bbb5e1166c44695fec669de0ddffbb362f1d3c087513",
+      "code": "REBASELINE_COMMAND_FAILED",
+      "event_digest": "a89e167a210723df8801d207f3cf7559ce7a0079edd02bbb1993d7026ca0fc65"
+    },
+    {
+      "sequence": 7,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Restored detail module and ran TEST-01 regression after adding the TEST-02 null-universe assertion; recording the updated source baseline.",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:17:02.481Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "a89e167a210723df8801d207f3cf7559ce7a0079edd02bbb1993d7026ca0fc65",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a427227d4f36beb9dc3bc444bfbe1e690e8b112286f768dddf4e20b7ebf6d4ce",
+        "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+        "test_digest": "484f17fc54168b1df0d33befe0a1f139dd50ac501739ac3a58c337e24b389bab",
+        "recorded_at": "2026-10-16T15:17:02.478Z",
+        "git": {
+          "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+          "branch": "NP-0035",
+          "dirty": true
+        }
+      },
+      "event_digest": "5024d7158e953948736415f8d62e948ace149995f591c14b432371c98f54ef86"
+    },
+    {
+      "sequence": 8,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production files remain uncommitted: src/backend/adapters/outbound/memory-reporting-details-reader.ts, src/backend/application/reporting/get-reporting-details.ts, src/backend/composition/reporting-details.ts, src/backend/domain/reporting/calculate-metric-rankings.ts, src/backend/domain/reporting/calculate-reporting-narrative.ts, src/backend/domain/reporting/calculate-section-approvals.ts, src/backend/domain/reporting/calculate-sections.ts, src/backend/domain/reporting/get-metric-detail.ts, src/backend/domain/reporting/reporting-details-contract.ts, src/backend/ports/read-reporting-details.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0035.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-reporting-details-reader.ts",
+        "src/backend/application/reporting/get-reporting-details.ts",
+        "src/backend/composition/reporting-details.ts",
+        "src/backend/domain/reporting/calculate-metric-rankings.ts",
+        "src/backend/domain/reporting/calculate-reporting-narrative.ts",
+        "src/backend/domain/reporting/calculate-section-approvals.ts",
+        "src/backend/domain/reporting/calculate-sections.ts",
+        "src/backend/domain/reporting/get-metric-detail.ts",
+        "src/backend/domain/reporting/reporting-details-contract.ts",
+        "src/backend/ports/read-reporting-details.ts",
+        "tests/domain/reporting/metric-ranking-parity.test.ts",
+        "tests/domain/reporting/narrative-parity.test.ts",
+        "tests/domain/reporting/reporting-boundaries.test.ts",
+        "tests/domain/reporting/section-parity.test.ts",
+        "tests/integration/reporting/reporting-consumers.test.ts",
+        "tests/integration/reporting/reporting-details-parity.test.ts"
+      ],
+      "recorded_at": "2026-10-16T15:17:36.317Z",
+      "git": {
+        "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+        "branch": "NP-0035",
+        "dirty": true
+      },
+      "previous_event_digest": "5024d7158e953948736415f8d62e948ace149995f591c14b432371c98f54ef86",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "9de53d60fa6bdb3fd0c3b2fce1804b47345826cbf7ea052f3361f1f68b78e10b"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+    "branch": "NP-0035"
+  },
+  "final": {
+    "source_digest": "a3bd3379720c54e4ce3996da9053931d54947a78964486025813908e1a63eede",
+    "test_suite_digest": "6e9f97aee65ecc1c5df7ea229e4cfdcff00f331b142a5cf6a9b16f2ecd81bc00",
+    "recorded_at": "2026-10-16T15:17:02.481Z",
+    "git": {
+      "head": "d3b4b65ab218c4b06f32c54802aacbb34b69e7d4",
+      "branch": "NP-0035",
+      "dirty": true
+    }
+  }
+}

@@ -28,9 +28,9 @@
         "order": 2,
         "level": "unit",
         "check": "unit",
-        "args": ["tests/domain/reporting/reporting-boundaries.test.ts"],
-        "expected_failure": "Failed to resolve import",
-        "fixture": "tests/domain/reporting/reporting-boundaries.test.ts",
+        "args": ["tests/domain/reporting/detail-boundaries.test.ts"],
+        "expected_failure": "expected [] to deeply equal",
+        "fixture": "tests/domain/reporting/detail-boundaries.test.ts",
         "regression": { "check": "unit", "args": [] }
       },
       {
@@ -58,6 +58,8 @@
       "src/backend/ports",
       "src/backend/adapters/outbound",
       "src/backend/composition",
+      "src/dashboard",
+      "pages/dashboard",
       "tests/domain/reporting",
       "tests/integration/reporting",
       "docs/np-0035-reporting.md",
@@ -77,7 +79,7 @@
       "Legacy repositories outside this checkout",
       "Real data, SQLite, PostgreSQL and production deployments",
       "Activating pages/api/dashboard.ts before the complete contract",
-      "Changing the existing frontend mappers, hooks or JSX",
+      "Changing frontend consumers in legacy repositories outside this checkout",
       "Unifying formulas with different legacy universes",
       "Changing approved NP-0030/NP-0034 contracts",
       "Adding dependencies"
@@ -125,7 +127,8 @@
       "Modificar repositorios legacy o sus datos",
       "Activar SQLite, PostgreSQL, FastAPI o el writer de reporting",
       "Cambiar fórmulas por criterio técnico sin D-06",
-      "Modificar mappers, stores, hooks o componentes frontend existentes",
+      "Conectar consumidores de presentación existentes en este checkout a contratos reporting, con autorización explícita del propietario",
+      "Modificar consumidores frontend en repositorios legacy externos a este checkout",
       "Declarar D-06 o REVIEW-01 aprobados",
       "Conectar el navegador directamente a un backend interno",
       "Añadir tarjetas, filtros o métricas nuevas"
