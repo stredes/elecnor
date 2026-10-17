@@ -160,14 +160,85 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0040-export.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "6a8d7df33fa21693537eef9cc591befad7649edb27d97a3b02fa7233357ebb22",
+        "source_digest": "fd642edf0ca79ea8eb5a1a3e5e0e015d7349e1d9926bd4c02ce5676494ae0f53",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T12:32:11.580Z",
+        "git": {
+          "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+          "branch": "NP-0040",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0040-export.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "5d2d59dfebf09759c819b6f06b76942d5a341d0bb66994db0b27c58c60f426e3",
+        "source_digest": "c5859a6e55078fefb4516e93527e4e33d464242e805e737aab035e453fe15cb2",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T12:32:26.080Z",
+        "git": {
+          "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "3cb5e868caae1b874a36c4d67d1bde12a84ad629c00841ff437f23d0f1c98003",
+        "source_digest": "c5859a6e55078fefb4516e93527e4e33d464242e805e737aab035e453fe15cb2",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T12:32:44.598Z",
+        "git": {
+          "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "e2e",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "6e2ad0341b3abc55931363abc0e0e00888e4ae3dd58ac3cf2a70cf95e5005633",
+          "source_digest": "6dcbf0824206c639328ff2af1ca99ca129a68f6323bfaba5fb6948331505b0e4",
+          "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+          "recorded_at": "2026-10-17T12:34:01.442Z",
+          "git": {
+            "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+            "branch": "NP-0040",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
-  "reviews": [{
-    "id": "REVIEW-01",
-    "fingerprint": "9aee49e9a0a167144fc96be174a6d4c5469dfdff017bcc72690339f831c6f5e9",
-    "status": "open",
-    "reason": "CTO deja REVIEW-01 abierta: NFR-01 requiere evidencia E2E y el renderer OOXML/fórmula no está probado; solo alcance sintético."
-  }],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "9aee49e9a0a167144fc96be174a6d4c5469dfdff017bcc72690339f831c6f5e9",
+      "status": "open",
+      "reason": "E2E TEST-04 ahora valida un consumidor Next sintético y celda text '=SUM(A1)'. REVIEW-01 sigue abierta para re-review; no demuestra escaping OOXML ni autoriza XLSX real, endpoint, storage o producción."
+    }
+  ],
   "events": [
     {
       "sequence": 1,
@@ -525,6 +596,213 @@
         }
       },
       "event_digest": "c6dcac6e0ddcf620364122a72a3766aa6160241bbaa436fc5273940aa3202940"
+    },
+    {
+      "sequence": 11,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "playwright.config.ts",
+        "tests/e2e/np0040-export.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T12:31:44.481Z",
+      "git": {
+        "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "c6dcac6e0ddcf620364122a72a3766aa6160241bbaa436fc5273940aa3202940",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "9805c72c611b894702e6ae35b1c2c3077251ac728b5bd60fb3ed69da5609541c"
+    },
+    {
+      "sequence": 12,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "element(s) not found",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "playwright.config.ts",
+        "tests/e2e/np0040-export.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T12:32:11.581Z",
+      "git": {
+        "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "9805c72c611b894702e6ae35b1c2c3077251ac728b5bd60fb3ed69da5609541c",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0040-export.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "6a8d7df33fa21693537eef9cc591befad7649edb27d97a3b02fa7233357ebb22",
+        "source_digest": "fd642edf0ca79ea8eb5a1a3e5e0e015d7349e1d9926bd4c02ce5676494ae0f53",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T12:32:11.580Z",
+        "git": {
+          "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+          "branch": "NP-0040",
+          "dirty": true
+        },
+        "expected_reason": "element(s) not found"
+      },
+      "event_digest": "3925fbb739386e0306b9b01969bb923ea6569e65e38fc507d6b2dd9e36904f8a"
+    },
+    {
+      "sequence": 13,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-report-export.tsx",
+        "playwright.config.ts",
+        "tests/e2e/np0040-export.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T12:32:26.080Z",
+      "git": {
+        "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "3925fbb739386e0306b9b01969bb923ea6569e65e38fc507d6b2dd9e36904f8a",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0040-export.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "5d2d59dfebf09759c819b6f06b76942d5a341d0bb66994db0b27c58c60f426e3",
+        "source_digest": "c5859a6e55078fefb4516e93527e4e33d464242e805e737aab035e453fe15cb2",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T12:32:26.080Z",
+        "git": {
+          "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "event_digest": "0ab736f65c248e5424793e60af0dd36d5dd0cb3f266841b24bced24f45315f85"
+    },
+    {
+      "sequence": 14,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "next-env.d.ts: outside declared task scope",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-report-export.tsx",
+        "playwright.config.ts",
+        "tests/e2e/np0040-export.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T12:32:29.275Z",
+      "git": {
+        "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "0ab736f65c248e5424793e60af0dd36d5dd0cb3f266841b24bced24f45315f85",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "ce5058d1788b54405b1030641a3b0ee2996c1bce4c0049153003232baa4698e3"
+    },
+    {
+      "sequence": 15,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "pages/test-report-export.tsx",
+        "playwright.config.ts",
+        "tests/e2e/np0040-export.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T12:32:44.598Z",
+      "git": {
+        "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "ce5058d1788b54405b1030641a3b0ee2996c1bce4c0049153003232baa4698e3",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "3cb5e868caae1b874a36c4d67d1bde12a84ad629c00841ff437f23d0f1c98003",
+        "source_digest": "c5859a6e55078fefb4516e93527e4e33d464242e805e737aab035e453fe15cb2",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T12:32:44.598Z",
+        "git": {
+          "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "event_digest": "4eca6a17d092cbba5df431ca806137e43b6d8d98c7e2b67fd8b5c7b7c30df7c1"
+    },
+    {
+      "sequence": 16,
+      "type": "REBASELINED",
+      "test_id": "TEST-04",
+      "reason": "Extraer props de la página de prueba a contrato de presentación para satisfacer quality:contracts",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0040.json",
+        ".hc/stories/NP-0040.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "pages/test-report-export.tsx",
+        "playwright.config.ts",
+        "src/dashboard/contracts/test-report-export-contract.ts",
+        "tests/e2e/np0040-export.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T12:34:01.444Z",
+      "git": {
+        "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+        "branch": "NP-0040",
+        "dirty": true
+      },
+      "previous_event_digest": "4eca6a17d092cbba5df431ca806137e43b6d8d98c7e2b67fd8b5c7b7c30df7c1",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6e2ad0341b3abc55931363abc0e0e00888e4ae3dd58ac3cf2a70cf95e5005633",
+        "source_digest": "6dcbf0824206c639328ff2af1ca99ca129a68f6323bfaba5fb6948331505b0e4",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T12:34:01.442Z",
+        "git": {
+          "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+          "branch": "NP-0040",
+          "dirty": true
+        }
+      },
+      "event_digest": "0e0163cd70be0588c4783ba70fa9f6975a921e256a18b0e0d352230924517618"
     }
   ],
   "git_baseline": {
@@ -533,11 +811,11 @@
     "branch": "NP-0040"
   },
   "final": {
-    "source_digest": "fd642edf0ca79ea8eb5a1a3e5e0e015d7349e1d9926bd4c02ce5676494ae0f53",
-    "test_suite_digest": "da3a097484a2b7136e4987f2a506e22cd87a13b46a4b7c77e214de945e9dc0db",
-    "recorded_at": "2026-10-17T00:02:48.009Z",
+    "source_digest": "6dcbf0824206c639328ff2af1ca99ca129a68f6323bfaba5fb6948331505b0e4",
+    "test_suite_digest": "5eafd111d972c0c0e16ef4005d240a664a9ffaf8a535fd109809a656507e0e25",
+    "recorded_at": "2026-10-17T12:34:01.444Z",
     "git": {
-      "head": "10329cc2831e56c03b874a649f718675883bcb6d",
+      "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
       "branch": "NP-0040",
       "dirty": true
     }

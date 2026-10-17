@@ -8,14 +8,15 @@
     "test_plan":[
       {"test_id":"TEST-01","order":1,"level":"unit","check":"unit","args":["tests/application/reporting/report-snapshot.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/application/reporting/report-snapshot.test.ts","regression":{"check":"unit","args":[]}},
       {"test_id":"TEST-02","order":2,"level":"integration","check":"integration","args":["tests/integration/reporting/report-renderer-contract.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/reporting/report-renderer-contract.test.ts","regression":{"check":"integration","args":[]}},
-      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/report-export.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/report-export.test.ts","regression":{"check":"integration","args":[]}}
+      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/report-export.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/report-export.test.ts","regression":{"check":"integration","args":[]}},
+      {"test_id":"TEST-04","order":4,"level":"e2e","check":"e2e","args":["tests/e2e/np0040-export.spec.ts"],"expected_failure":"element(s) not found","fixture":"tests/e2e/np0040-export.spec.ts","regression":{"check":"e2e","args":[]}}
     ]
   },
   "scope":{
-    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0040.json",".hc/evidence/NP-0040.json","src/backend/domain/reporting","src/backend/application/reporting","src/backend/ports/reporting","src/backend/adapters/outbound","tests/application/reporting","tests/integration/reporting","tests/integration/architecture","docs/np-0040-reporting.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
+    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0040.json",".hc/evidence/NP-0040.json","src/backend/domain/reporting","src/backend/application/reporting","src/backend/ports/reporting","src/backend/adapters/outbound","src/dashboard/contracts/test-report-export-contract.ts","tests/application/reporting","tests/integration/reporting","tests/integration/architecture","tests/e2e/np0040-export.spec.ts","pages/test-report-export.tsx","playwright.config.ts","next-env.d.ts","docs/np-0040-reporting.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
     "exclude":["real XLSX/openpyxl","SQLite/PostgreSQL/HTTP/Blob","Activating export routes","New formulas or semantic corrections","Real data and external calls","Adding dependencies"],
     "related_paths":[".hc","src/backend","tests","docs","pages","package.json","tsconfig.json"]
   },
   "constraints":["Brain local 5.0.1","Fixtures synthetic only","No weakening gates","Authored files ≤99 lines","No legacy modification"],
-  "authority":{"allowed":["Create typed ReportSnapshot and renderer ports","Create synthetic renderer doubles and boundary tests","Document OOXML semantic contract"],"forbidden":["Activate export handler","Render real XLSX or call Python","Query DB or send HTTP","Change official formulas","Declare REVIEW-01 approved"]}
+  "authority":{"allowed":["Create typed ReportSnapshot and renderer ports","Create synthetic renderer doubles and boundary tests","Add a production-hidden synthetic Next page solely for E2E contract verification, authorized by CTO in chat","Document OOXML semantic contract"],"forbidden":["Activate export handler","Render real XLSX or call Python","Query DB or send HTTP","Change official formulas","Declare REVIEW-01 approved"]}
 }
