@@ -70,6 +70,59 @@
           }
         }
       ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "47e2a89bd6b023fd144d0bbcd8c9ad19cae194a4ad6fb2f8af6521d2295727c0",
+        "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:45:56.493Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "75e530f459d37257529583ed23b696e71a5a042ed1ee04aa09644d90d9f8bbe0",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:21.251Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "313a198b7b30adcd503fb51ab1ab99e785685025390fc576fabf26e9b9a199f5",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:31.758Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [
@@ -237,14 +290,122 @@
         }
       },
       "event_digest": "ddb1f97a9231b8e5059bff8aa35f6e4c2d8e05acc952f4f879b2ac59ac18c84d"
+    },
+    {
+      "sequence": 5,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/procedures/"
+      ],
+      "recorded_at": "2026-10-17T00:45:56.493Z",
+      "git": {
+        "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "ddb1f97a9231b8e5059bff8aa35f6e4c2d8e05acc952f4f879b2ac59ac18c84d",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "47e2a89bd6b023fd144d0bbcd8c9ad19cae194a4ad6fb2f8af6521d2295727c0",
+        "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:45:56.493Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "86252d99091ba2175cc4de4e2bd94c3aa447984631a501d0e0fceedce825d89d"
+    },
+    {
+      "sequence": 6,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/procedures/state/",
+        "tests/procedures/"
+      ],
+      "recorded_at": "2026-10-17T00:46:21.251Z",
+      "git": {
+        "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "86252d99091ba2175cc4de4e2bd94c3aa447984631a501d0e0fceedce825d89d",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "75e530f459d37257529583ed23b696e71a5a042ed1ee04aa09644d90d9f8bbe0",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:21.251Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "59e7ac8b409431010fd073053016bb8d6e404fe574679d662ada4a0b19d93be9"
+    },
+    {
+      "sequence": 7,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/procedures/state/",
+        "tests/procedures/"
+      ],
+      "recorded_at": "2026-10-17T00:46:31.765Z",
+      "git": {
+        "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "59e7ac8b409431010fd073053016bb8d6e404fe574679d662ada4a0b19d93be9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "313a198b7b30adcd503fb51ab1ab99e785685025390fc576fabf26e9b9a199f5",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:31.758Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "ad2a1ea6590a4371d866bb71ccb8640fecabba42fa9fddb9e84fbb44ad166b17"
     }
   ],
   "final": {
-    "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
-    "test_suite_digest": "8e8ea15b53f890068c9bb6de946a087b3770680fa2f802989cc19a479b04134e",
-    "recorded_at": "2026-10-17T00:42:11.805Z",
+    "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+    "test_suite_digest": "2c10efdbb472b5b5ddcda1e7d438a35b4deb2e4eb25ab59b5781e2d38c7b56e5",
+    "recorded_at": "2026-10-17T00:46:31.764Z",
     "git": {
-      "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+      "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
       "branch": "NP-0043",
       "dirty": true
     }
