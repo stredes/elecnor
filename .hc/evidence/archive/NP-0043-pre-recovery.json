@@ -1,0 +1,808 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0043",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 1,
+        "output_digest": "8eb8dc1340ff144f3e7bc0d371c4e32bed10a184e11634dce93df01c93ccb95f",
+        "source_digest": "4fda658a242dfa578c9f1996d24752d2184e8deadb2083b733307aab36efe4f6",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:40:46.043Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 0,
+        "output_digest": "7e2639669a6ae9eb42b594e89bc8ddec0f42480c5a7d70a2bc07c1b3a3936211",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:22.473Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f415731e56c60057c96325ada3a87e02f32c4eb377e06ed22f814e5d0c0332f6",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:32.758Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "2c1c95ca760deea1f6d3532f24e0499d4b17a980d2128d7ea9bc87465dc33efa",
+          "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+          "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+          "recorded_at": "2026-10-17T00:42:11.792Z",
+          "git": {
+            "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+            "branch": "NP-0043",
+            "dirty": true
+          }
+        }
+      ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "47e2a89bd6b023fd144d0bbcd8c9ad19cae194a4ad6fb2f8af6521d2295727c0",
+        "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:45:56.493Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "75e530f459d37257529583ed23b696e71a5a042ed1ee04aa09644d90d9f8bbe0",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:21.251Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "313a198b7b30adcd503fb51ab1ab99e785685025390fc576fabf26e9b9a199f5",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:31.758Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "4a316bb1c515a902d9d32d4a27dbe4c3324e9a3c3be1451a640c01e5b31c23c5",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T00:47:43.957Z",
+        "git": {
+          "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "20179610b8d248479a7174d170b9218128e0b2d93fc0a8e82136398c3a75d4c7",
+        "source_digest": "3f3dd6ddf822c7f7ace76f84a0411af461caa982459949943119480fd483c1f2",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T00:48:55.861Z",
+        "git": {
+          "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "711f54738416aa61d2b8f9e99363584c5df2e5380815dce545811289e035b18b",
+        "source_digest": "3f3dd6ddf822c7f7ace76f84a0411af461caa982459949943119480fd483c1f2",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T00:49:03.114Z",
+        "git": {
+          "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "f8cb4742bd553cd250a07a36d991d2224c837bc6c42e1b9b4d27cc2620b4c16a",
+          "source_digest": "ec9793caf83d0cd21c403ec6ffe6bfa11f43762d5e001f6b37f72fc532a988c5",
+          "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+          "recorded_at": "2026-10-17T00:56:45.418Z",
+          "git": {
+            "head": "0b8d821e5ef48b312fa19d1fc2ae7b720c58fdd3",
+            "branch": "NP-0043",
+            "dirty": true
+          }
+        },
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "349c1d94ff211479feef7c70571313dc215d34981f415d61236a970ac3f17c6e",
+          "source_digest": "5377682a0e4d8c3a785e8774030f9dc64f0f2c53a7cf38c86e5e35cf82b9a91f",
+          "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+          "recorded_at": "2026-10-17T02:11:14.081Z",
+          "git": {
+            "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+            "branch": "NP-0043",
+            "dirty": true
+          }
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "3d0e5ef5ea9acb6a7ae35a746a355082bc7eff63846202670787a4a5fdaf076d",
+      "status": "open",
+      "reason": "NP-0043/REVIEW-01 requiere revisión humana del CTO sobre D-10, límites de medios y estado de alta; no es aceptación y no tiene attestation."
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "9179836dca48c2ab5ffc9ddc8f5a4c7ca9e52017",
+    "branch": "NP-0043"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:40:46.044Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 1,
+        "output_digest": "8eb8dc1340ff144f3e7bc0d371c4e32bed10a184e11634dce93df01c93ccb95f",
+        "source_digest": "4fda658a242dfa578c9f1996d24752d2184e8deadb2083b733307aab36efe4f6",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:40:46.043Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "2e48aed36c89c1e0ee21ad78861403deb4858024614ff6afe247f50094cc1483"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/backend/domain/procedures/",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/procedures/",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:41:22.473Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "2e48aed36c89c1e0ee21ad78861403deb4858024614ff6afe247f50094cc1483",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 0,
+        "output_digest": "7e2639669a6ae9eb42b594e89bc8ddec0f42480c5a7d70a2bc07c1b3a3936211",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:22.473Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "7f02f49f05fbabec658848d0c5a767fdd5abe72b404921cb0c97f46da8632254"
+    },
+    {
+      "sequence": 3,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/backend/domain/procedures/",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/procedures/",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:41:32.758Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "7f02f49f05fbabec658848d0c5a767fdd5abe72b404921cb0c97f46da8632254",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f415731e56c60057c96325ada3a87e02f32c4eb377e06ed22f814e5d0c0332f6",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:32.758Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "484ee56a1e7e6f78e106704a242267d3777d914dfa1b89ff3b3690cc23530d34"
+    },
+    {
+      "sequence": 4,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Extraer el contrato de props del acordeón para cumplir la calidad de contratos",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/backend/domain/procedures/",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/procedures/",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:42:11.806Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "484ee56a1e7e6f78e106704a242267d3777d914dfa1b89ff3b3690cc23530d34",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2c1c95ca760deea1f6d3532f24e0499d4b17a980d2128d7ea9bc87465dc33efa",
+        "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:42:11.792Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "ddb1f97a9231b8e5059bff8aa35f6e4c2d8e05acc952f4f879b2ac59ac18c84d"
+    },
+    {
+      "sequence": 5,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/procedures/"
+      ],
+      "recorded_at": "2026-10-17T00:45:56.493Z",
+      "git": {
+        "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "ddb1f97a9231b8e5059bff8aa35f6e4c2d8e05acc952f4f879b2ac59ac18c84d",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "47e2a89bd6b023fd144d0bbcd8c9ad19cae194a4ad6fb2f8af6521d2295727c0",
+        "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:45:56.493Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "86252d99091ba2175cc4de4e2bd94c3aa447984631a501d0e0fceedce825d89d"
+    },
+    {
+      "sequence": 6,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/procedures/state/",
+        "tests/procedures/"
+      ],
+      "recorded_at": "2026-10-17T00:46:21.251Z",
+      "git": {
+        "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "86252d99091ba2175cc4de4e2bd94c3aa447984631a501d0e0fceedce825d89d",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "75e530f459d37257529583ed23b696e71a5a042ed1ee04aa09644d90d9f8bbe0",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:21.251Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "59e7ac8b409431010fd073053016bb8d6e404fe574679d662ada4a0b19d93be9"
+    },
+    {
+      "sequence": 7,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/procedures/state/",
+        "tests/procedures/"
+      ],
+      "recorded_at": "2026-10-17T00:46:31.765Z",
+      "git": {
+        "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "59e7ac8b409431010fd073053016bb8d6e404fe574679d662ada4a0b19d93be9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "313a198b7b30adcd503fb51ab1ab99e785685025390fc576fabf26e9b9a199f5",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "50272711c2f3c58a6303beb3dd2202eb714bf1d8cd324756b88dfe3897c5bc8e",
+        "recorded_at": "2026-10-17T00:46:31.758Z",
+        "git": {
+          "head": "8d87c7d360b7c880b7a10dbeca5ef7a296fb9512",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "ad2a1ea6590a4371d866bb71ccb8640fecabba42fa9fddb9e84fbb44ad166b17"
+    },
+    {
+      "sequence": 8,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/architecture/procedure-presentation.test.ts"
+      ],
+      "recorded_at": "2026-10-17T00:47:43.957Z",
+      "git": {
+        "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "ad2a1ea6590a4371d866bb71ccb8640fecabba42fa9fddb9e84fbb44ad166b17",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "4a316bb1c515a902d9d32d4a27dbe4c3324e9a3c3be1451a640c01e5b31c23c5",
+        "source_digest": "4c4db03d55f8ff356336d75b7afd8cd5faa81e00e12ecb0fc544cc61c7145f9e",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T00:47:43.957Z",
+        "git": {
+          "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "185e6c4186a3930bd8f866ec3c2a95c7b686dc9c5d6f8f9e36d3753180b718da"
+    },
+    {
+      "sequence": 9,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        ".hc/task.json",
+        "pages/procedimientos/",
+        "src/backend/composition/synthetic-procedure-entrypoint.ts",
+        "src/backend/composition/synthetic-procedures.ts",
+        "src/backend/domain/procedures/procedure-contract.ts",
+        "src/procedures/views/ProcedureDetailView.tsx",
+        "tests/integration/architecture/procedure-presentation.test.ts",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:48:55.871Z",
+      "git": {
+        "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "185e6c4186a3930bd8f866ec3c2a95c7b686dc9c5d6f8f9e36d3753180b718da",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "20179610b8d248479a7174d170b9218128e0b2d93fc0a8e82136398c3a75d4c7",
+        "source_digest": "3f3dd6ddf822c7f7ace76f84a0411af461caa982459949943119480fd483c1f2",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T00:48:55.861Z",
+        "git": {
+          "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "e203c80c037436125971c0a7820c2c3cf7fa404b42d4a98f8f42881d240d8ebe"
+    },
+    {
+      "sequence": 10,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        ".hc/task.json",
+        "pages/procedimientos/",
+        "src/backend/composition/synthetic-procedure-entrypoint.ts",
+        "src/backend/composition/synthetic-procedures.ts",
+        "src/backend/domain/procedures/procedure-contract.ts",
+        "src/procedures/views/ProcedureDetailView.tsx",
+        "tests/integration/architecture/procedure-presentation.test.ts",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:49:03.127Z",
+      "git": {
+        "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "e203c80c037436125971c0a7820c2c3cf7fa404b42d4a98f8f42881d240d8ebe",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "711f54738416aa61d2b8f9e99363584c5df2e5380815dce545811289e035b18b",
+        "source_digest": "3f3dd6ddf822c7f7ace76f84a0411af461caa982459949943119480fd483c1f2",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T00:49:03.114Z",
+        "git": {
+          "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "e9adb8396da5c88951bcc47ea2b3b5662f8c8288c689abac0fdfbb91e5ef5f83"
+    },
+    {
+      "sequence": 11,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 is not the latest completed cycle",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        ".hc/task.json",
+        "pages/procedimientos/",
+        "src/backend/composition/synthetic-procedure-entrypoint.ts",
+        "src/backend/composition/synthetic-procedures.ts",
+        "src/backend/domain/procedures/procedure-contract.ts",
+        "src/procedures/views/ProcedureDetailView.tsx",
+        "tests/integration/architecture/procedure-presentation.test.ts",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:49:06.186Z",
+      "git": {
+        "head": "e97af3bf39cce1fbc68374756f152521766f2d5a",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "e9adb8396da5c88951bcc47ea2b3b5662f8c8288c689abac0fdfbb91e5ef5f83",
+      "code": "LATEST_REFACTOR_REQUIRED",
+      "event_digest": "57588abb4300d263edef7858ba308928939f90126e1fe667da7c28a136344a8c"
+    },
+    {
+      "sequence": 12,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Sincronizar la evidencia final con la composición sintética, Pages Router y PDF inline de NP-0043",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        ".hc/task.json",
+        "docs/np-0043-procedure-presentation.md",
+        "pages/procedimientos/",
+        "src/backend/composition/synthetic-procedure-entrypoint.ts",
+        "src/backend/composition/synthetic-procedures.ts",
+        "src/backend/domain/procedures/procedure-contract.ts",
+        "src/procedures/views/ProcedureDetailView.tsx",
+        "tests/integration/architecture/procedure-presentation.test.ts"
+      ],
+      "recorded_at": "2026-10-17T00:56:45.422Z",
+      "git": {
+        "head": "0b8d821e5ef48b312fa19d1fc2ae7b720c58fdd3",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "57588abb4300d263edef7858ba308928939f90126e1fe667da7c28a136344a8c",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f8cb4742bd553cd250a07a36d991d2224c837bc6c42e1b9b4d27cc2620b4c16a",
+        "source_digest": "ec9793caf83d0cd21c403ec6ffe6bfa11f43762d5e001f6b37f72fc532a988c5",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T00:56:45.418Z",
+        "git": {
+          "head": "0b8d821e5ef48b312fa19d1fc2ae7b720c58fdd3",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "298822a4832dabbebcdf67f140ef4aaecc3dbf867bdd958031ded16b250c1d09"
+    },
+    {
+      "sequence": 13,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 already has REFACTOR evidence",
+      "executed": false,
+      "changed_files": [
+        "next-env.d.ts",
+        "pages/_app.tsx",
+        "pages/dashboard/index.tsx",
+        "pages/index.tsx",
+        "pages/metricas/[slug].tsx",
+        "pages/metricas/index.tsx",
+        "public/",
+        "src/backend/composition/synthetic-reporting-data.ts",
+        "src/backend/composition/synthetic-reporting.ts",
+        "src/dashboard/components/DashboardScreen.tsx",
+        "src/dashboard/components/LegacyApprovalCharts.tsx",
+        "src/dashboard/components/LegacyChartPanel.tsx",
+        "src/dashboard/components/LegacyCoverageMap.tsx",
+        "src/dashboard/components/LegacyDashboard.tsx",
+        "src/dashboard/components/LegacyDashboardHeader.tsx",
+        "src/dashboard/components/LegacyDashboardSections.tsx",
+        "src/dashboard/components/LegacyDataToolbar.tsx",
+        "src/dashboard/components/LegacyDonutChart.tsx",
+        "src/dashboard/components/LegacyGlossarySection.tsx",
+        "src/dashboard/components/LegacyKpiRow.tsx",
+        "src/dashboard/components/LegacyMetricDetailView.tsx",
+        "src/dashboard/components/LegacyMetricQuickPanel.tsx",
+        "src/dashboard/components/LegacyMetricTable.tsx",
+        "src/dashboard/components/LegacyMetricsPage.tsx",
+        "src/dashboard/components/LegacyMetricsVisualizations.tsx",
+        "src/dashboard/components/LegacyPreventiveNarrative.tsx",
+        "src/dashboard/components/LegacyProgressChart.tsx",
+        "src/dashboard/components/LegacyReadingGuide.tsx",
+        "src/dashboard/components/LegacyReportShell.tsx",
+        "src/dashboard/components/LegacySectionAccordion.tsx",
+        "src/dashboard/components/LegacySiteFooter.tsx",
+        "src/dashboard/components/LegacySiteHeader.tsx",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/dashboard-screen-contract.ts",
+        "src/dashboard/contracts/dashboard-view-contract.ts",
+        "src/dashboard/contracts/legacy-chart-contract.ts",
+        "src/dashboard/contracts/legacy-dashboard-contract.ts",
+        "src/dashboard/contracts/legacy-layout-contract.ts",
+        "src/dashboard/contracts/legacy-metric-detail-contract.ts",
+        "src/dashboard/contracts/metric-detail-page-contract.ts",
+        "src/dashboard/contracts/metrics-view-contract.ts",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/dashboard/styles/legacy-data.css",
+        "src/dashboard/styles/legacy-report.css",
+        "src/dashboard/styles/legacy-routes.css",
+        "src/dashboard/styles/legacy-shell.css",
+        "src/dashboard/views/DashboardView.tsx",
+        "src/dashboard/views/MetricsView.tsx",
+        "src/inspections/views/InspectionDetailView.tsx",
+        "src/inspections/views/InspectionsView.tsx",
+        "src/procedures/components/ProcedureFamilyAccordion.tsx",
+        "src/procedures/components/ProcedureForm.tsx",
+        "src/procedures/views/ProcedureDetailView.tsx",
+        "src/procedures/views/ProceduresView.tsx",
+        "src/technicians/views/TechnicianView.tsx",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T01:54:15.050Z",
+      "git": {
+        "head": "64ca0d01e1fcfce8f9b165cd1181a7da6225a0ab",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "298822a4832dabbebcdf67f140ef4aaecc3dbf867bdd958031ded16b250c1d09",
+      "code": "REFACTOR_ALREADY_RECORDED",
+      "event_digest": "4b100e435006b5de4e4df65467a42127f77b9a9c2b0a9318b0bdbcc41e161ae2"
+    },
+    {
+      "sequence": 14,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 is not the latest completed cycle",
+      "executed": false,
+      "changed_files": [],
+      "recorded_at": "2026-10-17T02:11:05.375Z",
+      "git": {
+        "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+        "branch": "NP-0043",
+        "dirty": false
+      },
+      "previous_event_digest": "4b100e435006b5de4e4df65467a42127f77b9a9c2b0a9318b0bdbcc41e161ae2",
+      "code": "LATEST_REFACTOR_REQUIRED",
+      "event_digest": "db73ed8440887ec7039f225baade677d8fa92b17c91d21c4e90d7e1273619835"
+    },
+    {
+      "sequence": 15,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Rebaseline after published legacy dashboard presentation port",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json"
+      ],
+      "recorded_at": "2026-10-17T02:11:14.106Z",
+      "git": {
+        "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "db73ed8440887ec7039f225baade677d8fa92b17c91d21c4e90d7e1273619835",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "349c1d94ff211479feef7c70571313dc215d34981f415d61236a970ac3f17c6e",
+        "source_digest": "5377682a0e4d8c3a785e8774030f9dc64f0f2c53a7cf38c86e5e35cf82b9a91f",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T02:11:14.081Z",
+        "git": {
+          "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "e483088d057a8b73ab18c3263903c6b145de58692fd9eb77f85262c6c2c0db6f"
+    }
+  ],
+  "final": {
+    "source_digest": "5377682a0e4d8c3a785e8774030f9dc64f0f2c53a7cf38c86e5e35cf82b9a91f",
+    "test_suite_digest": "e9e14bdead9bd6e53e9822e736f40c8dd3fea60e05770f89ea649759aac18348",
+    "recorded_at": "2026-10-17T02:11:14.103Z",
+    "git": {
+      "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+      "branch": "NP-0043",
+      "dirty": true
+    }
+  }
+}

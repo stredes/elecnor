@@ -27,7 +27,6 @@ describe("NP-0043/AC-01/TEST-01 procedure presentation", () => {
     cleanup();
 
     render(<ProcedureDetailView detail={detail} />);
-    expect(screen.getByRole("link", { name: /Abrir PDF/ })).toHaveAttribute("href", detail.pdfUrl);
     expect(screen.getByText(/Video no disponible/i)).toBeVisible();
     expect(screen.queryByTitle(/video del procedimiento/i)).not.toBeInTheDocument();
   });

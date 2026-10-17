@@ -20,18 +20,20 @@
 `elecnor-next` compone ahora un catálogo y detalle mediante read models y
 fixtures sintéticos en `src/backend/composition`, con Pages Router delegando en
 Views. El catálogo entrega familias ya agrupadas; el detalle entrega la
-referencia de PDF y el estado de video pendiente/no disponible. El store de alta
-conserva el draft y resuelve sólo la solicitud vigente. No se activan FastAPI,
-POST, Blob, PDF real, persistencia ni llamadas a YouTube.
+referencia de PDF y el estado de video pendiente/no disponible, pero la vista
+indica que el PDF no está disponible en el entorno sintético y no ofrece un enlace
+sin recurso. El formulario explica que el alta no está disponible y deshabilita
+Guardar cuando no recibe un handler. El store de alta conserva el draft y resuelve
+sólo la solicitud vigente. No se activan FastAPI, POST, Blob, PDF real,
+persistencia ni llamadas a YouTube.
 
 ## Riesgos y decisiones pendientes
 
 - D-10 debe fijar allowlist/CSP y alcance de medios externos antes de reproducir
   video o miniaturas; la vista sólo podrá mostrar un estado opcional vacío.
 - El PDF es una referencia/estado sintético hasta que exista contrato Next y
-  storage aprobado; la vista sólo recibe la URL de presentación y ningún
-  componente conoce endpoint o ruta interna.
-- El draft de alta no se borra por errores; éxito sólo se representa mediante
-  una respuesta sintética vigente y una vez por request.
+  storage aprobado; actualmente no se presenta una URL no servida como enlace.
+- El draft de alta no se borra por errores; el formulario permanece deshabilitado
+  cuando no hay handler, y no simula una respuesta ni persistencia.
 - `NP-0043/REVIEW-01` queda abierta para el CTO sobre D-10, same-origin y
   aislamiento. No se registra aprobación ni attestation.
