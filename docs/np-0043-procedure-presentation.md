@@ -17,17 +17,20 @@
 
 ## Destino actual
 
-`elecnor-next` no tiene aún contratos, páginas ni composición de procedimientos.
-NP-0043 añadirá únicamente read models y fixtures sintéticos, vistas Pages,
-estado discriminado de filtro/alta y un formulario presentacional. No activará
-FastAPI, POST, Blob, PDF real, persistencia ni llamadas a YouTube.
+`elecnor-next` compone ahora un catálogo y detalle mediante read models y
+fixtures sintéticos en `src/backend/composition`, con Pages Router delegando en
+Views. El catálogo entrega familias ya agrupadas; el detalle entrega la
+referencia de PDF y el estado de video pendiente/no disponible. El store de alta
+conserva el draft y resuelve sólo la solicitud vigente. No se activan FastAPI,
+POST, Blob, PDF real, persistencia ni llamadas a YouTube.
 
 ## Riesgos y decisiones pendientes
 
 - D-10 debe fijar allowlist/CSP y alcance de medios externos antes de reproducir
   video o miniaturas; la vista sólo podrá mostrar un estado opcional vacío.
-- El PDF será una referencia/estado sintético hasta que exista contrato Next y
-  storage aprobado; ningún componente conocerá endpoint o ruta interna.
+- El PDF es una referencia/estado sintético hasta que exista contrato Next y
+  storage aprobado; la vista sólo recibe la URL de presentación y ningún
+  componente conoce endpoint o ruta interna.
 - El draft de alta no se borra por errores; éxito sólo se representa mediante
   una respuesta sintética vigente y una vez por request.
 - `NP-0043/REVIEW-01` queda abierta para el CTO sobre D-10, same-origin y
