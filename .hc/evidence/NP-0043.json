@@ -190,6 +190,20 @@
             "branch": "NP-0043",
             "dirty": true
           }
+        },
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "349c1d94ff211479feef7c70571313dc215d34981f415d61236a970ac3f17c6e",
+          "source_digest": "5377682a0e4d8c3a785e8774030f9dc64f0f2c53a7cf38c86e5e35cf82b9a91f",
+          "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+          "recorded_at": "2026-10-17T02:11:14.081Z",
+          "git": {
+            "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+            "branch": "NP-0043",
+            "dirty": true
+          }
         }
       ]
     }
@@ -729,14 +743,64 @@
       "previous_event_digest": "298822a4832dabbebcdf67f140ef4aaecc3dbf867bdd958031ded16b250c1d09",
       "code": "REFACTOR_ALREADY_RECORDED",
       "event_digest": "4b100e435006b5de4e4df65467a42127f77b9a9c2b0a9318b0bdbcc41e161ae2"
+    },
+    {
+      "sequence": 14,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 is not the latest completed cycle",
+      "executed": false,
+      "changed_files": [],
+      "recorded_at": "2026-10-17T02:11:05.375Z",
+      "git": {
+        "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+        "branch": "NP-0043",
+        "dirty": false
+      },
+      "previous_event_digest": "4b100e435006b5de4e4df65467a42127f77b9a9c2b0a9318b0bdbcc41e161ae2",
+      "code": "LATEST_REFACTOR_REQUIRED",
+      "event_digest": "db73ed8440887ec7039f225baade677d8fa92b17c91d21c4e90d7e1273619835"
+    },
+    {
+      "sequence": 15,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Rebaseline after published legacy dashboard presentation port",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json"
+      ],
+      "recorded_at": "2026-10-17T02:11:14.106Z",
+      "git": {
+        "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "db73ed8440887ec7039f225baade677d8fa92b17c91d21c4e90d7e1273619835",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "349c1d94ff211479feef7c70571313dc215d34981f415d61236a970ac3f17c6e",
+        "source_digest": "5377682a0e4d8c3a785e8774030f9dc64f0f2c53a7cf38c86e5e35cf82b9a91f",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T02:11:14.081Z",
+        "git": {
+          "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "e483088d057a8b73ab18c3263903c6b145de58692fd9eb77f85262c6c2c0db6f"
     }
   ],
   "final": {
-    "source_digest": "ec9793caf83d0cd21c403ec6ffe6bfa11f43762d5e001f6b37f72fc532a988c5",
-    "test_suite_digest": "705e9177cd619b5261166eb2db79e660b24dfe712cbfd87a14e2fdd4e50f3dda",
-    "recorded_at": "2026-10-17T00:56:45.422Z",
+    "source_digest": "5377682a0e4d8c3a785e8774030f9dc64f0f2c53a7cf38c86e5e35cf82b9a91f",
+    "test_suite_digest": "e9e14bdead9bd6e53e9822e736f40c8dd3fea60e05770f89ea649759aac18348",
+    "recorded_at": "2026-10-17T02:11:14.103Z",
     "git": {
-      "head": "0b8d821e5ef48b312fa19d1fc2ae7b720c58fdd3",
+      "head": "4643cc4c6b89a88dbed39f41fdb92fdd67e2fe1e",
       "branch": "NP-0043",
       "dirty": true
     }
