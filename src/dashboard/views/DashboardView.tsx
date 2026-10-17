@@ -5,7 +5,7 @@ import type { DashboardViewProps } from "../contracts/dashboard-view-contract";
 
 export function DashboardView({ snapshot }: DashboardViewProps) {
   return (
-    <ReportLayout>
+    <ReportLayout activeRoute="dashboard">
       <header className="dashboard-header">
           <div>
             <p className="eyebrow">ELECNOR · OPERACIONES</p>

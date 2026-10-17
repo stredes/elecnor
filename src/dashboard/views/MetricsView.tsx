@@ -4,7 +4,7 @@ import type { MetricsViewProps } from "../contracts/metrics-view-contract";
 
 export function MetricsView({ snapshot }: MetricsViewProps) {
   return (
-    <ReportLayout>
+    <ReportLayout activeRoute="metrics">
       <header className="dashboard-header">
           <div>
             <p className="eyebrow">ELECNOR · REPORTING</p>

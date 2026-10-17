@@ -160,6 +160,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/metrics.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "427366d179f9320fdce63947e56b40cd99de54a65721e1b5af5a525bb0d86d42",
+        "source_digest": "7e47ac72ecb82363dcdeaab34261e726863c80efaba379ecd23c932dfb3730e5",
+        "test_digest": "7266c5636fa8d2e0304be64f3335076fc1d9d83c92babc3910163b76f184c3dc",
+        "recorded_at": "2026-10-17T00:20:36.712Z",
+        "git": {
+          "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+          "branch": "NP-0041",
+          "dirty": true
+        },
+        "expected_reason": "aria-current"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/metrics.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "33982adae3d09593879df828f3a945704c43380da2c4a74a42789dd478d6659b",
+        "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
+        "test_digest": "7266c5636fa8d2e0304be64f3335076fc1d9d83c92babc3910163b76f184c3dc",
+        "recorded_at": "2026-10-17T00:21:10.509Z",
+        "git": {
+          "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "db7eeec5d1234c997d5af18b386959bdeb6a57595f004ee9149240c3b9e96132",
+        "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
+        "test_digest": "7266c5636fa8d2e0304be64f3335076fc1d9d83c92babc3910163b76f184c3dc",
+        "recorded_at": "2026-10-17T00:21:28.966Z",
+        "git": {
+          "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      }
     }
   ],
   "git_baseline": {
@@ -504,14 +557,162 @@
         }
       },
       "event_digest": "744f8fdf783cbc63c9a64010c7b00a6e1dc87e9b91b818dfde0c0ff27bc428eb"
+    },
+    {
+      "sequence": 10,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "aria-current",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0041.json",
+        ".hc/task.json",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T00:20:36.715Z",
+      "git": {
+        "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "744f8fdf783cbc63c9a64010c7b00a6e1dc87e9b91b818dfde0c0ff27bc428eb",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/metrics.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "427366d179f9320fdce63947e56b40cd99de54a65721e1b5af5a525bb0d86d42",
+        "source_digest": "7e47ac72ecb82363dcdeaab34261e726863c80efaba379ecd23c932dfb3730e5",
+        "test_digest": "7266c5636fa8d2e0304be64f3335076fc1d9d83c92babc3910163b76f184c3dc",
+        "recorded_at": "2026-10-17T00:20:36.712Z",
+        "git": {
+          "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+          "branch": "NP-0041",
+          "dirty": true
+        },
+        "expected_reason": "aria-current"
+      },
+      "event_digest": "bb5c9c57f0b57524d235f2cbb5cc6cc417bcc827b3c81decc9f27ff6624b45e4"
+    },
+    {
+      "sequence": 11,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        ".hc/stories/NP-0041.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/dashboard/views/DashboardView.tsx",
+        "src/dashboard/views/MetricsView.tsx",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T00:21:10.517Z",
+      "git": {
+        "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "bb5c9c57f0b57524d235f2cbb5cc6cc417bcc827b3c81decc9f27ff6624b45e4",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/metrics.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "33982adae3d09593879df828f3a945704c43380da2c4a74a42789dd478d6659b",
+        "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
+        "test_digest": "7266c5636fa8d2e0304be64f3335076fc1d9d83c92babc3910163b76f184c3dc",
+        "recorded_at": "2026-10-17T00:21:10.509Z",
+        "git": {
+          "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      },
+      "event_digest": "6fc5b55e57bb5eb4071def80defa86771dd82f90ac777c2cb547f5f3c7ec67ce"
+    },
+    {
+      "sequence": 12,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "next-env.d.ts: outside declared task scope",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        ".hc/stories/NP-0041.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/dashboard/views/DashboardView.tsx",
+        "src/dashboard/views/MetricsView.tsx",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T00:21:10.765Z",
+      "git": {
+        "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "6fc5b55e57bb5eb4071def80defa86771dd82f90ac777c2cb547f5f3c7ec67ce",
+      "code": "TASK_SCOPE_VIOLATION",
+      "event_digest": "db25d53d0f1b1f0337fc9b3d35ab9c96c198455d9e25f356dc9c6620271f077c"
+    },
+    {
+      "sequence": 13,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        ".hc/stories/NP-0041.json",
+        ".hc/task.json",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/dashboard/views/DashboardView.tsx",
+        "src/dashboard/views/MetricsView.tsx",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T00:21:28.973Z",
+      "git": {
+        "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "db25d53d0f1b1f0337fc9b3d35ab9c96c198455d9e25f356dc9c6620271f077c",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "db7eeec5d1234c997d5af18b386959bdeb6a57595f004ee9149240c3b9e96132",
+        "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
+        "test_digest": "7266c5636fa8d2e0304be64f3335076fc1d9d83c92babc3910163b76f184c3dc",
+        "recorded_at": "2026-10-17T00:21:28.966Z",
+        "git": {
+          "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      },
+      "event_digest": "27686b0177d96551a628b7f376059064f5a5d7d1e901134a193bb0948f5208fd"
     }
   ],
   "final": {
-    "source_digest": "7e47ac72ecb82363dcdeaab34261e726863c80efaba379ecd23c932dfb3730e5",
-    "test_suite_digest": "e7654c4c2e3cda7f16297195f0cdbce1e92559d50d6d82e01b9b6d7a43ca1a9b",
-    "recorded_at": "2026-10-17T00:19:02.243Z",
+    "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
+    "test_suite_digest": "6986d4cd06a86febb2c8b9f3132dae075fbb16c74e81597e781fcd3ee9835b9a",
+    "recorded_at": "2026-10-17T00:21:28.969Z",
     "git": {
-      "head": "670b4dd9e3770434144e7d6d14746401b4d05d59",
+      "head": "7d76f4d31a9f105277b3570de3b2cb278808287c",
       "branch": "NP-0041",
       "dirty": true
     }

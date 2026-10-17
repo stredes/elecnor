@@ -8,11 +8,12 @@
     "test_plan":[
       {"test_id":"TEST-01","order":1,"level":"unit","check":"unit","args":["tests/presentation/report-layout.test.tsx"],"expected_failure":"Failed to resolve import","fixture":"tests/presentation/report-layout.test.tsx","regression":{"check":"unit","args":[]}},
       {"test_id":"TEST-02","order":2,"level":"unit","check":"unit","args":["tests/dashboard/state/metric-selection-store.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/dashboard/state/metric-selection-store.test.ts","regression":{"check":"unit","args":[]}},
-      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/frontend-data-flow.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/frontend-data-flow.test.ts","regression":{"check":"integration","args":[]}}
+      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/frontend-data-flow.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/frontend-data-flow.test.ts","regression":{"check":"integration","args":[]}},
+      {"test_id":"TEST-04","order":4,"level":"e2e","check":"e2e","args":["tests/e2e/metrics.spec.ts"],"expected_failure":"aria-current","fixture":"tests/e2e/metrics.spec.ts","regression":{"check":"e2e","args":[]}}
     ]
   },
   "scope":{
-    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0041.json",".hc/evidence/NP-0041.json","src/dashboard","pages/dashboard","pages/metricas","tests/presentation","tests/dashboard","tests/integration/architecture","docs/np-0041-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
+    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0041.json",".hc/evidence/NP-0041.json","src/dashboard","pages/dashboard","pages/metricas","tests/presentation","tests/dashboard","tests/integration/architecture","tests/e2e/metrics.spec.ts","docs/np-0041-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
     "exclude":["Real data or external HTTP/DB","New formulas or semantic corrections","Adding Zustand or other dependencies","Persisted state or credentials","Changing official backend contracts"],
     "related_paths":[".hc","src/backend","tests","docs","pages","package.json","tsconfig.json"]
   },
