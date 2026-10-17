@@ -1,0 +1,21 @@
+{
+  "schema_version":"2.0",
+  "story":{
+    "id":"NP-0042","title":"Separar presentación y estado de inspecciones, detalle y técnico",
+    "actor":"equipo de frontend","need":"coordinar filtros y vistas con hooks acotados y componentes tipados","business_value":"preservar la exploración sintética de inspecciones sin estado monolítico",
+    "context":"Anexo NP-0042 en NP-0026-backlog.md. Legacy inspeccionado en app inspecciones/detalle/técnico y componentes de búsqueda/edición.",
+    "preconditions":["Contratos sintéticos de listado, detalle y técnico disponibles","Layout Pages y límites de estado definidos","No se requiere activar una mutación"],
+    "acceptance_criteria":[
+      {"id":"AC-01","given":["listado, filtros y detalle sintéticos"],"when":["se compone la navegación"],"then":["views, cards, tablas y foco de diálogos quedan explícitos"],"test_ids":["TEST-01"]},
+      {"id":"AC-02","given":["query URL, borrador y respuestas fuera de orden"],"when":["cambian filtros o documento"],"then":["la URL aplicada y el draft se separan, la respuesta vigente gana y el cleanup es determinista"],"test_ids":["TEST-02"]},
+      {"id":"AC-03","given":["pages, loaders, views, hooks y stores"],"when":["se inspeccionan dependencias"],"then":["pages delegan, JSX no calcula reglas oficiales y los tipos permanecen fuera de pages"],"test_ids":["TEST-03"]}
+    ],
+    "business_rules":[{"id":"BR-01","rule":"La URL es fuente de filtros aplicados; el estado local conserva interacción sin duplicar métricas ni permisos."}],
+    "edge_cases":["página vacía","filtros Unicode","respuesta vieja","cancelación","delete fallido","Escape y foco"],
+    "out_of_scope":["conectar HTTP/DB real","activar PUT/DELETE/PDF","inventar autorización","cambiar universo 500 técnico","añadir dependencias"],
+    "dependencies":["NP-0036","NP-0037","NP-0041"],
+    "non_functional_requirements":[{"id":"NFR-01","rule":"Estado discriminado, cleanup y aislamiento SSR con fixtures sin datos personales.","risk_tags":["concurrency","personal-data","migration"],"test_ids":["TEST-02","TEST-03"],"review_ids":["REVIEW-01"]}],
+    "definition_of_ready":{"ready":false,"evidence":["Views y stores sintéticos; mutaciones reales y política D-03 permanecen pendientes."]},
+    "definition_of_done":["Tres views y estado sintético probados","Sin mutaciones reales ni reglas nuevas"]
+  }
+}

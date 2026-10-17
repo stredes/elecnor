@@ -1,0 +1,7 @@
+{
+  "schema_version":"2.0",
+  "task_id":"NP-0042",
+  "cycles":[],
+  "reviews":[],
+  "git_baseline":{"kind":"UNMANAGED_INITIAL","head":"cb5d356b6e5b9cc38ca2b2c581ca4e09d3e5e50b","branch":"NP-0042"}
+}
