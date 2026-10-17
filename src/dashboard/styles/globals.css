@@ -13,6 +13,10 @@
 * { box-sizing: border-box; }
 body { margin: 0; min-width: 320px; background: var(--background); }
 a { color: var(--primary); font-weight: 700; text-decoration: none; }
+.skip-link { left: -9999px; position: absolute; top: 8px; }
+.skip-link:focus { background: var(--surface); left: 8px; padding: 8px 12px; z-index: 10; }
+.dashboard-nav { align-items: center; background: var(--surface); border-bottom: 1px solid #e4eaf2; display: flex; justify-content: space-between; padding: 16px 24px; }
+.dashboard-nav nav { display: flex; gap: 16px; }
 
 .dashboard-shell { margin: 0 auto; max-width: 1120px; padding: 64px 24px 32px; }
 .dashboard-header { align-items: flex-start; display: flex; justify-content: space-between; gap: 24px; }
