@@ -6,7 +6,7 @@ export function createProcedureCreateStore(draft: ProcedureDraft): ProcedureCrea
   let nextRequestId = 0;
   const listeners = new Set<() => void>();
   const publish = (next: ProcedureCreateState) => { state = next; listeners.forEach((listener) => listener()); };
-  const isCurrent = (requestId: number) => requestId === state.requestId;
+  const isCurrent = (requestId: number) => requestId === state.requestId && state.status === "submitting";
 
   return {
     getState: () => state,

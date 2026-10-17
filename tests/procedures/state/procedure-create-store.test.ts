@@ -11,6 +11,7 @@ describe("NP-0043/AC-02/TEST-02 procedure create store", () => {
     store.resolve(oldRequest, "PROC-OLD");
     expect(store.getState()).toMatchObject({ status: "submitting", requestId: currentRequest, procedureId: null, draft });
     store.resolve(currentRequest, "PROC-01");
+    store.resolve(currentRequest, "PROC-LATE");
     expect(store.getState()).toMatchObject({ status: "success", procedureId: "PROC-01", fileReleased: true, draft });
   });
 

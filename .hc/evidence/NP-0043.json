@@ -54,6 +54,61 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "2afc0e6f1aa898f8ef1bc5a3f7dcba0cd907e9642476bb6b754ec1ce15e33cdd",
+        "source_digest": "14aecf89660dd38dcb7a4419f3fc286602cc2884e7259eaca9f8341ea6bbba4c",
+        "test_digest": "104509f96e8d085a736a73e6133b2427c70e6d2deb45fe00ae5547138c22ec47",
+        "recorded_at": "2026-10-17T04:02:54.860Z",
+        "git": {
+          "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "PROC-LATE"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "03908ed07804ae3f1c1cb89d7b3c09d398d13c652fdf38abbd5ee344b4f11ae0",
+        "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+        "test_digest": "104509f96e8d085a736a73e6133b2427c70e6d2deb45fe00ae5547138c22ec47",
+        "recorded_at": "2026-10-17T04:03:19.204Z",
+        "git": {
+          "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "6d8ccf2276dca079b5a9c7b29ba0f76e43700de55aa08679c4763d8fe621f11d",
+        "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+        "test_digest": "104509f96e8d085a736a73e6133b2427c70e6d2deb45fe00ae5547138c22ec47",
+        "recorded_at": "2026-10-17T04:03:21.162Z",
+        "git": {
+          "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -243,6 +298,145 @@
         }
       },
       "event_digest": "398ac2b6aab8b7ac170232d4c1a274ce602f62f099ffd1f909cde27f89ca5553"
+    },
+    {
+      "sequence": 6,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        "src/procedures/state/procedure-create-store.ts"
+      ],
+      "recorded_at": "2026-10-17T03:57:39.609Z",
+      "git": {
+        "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "398ac2b6aab8b7ac170232d4c1a274ce602f62f099ffd1f909cde27f89ca5553",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "838ef7a738a75821b1aa4ee65e5f5d8667749665b25d27ad5b7c14b0b0160fb1"
+    },
+    {
+      "sequence": 7,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "PROC-LATE",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        ".hc/task.json",
+        "tests/procedures/state/procedure-create-store.test.ts"
+      ],
+      "recorded_at": "2026-10-17T04:02:54.861Z",
+      "git": {
+        "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "838ef7a738a75821b1aa4ee65e5f5d8667749665b25d27ad5b7c14b0b0160fb1",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "2afc0e6f1aa898f8ef1bc5a3f7dcba0cd907e9642476bb6b754ec1ce15e33cdd",
+        "source_digest": "14aecf89660dd38dcb7a4419f3fc286602cc2884e7259eaca9f8341ea6bbba4c",
+        "test_digest": "104509f96e8d085a736a73e6133b2427c70e6d2deb45fe00ae5547138c22ec47",
+        "recorded_at": "2026-10-17T04:02:54.860Z",
+        "git": {
+          "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "PROC-LATE"
+      },
+      "event_digest": "61bf517724247bc943c3874c38e84b6e27481f7d59e2a527c4f91b7b0f7208d7"
+    },
+    {
+      "sequence": 8,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        ".hc/task.json",
+        "pages/procedimientos/index.tsx",
+        "src/procedures/components/ProcedureForm.tsx",
+        "src/procedures/state/procedure-create-store.ts",
+        "src/procedures/views/ProcedureDetailView.tsx",
+        "tests/procedures/state/procedure-create-store.test.ts"
+      ],
+      "recorded_at": "2026-10-17T04:03:19.205Z",
+      "git": {
+        "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "61bf517724247bc943c3874c38e84b6e27481f7d59e2a527c4f91b7b0f7208d7",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "03908ed07804ae3f1c1cb89d7b3c09d398d13c652fdf38abbd5ee344b4f11ae0",
+        "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+        "test_digest": "104509f96e8d085a736a73e6133b2427c70e6d2deb45fe00ae5547138c22ec47",
+        "recorded_at": "2026-10-17T04:03:19.204Z",
+        "git": {
+          "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "90bc1710270fa84ee0a6e2c0ce3e84f7c87be17210bebc632d21b455236ccd81"
+    },
+    {
+      "sequence": 9,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        ".hc/task.json",
+        "pages/procedimientos/index.tsx",
+        "src/procedures/components/ProcedureForm.tsx",
+        "src/procedures/state/procedure-create-store.ts",
+        "src/procedures/views/ProcedureDetailView.tsx",
+        "tests/procedures/state/procedure-create-store.test.ts"
+      ],
+      "recorded_at": "2026-10-17T04:03:21.163Z",
+      "git": {
+        "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "90bc1710270fa84ee0a6e2c0ce3e84f7c87be17210bebc632d21b455236ccd81",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/procedures/state/procedure-create-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "6d8ccf2276dca079b5a9c7b29ba0f76e43700de55aa08679c4763d8fe621f11d",
+        "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+        "test_digest": "104509f96e8d085a736a73e6133b2427c70e6d2deb45fe00ae5547138c22ec47",
+        "recorded_at": "2026-10-17T04:03:21.162Z",
+        "git": {
+          "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "054004d931f72865dad4060966b3efd271f4f874408cb6ca94981c5c388487be"
     }
   ],
   "git_baseline": {
@@ -251,11 +445,11 @@
     "branch": "NP-0043"
   },
   "final": {
-    "source_digest": "14aecf89660dd38dcb7a4419f3fc286602cc2884e7259eaca9f8341ea6bbba4c",
-    "test_suite_digest": "03897ecb78f35d1d9610605677d873941e5593eeb4673c739f2acaff7651c8d9",
-    "recorded_at": "2026-10-17T03:57:17.156Z",
+    "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+    "test_suite_digest": "9a239bfecead9c72acf16eb9cb017b21a41cf5c938537116aed11bcbbcba62a2",
+    "recorded_at": "2026-10-17T04:03:21.162Z",
     "git": {
-      "head": "9ceb433c0e2c8c1d68353ad00baeb7c4cd2946fd",
+      "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
       "branch": "NP-0043",
       "dirty": true
     }

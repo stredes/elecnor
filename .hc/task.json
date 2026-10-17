@@ -7,7 +7,7 @@
     "risk_tags":["concurrency","personal-data","persistence","migration"],
     "test_plan":[
       {"test_id":"TEST-01","order":1,"level":"unit","check":"unit","args":["tests/presentation/procedure-catalog.test.tsx"],"expected_failure":"aria-expanded","fixture":"tests/presentation/procedure-catalog.test.tsx","regression":{"check":"unit","args":[]}},
-      {"test_id":"TEST-02","order":2,"level":"unit","check":"unit","args":["tests/procedures/state/procedure-create-store.test.ts"],"expected_failure":"status: 'submitting'","fixture":"tests/procedures/state/procedure-create-store.test.ts","regression":{"check":"unit","args":[]}},
+      {"test_id":"TEST-02","order":2,"level":"unit","check":"unit","args":["tests/procedures/state/procedure-create-store.test.ts"],"expected_failure":"PROC-LATE","fixture":"tests/procedures/state/procedure-create-store.test.ts","regression":{"check":"unit","args":["tests/procedures/state/procedure-create-store.test.ts"]}},
       {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/procedure-presentation.test.ts"],"expected_failure":"getServerSideProps","fixture":"tests/integration/architecture/procedure-presentation.test.ts","regression":{"check":"integration","args":[]}},
       {"test_id":"TEST-04","order":4,"level":"unit","check":"unit","args":["tests/presentation/procedure-availability.test.tsx"],"expected_failure":"PDF no disponible en este entorno sintético","fixture":"tests/presentation/procedure-availability.test.tsx","regression":{"check":"unit","args":[]}}
     ]
