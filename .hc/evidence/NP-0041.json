@@ -705,14 +705,84 @@
         }
       },
       "event_digest": "27686b0177d96551a628b7f376059064f5a5d7d1e901134a193bb0948f5208fd"
+    },
+    {
+      "sequence": 14,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "TEST-04 rebaseline command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        ".hc/task.json",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T05:17:05.167Z",
+      "git": {
+        "head": "f735e2222a0e3035c048af437e93d7f55b706921",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "27686b0177d96551a628b7f376059064f5a5d7d1e901134a193bb0948f5208fd",
+      "code": "REBASELINE_COMMAND_FAILED",
+      "event_digest": "4450982ac09a0e60367e3ba9bae2700f344c4c899febf15409c2fe66a04cf1a1"
+    },
+    {
+      "sequence": 15,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "TEST-04 rebaseline command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "playwright.config.ts",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T05:17:41.387Z",
+      "git": {
+        "head": "f735e2222a0e3035c048af437e93d7f55b706921",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "4450982ac09a0e60367e3ba9bae2700f344c4c899febf15409c2fe66a04cf1a1",
+      "code": "REBASELINE_COMMAND_FAILED",
+      "event_digest": "ed09cd6d07bc951ea6bfeb549d0fd695a82c0252a2e73ef8b0b18731c9a84d36"
+    },
+    {
+      "sequence": 16,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-05",
+      "reason": "production changed before next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        ".hc/stories/NP-0041.json",
+        ".hc/task.json",
+        "next-env.d.ts",
+        "playwright.config.ts",
+        "tests/e2e/metrics.spec.ts"
+      ],
+      "recorded_at": "2026-10-17T05:19:19.830Z",
+      "git": {
+        "head": "f735e2222a0e3035c048af437e93d7f55b706921",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "ed09cd6d07bc951ea6bfeb549d0fd695a82c0252a2e73ef8b0b18731c9a84d36",
+      "code": "SOURCE_CHANGED_AFTER_REFACTOR",
+      "event_digest": "a4b31ccc39dc831c6e60c19d872e21bf5abf5a570abe01b1877b251bfbe4bd41"
     }
   ],
-  "reviews": [{
-    "id": "REVIEW-01",
-    "fingerprint": "58aee00966dc6de5b935894c52c6e3a9dfc7b41e66b0f415ff2e0a29f8a398b7",
-    "status": "open",
-    "reason": "CTO CHANGES-REQUESTED: cinco assets en `public/` exceden el scope NP-0041; deben retirarse o autorizarse explícitamente antes del cierre."
-  }],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "58aee00966dc6de5b935894c52c6e3a9dfc7b41e66b0f415ff2e0a29f8a398b7",
+      "status": "open",
+      "reason": "El CTO autorizó explícitamente por chat incluir el mapa y cuatro logos estáticos en el scope. REVIEW-01 sigue abierta para re-review formal; esta autorización no equivale a aceptación."
+    }
+  ],
   "final": {
     "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
     "test_suite_digest": "6986d4cd06a86febb2c8b9f3132dae075fbb16c74e81597e781fcd3ee9835b9a",

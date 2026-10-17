@@ -13,10 +13,10 @@
     ]
   },
   "scope":{
-    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0041.json",".hc/evidence/NP-0041.json","src/dashboard","pages/dashboard","pages/metricas","tests/presentation","tests/dashboard","tests/integration/architecture","tests/e2e/metrics.spec.ts","docs/np-0041-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
+    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0041.json",".hc/evidence/NP-0041.json","src/dashboard","pages/dashboard","pages/metricas","public/chile-regions.svg","public/elecnor-logo-white.png","public/elecnor-logo.png","public/hc-logo-dark.png","public/hc-logo.png","tests/presentation","tests/dashboard","tests/integration/architecture","tests/e2e/metrics.spec.ts","docs/np-0041-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts","playwright.config.ts"],
     "exclude":["Real data or external HTTP/DB","New formulas or semantic corrections","Adding Zustand or other dependencies","Persisted state or credentials","Changing official backend contracts"],
     "related_paths":[".hc","src/backend","tests","docs","pages","package.json","tsconfig.json"]
   },
   "constraints":["Brain local 5.0.1","Fixtures synthetic only","No weakening gates","Authored files ≤99 lines","No legacy modification"],
-  "authority":{"allowed":["Create Pages presentation composition","Create dedicated view/section/prop contracts","Create synthetic state store and hook boundaries","Document legacy UI inventory and risks"],"forbidden":["Connect real HTTP/DB data","Add Zustand without dependency approval","Move metric calculations into JSX/store","Change official formulas","Declare REVIEW-01 approved"]}
+  "authority":{"allowed":["Create Pages presentation composition","Create dedicated view/section/prop contracts","Create synthetic state store and hook boundaries","Document legacy UI inventory and risks","Include CTO-authorized static dashboard assets: Chile regions map and four logo images"],"forbidden":["Connect real HTTP/DB data","Add Zustand without dependency approval","Move metric calculations into JSX/store","Change official formulas","Declare REVIEW-01 approved"]}
 }
