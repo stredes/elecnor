@@ -221,8 +221,13 @@
     {
       "id": "REVIEW-01",
       "fingerprint": "3d0e5ef5ea9acb6a7ae35a746a355082bc7eff63846202670787a4a5fdaf076d",
-      "status": "open",
-      "reason": "Correcciones sintéticas preparadas; requiere nueva revisión CTO y attestation ligada al commit final. No autoriza producción."
+      "status": "accepted",
+      "reason": "Aceptación técnica CTO limitada al alcance sintético para Development. No constituye GO productivo ni autoriza conexiones reales, mutaciones, storage, PDFs reales o medios externos.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {
+        "provider": "git-signed-commit",
+        "commit": "a05dd5b6359e38b657c04efa82dece277d64b7ce"
+      }
     }
   ],
   "events": [
