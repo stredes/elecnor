@@ -1,7 +1,252 @@
 {
-  "schema_version":"2.0",
-  "task_id":"NP-0043",
-  "cycles":[],
-  "reviews":[{"id":"REVIEW-01","fingerprint":"3d0e5ef5ea9acb6a7ae35a746a355082bc7eff63846202670787a4a5fdaf076d","status":"open","reason":"NP-0043/REVIEW-01 requiere revisión humana del CTO sobre D-10, límites de medios y estado de alta; no es aceptación y no tiene attestation."}],
-  "git_baseline":{"kind":"UNMANAGED_INITIAL","head":"9179836dca48c2ab5ffc9ddc8f5a4c7ca9e52017","branch":"NP-0043"}
+  "schema_version": "2.0",
+  "task_id": "NP-0043",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 1,
+        "output_digest": "8eb8dc1340ff144f3e7bc0d371c4e32bed10a184e11634dce93df01c93ccb95f",
+        "source_digest": "4fda658a242dfa578c9f1996d24752d2184e8deadb2083b733307aab36efe4f6",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:40:46.043Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 0,
+        "output_digest": "7e2639669a6ae9eb42b594e89bc8ddec0f42480c5a7d70a2bc07c1b3a3936211",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:22.473Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f415731e56c60057c96325ada3a87e02f32c4eb377e06ed22f814e5d0c0332f6",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:32.758Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "2c1c95ca760deea1f6d3532f24e0499d4b17a980d2128d7ea9bc87465dc33efa",
+          "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+          "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+          "recorded_at": "2026-10-17T00:42:11.792Z",
+          "git": {
+            "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+            "branch": "NP-0043",
+            "dirty": true
+          }
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "3d0e5ef5ea9acb6a7ae35a746a355082bc7eff63846202670787a4a5fdaf076d",
+      "status": "open",
+      "reason": "NP-0043/REVIEW-01 requiere revisión humana del CTO sobre D-10, límites de medios y estado de alta; no es aceptación y no tiene attestation."
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "9179836dca48c2ab5ffc9ddc8f5a4c7ca9e52017",
+    "branch": "NP-0043"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:40:46.044Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 1,
+        "output_digest": "8eb8dc1340ff144f3e7bc0d371c4e32bed10a184e11634dce93df01c93ccb95f",
+        "source_digest": "4fda658a242dfa578c9f1996d24752d2184e8deadb2083b733307aab36efe4f6",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:40:46.043Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "2e48aed36c89c1e0ee21ad78861403deb4858024614ff6afe247f50094cc1483"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/backend/domain/procedures/",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/procedures/",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:41:22.473Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "2e48aed36c89c1e0ee21ad78861403deb4858024614ff6afe247f50094cc1483",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/procedure-catalog.test.tsx"
+        ],
+        "exit_code": 0,
+        "output_digest": "7e2639669a6ae9eb42b594e89bc8ddec0f42480c5a7d70a2bc07c1b3a3936211",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:22.473Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "7f02f49f05fbabec658848d0c5a767fdd5abe72b404921cb0c97f46da8632254"
+    },
+    {
+      "sequence": 3,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/backend/domain/procedures/",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/procedures/",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:41:32.758Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "7f02f49f05fbabec658848d0c5a767fdd5abe72b404921cb0c97f46da8632254",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f415731e56c60057c96325ada3a87e02f32c4eb377e06ed22f814e5d0c0332f6",
+        "source_digest": "6da0393cf6267c1d888867f8b02e86237a7a9195ed213d34382173c483179e9a",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:41:32.758Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "484ee56a1e7e6f78e106704a242267d3777d914dfa1b89ff3b3690cc23530d34"
+    },
+    {
+      "sequence": 4,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Extraer el contrato de props del acordeón para cumplir la calidad de contratos",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "src/backend/domain/procedures/",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/procedures/",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:42:11.806Z",
+      "git": {
+        "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "484ee56a1e7e6f78e106704a242267d3777d914dfa1b89ff3b3690cc23530d34",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2c1c95ca760deea1f6d3532f24e0499d4b17a980d2128d7ea9bc87465dc33efa",
+        "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+        "test_digest": "d0ff93fdd9c52dd6859aeb2f908e49eb73485a4a3a378c06a887994c170304f5",
+        "recorded_at": "2026-10-17T00:42:11.792Z",
+        "git": {
+          "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "ddb1f97a9231b8e5059bff8aa35f6e4c2d8e05acc952f4f879b2ac59ac18c84d"
+    }
+  ],
+  "final": {
+    "source_digest": "e4e2f3e9a318b6079b45561368ed941d9df1a7cb7f82f92f21eb23a7c96200e2",
+    "test_suite_digest": "8e8ea15b53f890068c9bb6de946a087b3770680fa2f802989cc19a479b04134e",
+    "recorded_at": "2026-10-17T00:42:11.805Z",
+    "git": {
+      "head": "2e44b16eac52960dec13c0254ce1b3af3719cec0",
+      "branch": "NP-0043",
+      "dirty": true
+    }
+  }
 }
