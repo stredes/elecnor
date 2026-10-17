@@ -37,3 +37,12 @@ persistencia ni llamadas a YouTube.
   cuando no hay handler, y no simula una respuesta ni persistencia.
 - `NP-0043/REVIEW-01` queda abierta para el CTO sobre D-10, same-origin y
   aislamiento. No se registra aprobación ni attestation.
+
+## Recuperación de evidencia TDD
+
+El expediente previo se conserva en
+`.hc/evidence/archive/NP-0043-pre-recovery.json` (SHA-256
+`c635a502e63a71327e211dc95180ff11c08c93450e3400a037f3c154b9fef583`). Los
+ciclos activos se registraron de nuevo con HC 5.0.1 y fixtures separados por TEST
+para evitar que cambios de un test alteren el digest de otro. AC y autoridad no
+cambian; `REVIEW-01` permanece abierta.
