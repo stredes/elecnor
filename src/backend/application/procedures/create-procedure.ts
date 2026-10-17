@@ -1,19 +1,9 @@
-import type { Procedure } from "../../domain/procedures/procedure-contract";
 import { normalizeProcedure, validateProcedure } from "../../domain/procedures/validate-procedure";
 import type { CreateProcedureCommand } from "../../domain/procedures/create-procedure-contract";
-import { ProcedureCommitError, type CommitProcedure, type ProcedureReservation } from "../../ports/procedures/commit-procedure";
-import type { RecordProcedureRecovery } from "../../ports/procedures/record-recovery";
+import { ProcedureCommitError, type ProcedureReservation } from "../../ports/procedures/commit-procedure";
 import { DocumentStorageError, type StoreProcedureDocument } from "../../ports/procedures/store-document";
-import type { ValidateProcedurePdf } from "../../ports/procedures/validate-pdf";
+import type { CreateProcedureDependencies, CreateProcedureResult } from "./contracts/create-procedure-contract";
 import { ProcedureCreationError } from "./procedure-creation-error";
-
-export type CreateProcedureResult = { readonly status: "CREATED" | "DUPLICATE"; readonly procedure: Procedure };
-export type CreateProcedureDependencies = {
-  readonly validator: ValidateProcedurePdf;
-  readonly storage: StoreProcedureDocument;
-  readonly committer: CommitProcedure;
-  readonly recovery: RecordProcedureRecovery;
-};
 
 export class CreateProcedure {
   public constructor(private readonly dependencies: CreateProcedureDependencies) {}

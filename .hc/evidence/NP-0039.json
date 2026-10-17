@@ -387,17 +387,38 @@
           "branch": "NP-0039",
           "dirty": true
         }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "bfea6c12576c940cf46437bf4ba9f00a8a5726de9d588c6d9ffefc9a47e1fb9e",
+          "source_digest": "61892af78c5a53d916ea7ed705365ccd8ab49db97ca84b723ed94fb46565a26a",
+          "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+          "recorded_at": "2026-10-17T05:12:00.032Z",
+          "git": {
+            "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+            "branch": "NP-0039",
+            "dirty": true
+          }
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "1a0d7c0dbceecdc96b4ad9e2a117313b626abba0d29f99fef29e31243c7239f6",
+      "status": "accepted",
+      "reason": "CTO APPROVED-SYNTHETIC solo para contratos, caso de uso y dobles; no autoriza endpoint, mutaciones, DB, Blob, storage, PDF real ni uso productivo. D-02/D-03/D-08 siguen pendientes.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {
+        "provider": "git-signed-commit",
+        "commit": "b94b873f51addbb23c89e231b3e0fea00e29eda3"
       }
     }
   ],
-  "reviews": [{
-    "id": "REVIEW-01",
-    "fingerprint": "1a0d7c0dbceecdc96b4ad9e2a117313b626abba0d29f99fef29e31243c7239f6",
-    "status": "accepted",
-    "reason": "CTO APPROVED-SYNTHETIC solo para contratos, caso de uso y dobles; no autoriza endpoint, mutaciones, DB, Blob, storage, PDF real ni uso productivo. D-02/D-03/D-08 siguen pendientes.",
-    "approved_by": "camiloj.lopez79@gmail.com",
-    "attestation": {"provider": "git-signed-commit", "commit": "b94b873f51addbb23c89e231b3e0fea00e29eda3"}
-  }],
   "events": [
     {
       "sequence": 1,
@@ -1539,6 +1560,65 @@
         }
       },
       "event_digest": "114c388fe1e66dbe6dd40fe1af26cc6980ddc98b4e42bad7fda85dd8de040cbf"
+    },
+    {
+      "sequence": 32,
+      "type": "REBASELINED",
+      "test_id": "TEST-07",
+      "reason": "Mover las declaraciones de resultado, dependencias y error a módulos de contrato exigidos por quality:contracts",
+      "executed": true,
+      "changed_files": [
+        "src/backend/application/procedures/contracts/",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts"
+      ],
+      "recorded_at": "2026-10-17T05:12:00.034Z",
+      "git": {
+        "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "114c388fe1e66dbe6dd40fe1af26cc6980ddc98b4e42bad7fda85dd8de040cbf",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "bfea6c12576c940cf46437bf4ba9f00a8a5726de9d588c6d9ffefc9a47e1fb9e",
+        "source_digest": "61892af78c5a53d916ea7ed705365ccd8ab49db97ca84b723ed94fb46565a26a",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-17T05:12:00.032Z",
+        "git": {
+          "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "32e65ed2ad01107b21e92553aac7baaaef811806284fa20bea67ab4d6772f034"
+    },
+    {
+      "sequence": 33,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-07",
+      "reason": "TEST-07 has no production change",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        "next-env.d.ts",
+        "playwright.config.ts",
+        "src/backend/application/procedures/contracts/",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts"
+      ],
+      "recorded_at": "2026-10-17T05:13:47.313Z",
+      "git": {
+        "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "32e65ed2ad01107b21e92553aac7baaaef811806284fa20bea67ab4d6772f034",
+      "code": "NO_PRODUCTION_CHANGE",
+      "event_digest": "17497208847fcde82cb1a6ba826ab60f97682ebceb81a44ee26c3acafd724e98"
     }
   ],
   "git_baseline": {
@@ -1547,11 +1627,11 @@
     "branch": "NP-0039"
   },
   "final": {
-    "source_digest": "ad7a2fc519e53ae64fe6633a1b73e39debbd3d0bd3653aa5b43a1f5214af0cf4",
+    "source_digest": "61892af78c5a53d916ea7ed705365ccd8ab49db97ca84b723ed94fb46565a26a",
     "test_suite_digest": "4bf7534d108b5b54794d7f2c0191967925596c6c3065ddaccf10020f16d3f036",
-    "recorded_at": "2026-10-16T23:43:40.950Z",
+    "recorded_at": "2026-10-17T05:12:00.034Z",
     "git": {
-      "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+      "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
       "branch": "NP-0039",
       "dirty": true
     }
