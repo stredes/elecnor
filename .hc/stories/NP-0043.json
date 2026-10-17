@@ -1,0 +1,21 @@
+{
+  "schema_version":"2.0",
+  "story":{
+    "id":"NP-0043","title":"Componer vistas de procedimientos y su estado mediante hooks",
+    "actor":"equipo de frontend","need":"separar catálogo, alta y detalle documental en presentación cohesiva","business_value":"mantener el catálogo sintético usable con componentes y estado verificables",
+    "context":"Anexo NP-0043 en NP-0026-backlog.md. Legacy inspeccionado en procedimientos pages, ProcedureFamilyAccordion, ProcedureForm y YoutubeEmbed.",
+    "preconditions":["Contratos de agrupación y read model sintéticos disponibles","Layout Pages y contratos de NP-0041 disponibles","D-10 sobre medios externos permanece sin aprobación"],
+    "acceptance_criteria":[
+      {"id":"AC-01","given":["familias con variantes, PDF y video opcional"],"when":["se filtra, abre, crea y consulta un procedimiento"],"then":["la apariencia, acordeón, PDF inline y mensajes coinciden","la nueva alta se refleja una vez mediante contrato del servidor"],"test_ids":["TEST-01"]},
+      {"id":"AC-02","given":["errores acumulados, almacenamiento no disponible y respuestas tardías"],"when":["se usa el formulario o cambia el filtro"],"then":["no se pierde el borrador ni se muestra éxito falso","solo la respuesta vigente actualiza el store y se libera el archivo efímero"],"test_ids":["TEST-02"]},
+      {"id":"AC-03","given":["SSR, hooks y componentes del catálogo"],"when":["se validan límites"],"then":["el PDF y API se acceden exclusivamente por Next","componentes no conocen endpoints ni reglas de agrupación/YouTube","stores, props y contratos están separados y no persisten contenido sensible"],"test_ids":["TEST-03"]}
+    ],
+    "business_rules":[{"id":"BR-01","rule":"Video opcional no crea player vacío; las familias y variantes provienen del read model del servidor."}],
+    "edge_cases":["catálogo vacío","sin video","mismo código con título distinto","hidratación de filtros","error acumulado","respuesta tardía","cleanup de archivo efímero"],
+    "out_of_scope":["conectar HTTP/FastAPI real","activar POST mutable","activar Blob/storage real","cargar PDF real","llamar YouTube o miniaturas externas","inventar autorización","añadir dependencias"],
+    "dependencies":["NP-0038","NP-0039","NP-0041"],
+    "non_functional_requirements":[{"id":"NFR-01","rule":"Paridad de presentación, aislamiento de estado por request y contexto, sin persistir contenido sensible en el cliente.","risk_tags":["personal-data","concurrency","persistence","migration"],"test_ids":["TEST-01","TEST-02","TEST-03"],"review_ids":["REVIEW-01"]}],
+    "definition_of_ready":{"ready":false,"evidence":["D-10 y activación documental permanecen pendientes; este slice usa sólo fixtures sintéticas."]},
+    "definition_of_done":["Catálogo, detalle y formulario presentacionales probados","Estado de creación y filtro determinista","Sin endpoints mutables ni medios externos activos"]
+  }
+}

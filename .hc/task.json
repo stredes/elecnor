@@ -1,21 +1,21 @@
 {
   "schema_version":"2.0",
   "task":{
-    "id":"NP-0042","type":"feature","story_path":".hc/stories/NP-0042.json",
+    "id":"NP-0043","type":"feature","story_path":".hc/stories/NP-0043.json",
     "acceptance_criteria":["AC-01","AC-02","AC-03"],
     "change_areas":["domain","application","infrastructure","documentation"],
-    "risk_tags":["concurrency","personal-data","migration"],
+    "risk_tags":["concurrency","personal-data","persistence","migration"],
     "test_plan":[
-      {"test_id":"TEST-01","order":1,"level":"unit","check":"unit","args":["tests/presentation/inspection-views.test.tsx"],"expected_failure":"Failed to resolve import","fixture":"tests/presentation/inspection-views.test.tsx","regression":{"check":"unit","args":[]}},
-      {"test_id":"TEST-02","order":2,"level":"unit","check":"unit","args":["tests/inspections/state/inspection-filter-store.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/inspections/state/inspection-filter-store.test.ts","regression":{"check":"unit","args":[]}},
-      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/inspection-presentation.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/inspection-presentation.test.ts","regression":{"check":"integration","args":[]}}
+      {"test_id":"TEST-01","order":1,"level":"unit","check":"unit","args":["tests/presentation/procedure-catalog.test.tsx"],"expected_failure":"Failed to resolve import","fixture":"tests/presentation/procedure-catalog.test.tsx","regression":{"check":"unit","args":[]}},
+      {"test_id":"TEST-02","order":2,"level":"unit","check":"unit","args":["tests/procedures/state/procedure-create-store.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/procedures/state/procedure-create-store.test.ts","regression":{"check":"unit","args":[]}},
+      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/procedure-presentation.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/procedure-presentation.test.ts","regression":{"check":"integration","args":[]}}
     ]
   },
   "scope":{
-    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0042.json",".hc/evidence/NP-0042.json","src/inspections","src/technicians","pages/inspecciones","pages/tecnicos","tests/presentation","tests/inspections","tests/integration/architecture","docs/np-0042-inspection-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
-    "exclude":["Real data or external HTTP/DB","Activating PUT/DELETE/PDF","New metric or permission rules","Adding dependencies","Persisted state or credentials","Changing official backend contracts"],
-    "related_paths":[".hc","src/backend","src/dashboard","tests","docs","pages","package.json","tsconfig.json"]
+    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0043.json",".hc/evidence/NP-0043.json","src/procedures","pages/procedimientos","src/backend/composition","tests/presentation/procedure-catalog.test.tsx","tests/procedures","tests/integration/architecture/procedure-presentation.test.ts","docs/np-0043-procedure-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
+    "exclude":["Real data or external HTTP/DB","Activating POST/PDF/Blob/video","New grouping or YouTube rules in client","Adding dependencies","Persisted state or credentials","Changing official backend contracts"],
+    "related_paths":[".hc","src/backend","src/dashboard","src/inspections","src/technicians","src/procedures","tests","docs","pages","package.json","tsconfig.json"]
   },
   "constraints":["Brain local 5.0.1","Fixtures synthetic only","No weakening gates","Authored files ≤99 lines","No legacy modification"],
-  "authority":{"allowed":["Create synthetic inspection/detail/technician views","Create dedicated filter and mutation-state contracts","Create deterministic hooks/stores without effects","Document legacy UI inventory and risks"],"forbidden":["Connect real HTTP/DB data","Activate PUT/DELETE/PDF","Invent permissions","Move official calculations into JSX/store","Declare REVIEW-01 approved"]}
+  "authority":{"allowed":["Create synthetic procedure catalog/detail views","Create presentational family, PDF and optional-video contracts","Create deterministic filter/create stores without transport","Document legacy UI inventory, D-10 and risks"],"forbidden":["Connect real HTTP/FastAPI/DB data","Activate POST, Blob, PDF or external video","Move grouping or YouTube rules into JSX/store","Add dependencies","Declare REVIEW-01 approved"]}
 }

@@ -1,0 +1,7 @@
+{
+  "schema_version":"2.0",
+  "task_id":"NP-0043",
+  "cycles":[],
+  "reviews":[{"id":"REVIEW-01","fingerprint":"3d0e5ef5ea9acb6a7ae35a746a355082bc7eff63846202670787a4a5fdaf076d","status":"open","reason":"NP-0043/REVIEW-01 requiere revisión humana del CTO sobre D-10, límites de medios y estado de alta; no es aceptación y no tiene attestation."}],
+  "git_baseline":{"kind":"UNMANAGED_INITIAL","head":"9179836dca48c2ab5ffc9ddc8f5a4c7ca9e52017","branch":"NP-0043"}
+}
