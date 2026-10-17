@@ -1,10 +1,14 @@
 import { MetricCard } from "../components/MetricCard";
 import { ReportLayout } from "../components/ReportLayout";
+import { LegacyMetricsPage } from "../components/LegacyMetricsPage";
 import type { MetricsViewProps } from "../contracts/metrics-view-contract";
 
-export function MetricsView({ snapshot }: MetricsViewProps) {
+export function MetricsView({ snapshot, report }: MetricsViewProps) {
+  if (report) {
+    return <ReportLayout activeRoute="metrics" homeHref="/"><LegacyMetricsPage model={report} /></ReportLayout>;
+  }
   return (
-    <ReportLayout activeRoute="metrics">
+    <ReportLayout activeRoute="metrics" showFooter={false}>
       <header className="dashboard-header">
           <div>
             <p className="eyebrow">ELECNOR · REPORTING</p>

@@ -1,0 +1,7 @@
+import type { LegacyDashboardModel } from "../contracts/legacy-dashboard-contract";
+
+export function LegacyProgressChart({ progress }: { readonly progress: LegacyDashboardModel["progress"] }) {
+  const width = 560; const height = 190; const padding = 28; const step = progress.length > 1 ? (width - padding * 2) / (progress.length - 1) : 0;
+  const points = progress.map((point, index) => ({ ...point, x: padding + index * step, y: height - padding - (point.compliance / 100) * (height - padding * 2) }));
+  return <div className="legacy-progress-chart">{points.length === 0 ? <p className="legacy-empty">Sin períodos comparables.</p> : <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="Línea de cumplimiento promedio por período"><line x1={padding} y1={height - padding} x2={width - padding} y2={height - padding} /><line x1={padding} y1={height - padding - 0.7 * (height - padding * 2)} x2={width - padding} y2={height - padding - 0.7 * (height - padding * 2)} className="legacy-threshold" /><polyline points={points.map((point) => `${point.x},${point.y}`).join(" ")} />{points.map((point) => <a key={point.period} href={`/inspecciones?month=${encodeURIComponent(point.period)}`} aria-label={`${point.period}: ver ${point.inspections} inspecciones`}><circle cx={point.x} cy={point.y} r="6" /><text x={point.x} y={height - 7}>{point.period}</text><text x={point.x} y={Math.max(12, point.y - 12)}>{point.compliance}%</text></a>)}</svg>}</div>;
+}

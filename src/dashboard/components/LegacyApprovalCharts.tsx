@@ -1,0 +1,20 @@
+import { useState } from "react";
+import type { LegacyDashboardModel } from "../contracts/legacy-dashboard-contract";
+import { LegacyDonutChart } from "./LegacyDonutChart";
+import { LegacyReadingGuide } from "./LegacyReadingGuide";
+import { LegacyReportShell } from "./LegacyReportShell";
+
+export function LegacyApprovalCharts({ model }: { readonly model: LegacyDashboardModel }) {
+  const results = model.sectionInspections;
+  const [selected, setSelected] = useState("");
+  const isAll = selected === "__all__";
+  const current = results.find((item) => item.name === selected) ?? results[0];
+  const section = model.sections.find((item) => item.name === current?.name);
+  const slices = isAll ? results.map((item, index) => ({ label: formatName(item.name), value: item.approved, color: palette[index % palette.length], display: `${item.approved} aprobadas` })) : section?.metrics.length ? section.metrics.map((metric, index) => ({ label: metric.metric, value: metric.compliance ?? 0, color: palette[index % palette.length], display: formatPercentage(metric.compliance) })) : current ? [{ label: "Aprobadas", value: current.approved, color: "var(--hc-azul)", display: `${current.approved} inspecciones` }, { label: `Bajo ${current.approvalThreshold}%`, value: current.belowThreshold, color: "var(--hc-danger)", display: `${current.belowThreshold} inspecciones` }] : [];
+  const reveal = current ? `${formatName(current.name)} alcanza ${formatPercentage(current.approvalPercentage)}.` : "Sin datos por inspección para comparar.";
+  return <LegacyReportShell index="4" title="Inspecciones aprobadas por sección" lead={`De las ${model.kpis.inspeccionesUnicas} inspecciones, contamos cuántas aprobaron cada sección. Cada inspección cuenta una sola vez por sección.`}><div className="legacy-approval-card"><label>Checklist a revisar<select value={isAll ? "__all__" : current?.name ?? ""} onChange={(event) => setSelected(event.target.value)}><option value="__all__">Todas las inspecciones</option>{results.map((item) => <option key={item.name} value={item.name}>Checklist {formatName(item.name)}</option>)}</select></label><p className="legacy-chart-value">{isAll ? `${results.reduce((sum, item) => sum + item.approved, 0)} aprobaciones en total · ${results.length} secciones` : formatPercentage(current?.approvalPercentage ?? null)}</p><LegacyDonutChart title="Aprobaciones por sección" label="Aprobaciones de inspecciones por sección" slices={slices} />{isAll && <p className="legacy-chart-note">Cada inspección puede aprobar varias secciones: los tramos muestran aportes, no inspecciones únicas.</p>}{!isAll && current?.notEvaluated ? <p className="legacy-chart-note">Fuera del cálculo: {current.notEvaluated} inspecciones no incluyen esta sección.</p> : null}</div><div className="legacy-chart-panel"><h3>Inspecciones aprobadas en cada sección</h3><p>Porcentaje de inspecciones aprobadas sobre las inspecciones que evalúan cada sección.</p><ul>{[...results].sort((left, right) => left.approvalPercentage - right.approvalPercentage).map((item) => <li key={item.name}><span><b>{formatName(item.name)}</b><strong>{formatPercentage(item.approvalPercentage)}</strong></span><i><em className={item.approvalPercentage < item.approvalThreshold ? "is-danger" : undefined} style={{ width: `${item.approvalPercentage}%` }} /></i><small>{item.belowThreshold} bajo {item.approvalThreshold}% · {item.notEvaluated} sin evaluación en esta sección</small></li>)}</ul></div><LegacyReadingGuide title="Cómo contamos las inspecciones" how={`Una inspección aprueba una sección si cumple al menos el ${current?.approvalThreshold ?? 70}% de sus ítems aplicables.`} reveals={reveal} /></LegacyReportShell>;
+}
+
+const palette = ["#1d3b86", "#3162de", "#5b8def", "#94d1d6", "#3aa6a0"];
+function formatName(value: string): string { return value.split(/\s+/u).map((word) => word ? word[0].toUpperCase() + word.slice(1) : word).join(" "); }
+function formatPercentage(value: number | null): string { return value === null ? "—" : `${value.toFixed(2)}%`; }
