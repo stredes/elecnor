@@ -186,7 +186,12 @@
       }
     }
   ],
-  "reviews": [],
+  "reviews": [{
+    "id": "REVIEW-01",
+    "fingerprint": "1036c7614cd23bbba459643d7f834eb1343e73dc3c5455ced2e275ca9e3f0a94",
+    "status": "open",
+    "reason": "CTO CHANGES-REQUESTED: `authorizeDownload` does not detect symlinks escaping the root; no real download or mutation is authorized."
+  }],
   "events": [
     {
       "sequence": 1,
