@@ -54,6 +54,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/dashboard/state/metric-selection-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "c9ef508f61596db8d54ee5ebff37f33fb312160f844bd36f94daf485750bff02",
+        "source_digest": "6fc14bcf66cd300fb96f056d7225140d327a251da6c4d001d8e4607ddec8b97c",
+        "test_digest": "1f586a9160ba1ce666f0d29dd7def045a4ef9758a85eab55a82dc84de78ebfa1",
+        "recorded_at": "2026-10-17T00:17:09.632Z",
+        "git": {
+          "head": "5ab552783d0284ec672678f25b538789a96a419d",
+          "branch": "NP-0041",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/dashboard/state/metric-selection-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d71e5a796cc8b17bcc7994c20d23234e4ede8c83e6369c09186495dc2874ac3b",
+        "source_digest": "c0d7f3390861a28d7b8d469d9bd34646b178fa8fb1788c243f93c17598a817e5",
+        "test_digest": "1f586a9160ba1ce666f0d29dd7def045a4ef9758a85eab55a82dc84de78ebfa1",
+        "recorded_at": "2026-10-17T00:17:35.225Z",
+        "git": {
+          "head": "5ab552783d0284ec672678f25b538789a96a419d",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2f670eff4408fc6b9c631f6f92bfa147a6c1ce9f55cf2f836f543851c8f114c0",
+        "source_digest": "c0d7f3390861a28d7b8d469d9bd34646b178fa8fb1788c243f93c17598a817e5",
+        "test_digest": "1f586a9160ba1ce666f0d29dd7def045a4ef9758a85eab55a82dc84de78ebfa1",
+        "recorded_at": "2026-10-17T00:17:46.299Z",
+        "git": {
+          "head": "5ab552783d0284ec672678f25b538789a96a419d",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      }
     }
   ],
   "git_baseline": {
@@ -182,14 +235,122 @@
         }
       },
       "event_digest": "e18364861159b631715c3cc9b9886e10f6b489ffa860cc4e929a11f7db2b8c72"
+    },
+    {
+      "sequence": 4,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/dashboard/"
+      ],
+      "recorded_at": "2026-10-17T00:17:09.633Z",
+      "git": {
+        "head": "5ab552783d0284ec672678f25b538789a96a419d",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "e18364861159b631715c3cc9b9886e10f6b489ffa860cc4e929a11f7db2b8c72",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/dashboard/state/metric-selection-store.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "c9ef508f61596db8d54ee5ebff37f33fb312160f844bd36f94daf485750bff02",
+        "source_digest": "6fc14bcf66cd300fb96f056d7225140d327a251da6c4d001d8e4607ddec8b97c",
+        "test_digest": "1f586a9160ba1ce666f0d29dd7def045a4ef9758a85eab55a82dc84de78ebfa1",
+        "recorded_at": "2026-10-17T00:17:09.632Z",
+        "git": {
+          "head": "5ab552783d0284ec672678f25b538789a96a419d",
+          "branch": "NP-0041",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "b53d3daebf90fc0735efafe5f3617894f9336bd3b807528c33c1d4204ca95617"
+    },
+    {
+      "sequence": 5,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        "src/dashboard/state/",
+        "tests/dashboard/"
+      ],
+      "recorded_at": "2026-10-17T00:17:35.226Z",
+      "git": {
+        "head": "5ab552783d0284ec672678f25b538789a96a419d",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "b53d3daebf90fc0735efafe5f3617894f9336bd3b807528c33c1d4204ca95617",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/dashboard/state/metric-selection-store.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "d71e5a796cc8b17bcc7994c20d23234e4ede8c83e6369c09186495dc2874ac3b",
+        "source_digest": "c0d7f3390861a28d7b8d469d9bd34646b178fa8fb1788c243f93c17598a817e5",
+        "test_digest": "1f586a9160ba1ce666f0d29dd7def045a4ef9758a85eab55a82dc84de78ebfa1",
+        "recorded_at": "2026-10-17T00:17:35.225Z",
+        "git": {
+          "head": "5ab552783d0284ec672678f25b538789a96a419d",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      },
+      "event_digest": "2d9b858fcbfeca511d70df4a92e1b6ef283f9cbeae4c00505c196ecee1fae524"
+    },
+    {
+      "sequence": 6,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0041.json",
+        "src/dashboard/state/",
+        "tests/dashboard/"
+      ],
+      "recorded_at": "2026-10-17T00:17:46.302Z",
+      "git": {
+        "head": "5ab552783d0284ec672678f25b538789a96a419d",
+        "branch": "NP-0041",
+        "dirty": true
+      },
+      "previous_event_digest": "2d9b858fcbfeca511d70df4a92e1b6ef283f9cbeae4c00505c196ecee1fae524",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2f670eff4408fc6b9c631f6f92bfa147a6c1ce9f55cf2f836f543851c8f114c0",
+        "source_digest": "c0d7f3390861a28d7b8d469d9bd34646b178fa8fb1788c243f93c17598a817e5",
+        "test_digest": "1f586a9160ba1ce666f0d29dd7def045a4ef9758a85eab55a82dc84de78ebfa1",
+        "recorded_at": "2026-10-17T00:17:46.299Z",
+        "git": {
+          "head": "5ab552783d0284ec672678f25b538789a96a419d",
+          "branch": "NP-0041",
+          "dirty": true
+        }
+      },
+      "event_digest": "e4c9dbc7d072fd15c6ae6b5558344670ef9821e12b748cea63f982bd13139c63"
     }
   ],
   "final": {
-    "source_digest": "6fc14bcf66cd300fb96f056d7225140d327a251da6c4d001d8e4607ddec8b97c",
-    "test_suite_digest": "41d6388f42ec4debad5529eece51583b032e447ed982061e2ceed0eaf15527d8",
-    "recorded_at": "2026-10-17T00:16:46.681Z",
+    "source_digest": "c0d7f3390861a28d7b8d469d9bd34646b178fa8fb1788c243f93c17598a817e5",
+    "test_suite_digest": "a93f59cc1596e7cac1c2f787c5e6f61da793dca01ef220e771bd120ac420b5d0",
+    "recorded_at": "2026-10-17T00:17:46.301Z",
     "git": {
-      "head": "eed6cd93b73796489ff45d4206c6fcbc09245f8c",
+      "head": "5ab552783d0284ec672678f25b538789a96a419d",
       "branch": "NP-0041",
       "dirty": true
     }
