@@ -778,7 +778,7 @@
   "reviews": [
     {
       "id": "REVIEW-01",
-      "fingerprint": "58aee00966dc6de5b935894c52c6e3a9dfc7b41e66b0f415ff2e0a29f8a398b7",
+      "fingerprint": "2ad3fbbad341f147e3db66bc60db528b6f7e4607478196415a009f237ee5e920",
       "status": "open",
       "reason": "El CTO autorizó explícitamente por chat incluir el mapa y cuatro logos estáticos en el scope. REVIEW-01 sigue abierta para re-review formal; esta autorización no equivale a aceptación."
     }
