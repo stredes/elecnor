@@ -212,8 +212,13 @@
     {
       "id": "REVIEW-01",
       "fingerprint": "fb7960d4cd17a92fa034384f4b7671a557afac7388bbe299cf4d0173a75231e3",
-      "status": "open",
-      "reason": "NP-0042/REVIEW-01 requiere revisión humana del CTO; este registro no es aceptación y no tiene attestation."
+      "status": "accepted",
+      "reason": "Aceptación CTO limitada a Development sintético; no autoriza producción, mutaciones ni activación real.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {
+        "provider": "git-signed-commit",
+        "commit": "90e09d83e1954f76f973363acb3ee7706fed2718"
+      }
     }
   ],
   "git_baseline": {
