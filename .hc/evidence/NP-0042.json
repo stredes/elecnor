@@ -2,6 +2,6 @@
   "schema_version":"2.0",
   "task_id":"NP-0042",
   "cycles":[],
-  "reviews":[],
+  "reviews":[{"id":"REVIEW-01","fingerprint":"fb7960d4cd17a92fa034384f4b7671a557afac7388bbe299cf4d0173a75231e3","status":"open","reason":"NP-0042/REVIEW-01 requiere revisión humana del CTO; este registro no es aceptación y no tiene attestation."}],
   "git_baseline":{"kind":"UNMANAGED_INITIAL","head":"cb5d356b6e5b9cc38ca2b2c581ca4e09d3e5e50b","branch":"NP-0042"}
 }

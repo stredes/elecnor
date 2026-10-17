@@ -29,3 +29,10 @@ fixtures sintéticas y no activa clientes HTTP, PUT/DELETE, PDF, permisos ni DB.
 - El foco debe volver al disparador; Escape y error de mutación no pueden cerrar
   ni navegar como si hubiera éxito.
 - D-03 y REVIEW-01 siguen pendientes; no se inventan autorización ni efectos.
+
+## Solicitud de revisión CTO
+
+`NP-0042/REVIEW-01` queda abierta para revisión del CTO sobre límites de estado,
+aislamiento SSR, carreras de filtros y ausencia de mutaciones activas. La
+solicitud se versiona junto con `.hc/evidence/NP-0042.json`; no contiene firma,
+aprobación ni attestation.
