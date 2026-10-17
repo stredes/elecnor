@@ -707,7 +707,12 @@
       "event_digest": "27686b0177d96551a628b7f376059064f5a5d7d1e901134a193bb0948f5208fd"
     }
   ],
-  "reviews": [],
+  "reviews": [{
+    "id": "REVIEW-01",
+    "fingerprint": "58aee00966dc6de5b935894c52c6e3a9dfc7b41e66b0f415ff2e0a29f8a398b7",
+    "status": "open",
+    "reason": "CTO CHANGES-REQUESTED: cinco assets en `public/` exceden el scope NP-0041; deben retirarse o autorizarse explícitamente antes del cierre."
+  }],
   "final": {
     "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
     "test_suite_digest": "6986d4cd06a86febb2c8b9f3132dae075fbb16c74e81597e781fcd3ee9835b9a",
