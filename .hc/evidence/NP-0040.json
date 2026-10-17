@@ -235,8 +235,10 @@
     {
       "id": "REVIEW-01",
       "fingerprint": "5f7d909676490bae8d3d03d7eb27460a86c1cede60b6da79c3783d2d7e1d24a4",
-      "status": "open",
-      "reason": "E2E TEST-04 ahora valida un consumidor Next sintético y celda text '=SUM(A1)'. REVIEW-01 sigue abierta para re-review; no demuestra escaping OOXML ni autoriza XLSX real, endpoint, storage o producción."
+      "status": "accepted",
+      "reason": "CTO APPROVED-SYNTHETIC: snapshot, puerto, MemoryReportRenderer y TEST-04 con celda text '=SUM(A1)' en consumidor Next solo no-productivo. No demuestra escaping OOXML ni autoriza XLSX real, endpoint, storage o producción.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {"provider": "git-signed-commit", "commit": "7532497aeae9a8884940908bb8a9bbffd49574e9"}
     }
   ],
   "events": [
