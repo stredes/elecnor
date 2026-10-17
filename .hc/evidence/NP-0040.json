@@ -227,6 +227,20 @@
             "branch": "NP-0040",
             "dirty": true
           }
+        },
+        {
+          "check": "e2e",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "d69a06a4c46f8b2135a87dfa2cfe2ab561bb887976edbdd7bf4a71633edf8354",
+          "source_digest": "01536c6cff0f848c2b7e7125df2946f5526488980a359376e9500b206f957190",
+          "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+          "recorded_at": "2026-10-17T14:51:04.812Z",
+          "git": {
+            "head": "f7984bd129bdee2623703ef6052897f51770525f",
+            "branch": "NP-0040",
+            "dirty": false
+          }
         }
       ]
     }
@@ -238,7 +252,10 @@
       "status": "accepted",
       "reason": "CTO APPROVED-SYNTHETIC: snapshot, puerto, MemoryReportRenderer y TEST-04 con celda text '=SUM(A1)' en consumidor Next solo no-productivo. No demuestra escaping OOXML ni autoriza XLSX real, endpoint, storage o producción.",
       "approved_by": "camiloj.lopez79@gmail.com",
-      "attestation": {"provider": "git-signed-commit", "commit": "7532497aeae9a8884940908bb8a9bbffd49574e9"}
+      "attestation": {
+        "provider": "git-signed-commit",
+        "commit": "7532497aeae9a8884940908bb8a9bbffd49574e9"
+      }
     }
   ],
   "events": [
@@ -805,6 +822,37 @@
         }
       },
       "event_digest": "0e0163cd70be0588c4783ba70fa9f6975a921e256a18b0e0d352230924517618"
+    },
+    {
+      "sequence": 17,
+      "type": "REBASELINED",
+      "test_id": "TEST-04",
+      "reason": "Rebaseline integration after merging CTO-approved NP-0038/NP-0039 route changes and current Development; NP-0040 E2E fixture remains unchanged and passes.",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-17T14:51:04.817Z",
+      "git": {
+        "head": "f7984bd129bdee2623703ef6052897f51770525f",
+        "branch": "NP-0040",
+        "dirty": false
+      },
+      "previous_event_digest": "0e0163cd70be0588c4783ba70fa9f6975a921e256a18b0e0d352230924517618",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d69a06a4c46f8b2135a87dfa2cfe2ab561bb887976edbdd7bf4a71633edf8354",
+        "source_digest": "01536c6cff0f848c2b7e7125df2946f5526488980a359376e9500b206f957190",
+        "test_digest": "35eecf1af70438fb3cf912d8cdf4a1be2c5b1636725d3363671ecd6f8faae584",
+        "recorded_at": "2026-10-17T14:51:04.812Z",
+        "git": {
+          "head": "f7984bd129bdee2623703ef6052897f51770525f",
+          "branch": "NP-0040",
+          "dirty": false
+        }
+      },
+      "event_digest": "09c738bc1e5e1a392a75fff0c96b37766e9f55064705ea11291d8b5bc3d076bb"
     }
   ],
   "git_baseline": {
@@ -813,13 +861,13 @@
     "branch": "NP-0040"
   },
   "final": {
-    "source_digest": "6dcbf0824206c639328ff2af1ca99ca129a68f6323bfaba5fb6948331505b0e4",
-    "test_suite_digest": "5eafd111d972c0c0e16ef4005d240a664a9ffaf8a535fd109809a656507e0e25",
-    "recorded_at": "2026-10-17T12:34:01.444Z",
+    "source_digest": "01536c6cff0f848c2b7e7125df2946f5526488980a359376e9500b206f957190",
+    "test_suite_digest": "1e474f5fd5d9002b5a9ef6d77b2a1bd5e941d1b5acb9631f2a088610ab701f92",
+    "recorded_at": "2026-10-17T14:51:04.817Z",
     "git": {
-      "head": "eeaa509a0a68a18f3fc69d11f7ed7aa75b5cd9bc",
+      "head": "f7984bd129bdee2623703ef6052897f51770525f",
       "branch": "NP-0040",
-      "dirty": true
+      "dirty": false
     }
   }
 }
