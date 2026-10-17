@@ -12,7 +12,7 @@
     ]
   },
   "scope":{
-    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0042.json",".hc/evidence/NP-0042.json","src/inspections","src/technicians","pages/inspecciones","pages/tecnicos","tests/presentation","tests/inspections","tests/integration/architecture","docs/np-0042-inspection-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
+    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0042.json",".hc/evidence/NP-0042.json","src/inspections","src/technicians","pages/inspecciones","pages/tecnicos","tests/presentation","tests/inspections","tests/integration/architecture","docs/np-0042-inspection-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts","playwright.config.ts"],
     "exclude":["Real data or external HTTP/DB","Activating PUT/DELETE/PDF","New metric or permission rules","Adding dependencies","Persisted state or credentials","Changing official backend contracts"],
     "related_paths":[".hc","src/backend","src/dashboard","tests","docs","pages","package.json","tsconfig.json"]
   },
