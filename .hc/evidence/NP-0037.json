@@ -243,8 +243,10 @@
     {
       "id": "REVIEW-01",
       "fingerprint": "44f85f1e28919dcc944d0eec54d04c74949925282526a609608a5603104526ac",
-      "status": "open",
-      "reason": "Se agregó resolución canónica inyectada y prueba de symlink escapado. REVIEW-01 sigue abierta para re-review formal; no se habilitan descarga, mutación ni storage real."
+      "status": "accepted",
+      "reason": "CTO APPROVED-SYNTHETIC: política de confinamiento con resolver canónico inyectado y regresión sintética de symlink. No autoriza filesystem adapter, handler, descarga, mutación ni storage real; D-03/D-08 continúan bloqueantes.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {"provider": "git-signed-commit", "commit": "8c25621afc2333c1994544771acdb031b625212b"}
     }
   ],
   "events": [
