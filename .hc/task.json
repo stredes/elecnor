@@ -12,7 +12,7 @@
     ]
   },
   "scope":{
-    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0043.json",".hc/evidence/NP-0043.json","src/procedures","src/backend/domain/procedures","pages/procedimientos","src/backend/composition","tests/presentation/procedure-catalog.test.tsx","tests/procedures","tests/integration/architecture/procedure-presentation.test.ts","docs/np-0043-procedure-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts"],
+    "include":[".hc/project.json",".hc/task.json",".hc/stories/NP-0043.json",".hc/evidence/NP-0043.json","src/procedures","src/backend/domain/procedures","pages/procedimientos","src/backend/composition","tests/presentation/procedure-catalog.test.tsx","tests/procedures","tests/integration/architecture/procedure-presentation.test.ts","docs/np-0043-procedure-presentation.md","AGENTS.md","package.json","tsconfig.json","vitest.config.ts","public/"],
     "exclude":["Real data or external HTTP/DB","Activating POST/PDF/Blob/video","New grouping or YouTube rules in client","Adding dependencies","Persisted state or credentials","Changing official backend contracts"],
     "related_paths":[".hc","src/backend","src/dashboard","src/inspections","src/technicians","src/procedures","tests","docs","pages","package.json","tsconfig.json"]
   },
