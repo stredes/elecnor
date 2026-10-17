@@ -162,7 +162,12 @@
       }
     }
   ],
-  "reviews": [],
+  "reviews": [{
+    "id": "REVIEW-01",
+    "fingerprint": "9aee49e9a0a167144fc96be174a6d4c5469dfdff017bcc72690339f831c6f5e9",
+    "status": "open",
+    "reason": "CTO deja REVIEW-01 abierta: NFR-01 requiere evidencia E2E y el renderer OOXML/fórmula no está probado; solo alcance sintético."
+  }],
   "events": [
     {
       "sequence": 1,
