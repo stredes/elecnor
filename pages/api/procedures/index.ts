@@ -3,6 +3,8 @@ import { procedureQuery } from "@/backend/composition/procedures";
 import { toPublicProcedureList } from "@/backend/adapters/inbound/procedure-response";
 import type { ProcedureErrorResponse, PublicProcedureList } from "@/backend/adapters/inbound/procedure-response-contract";
 
+export const config = { api: { bodyParser: false } };
+
 export default async function procedures(
   request: NextApiRequest,
   response: NextApiResponse<PublicProcedureList | ProcedureErrorResponse>,

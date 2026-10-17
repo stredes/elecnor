@@ -1,0 +1,1639 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0039",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/application/procedures/create-procedure.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a27dc575701116d1540f90d4349f9c40e9e99c3b64531af7c93242b709f432aa",
+        "source_digest": "73ec8963f2f25d25b135fbd33fd6fe65be625773eddf60c6ae9238f586969f00",
+        "test_digest": "7f7804685a719f1b230756257ef908e3b83c6af48f47f08dc168de03cb50c4a9",
+        "recorded_at": "2026-10-16T22:38:10.324Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "validator down"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/application/procedures/create-procedure.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "905e07d5b9ed08e873244b4bd6e0479043baf63bf4c0c4033697cfbb6643b57f",
+        "source_digest": "f88f08eba2d02c90572cfcdea81d61869206c1f15424216b5c64696c76271424",
+        "test_digest": "7f7804685a719f1b230756257ef908e3b83c6af48f47f08dc168de03cb50c4a9",
+        "recorded_at": "2026-10-16T22:38:15.552Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d0e00820233d9e4ad23afcdd0aae510b999dc9bb388c5d1cca2aa449e021c7ca",
+        "source_digest": "f88f08eba2d02c90572cfcdea81d61869206c1f15424216b5c64696c76271424",
+        "test_digest": "7f7804685a719f1b230756257ef908e3b83c6af48f47f08dc168de03cb50c4a9",
+        "recorded_at": "2026-10-16T22:38:25.146Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/compensation-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "f648f4d32324b54db9bb032a1f8e77e54933b3bd0c40a5f350bfff2e447eb770",
+        "source_digest": "f88f08eba2d02c90572cfcdea81d61869206c1f15424216b5c64696c76271424",
+        "test_digest": "22321119593d881b53375d2d3dd57b70ac9254a77431c84d8534340f336f699f",
+        "recorded_at": "2026-10-16T22:39:22.219Z",
+        "git": {
+          "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNCERTAIN"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/compensation-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9f6119e6b9850a3661cdb0ff3da066127d50f0dcba3c7d35159a9a909d4d43de",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "22321119593d881b53375d2d3dd57b70ac9254a77431c84d8534340f336f699f",
+        "recorded_at": "2026-10-16T22:39:36.256Z",
+        "git": {
+          "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "ae93ce37a46ed9af08946cec58a0404e78ba672496ad0e36adfdf662e695096c",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "22321119593d881b53375d2d3dd57b70ac9254a77431c84d8534340f336f699f",
+        "recorded_at": "2026-10-16T22:39:43.918Z",
+        "git": {
+          "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d97c569037b34b5a3a339f0af88f55d57b0911538ea5ce9acc3fad1d0a091d8f",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:44.584Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "8dfa56dae4c02527bae0ea0df868edd1867ae06203e72d9a8c5b094adc1c5409",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:56.224Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "686c0ada0d27f5d1e808213bff333b0d09ba8300030c8af910c212e567f78a3d",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:43:04.597Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "88533ad48e0e8d00c03f0ffbba214d268d46fe4c80b76b26e1923da86ee08247",
+          "source_digest": "f69de3f794fd157a96922fe69c179615343f5ffe18e07bd000a93e2cbf9c225e",
+          "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+          "recorded_at": "2026-10-16T22:44:54.101Z",
+          "git": {
+            "head": "4e4a76ab2672a42b2aab227caaf351934595ee93",
+            "branch": "NP-0039",
+            "dirty": true
+          }
+        }
+      ]
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0039-safety.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "dbfaf178ee6fa1dcf1c73192c9bd1be660ea737372102ef18368df5fb932ffbe",
+        "source_digest": "f69de3f794fd157a96922fe69c179615343f5ffe18e07bd000a93e2cbf9c225e",
+        "test_digest": "f87597150fb3cd7039328d8412b29adf9c4e23e82963b11d63d40f65d8b62250",
+        "recorded_at": "2026-10-16T22:48:05.864Z",
+        "git": {
+          "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "Received: 413"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0039-safety.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "051c7ec974266bd083f17504918344883518cb2d9fbcb8f29906d7576d09297b",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "f87597150fb3cd7039328d8412b29adf9c4e23e82963b11d63d40f65d8b62250",
+        "recorded_at": "2026-10-16T22:48:12.767Z",
+        "git": {
+          "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2b6f3899a66038fa707bb1d9325865444f17b3f5bdc239ecce62cf42becab832",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "f87597150fb3cd7039328d8412b29adf9c4e23e82963b11d63d40f65d8b62250",
+        "recorded_at": "2026-10-16T22:48:18.998Z",
+        "git": {
+          "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-05",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "56749493619f05bffc58372a80b4183b09dbe2056eb1b1d183befd70ad476620",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:18.451Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "40a1f6d337f49a28acd248a0a458b812a03c49399c26fd758ca99d13c14bf967",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:31.118Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "248e6f64dace91e26deca4c0bc1810a287942c3c86e39e97bb99f86b12c718b5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:44.595Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-06",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "efe751ce339ade0ec1b11ad067a57d1536af4602706b489f7b7aca65909dcee5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:17.175Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNCERTAIN"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a790a9a3313147159c3f0fdb6f7209ebac11996094c11d2563ecd9098235d760",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:45.236Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "5b6442e6568b600f1c1f6308d1a3b5dcd3b2c2b626b6168bb8dfbbefe87c4c74",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:57.850Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-07",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-failure-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "edd82f59909a32f0e816423e8989d31ea4b91c60c1f251d0a18bddcc5c65aefd",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-16T23:43:14.271Z",
+        "git": {
+          "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNAVAILABLE"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-failure-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "99c37f4023f7b7423c7c85ddc0f111693b720d11291b4015e11c36294e3d305c",
+        "source_digest": "ad7a2fc519e53ae64fe6633a1b73e39debbd3d0bd3653aa5b43a1f5214af0cf4",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-16T23:43:28.013Z",
+        "git": {
+          "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "0995f8907f9ab16f879aaf75a647dc64cfdf77438b97651f354693d0ba964282",
+        "source_digest": "ad7a2fc519e53ae64fe6633a1b73e39debbd3d0bd3653aa5b43a1f5214af0cf4",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-16T23:43:40.946Z",
+        "git": {
+          "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "bfea6c12576c940cf46437bf4ba9f00a8a5726de9d588c6d9ffefc9a47e1fb9e",
+          "source_digest": "61892af78c5a53d916ea7ed705365ccd8ab49db97ca84b723ed94fb46565a26a",
+          "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+          "recorded_at": "2026-10-17T05:12:00.032Z",
+          "git": {
+            "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+            "branch": "NP-0039",
+            "dirty": true
+          }
+        }
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "1a0d7c0dbceecdc96b4ad9e2a117313b626abba0d29f99fef29e31243c7239f6",
+      "status": "accepted",
+      "reason": "CTO APPROVED-SYNTHETIC solo para contratos, caso de uso y dobles; no autoriza endpoint, mutaciones, DB, Blob, storage, PDF real ni uso productivo. D-02/D-03/D-08 siguen pendientes.",
+      "approved_by": "camiloj.lopez79@gmail.com",
+      "attestation": {
+        "provider": "git-signed-commit",
+        "commit": "b94b873f51addbb23c89e231b3e0fea00e29eda3"
+      }
+    }
+  ],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:36:26.675Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/procedures/create-procedure.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1c6a28dd9e51f592ec78ecfd0ec73e43c458784918fb6b991d16fbea4e2869db",
+        "source_digest": "45199236a0c22b9f3f26b34113c6cc74bfba77fd35f083cc7501a9aa7d8856c5",
+        "test_digest": "d9a7cbbce3bde40df81e9b2cdac69ace36deea0cbba7b7bcbaa454c962406ddf",
+        "recorded_at": "2026-10-16T22:36:26.675Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "da363d4a6409f7f2de41597d633a8ef5791a5fb9d793278eb3214a8468283ad1"
+    },
+    {
+      "sequence": 2,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "TEST-01 must record REFACTOR before the next RED",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:36:28.414Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "da363d4a6409f7f2de41597d633a8ef5791a5fb9d793278eb3214a8468283ad1",
+      "code": "PREVIOUS_REFACTOR_REQUIRED",
+      "event_digest": "b89c29013191e5ea61f4ae71d9e035851773fef7b1e3cca32811203255ebaeb0"
+    },
+    {
+      "sequence": 3,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 changed between RED and GREEN",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:37:04.135Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "b89c29013191e5ea61f4ae71d9e035851773fef7b1e3cca32811203255ebaeb0",
+      "code": "TEST_CHANGED_AFTER_RED",
+      "event_digest": "e749ddb019addc82cd3d36463fb1b0d3562a26c04eb6cdf7b42ded5d50bb9160"
+    },
+    {
+      "sequence": 4,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:37:20.213Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "e749ddb019addc82cd3d36463fb1b0d3562a26c04eb6cdf7b42ded5d50bb9160",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/procedures/create-procedure.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "adb71a14e6964feaeb5c2908f5f3dbfa49bf5ad643dde4939b5d5dd572117ce5",
+        "source_digest": "643a2d7e8981f1408e2535ae23d30d535bec8d6d7100b6f305cf983e26a75130",
+        "test_digest": "d9a7cbbce3bde40df81e9b2cdac69ace36deea0cbba7b7bcbaa454c962406ddf",
+        "recorded_at": "2026-10-16T22:37:20.212Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "6d2605b80322e3b060fdcd6cc5a7dcb7856a110bb448e878d25dce6972578ec8"
+    },
+    {
+      "sequence": 5,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 changed during REFACTOR",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:37:45.246Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "6d2605b80322e3b060fdcd6cc5a7dcb7856a110bb448e878d25dce6972578ec8",
+      "code": "TEST_CHANGED_DURING_REFACTOR",
+      "event_digest": "d966e91cc551b138f293089ffa6b28237e2fff578c13476731560f9c2cfddb20"
+    },
+    {
+      "sequence": 6,
+      "type": "CYCLE_RESTARTED",
+      "test_id": "TEST-01",
+      "reason": "Initial GREEN exposed a test-only type correction; restart with the service-unavailable behavior in the RED scenario.",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:37:56.343Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "d966e91cc551b138f293089ffa6b28237e2fff578c13476731560f9c2cfddb20",
+      "event_digest": "bb7ab479d0ef5d340f8bdc5d53c0b0b39ae7b6e0a5be766cce3a388c4d4cf377"
+    },
+    {
+      "sequence": 7,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 does not match its planned RED reason",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:38:04.486Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "bb7ab479d0ef5d340f8bdc5d53c0b0b39ae7b6e0a5be766cce3a388c4d4cf377",
+      "code": "PLANNED_RED_MISMATCH",
+      "event_digest": "7b0d71cb3ded01d39f0047824e720ec6bd6cb85ce975245d64a6a1dc513a630c"
+    },
+    {
+      "sequence": 8,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "validator down",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:38:10.325Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "7b0d71cb3ded01d39f0047824e720ec6bd6cb85ce975245d64a6a1dc513a630c",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/procedures/create-procedure.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a27dc575701116d1540f90d4349f9c40e9e99c3b64531af7c93242b709f432aa",
+        "source_digest": "73ec8963f2f25d25b135fbd33fd6fe65be625773eddf60c6ae9238f586969f00",
+        "test_digest": "7f7804685a719f1b230756257ef908e3b83c6af48f47f08dc168de03cb50c4a9",
+        "recorded_at": "2026-10-16T22:38:10.324Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "validator down"
+      },
+      "event_digest": "61d78d31cd495643a8d12f3a588535ceb0436960f903cf826c81ee7e44c5f54e"
+    },
+    {
+      "sequence": 9,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:38:15.553Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "61d78d31cd495643a8d12f3a588535ceb0436960f903cf826c81ee7e44c5f54e",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/application/procedures/create-procedure.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "905e07d5b9ed08e873244b4bd6e0479043baf63bf4c0c4033697cfbb6643b57f",
+        "source_digest": "f88f08eba2d02c90572cfcdea81d61869206c1f15424216b5c64696c76271424",
+        "test_digest": "7f7804685a719f1b230756257ef908e3b83c6af48f47f08dc168de03cb50c4a9",
+        "recorded_at": "2026-10-16T22:38:15.552Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "9c8a8578ef766af6e38e81cfbff47eb6628c2df1c6175e69f0662f99fc6dfdbc"
+    },
+    {
+      "sequence": 10,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:38:25.154Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "9c8a8578ef766af6e38e81cfbff47eb6628c2df1c6175e69f0662f99fc6dfdbc",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d0e00820233d9e4ad23afcdd0aae510b999dc9bb388c5d1cca2aa449e021c7ca",
+        "source_digest": "f88f08eba2d02c90572cfcdea81d61869206c1f15424216b5c64696c76271424",
+        "test_digest": "7f7804685a719f1b230756257ef908e3b83c6af48f47f08dc168de03cb50c4a9",
+        "recorded_at": "2026-10-16T22:38:25.146Z",
+        "git": {
+          "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "02964ce0871969f3e4fabc915111e6738fcc26fff80316c6b200a1345a898cc8"
+    },
+    {
+      "sequence": 11,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "production files remain uncommitted: src/backend/adapters/outbound/memory-procedure-creation.ts, src/backend/application/procedures/create-procedure.ts, src/backend/application/procedures/procedure-creation-error.ts, src/backend/domain/procedures/create-procedure-contract.ts, src/backend/ports/procedures/commit-procedure.ts, src/backend/ports/procedures/record-recovery.ts, src/backend/ports/procedures/store-document.ts, src/backend/ports/procedures/validate-pdf.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts",
+        "src/backend/domain/procedures/create-procedure-contract.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts",
+        "src/backend/ports/procedures/validate-pdf.ts",
+        "tests/application/procedures/",
+        "tests/integration/architecture/procedure-creation.test.ts",
+        "tests/integration/procedures/compensation-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:38:51.516Z",
+      "git": {
+        "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "02964ce0871969f3e4fabc915111e6738fcc26fff80316c6b200a1345a898cc8",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "9ba2d06b706c11cf3b8f59bdb1f936b567b802857f6a78fe896f73534877128a"
+    },
+    {
+      "sequence": 12,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-02",
+      "reason": "invalid HC commit message: feat(np-0039): add synthetic creation compensation ports",
+      "executed": false,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T22:39:11.026Z",
+      "git": {
+        "head": "6df48e1e406736dee03a6e933755744e1e4bed67",
+        "branch": "NP-0039",
+        "dirty": false
+      },
+      "previous_event_digest": "9ba2d06b706c11cf3b8f59bdb1f936b567b802857f6a78fe896f73534877128a",
+      "code": "COMMIT_POLICY_VIOLATION",
+      "event_digest": "9622a7b0972d6262f3be1da3870f53406b862cc629b0959f6f39590098befcc2"
+    },
+    {
+      "sequence": 13,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "STORAGE_UNCERTAIN",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json"
+      ],
+      "recorded_at": "2026-10-16T22:39:22.231Z",
+      "git": {
+        "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "9622a7b0972d6262f3be1da3870f53406b862cc629b0959f6f39590098befcc2",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/compensation-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "f648f4d32324b54db9bb032a1f8e77e54933b3bd0c40a5f350bfff2e447eb770",
+        "source_digest": "f88f08eba2d02c90572cfcdea81d61869206c1f15424216b5c64696c76271424",
+        "test_digest": "22321119593d881b53375d2d3dd57b70ac9254a77431c84d8534340f336f699f",
+        "recorded_at": "2026-10-16T22:39:22.219Z",
+        "git": {
+          "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNCERTAIN"
+      },
+      "event_digest": "1f9d05f435b4e1083d5ceefbf2609000a7ad65f7d6be60d84bc83980e52cc605"
+    },
+    {
+      "sequence": 14,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        "src/backend/application/procedures/create-procedure.ts"
+      ],
+      "recorded_at": "2026-10-16T22:39:36.264Z",
+      "git": {
+        "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "1f9d05f435b4e1083d5ceefbf2609000a7ad65f7d6be60d84bc83980e52cc605",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/compensation-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "9f6119e6b9850a3661cdb0ff3da066127d50f0dcba3c7d35159a9a909d4d43de",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "22321119593d881b53375d2d3dd57b70ac9254a77431c84d8534340f336f699f",
+        "recorded_at": "2026-10-16T22:39:36.256Z",
+        "git": {
+          "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "2cfda3663ab27d9f9fb5008f57ef3eacd1d3f624d818e1966e1736fca4888659"
+    },
+    {
+      "sequence": 15,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        "src/backend/application/procedures/create-procedure.ts"
+      ],
+      "recorded_at": "2026-10-16T22:39:43.922Z",
+      "git": {
+        "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "2cfda3663ab27d9f9fb5008f57ef3eacd1d3f624d818e1966e1736fca4888659",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "ae93ce37a46ed9af08946cec58a0404e78ba672496ad0e36adfdf662e695096c",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "22321119593d881b53375d2d3dd57b70ac9254a77431c84d8534340f336f699f",
+        "recorded_at": "2026-10-16T22:39:43.918Z",
+        "git": {
+          "head": "05445add5edd7896fc57defdc8229ce7637ba6a3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "9f782c3652e0c3349f503ed351886d5c8688bf5cca7a35f4daf874f2689d18fb"
+    },
+    {
+      "sequence": 16,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "CONFLICT",
+      "executed": true,
+      "changed_files": [
+        ".hc/task.json",
+        "tests/integration/architecture/procedure-creation.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:42:44.595Z",
+      "git": {
+        "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "9f782c3652e0c3349f503ed351886d5c8688bf5cca7a35f4daf874f2689d18fb",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d97c569037b34b5a3a339f0af88f55d57b0911538ea5ce9acc3fad1d0a091d8f",
+        "source_digest": "48669968c371d492947f5eae4e7e493fe070b1e6fd871059278868a60fbac060",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:44.584Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "event_digest": "cb464e62254c714c38740d53cdfcbf3e39e94598c526f4712c63f9a2affb6df6"
+    },
+    {
+      "sequence": 17,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/architecture/procedure-creation.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:42:56.235Z",
+      "git": {
+        "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "cb464e62254c714c38740d53cdfcbf3e39e94598c526f4712c63f9a2affb6df6",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-creation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "8dfa56dae4c02527bae0ea0df868edd1867ae06203e72d9a8c5b094adc1c5409",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:42:56.224Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "928fd7d4efdf6d76ed33c8fb178d8e90a8c4ae25c504c20cba0a6154c967baad"
+    },
+    {
+      "sequence": 18,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/architecture/procedure-creation.test.ts"
+      ],
+      "recorded_at": "2026-10-16T22:43:04.597Z",
+      "git": {
+        "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "928fd7d4efdf6d76ed33c8fb178d8e90a8c4ae25c504c20cba0a6154c967baad",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "686c0ada0d27f5d1e808213bff333b0d09ba8300030c8af910c212e567f78a3d",
+        "source_digest": "933bbb064c96ec5c78477653679bcfab3d601bc5f021105e5d511d9fd1f3c173",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:43:04.597Z",
+        "git": {
+          "head": "6c12db0e6f8afbb12018f2b040013df252aebdb3",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "dd48f82cf34015a90d9441b034d4c531b481eb3d171155276e6010039175e1ec"
+    },
+    {
+      "sequence": 19,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Rename reservation identifiers and commit helper to satisfy web-next runtime boundary gate.",
+      "executed": true,
+      "changed_files": [
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/ports/procedures/commit-procedure.ts",
+        "src/backend/ports/procedures/record-recovery.ts",
+        "src/backend/ports/procedures/store-document.ts"
+      ],
+      "recorded_at": "2026-10-16T22:44:54.106Z",
+      "git": {
+        "head": "4e4a76ab2672a42b2aab227caaf351934595ee93",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "dd48f82cf34015a90d9441b034d4c531b481eb3d171155276e6010039175e1ec",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "88533ad48e0e8d00c03f0ffbba214d268d46fe4c80b76b26e1923da86ee08247",
+        "source_digest": "f69de3f794fd157a96922fe69c179615343f5ffe18e07bd000a93e2cbf9c225e",
+        "test_digest": "a42fc47c10f47fbb29b018f4e4904106b29c72a0c69f1dcdc887abc88089dac8",
+        "recorded_at": "2026-10-16T22:44:54.101Z",
+        "git": {
+          "head": "4e4a76ab2672a42b2aab227caaf351934595ee93",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "ccf3719bcfdee06c81ce2cf39b63413678edca788aaf5ba4983c979fb52c202f"
+    },
+    {
+      "sequence": 20,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "Received: 413",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/e2e/np0039-safety.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T22:48:05.864Z",
+      "git": {
+        "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "ccf3719bcfdee06c81ce2cf39b63413678edca788aaf5ba4983c979fb52c202f",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0039-safety.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "dbfaf178ee6fa1dcf1c73192c9bd1be660ea737372102ef18368df5fb932ffbe",
+        "source_digest": "f69de3f794fd157a96922fe69c179615343f5ffe18e07bd000a93e2cbf9c225e",
+        "test_digest": "f87597150fb3cd7039328d8412b29adf9c4e23e82963b11d63d40f65d8b62250",
+        "recorded_at": "2026-10-16T22:48:05.864Z",
+        "git": {
+          "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "Received: 413"
+      },
+      "event_digest": "df3987b4a75fb633853a21d243637038d4da9b5aab33be5ba89899ed02a94995"
+    },
+    {
+      "sequence": 21,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "pages/api/procedures/index.ts",
+        "tests/e2e/np0039-safety.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T22:48:12.767Z",
+      "git": {
+        "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "df3987b4a75fb633853a21d243637038d4da9b5aab33be5ba89899ed02a94995",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/np0039-safety.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "051c7ec974266bd083f17504918344883518cb2d9fbcb8f29906d7576d09297b",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "f87597150fb3cd7039328d8412b29adf9c4e23e82963b11d63d40f65d8b62250",
+        "recorded_at": "2026-10-16T22:48:12.767Z",
+        "git": {
+          "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "a5bf02d18db444400ac89e207c3d3f923ea4c6494604dabfbbbe0c3c9f8b8e40"
+    },
+    {
+      "sequence": 22,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "pages/api/procedures/index.ts",
+        "tests/e2e/np0039-safety.spec.ts"
+      ],
+      "recorded_at": "2026-10-16T22:48:19.007Z",
+      "git": {
+        "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "a5bf02d18db444400ac89e207c3d3f923ea4c6494604dabfbbbe0c3c9f8b8e40",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "2b6f3899a66038fa707bb1d9325865444f17b3f5bdc239ecce62cf42becab832",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "f87597150fb3cd7039328d8412b29adf9c4e23e82963b11d63d40f65d8b62250",
+        "recorded_at": "2026-10-16T22:48:18.998Z",
+        "git": {
+          "head": "1a7b393171e81cb22989bb66f9f5aa8983a9e28f",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "540393530309e238c819ef5a9f5e97e14b32b8cfa4f03a0fe30a446f88d7f1f3"
+    },
+    {
+      "sequence": 23,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "CONFLICT",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/integration/procedures/concurrency-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:32:18.451Z",
+      "git": {
+        "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "540393530309e238c819ef5a9f5e97e14b32b8cfa4f03a0fe30a446f88d7f1f3",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "56749493619f05bffc58372a80b4183b09dbe2056eb1b1d183befd70ad476620",
+        "source_digest": "8169a0cc2c1d5931d8c89455304e47fae89d07504ba8798a33e043a4d3e1e5f4",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:18.451Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "CONFLICT"
+      },
+      "event_digest": "e3aac834949f827886f889d8814cbd239d83f6a5ea4f3413a2618a349bedad9b"
+    },
+    {
+      "sequence": 24,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/procedures/concurrency-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:32:31.131Z",
+      "git": {
+        "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "e3aac834949f827886f889d8814cbd239d83f6a5ea4f3413a2618a349bedad9b",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/concurrency-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "40a1f6d337f49a28acd248a0a458b812a03c49399c26fd758ca99d13c14bf967",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:31.118Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "3b53971e5c717618c227781dd6983fc7e61fc22e28776ae9a6f3bea30aa64eaa"
+    },
+    {
+      "sequence": 25,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-05",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/adapters/outbound/memory-procedure-creation.ts",
+        "tests/integration/procedures/concurrency-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:32:44.596Z",
+      "git": {
+        "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "3b53971e5c717618c227781dd6983fc7e61fc22e28776ae9a6f3bea30aa64eaa",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "248e6f64dace91e26deca4c0bc1810a287942c3c86e39e97bb99f86b12c718b5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "3fd770faf9d717c3f03d2c07f1baaaf0af4ff1b2b3ac1a280a492ab51d271b7c",
+        "recorded_at": "2026-10-16T23:32:44.595Z",
+        "git": {
+          "head": "f5bb9cd5d3596f76709942812135a15f30f4f66d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "b9e50224f7ad90a72863a9e7eeace18e01554ec8236f491d066d67c62ddcee8c"
+    },
+    {
+      "sequence": 26,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "STORAGE_UNCERTAIN",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/integration/procedures/storage-uncertainty.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:39:17.181Z",
+      "git": {
+        "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "b9e50224f7ad90a72863a9e7eeace18e01554ec8236f491d066d67c62ddcee8c",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "efe751ce339ade0ec1b11ad067a57d1536af4602706b489f7b7aca65909dcee5",
+        "source_digest": "a618cf0b9003cedcef5e0d92dcff6359a5ed91e82d97822e10b8cf621e71010a",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:17.175Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNCERTAIN"
+      },
+      "event_digest": "a492524ff9e167c36353a53d52a87061051bab988b06ac7cc6915f18e463ef48"
+    },
+    {
+      "sequence": 27,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/application/procedures/create-procedure.ts",
+        "tests/integration/procedures/storage-uncertainty.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:39:45.252Z",
+      "git": {
+        "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "a492524ff9e167c36353a53d52a87061051bab988b06ac7cc6915f18e463ef48",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-uncertainty.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a790a9a3313147159c3f0fdb6f7209ebac11996094c11d2563ecd9098235d760",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:45.236Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "602307b9462bbd65293400b7130f434f8c6b6a310457d88dd7b0d193405b6f74"
+    },
+    {
+      "sequence": 28,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-06",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/application/procedures/create-procedure.ts",
+        "tests/integration/procedures/storage-uncertainty.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:39:57.851Z",
+      "git": {
+        "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "602307b9462bbd65293400b7130f434f8c6b6a310457d88dd7b0d193405b6f74",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "5b6442e6568b600f1c1f6308d1a3b5dcd3b2c2b626b6168bb8dfbbefe87c4c74",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "409430338a9ead51315ea77ecfc4ba0a48bfe2540090c2f96f720e0351c19ee4",
+        "recorded_at": "2026-10-16T23:39:57.850Z",
+        "git": {
+          "head": "1331d283d300e68bf82a69721ca4811b8ac566ce",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "f8f4ba5a86d8f491e5eb9d8e384e9a6464f6d2c7550c18ea78ff67ddcfc45dd5"
+    },
+    {
+      "sequence": 29,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "STORAGE_UNAVAILABLE",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "tests/integration/procedures/storage-failure-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:43:14.280Z",
+      "git": {
+        "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "f8f4ba5a86d8f491e5eb9d8e384e9a6464f6d2c7550c18ea78ff67ddcfc45dd5",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-failure-contract.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "edd82f59909a32f0e816423e8989d31ea4b91c60c1f251d0a18bddcc5c65aefd",
+        "source_digest": "f7f4bd562c80792003f6693b72b155ba7d8e273afae338cd4d37228962145c46",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-16T23:43:14.271Z",
+        "git": {
+          "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+          "branch": "NP-0039",
+          "dirty": true
+        },
+        "expected_reason": "STORAGE_UNAVAILABLE"
+      },
+      "event_digest": "9691aabd1a7d43191344b3ef5b6b89571d8551c9f064b9b53b68e69ca44a7be7"
+    },
+    {
+      "sequence": 30,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/application/procedures/create-procedure.ts",
+        "tests/integration/procedures/storage-failure-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:43:28.026Z",
+      "git": {
+        "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "9691aabd1a7d43191344b3ef5b6b89571d8551c9f064b9b53b68e69ca44a7be7",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/storage-failure-contract.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "99c37f4023f7b7423c7c85ddc0f111693b720d11291b4015e11c36294e3d305c",
+        "source_digest": "ad7a2fc519e53ae64fe6633a1b73e39debbd3d0bd3653aa5b43a1f5214af0cf4",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-16T23:43:28.013Z",
+        "git": {
+          "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "28ec56f1a43fabb44d12fc41590808b465bfdd2164775134b4dbf8307d6b6a4d"
+    },
+    {
+      "sequence": 31,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-07",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        ".hc/stories/NP-0039.json",
+        ".hc/task.json",
+        "src/backend/application/procedures/create-procedure.ts",
+        "tests/integration/procedures/storage-failure-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T23:43:40.955Z",
+      "git": {
+        "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "28ec56f1a43fabb44d12fc41590808b465bfdd2164775134b4dbf8307d6b6a4d",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "0995f8907f9ab16f879aaf75a647dc64cfdf77438b97651f354693d0ba964282",
+        "source_digest": "ad7a2fc519e53ae64fe6633a1b73e39debbd3d0bd3653aa5b43a1f5214af0cf4",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-16T23:43:40.946Z",
+        "git": {
+          "head": "06f46d80220e66920201a78f13d883fb5bbd4615",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "114c388fe1e66dbe6dd40fe1af26cc6980ddc98b4e42bad7fda85dd8de040cbf"
+    },
+    {
+      "sequence": 32,
+      "type": "REBASELINED",
+      "test_id": "TEST-07",
+      "reason": "Mover las declaraciones de resultado, dependencias y error a módulos de contrato exigidos por quality:contracts",
+      "executed": true,
+      "changed_files": [
+        "src/backend/application/procedures/contracts/",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts"
+      ],
+      "recorded_at": "2026-10-17T05:12:00.034Z",
+      "git": {
+        "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "114c388fe1e66dbe6dd40fe1af26cc6980ddc98b4e42bad7fda85dd8de040cbf",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "bfea6c12576c940cf46437bf4ba9f00a8a5726de9d588c6d9ffefc9a47e1fb9e",
+        "source_digest": "61892af78c5a53d916ea7ed705365ccd8ab49db97ca84b723ed94fb46565a26a",
+        "test_digest": "69acc6a6efdd6e5baf1349ce305a5ad57b5a55b56d54ebf1364b41e1f05adc14",
+        "recorded_at": "2026-10-17T05:12:00.032Z",
+        "git": {
+          "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+          "branch": "NP-0039",
+          "dirty": true
+        }
+      },
+      "event_digest": "32e65ed2ad01107b21e92553aac7baaaef811806284fa20bea67ab4d6772f034"
+    },
+    {
+      "sequence": 33,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-07",
+      "reason": "TEST-07 has no production change",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0039.json",
+        "next-env.d.ts",
+        "playwright.config.ts",
+        "src/backend/application/procedures/contracts/",
+        "src/backend/application/procedures/create-procedure.ts",
+        "src/backend/application/procedures/procedure-creation-error.ts"
+      ],
+      "recorded_at": "2026-10-17T05:13:47.313Z",
+      "git": {
+        "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+        "branch": "NP-0039",
+        "dirty": true
+      },
+      "previous_event_digest": "32e65ed2ad01107b21e92553aac7baaaef811806284fa20bea67ab4d6772f034",
+      "code": "NO_PRODUCTION_CHANGE",
+      "event_digest": "17497208847fcde82cb1a6ba826ab60f97682ebceb81a44ee26c3acafd724e98"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "d2817d0fa41f6c8d8fc39052527e95f9039fd6df",
+    "branch": "NP-0039"
+  },
+  "final": {
+    "source_digest": "61892af78c5a53d916ea7ed705365ccd8ab49db97ca84b723ed94fb46565a26a",
+    "test_suite_digest": "4bf7534d108b5b54794d7f2c0191967925596c6c3065ddaccf10020f16d3f036",
+    "recorded_at": "2026-10-17T05:12:00.034Z",
+    "git": {
+      "head": "5c6b021f95f3b25e6f616c578672aa52820e2c6d",
+      "branch": "NP-0039",
+      "dirty": true
+    }
+  }
+}
