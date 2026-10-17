@@ -1,11 +1,15 @@
 import Link from "next/link";
 import { MetricCard } from "../components/MetricCard";
 import { ReportLayout } from "../components/ReportLayout";
+import { LegacyDashboard } from "../components/LegacyDashboard";
 import type { DashboardViewProps } from "../contracts/dashboard-view-contract";
 
-export function DashboardView({ snapshot }: DashboardViewProps) {
+export function DashboardView({ snapshot, report, homeHref }: DashboardViewProps) {
+  if (report) {
+    return <ReportLayout activeRoute="dashboard" homeHref={homeHref ?? "/"}><LegacyDashboard model={report} /></ReportLayout>;
+  }
   return (
-    <ReportLayout activeRoute="dashboard">
+    <ReportLayout activeRoute="dashboard" showFooter={false}>
       <header className="dashboard-header">
           <div>
             <p className="eyebrow">ELECNOR · OPERACIONES</p>

@@ -9,11 +9,11 @@ export function InspectionDetailView({ detail }: InspectionDetailViewProps) {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const close = () => { setEditing(false); triggerRef.current?.focus(); };
   return (
-    <ReportLayout activeRoute="inspections">
-      <header className="dashboard-header"><div><p className="eyebrow">ELECNOR · INSPECCIÓN</p><h1>Detalle de inspección</h1><p>{detail.inspection.id}</p></div><Link href="/inspecciones">Volver al listado</Link></header>
-      <section aria-label="Resumen de inspección" className="metric-grid"><p>Técnico: {detail.inspection.technician ?? "—"}</p><p>Auditor: {detail.inspection.auditor ?? "—"}</p><p>Estado: {detail.inspection.status}</p><p>Puntaje: {detail.inspection.percentage === null ? "—" : `${detail.inspection.percentage}%`}</p></section>
-      <button ref={triggerRef} type="button" aria-haspopup="dialog" onClick={() => setEditing(true)}>Editar inspección</button>
-      <table aria-label="Métricas de inspección"><thead><tr><th>Sección</th><th>Métrica</th><th>Estado</th></tr></thead><tbody>{detail.metrics.map((metric) => <tr key={metric.id}><td>{metric.section}</td><td>{metric.metric}</td><td>{metric.status ?? "—"}</td></tr>)}</tbody></table>
+    <ReportLayout activeRoute="inspections" homeHref="/">
+      <nav className="legacy-breadcrumb" aria-label="Breadcrumb"><Link href="/">Inicio</Link><span>/</span><Link href="/inspecciones">Inspecciones</Link><span>/</span><span aria-current="page">{detail.inspection.id}</span></nav>
+      <header className="legacy-route-header"><div><i aria-hidden="true" /><h1>Detalle de inspección</h1></div><div className="legacy-route-actions"><button ref={triggerRef} type="button" aria-haspopup="dialog" onClick={() => setEditing(true)}>Editar inspección</button><Link href="/inspecciones">Volver a inspecciones</Link></div><p>{detail.inspection.technician} · {detail.inspection.date} · {detail.inspection.id}</p></header>
+      <section aria-label="Resumen de inspección" className="legacy-summary-grid"><p><small>Cumplimiento</small><strong>{detail.inspection.percentage === null ? "—" : `${detail.inspection.percentage}%`}</strong></p><p><small>Auditor</small><strong>{detail.inspection.auditor ?? "—"}</strong></p><p><small>Estado</small><strong>{detail.inspection.status}</strong></p><p><small>Acciones</small><strong>{detail.inspection.actions ?? "—"}</strong></p></section>
+      <section className="legacy-route-table"><table aria-label="Métricas de inspección"><thead><tr><th>Sección</th><th>Métrica</th><th>Estado</th></tr></thead><tbody>{detail.metrics.map((metric) => <tr key={metric.id}><th>{metric.section}</th><td>{metric.metric}</td><td>{metric.status ?? "—"}</td></tr>)}</tbody></table></section>
       {editing && <EditInspectionDialog inspection={detail.inspection} onCancel={close} />}
     </ReportLayout>
   );

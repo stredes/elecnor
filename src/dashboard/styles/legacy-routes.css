@@ -1,0 +1,65 @@
+.legacy-route-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; border-radius: 16px; background: var(--hc-azul); padding: 24px; color: white; box-shadow: 0 8px 18px #1d3b8622; }
+.legacy-route-header > div:first-child { display: flex; align-items: center; gap: 12px; }
+.legacy-route-header > div:first-child i { display: block; width: 40px; height: 14px; border-top: 6px solid var(--hc-aqua); border-bottom: 6px solid white; }
+.legacy-route-header h1 { margin: 0; font-size: clamp(2.2rem, 5vw, 3rem); line-height: .95; text-transform: uppercase; }
+.legacy-route-header p { flex-basis: 100%; margin: 0; color: #ffffffe6; font-size: 14px; }
+.legacy-route-header > a, .legacy-route-actions a { border: 2px solid #ffffffb3; border-radius: 8px; padding: 8px 14px; color: white; font-size: 13px; font-weight: 600; text-decoration: none; }
+.legacy-route-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.legacy-route-actions button { border: 0; border-radius: 8px; background: var(--hc-aqua); padding: 10px 14px; color: var(--hc-azul); cursor: pointer; font-size: 13px; font-weight: 700; }
+.legacy-search-form, .inspection-filters { display: grid; grid-template-columns: minmax(14rem, 2fr) repeat(2, minmax(9rem, 1fr)) auto; gap: 12px; margin-top: 20px; border: 1px solid var(--hc-borde); border-radius: 16px; background: white; padding: 16px; box-shadow: 0 2px 8px #1d3b8610; }
+.legacy-search-form label, .inspection-filters label { display: grid; gap: 4px; color: var(--hc-azul); font-size: 12px; font-weight: 600; }
+.legacy-search-form label span, .inspection-filters label { text-transform: uppercase; letter-spacing: .04em; }
+.legacy-search-form input, .inspection-filters input, .inspection-filters select, .legacy-procedure-form input, .legacy-procedure-form textarea { width: 100%; min-height: 42px; border: 1px solid var(--hc-borde); border-radius: 8px; background: white; padding: 8px 10px; color: var(--hc-texto); font-size: 13px; }
+.legacy-search-form button, .inspection-filters button { min-height: 42px; align-self: end; border: 0; border-radius: 8px; background: var(--hc-azul-accion); padding: 8px 18px; color: white; cursor: pointer; font-size: 13px; font-weight: 700; }
+.legacy-results-count { margin: 16px 0 0; color: var(--hc-texto-suave); font-size: 13px; }
+.legacy-route-table { overflow-x: auto; margin-top: 12px; border: 1px solid var(--hc-borde); border-radius: 16px; background: white; padding: 8px; box-shadow: 0 2px 8px #1d3b8610; }
+.legacy-route-table table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: left; font-size: 13px; }
+.legacy-route-table th, .legacy-route-table td { border-bottom: 1px solid #e2e8f5b3; padding: 12px; }
+.legacy-route-table thead th { color: var(--hc-texto-suave); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+.legacy-route-table tbody th { color: var(--hc-azul); font-weight: 600; }
+.legacy-route-table a { color: var(--hc-azul); font-weight: 600; text-decoration: none; }
+.legacy-route-table a:hover { text-decoration: underline; }
+.legacy-route-table .is-danger { color: var(--hc-danger); font-weight: 700; }
+.legacy-pagination { display: flex; justify-content: center; gap: 16px; margin-top: 16px; color: var(--hc-texto-suave); font-size: 13px; }
+.legacy-pagination a { color: var(--hc-azul); font-weight: 600; }
+.legacy-summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }
+.legacy-summary-grid p { min-height: 78px; margin: 0; border: 1px solid var(--hc-borde); border-radius: 12px; background: white; padding: 12px; box-shadow: 0 2px 8px #1d3b8610; }
+.legacy-summary-grid small { display: block; color: var(--hc-texto-suave); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.legacy-summary-grid strong { display: block; margin-top: 7px; color: var(--hc-azul); font-family: var(--font-hc-bebas), sans-serif; font-size: 24px; line-height: 1; }
+.legacy-procedure-families, .legacy-procedure-form, .legacy-content-card, .legacy-empty-card { margin-top: 20px; border: 1px solid var(--hc-borde); border-radius: 16px; background: white; padding: 20px; box-shadow: 0 2px 8px #1d3b8610; }
+.legacy-procedure-families h2, .legacy-procedure-form h2, .legacy-content-card h2 { margin: 0; color: var(--hc-azul); font-size: 24px; line-height: .95; text-transform: uppercase; }
+.legacy-procedure-families > ul { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
+.legacy-procedure-families > ul > li { overflow: hidden; border: 1px solid var(--hc-borde); border-radius: 12px; }
+.legacy-family-toggle { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; width: 100%; border: 0; background: white; padding: 14px; color: var(--hc-texto); cursor: pointer; text-align: left; }
+.legacy-family-toggle span { grid-row: span 2; font-weight: 600; }
+.legacy-family-toggle span b { margin-right: 8px; color: var(--hc-azul-accion); font-size: 11px; }
+.legacy-family-toggle strong { color: var(--hc-azul); font-size: 13px; }
+.legacy-family-toggle small { color: var(--hc-texto-suave); font-size: 11px; }
+.legacy-family-detail { border-top: 1px solid var(--hc-borde); padding: 12px; }
+.legacy-family-detail ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.legacy-family-detail li { display: flex; flex-direction: column; border: 1px solid var(--hc-borde); border-radius: 10px; padding: 12px; }
+.legacy-family-detail li > span { color: var(--hc-azul-medio); font-size: 12px; font-weight: 700; }
+.legacy-family-detail li > small { color: var(--hc-texto-suave); font-size: 11px; }
+.legacy-family-detail li p { margin: 8px 0; color: var(--hc-texto-suave); font-size: 13px; }
+.legacy-family-detail li a { margin-top: auto; color: var(--hc-azul-accion); font-size: 12px; font-weight: 700; }
+.legacy-procedure-form > p { margin: 8px 0 0; color: var(--hc-texto-suave); font-size: 13px; }
+.legacy-procedure-form form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
+.legacy-procedure-form label { display: grid; gap: 4px; color: var(--hc-azul); font-size: 12px; font-weight: 700; }
+.legacy-procedure-form label:nth-of-type(4), .legacy-procedure-form label:nth-of-type(5), .legacy-procedure-form label:nth-of-type(6) { grid-column: 1 / -1; }
+.legacy-procedure-form textarea { min-height: 82px; resize: vertical; }
+.legacy-procedure-form button { grid-column: 1 / -1; justify-self: start; border: 0; border-radius: 8px; background: var(--hc-azul-accion); padding: 10px 18px; color: white; cursor: pointer; font-weight: 700; }
+.legacy-empty-card { color: var(--hc-texto-suave); text-align: center; }
+.legacy-procedure-detail-header > div { display: flex; gap: 8px; flex-basis: 100%; }
+.legacy-procedure-detail-header > div span { border-radius: 999px; background: #ffffff26; padding: 3px 10px; font-size: 11px; font-weight: 700; }
+.legacy-content-card p { margin: 10px 0 0; font-size: 14px; line-height: 1.6; }
+.legacy-content-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.legacy-content-card-heading a { border: 2px solid var(--hc-azul); border-radius: 8px; padding: 7px 12px; color: var(--hc-azul); font-size: 12px; font-weight: 700; }
+.legacy-content-card object { display: block; width: 100%; min-height: 360px; margin-top: 16px; border: 1px solid var(--hc-borde); border-radius: 10px; background: var(--hc-neutro); }
+.dialog-backdrop { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; background: #1b2a4a66; padding: 16px; }
+.dialog-card { width: min(100%, 520px); border-radius: 16px; background: white; padding: 24px; box-shadow: 0 18px 48px #17243a55; }
+.dialog-card h2 { margin: 0; color: var(--hc-azul); font-size: 26px; text-transform: uppercase; }
+.dialog-card p { color: var(--hc-texto-suave); font-size: 13px; }
+.dialog-card textarea { width: 100%; min-height: 110px; border: 1px solid var(--hc-borde); border-radius: 8px; padding: 8px; }
+.dialog-card button { margin-top: 12px; border: 0; border-radius: 8px; background: var(--hc-azul); padding: 9px 16px; color: white; cursor: pointer; font-weight: 700; }
+@media (max-width: 800px) { .legacy-search-form, .inspection-filters { grid-template-columns: repeat(2, 1fr); } .legacy-summary-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .legacy-search-form, .inspection-filters, .legacy-procedure-form form { grid-template-columns: 1fr; } .legacy-family-detail ul { grid-template-columns: 1fr; } .legacy-summary-grid { grid-template-columns: 1fr 1fr; } .legacy-content-card-heading { align-items: flex-start; flex-direction: column; } }
