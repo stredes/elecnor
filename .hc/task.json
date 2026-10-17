@@ -141,6 +141,7 @@
       "tests/integration/reporting/reporting-narrative-overview.test.ts",
       "tests/e2e/reporting-consumer.spec.ts",
       "docs/np-0035-reporting.md",
+      "docs/cto-decisions",
       "docs/legacy-inventory.md",
       "AGENTS.md",
       "README.md",
