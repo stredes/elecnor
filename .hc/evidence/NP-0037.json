@@ -184,14 +184,69 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/storage/secure-download-symlink.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "bde5d2ac385979316afab7dddd40cf5e3842c1a939e020224f1fa26676896cb0",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "67ffa37f627f98c45f7ddf32865f75810555205489530e7c01fa656205563594",
+        "recorded_at": "2026-10-17T14:11:56.396Z",
+        "git": {
+          "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Promise"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/storage/secure-download-symlink.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "421980b96db179f1cf33ccd7ebfea27a3f7bad3391e759eabe5445255d59abd5",
+        "source_digest": "0696197e6c2369c2b3288d36921802a263b2bd862bd893250dfb682f3ca1f747",
+        "test_digest": "67ffa37f627f98c45f7ddf32865f75810555205489530e7c01fa656205563594",
+        "recorded_at": "2026-10-17T14:12:07.928Z",
+        "git": {
+          "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "12a9271c61576a8680ed7d79b8f484dd1cca31d31e524bf4cb15c1f1c28f90af",
+        "source_digest": "0696197e6c2369c2b3288d36921802a263b2bd862bd893250dfb682f3ca1f747",
+        "test_digest": "67ffa37f627f98c45f7ddf32865f75810555205489530e7c01fa656205563594",
+        "recorded_at": "2026-10-17T14:12:23.737Z",
+        "git": {
+          "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      }
     }
   ],
-  "reviews": [{
-    "id": "REVIEW-01",
-    "fingerprint": "1036c7614cd23bbba459643d7f834eb1343e73dc3c5455ced2e275ca9e3f0a94",
-    "status": "open",
-    "reason": "CTO CHANGES-REQUESTED: `authorizeDownload` does not detect symlinks escaping the root; no real download or mutation is authorized."
-  }],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "1036c7614cd23bbba459643d7f834eb1343e73dc3c5455ced2e275ca9e3f0a94",
+      "status": "open",
+      "reason": "Se agregó resolución canónica inyectada y prueba de symlink escapado. REVIEW-01 sigue abierta para re-review formal; no se habilitan descarga, mutación ni storage real."
+    }
+  ],
   "events": [
     {
       "sequence": 1,
@@ -584,6 +639,122 @@
         }
       },
       "event_digest": "cdbb1c8ebe1a846f15efdc210d75c3df18483146eb00555f37283450e913237d"
+    },
+    {
+      "sequence": 11,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "Promise",
+      "executed": true,
+      "changed_files": [
+        ".hc/stories/NP-0037.json",
+        ".hc/task.json",
+        "tests/domain/storage/secure-download-symlink.test.ts"
+      ],
+      "recorded_at": "2026-10-17T14:11:56.397Z",
+      "git": {
+        "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "cdbb1c8ebe1a846f15efdc210d75c3df18483146eb00555f37283450e913237d",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/storage/secure-download-symlink.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "bde5d2ac385979316afab7dddd40cf5e3842c1a939e020224f1fa26676896cb0",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "67ffa37f627f98c45f7ddf32865f75810555205489530e7c01fa656205563594",
+        "recorded_at": "2026-10-17T14:11:56.396Z",
+        "git": {
+          "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Promise"
+      },
+      "event_digest": "45f6e03f11ea5409a5e0234ac15ecfb65655b2660c905eb3000bf364fb6e29e8"
+    },
+    {
+      "sequence": 12,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        ".hc/stories/NP-0037.json",
+        ".hc/task.json",
+        "src/backend/domain/storage/secure-download.ts",
+        "tests/domain/storage/secure-download-symlink.test.ts",
+        "tests/domain/storage/secure-download.test.ts"
+      ],
+      "recorded_at": "2026-10-17T14:12:07.928Z",
+      "git": {
+        "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "45f6e03f11ea5409a5e0234ac15ecfb65655b2660c905eb3000bf364fb6e29e8",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/storage/secure-download-symlink.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "421980b96db179f1cf33ccd7ebfea27a3f7bad3391e759eabe5445255d59abd5",
+        "source_digest": "0696197e6c2369c2b3288d36921802a263b2bd862bd893250dfb682f3ca1f747",
+        "test_digest": "67ffa37f627f98c45f7ddf32865f75810555205489530e7c01fa656205563594",
+        "recorded_at": "2026-10-17T14:12:07.928Z",
+        "git": {
+          "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "202664d22988b86889a933fc8e5464efbc02477fd03b0406080a086dc8b2237a"
+    },
+    {
+      "sequence": 13,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        ".hc/stories/NP-0037.json",
+        ".hc/task.json",
+        "src/backend/domain/storage/secure-download.ts",
+        "tests/domain/storage/secure-download-symlink.test.ts",
+        "tests/domain/storage/secure-download.test.ts"
+      ],
+      "recorded_at": "2026-10-17T14:12:23.738Z",
+      "git": {
+        "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "202664d22988b86889a933fc8e5464efbc02477fd03b0406080a086dc8b2237a",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "12a9271c61576a8680ed7d79b8f484dd1cca31d31e524bf4cb15c1f1c28f90af",
+        "source_digest": "0696197e6c2369c2b3288d36921802a263b2bd862bd893250dfb682f3ca1f747",
+        "test_digest": "67ffa37f627f98c45f7ddf32865f75810555205489530e7c01fa656205563594",
+        "recorded_at": "2026-10-17T14:12:23.737Z",
+        "git": {
+          "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "340cd9012fe1c6130795074d061492b4780f5217ab3dd5da0655d7234f7d9e30"
     }
   ],
   "git_baseline": {
@@ -592,11 +763,11 @@
     "branch": "NP-0037"
   },
   "final": {
-    "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
-    "test_suite_digest": "bbcbfa592c21fa03cb037b5dc3bfbb3e594298c271c6adfc1200b9260d16759b",
-    "recorded_at": "2026-10-16T16:06:56.901Z",
+    "source_digest": "0696197e6c2369c2b3288d36921802a263b2bd862bd893250dfb682f3ca1f747",
+    "test_suite_digest": "4d8cda8c01e9323ae0af404a8b427d288001553af21d4a58edfd4b50017da1f8",
+    "recorded_at": "2026-10-17T14:12:23.738Z",
     "git": {
-      "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+      "head": "94930283aeb10a12874d4cc70d43131f1fa81d9f",
       "branch": "NP-0037",
       "dirty": true
     }

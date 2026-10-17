@@ -7,13 +7,13 @@
     "preconditions":["Repositorio y UoW operativos","D-03 define contexto de acceso y D-08 conservación/borrado","Root y origen Blob configurados y validados en composición"],
     "acceptance_criteria":[
       {"id":"AC-01","given":["una inspección existente y cambios de metadata permitidos"],"when":["se consulta, edita, descarga o elimina"],"then":["se conserva detalle y fallback de métricas originales","editar marca PARCIAL y borrar respeta cascade y logs","se descarga el PDF original como attachment con nombre seguro"],"test_ids":["TEST-01"]},
-      {"id":"AC-02","given":["campos inválidos, ID inexistente o no autorizado, path fuera de raíz y URL no permitida"],"when":["se intenta la operación"],"then":["se rechaza sin efectos indebidos ni filtración de contenido/token","un fallo de storage o DB no deja borrado parcial sin estado recuperable","se conservan códigos públicos aprobados"],"test_ids":["TEST-02"]},
+      {"id":"AC-02","given":["campos inválidos, ID inexistente o no autorizado, path fuera de raíz, symlink escapado y URL no permitida"],"when":["se intenta la operación"],"then":["se rechaza sin efectos indebidos ni filtración de contenido/token","un fallo de storage o DB no deja borrado parcial sin estado recuperable","se conservan códigos públicos aprobados"],"test_ids":["TEST-02","TEST-04"]},
       {"id":"AC-03","given":["handlers Pages, Gateway y casos de uso"],"when":["se verifican límites"],"then":["la ruta no contiene SQL ni coordinación extensa","storage y DB implementan puertos en FastAPI y los contratos permanecen separados"],"test_ids":["TEST-03"]}
     ],
     "business_rules":[{"id":"BR-01","rule":"Editar metadata no modifica score ni métricas; conservar whitelist y caps actuales."}],
     "edge_cases":["Archivo desaparecido","Symlink y redirect remoto","Delete repetido","Error tras commit"],
     "out_of_scope":["CRUD de métricas o acciones","Proxy de URLs arbitrarias"],"dependencies":["NP-0030","NP-0033"],
-    "non_functional_requirements":[{"id":"NFR-01","rule":"Autorización según política aprobada, confinamiento de archivos, streams y secretos solo servidor.","risk_tags":["authorization","personal-data","transaction","credentials","persistence"],"test_ids":["TEST-02","TEST-03"],"review_ids":["REVIEW-01"]}],
+    "non_functional_requirements":[{"id":"NFR-01","rule":"Autorización según política aprobada, confinamiento de archivos, streams y secretos solo servidor.","risk_tags":["authorization","personal-data","transaction","credentials","persistence"],"test_ids":["TEST-02","TEST-03","TEST-04"],"review_ids":["REVIEW-01"]}],
     "definition_of_ready":{"ready":false,"evidence":["D-03/08 pendientes para política final; esta rama sólo caracteriza y prepara contratos reversibles."]},
     "definition_of_done":["Pruebas HTTP/DB/storage con efectos y errores","Reversión documentada sin pérdida de datos","Cierre común del backlog"]
   }

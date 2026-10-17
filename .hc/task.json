@@ -8,7 +8,8 @@
     "test_plan":[
       {"test_id":"TEST-01","order":1,"level":"integration","check":"integration","args":["tests/domain/inspections/detail-contract.test.ts","tests/domain/inspections/update-policy.test.ts","tests/integration/inspections/detail.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/domain/inspections/detail-contract.test.ts","regression":{"check":"integration","args":[]}},
       {"test_id":"TEST-02","order":2,"level":"integration","check":"integration","args":["tests/domain/inspections/mutation-boundaries.test.ts","tests/domain/storage/secure-download.test.ts","tests/integration/inspections/effects.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/domain/inspections/mutation-boundaries.test.ts","regression":{"check":"integration","args":[]}},
-      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/inspection-mutations-boundary.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/inspection-mutations-boundary.test.ts","regression":{"check":"integration","args":[]}}
+      {"test_id":"TEST-03","order":3,"level":"integration","check":"integration","args":["tests/integration/architecture/inspection-mutations-boundary.test.ts"],"expected_failure":"Failed to resolve import","fixture":"tests/integration/architecture/inspection-mutations-boundary.test.ts","regression":{"check":"integration","args":[]}},
+      {"test_id":"TEST-04","order":4,"level":"unit","check":"unit","args":["tests/domain/storage/secure-download-symlink.test.ts"],"expected_failure":"Promise","fixture":"tests/domain/storage/secure-download-symlink.test.ts","regression":{"check":"unit","args":[]}}
     ]
   },
   "scope":{

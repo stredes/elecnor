@@ -6,11 +6,12 @@ export type DownloadSource = {
 export type DownloadPolicy = {
   readonly root: string;
   readonly allowedRemoteOrigins: readonly string[];
+  readonly resolveRealPath: (path: string) => Promise<string>;
 };
 
-export function authorizeDownload(source: DownloadSource, policy: DownloadPolicy): DownloadSource {
-  if (source.kind === "file" && insideRoot(source.value, policy.root)) return source;
+export async function authorizeDownload(source: DownloadSource, policy: DownloadPolicy): Promise<DownloadSource> {
   if (source.kind === "remote" && allowedRemote(source.value, policy.allowedRemoteOrigins)) return source;
+  if (source.kind === "file" && insideRoot(source.value, policy.root) && await resolvesInsideRoot(source.value, policy)) return source;
   throw new Error("Download source is not allowed");
 }
 
@@ -37,6 +38,17 @@ function normalizePath(value: string): string | null {
     } else parts.push(segment);
   }
   return `/${parts.join("/")}`;
+}
+
+async function resolvesInsideRoot(candidate: string, policy: DownloadPolicy): Promise<boolean> {
+  try {
+    const [resolvedCandidate, resolvedRoot] = await Promise.all([
+      policy.resolveRealPath(candidate), policy.resolveRealPath(policy.root),
+    ]);
+    return insideRoot(resolvedCandidate, resolvedRoot);
+  } catch {
+    return false;
+  }
 }
 
 function allowedRemote(value: string, origins: readonly string[]): boolean {
