@@ -1,0 +1,907 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0038",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a12d494d4261ef2a3edb1008a0a15db55a6d83aa541a913395adf6bcf52e6e97",
+        "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:13.770Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "7b50844246e57938068a2d8a6afd7836785f31aa6a81db18cfa09fae93ac2edd",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:37.417Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "930f964b8193a7e0d681d8ba6919376c8c4718fd67df13be164b2588fa81f86e",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:46.144Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e475470f80f322ea0e2e7e89d58e50520227500e9e736532c157fd177522ff79",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:18.028Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "eaee366e57544cd5a8ef54e0ca9faed33f35279a4c553c896aca33d879a2f501",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:56.496Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "8f9a79aaed78ec16aa943080012eb52d901fd265ea5f3292aa91b619ac17fd8d",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:26:10.252Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/repository-contract.test.ts",
+          "tests/integration/architecture/procedures.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "543e0f5facdaa16a7739e10a2ba89f5a5079c3c08f8f3d9143ec0ba5965a4aed",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:27:41.780Z",
+        "git": {
+          "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/repository-contract.test.ts",
+          "tests/integration/architecture/procedures.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "2d47ca8ae7fc8d677934fb2c7e6b76eae15f15bc2a5593706025be169f214e11",
+        "source_digest": "e2697ac2fa66b4030275f5c5317a6c2a63f16ca3ff18f60b97826647cd4db3a7",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:28:20.194Z",
+        "git": {
+          "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "c3c317bf72cf9371baae1369fd5e37a0682f2589900848140e28f8b79585bb67",
+        "source_digest": "b393db38c48b3c12cdd72b1fa0b1b97a0b0bd10a5c5c2d028f78bb8027272054",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:28:54.166Z",
+        "git": {
+          "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "de6f95d7bcbb7fba0a97a121852de60930cb6a1830819de27690a53985a3bedf",
+          "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+          "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+          "recorded_at": "2026-10-16T16:31:28.540Z",
+          "git": {
+            "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+            "branch": "NP-0038",
+            "dirty": true
+          }
+        }
+      ]
+    },
+    {
+      "test_id": "TEST-04",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d4df66397bf28dcdbbafc83a2f796e60752db9a9b3b714b8eab76eaa1076a896",
+        "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:34:46.632Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Expected: 200"
+      },
+      "green": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1506c0217af2f0dc51bdc4c43e62920ad989c57dd00a18c26ea27bd69209c37f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:14.911Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "06d800fddb12951718d9342a05a237bee8254526433a3bfb2d91c24baebf5d2f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:21.621Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "e2e",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "8b35bad43b86b1054745979ab48e4b0fdfe04b4e3578d3cf592b264f6455ea36",
+          "source_digest": "45199236a0c22b9f3f26b34113c6cc74bfba77fd35f083cc7501a9aa7d8856c5",
+          "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+          "recorded_at": "2026-10-16T16:36:10.341Z",
+          "git": {
+            "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
+            "branch": "NP-0038",
+            "dirty": false
+          }
+        }
+      ]
+    }
+  ],
+  "reviews": [{
+    "id": "REVIEW-01",
+    "fingerprint": "1e6142f542d336b179ab13125b7560a4d61c401e716d012556b8415ad1c8e588",
+    "status": "accepted",
+    "reason": "CTO APPROVED-SYNTHETIC para contratos/read models y fixtures; sin FastAPI/SQLite real, GET activo, medios externos ni storage. No es GO productivo.",
+    "approved_by": "camiloj.lopez79@gmail.com",
+    "attestation": {"provider": "git-signed-commit", "commit": "cb438fee2a961120051d00cde3584325f8d1c7fe"}
+  }],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0038-procedures.md",
+        "tests/domain/procedures/",
+        "tests/integration/procedures/"
+      ],
+      "recorded_at": "2026-10-16T16:24:13.779Z",
+      "git": {
+        "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "a12d494d4261ef2a3edb1008a0a15db55a6d83aa541a913395adf6bcf52e6e97",
+        "source_digest": "89f0c34d164e866a3ad0efd8af079898cb5f9244e88dfbb1439b42ba66fe4163",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:13.770Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "7f465b6494ad879c76486ae84ab78b2f7ebd89f25acb5349eb08a0ac275c509c"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0038-procedures.md",
+        "src/backend/adapters/outbound/memory-procedure-reader.ts",
+        "src/backend/application/procedures/",
+        "src/backend/domain/procedures/",
+        "src/backend/ports/procedures/",
+        "tests/domain/procedures/",
+        "tests/integration/procedures/"
+      ],
+      "recorded_at": "2026-10-16T16:24:37.419Z",
+      "git": {
+        "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "7f465b6494ad879c76486ae84ab78b2f7ebd89f25acb5349eb08a0ac275c509c",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/procedures/families.test.ts",
+          "tests/integration/procedures/catalog-parity.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "7b50844246e57938068a2d8a6afd7836785f31aa6a81db18cfa09fae93ac2edd",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:37.417Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "4182bf9bb66c40bafc08c870fc2566f21b340793da4ffeb84b16e26b0b26ede0"
+    },
+    {
+      "sequence": 3,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "docs/np-0038-procedures.md",
+        "src/backend/adapters/outbound/memory-procedure-reader.ts",
+        "src/backend/application/procedures/",
+        "src/backend/domain/procedures/",
+        "src/backend/ports/procedures/",
+        "tests/domain/procedures/",
+        "tests/integration/procedures/"
+      ],
+      "recorded_at": "2026-10-16T16:24:46.151Z",
+      "git": {
+        "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "4182bf9bb66c40bafc08c870fc2566f21b340793da4ffeb84b16e26b0b26ede0",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "930f964b8193a7e0d681d8ba6919376c8c4718fd67df13be164b2588fa81f86e",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "3955341afe9f2f4031c032ff3c9bb58888417b47609e35cd02dbf46336981c58",
+        "recorded_at": "2026-10-16T16:24:46.144Z",
+        "git": {
+          "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "a49997afb0f26fc24a4fa2596099f5df4609c9b3358d0277f2b2df1733e2dacb"
+    },
+    {
+      "sequence": 4,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/procedures/metadata-validation.test.ts",
+        "tests/domain/procedures/youtube-id.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:25:18.029Z",
+      "git": {
+        "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "a49997afb0f26fc24a4fa2596099f5df4609c9b3358d0277f2b2df1733e2dacb",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e475470f80f322ea0e2e7e89d58e50520227500e9e736532c157fd177522ff79",
+        "source_digest": "efda476f7de41c937cfdd5658a70ed15416bc29892fadeed5c66cfb6602dae98",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:18.028Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "603c70b81dec6f0a166a3283f7561a2c6c5c9288b8621d4905d8fa40d78793c8"
+    },
+    {
+      "sequence": 5,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        "src/backend/domain/procedures/parse-youtube-id.ts",
+        "src/backend/domain/procedures/validate-procedure.ts",
+        "tests/domain/procedures/metadata-validation.test.ts",
+        "tests/domain/procedures/youtube-id.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:25:56.497Z",
+      "git": {
+        "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "603c70b81dec6f0a166a3283f7561a2c6c5c9288b8621d4905d8fa40d78793c8",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/domain/procedures/metadata-validation.test.ts",
+          "tests/domain/procedures/youtube-id.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "eaee366e57544cd5a8ef54e0ca9faed33f35279a4c553c896aca33d879a2f501",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:25:56.496Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "79b4c83acb6db48651fd178168a5b59a0a710d0bf1ebc2b2ba364af5354f0d75"
+    },
+    {
+      "sequence": 6,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        "src/backend/domain/procedures/parse-youtube-id.ts",
+        "src/backend/domain/procedures/validate-procedure.ts",
+        "tests/domain/procedures/metadata-validation.test.ts",
+        "tests/domain/procedures/youtube-id.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:26:10.257Z",
+      "git": {
+        "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "79b4c83acb6db48651fd178168a5b59a0a710d0bf1ebc2b2ba364af5354f0d75",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "8f9a79aaed78ec16aa943080012eb52d901fd265ea5f3292aa91b619ac17fd8d",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "7f28bca2f61c3fc7306adb5287fc0cac5bb17a3e3fd889bd60fec074ca388dd0",
+        "recorded_at": "2026-10-16T16:26:10.252Z",
+        "git": {
+          "head": "1f6d87f74a1e576afe56d3abcf81315a907b1f29",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "ad23282e043b1c753151d72cc690d40ebcd52534c81f6744047d635bda60a566"
+    },
+    {
+      "sequence": 7,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/architecture/",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:27:41.786Z",
+      "git": {
+        "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "ad23282e043b1c753151d72cc690d40ebcd52534c81f6744047d635bda60a566",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/repository-contract.test.ts",
+          "tests/integration/architecture/procedures.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "543e0f5facdaa16a7739e10a2ba89f5a5079c3c08f8f3d9143ec0ba5965a4aed",
+        "source_digest": "593de54404bea170a46fadae3c3d4b86d026fabca264c0576ac81b143b9dcc81",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:27:41.780Z",
+        "git": {
+          "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "6713402169718b623227912492c3e17df55233f513bcdad703c1fa8c5643d6f9"
+    },
+    {
+      "sequence": 8,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        "src/backend/adapters/outbound/http-procedure-reader.ts",
+        "src/backend/application/procedures/get-procedure.ts",
+        "src/backend/application/procedures/list-procedure-families.ts",
+        "src/backend/application/procedures/list-procedures.ts",
+        "src/backend/composition/procedures.ts",
+        "src/backend/domain/procedures/parse-procedure-response.ts",
+        "tests/integration/architecture/",
+        "tests/integration/procedures/catalog-parity.test.ts",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:28:20.197Z",
+      "git": {
+        "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "6713402169718b623227912492c3e17df55233f513bcdad703c1fa8c5643d6f9",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/procedures/repository-contract.test.ts",
+          "tests/integration/architecture/procedures.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "2d47ca8ae7fc8d677934fb2c7e6b76eae15f15bc2a5593706025be169f214e11",
+        "source_digest": "e2697ac2fa66b4030275f5c5317a6c2a63f16ca3ff18f60b97826647cd4db3a7",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:28:20.194Z",
+        "git": {
+          "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "b4417fe990761ef55b97c65dd1a270dc586212ca464416ad86ef01e926f5910c"
+    },
+    {
+      "sequence": 9,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        "src/backend/adapters/outbound/http-procedure-reader.ts",
+        "src/backend/application/procedures/get-procedure.ts",
+        "src/backend/application/procedures/list-procedure-families.ts",
+        "src/backend/application/procedures/list-procedures.ts",
+        "src/backend/composition/procedures.ts",
+        "src/backend/domain/procedures/parse-procedure-response.ts",
+        "tests/integration/architecture/",
+        "tests/integration/procedures/catalog-parity.test.ts",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:28:54.166Z",
+      "git": {
+        "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "b4417fe990761ef55b97c65dd1a270dc586212ca464416ad86ef01e926f5910c",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "c3c317bf72cf9371baae1369fd5e37a0682f2589900848140e28f8b79585bb67",
+        "source_digest": "b393db38c48b3c12cdd72b1fa0b1b97a0b0bd10a5c5c2d028f78bb8027272054",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:28:54.166Z",
+        "git": {
+          "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "6e496b63f949baa8883892947de88ad60742eed0a2130f91a414c48de8482d92"
+    },
+    {
+      "sequence": 10,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "TEST-03 already has REFACTOR evidence",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        "src/backend/adapters/outbound/http-procedure-reader.ts",
+        "src/backend/application/procedures/get-procedure.ts",
+        "src/backend/application/procedures/list-procedure-families.ts",
+        "src/backend/application/procedures/list-procedures.ts",
+        "src/backend/composition/procedures.ts",
+        "src/backend/domain/procedures/parse-procedure-response.ts",
+        "tests/integration/architecture/",
+        "tests/integration/procedures/catalog-parity.test.ts",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:29:26.484Z",
+      "git": {
+        "head": "a3c7b475ab84702475e94552560ee3d8d9138f5a",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "6e496b63f949baa8883892947de88ad60742eed0a2130f91a414c48de8482d92",
+      "code": "REFACTOR_ALREADY_RECORDED",
+      "event_digest": "7444de56c2413837d30734d0981bc74535263dc23e7f346b32e05d2d8de849a1"
+    },
+    {
+      "sequence": 11,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Preserve the completed catalog reader compatibility method while restoring recorded test fixtures",
+      "executed": true,
+      "changed_files": [
+        "src/backend/application/procedures/list-procedures.ts",
+        "tests/integration/procedures/catalog-parity.test.ts",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:31:28.544Z",
+      "git": {
+        "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "7444de56c2413837d30734d0981bc74535263dc23e7f346b32e05d2d8de849a1",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "de6f95d7bcbb7fba0a97a121852de60930cb6a1830819de27690a53985a3bedf",
+        "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+        "test_digest": "3c1955f858241ac35bd8a2a8318a1e69c5bbc4e1efd527d858555f7d4193cfba",
+        "recorded_at": "2026-10-16T16:31:28.540Z",
+        "git": {
+          "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "7955d0d43a5a63ee01a97a627e697bd5781199e6b60e2e74a4e2f0d68aae2f5f"
+    },
+    {
+      "sequence": 12,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "production files remain uncommitted: src/backend/application/procedures/list-procedures.ts",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/stories/NP-0038.json",
+        ".hc/task.json",
+        "docs/np-0038-procedures.md",
+        "src/backend/application/procedures/list-procedures.ts",
+        "tests/e2e/procedures.spec.ts",
+        "tests/integration/procedures/catalog-parity.test.ts",
+        "tests/integration/procedures/repository-contract.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:34:14.727Z",
+      "git": {
+        "head": "ac7b3083aa0db35ef53ca68bfe83649a45015853",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "7955d0d43a5a63ee01a97a627e697bd5781199e6b60e2e74a4e2f0d68aae2f5f",
+      "code": "PRODUCTION_NOT_COMMITTED",
+      "event_digest": "8c4258e6436efc94eeb4e8f92d6505e3d7c3eb8a870c9ec6bb7f7d8ea37d4ae1"
+    },
+    {
+      "sequence": 13,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-04",
+      "reason": "RED output does not contain --expect text",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T16:34:27.285Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": false
+      },
+      "previous_event_digest": "8c4258e6436efc94eeb4e8f92d6505e3d7c3eb8a870c9ec6bb7f7d8ea37d4ae1",
+      "code": "RED_REASON_MISMATCH",
+      "event_digest": "b3e30142ff7bff94e015db4fd1cac3b8fe2654c9623fe335fe66196bebb3eac4"
+    },
+    {
+      "sequence": 14,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "Expected: 200",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/task.json",
+        "next-env.d.ts"
+      ],
+      "recorded_at": "2026-10-16T16:34:46.632Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "b3e30142ff7bff94e015db4fd1cac3b8fe2654c9623fe335fe66196bebb3eac4",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d4df66397bf28dcdbbafc83a2f796e60752db9a9b3b714b8eab76eaa1076a896",
+        "source_digest": "0c4916f37754b1901decc3c817deb11d7cb539bf1c39bd2fbd851bbe63cdddd4",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:34:46.632Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        },
+        "expected_reason": "Expected: 200"
+      },
+      "event_digest": "0fe66ddde1f197ccf23e3f02653d50b4d95ef59c405bd23369dee0ff84b1da51"
+    },
+    {
+      "sequence": 15,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "pages/api/procedures/",
+        "src/backend/adapters/inbound/procedure-response.ts",
+        "src/backend/composition/procedures.ts"
+      ],
+      "recorded_at": "2026-10-16T16:35:14.912Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "0fe66ddde1f197ccf23e3f02653d50b4d95ef59c405bd23369dee0ff84b1da51",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [
+          "tests/e2e/procedures.spec.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "1506c0217af2f0dc51bdc4c43e62920ad989c57dd00a18c26ea27bd69209c37f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:14.911Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "abc7dc4388edb97b773c89bf0f4c9eecbb960ca33374e8fbe7079b5ce1c1d2a9"
+    },
+    {
+      "sequence": 16,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-04",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0038.json",
+        ".hc/task.json",
+        "docs/legacy-inventory.md",
+        "next-env.d.ts",
+        "pages/api/procedures/",
+        "src/backend/adapters/inbound/procedure-response.ts",
+        "src/backend/composition/procedures.ts"
+      ],
+      "recorded_at": "2026-10-16T16:35:21.628Z",
+      "git": {
+        "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+        "branch": "NP-0038",
+        "dirty": true
+      },
+      "previous_event_digest": "abc7dc4388edb97b773c89bf0f4c9eecbb960ca33374e8fbe7079b5ce1c1d2a9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "06d800fddb12951718d9342a05a237bee8254526433a3bfb2d91c24baebf5d2f",
+        "source_digest": "51e45f4e613f0f44d2bf6999edbabf6ba32021501ee6dbf5c969f3e38c2947fb",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:35:21.621Z",
+        "git": {
+          "head": "67435e1c929548ef9c69f18e628e3ad6247a15c1",
+          "branch": "NP-0038",
+          "dirty": true
+        }
+      },
+      "event_digest": "1b41e90d0bf489e6c90aa77b4f3fb92a1a7e5120cb3a8c20ef40e53f49b97862"
+    },
+    {
+      "sequence": 17,
+      "type": "REBASELINED",
+      "test_id": "TEST-04",
+      "reason": "Separate inbound public DTO types from route orchestration without changing the E2E contract",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-16T16:36:10.359Z",
+      "git": {
+        "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
+        "branch": "NP-0038",
+        "dirty": false
+      },
+      "previous_event_digest": "1b41e90d0bf489e6c90aa77b4f3fb92a1a7e5120cb3a8c20ef40e53f49b97862",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "e2e",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "8b35bad43b86b1054745979ab48e4b0fdfe04b4e3578d3cf592b264f6455ea36",
+        "source_digest": "45199236a0c22b9f3f26b34113c6cc74bfba77fd35f083cc7501a9aa7d8856c5",
+        "test_digest": "548e1f73261158d313a0de481c1c40f3fb7ffe5ea1a23614bdc3d411b6cfa79e",
+        "recorded_at": "2026-10-16T16:36:10.341Z",
+        "git": {
+          "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
+          "branch": "NP-0038",
+          "dirty": false
+        }
+      },
+      "event_digest": "1cd2e8a141c26c62980b90aeffed690ad1ed47b6c0b58184a26d84ba29ff604e"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "6c46fb2cf3ab3207146e564419a7c119dc37427c",
+    "branch": "NP-0038"
+  },
+  "final": {
+    "source_digest": "45199236a0c22b9f3f26b34113c6cc74bfba77fd35f083cc7501a9aa7d8856c5",
+    "test_suite_digest": "85daeeb127bef940fc0a2b88148e8a1745586b5a97358c0c0d48d1a07dee51d8",
+    "recorded_at": "2026-10-16T16:36:10.359Z",
+    "git": {
+      "head": "699ab81ad1578114eedc63565db9902ce7f03cb3",
+      "branch": "NP-0038",
+      "dirty": false
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "2.0",
+  "story": {
+    "id": "NP-0038",
+    "title": "Migrar catálogo Next con persistencia de procedimientos en FastAPI",
+    "actor": "equipo de backend",
+    "need": "centralizar validación, consulta y agrupación de procedimientos",
+    "business_value": "preservar el catálogo y sus variantes sin reglas duplicadas en la presentación",
+    "context": "Anexo NP-0038 en NP-0026-backlog.md y topología NP-0026-target-architecture.md. Evidencia domain/procedures.py, services/procedure_store.py y web/src/domain/procedure.ts.",
+    "preconditions": ["Contratos y read/write ports FastAPI disponibles", "Baseline de validación YouTube y orden español"],
+    "acceptance_criteria": [
+      {"id": "AC-01", "given": ["procedimientos con variantes, código, título y video opcional"], "when": ["se listan o consultan"], "then": ["se conservan q/area, total, orden y familias código+título", "IDs, timestamps y campos públicos coinciden sin exponer stored_path"], "test_ids": ["TEST-01"]},
+      {"id": "AC-02", "given": ["metadata inválida, límites de longitud y URL YouTube no admitida"], "when": ["se valida una solicitud"], "then": ["se devuelven todos los errores sin persistir", "normalización y allowlist de YouTube respetan el comportamiento caracterizado"], "test_ids": ["TEST-02"]},
+      {"id": "AC-03", "given": ["reglas y casos de catálogo"], "when": ["se ejecutan con repositorio sustituible"], "then": ["Next no importa SQLite ni Flask y usa el Gateway", "grouping vive en aplicación y FastAPI implementa el repositorio DB con contratos independientes"], "test_ids": ["TEST-03", "TEST-04"]}
+    ],
+    "business_rules": [{"id": "BR-01", "rule": "Título200, código60, área120 y descripción5000; video opcional, PDF obligatorio para el alta completa."}],
+    "edge_cases": ["Mismo código y distinto título", "Código ausente", "Área null", "URL corta/embed/shorts/live"],
+    "out_of_scope": ["Cambiar almacenamiento", "Activar alta documental antes de NP-0039"],
+    "dependencies": ["NP-0030", "NP-0032"],
+    "non_functional_requirements": [{"id": "NFR-01", "rule": "Mantener compatibilidad SQLite y contratos tipados con validación runtime y 99 líneas.", "risk_tags": ["persistence", "public-api", "migration"], "test_ids": ["TEST-02", "TEST-03", "TEST-04"], "review_ids": ["REVIEW-01"]}],
+    "definition_of_ready": {"ready": false, "evidence": ["Requiere dependencias y fixtures; no nueva regla funcional pendiente."]},
+    "definition_of_done": ["Catálogo y reglas equivalentes con pruebas de puertos", "Sin filtración de rutas internas", "Cierre común del backlog"]
+  }
+}
