@@ -1,0 +1,3 @@
+export type ProcedureCreationErrorCode =
+  | "INVALID_METADATA" | "INVALID_PDF" | "TOO_LARGE" | "VALIDATOR_UNAVAILABLE"
+  | "STORAGE_UNAVAILABLE" | "CONFLICT";

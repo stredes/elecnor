@@ -1,0 +1,599 @@
+{
+  "schema_version": "2.0",
+  "task_id": "NP-0037",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/detail-contract.test.ts",
+          "tests/domain/inspections/update-policy.test.ts",
+          "tests/integration/inspections/detail.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d8231656ee03d95982d04aeabe90e0ae72163757a6d04409df97a1ba4d97f2c1",
+        "source_digest": "63fd54dd30b42ddace2b329d9cad3466b7840c15373040c26159d1f3caf4e7f4",
+        "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+        "recorded_at": "2026-10-16T16:03:12.760Z",
+        "git": {
+          "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/detail-contract.test.ts",
+          "tests/domain/inspections/update-policy.test.ts",
+          "tests/integration/inspections/detail.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "617e58323103101c93c3e6c5adae8feaa141a32d9bf2d15fefddcf135d8685df",
+        "source_digest": "064121035d835aa760444763dd3b64cd0e04316dde6d8afe727bb4570d6e90d5",
+        "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+        "recorded_at": "2026-10-16T16:03:46.915Z",
+        "git": {
+          "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6757e41a88480b5214f6800e79b1ffd990d8f6a247c3d74b359ad581888283c2",
+        "source_digest": "064121035d835aa760444763dd3b64cd0e04316dde6d8afe727bb4570d6e90d5",
+        "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+        "recorded_at": "2026-10-16T16:03:56.704Z",
+        "git": {
+          "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "f2942eb097c993a7eaee90a62bc948f1b1f0adf7d32c865661f9363716041f48",
+          "source_digest": "67647eb1a6dbcb224ccefc24122472b28e219c64d6c68872e2812d30bd499b12",
+          "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+          "recorded_at": "2026-10-16T16:04:25.841Z",
+          "git": {
+            "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+            "branch": "NP-0037",
+            "dirty": true
+          }
+        }
+      ]
+    },
+    {
+      "test_id": "TEST-02",
+      "ac_ids": [
+        "AC-02"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1b52c82268a617776e8063b12f2bdd652ccaf315a9d728be7f9efa2b886d0baa",
+        "source_digest": "67647eb1a6dbcb224ccefc24122472b28e219c64d6c68872e2812d30bd499b12",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:14.586Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ac224f3d67d1826115357c23fdc50f19057cdd61e4c447cf3d59b763b16b47b7",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:40.123Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d74c41da7f0e653e44ae3f700f6afef87bee3f1f367b9dc542392675fb17c3f9",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:53.922Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/inspection-mutations-boundary.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e1db5f1da230bd523b72f89743a5c5c2bdd281aaa0183d26bd5635444b7270a3",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "22a0418c8e5f3f9491ed8a97071e5778ad758a40c4ba35de439870a4e3c0b697",
+        "recorded_at": "2026-10-16T16:06:35.200Z",
+        "git": {
+          "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/inspection-mutations-boundary.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a756600b8f576b1f0b5c92c6066313455f421c8d4a21e2b0b578c8e5d8429226",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "22a0418c8e5f3f9491ed8a97071e5778ad758a40c4ba35de439870a4e3c0b697",
+        "recorded_at": "2026-10-16T16:06:50.363Z",
+        "git": {
+          "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a1fe20e387bb5f5f039df3cd777ecddbb9cb30b9ac797f0a06d984545fb83dab",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "22a0418c8e5f3f9491ed8a97071e5778ad758a40c4ba35de439870a4e3c0b697",
+        "recorded_at": "2026-10-16T16:06:56.898Z",
+        "git": {
+          "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [],
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/inspections/",
+        "tests/integration/inspections/"
+      ],
+      "recorded_at": "2026-10-16T16:03:12.762Z",
+      "git": {
+        "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/detail-contract.test.ts",
+          "tests/domain/inspections/update-policy.test.ts",
+          "tests/integration/inspections/detail.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "d8231656ee03d95982d04aeabe90e0ae72163757a6d04409df97a1ba4d97f2c1",
+        "source_digest": "63fd54dd30b42ddace2b329d9cad3466b7840c15373040c26159d1f3caf4e7f4",
+        "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+        "recorded_at": "2026-10-16T16:03:12.760Z",
+        "git": {
+          "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "bc35405c2c74bf13c851b7fbeaadc5ad1563e9cb659bb27284c032f6c2613761"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/adapters/outbound/memory-inspection-detail-reader.ts",
+        "src/backend/application/inspections/",
+        "src/backend/domain/inspections/",
+        "src/backend/ports/read-inspection-detail.ts",
+        "tests/domain/inspections/",
+        "tests/integration/inspections/"
+      ],
+      "recorded_at": "2026-10-16T16:03:46.921Z",
+      "git": {
+        "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "bc35405c2c74bf13c851b7fbeaadc5ad1563e9cb659bb27284c032f6c2613761",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/detail-contract.test.ts",
+          "tests/domain/inspections/update-policy.test.ts",
+          "tests/integration/inspections/detail.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "617e58323103101c93c3e6c5adae8feaa141a32d9bf2d15fefddcf135d8685df",
+        "source_digest": "064121035d835aa760444763dd3b64cd0e04316dde6d8afe727bb4570d6e90d5",
+        "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+        "recorded_at": "2026-10-16T16:03:46.915Z",
+        "git": {
+          "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "b437e32ec97e54bfc67e297e8c2a7bbf86005c1ded78b6e3e1e9e338f18cf2f4"
+    },
+    {
+      "sequence": 3,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/adapters/outbound/memory-inspection-detail-reader.ts",
+        "src/backend/application/inspections/",
+        "src/backend/domain/inspections/",
+        "src/backend/ports/read-inspection-detail.ts",
+        "tests/domain/inspections/",
+        "tests/integration/inspections/"
+      ],
+      "recorded_at": "2026-10-16T16:03:56.705Z",
+      "git": {
+        "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "b437e32ec97e54bfc67e297e8c2a7bbf86005c1ded78b6e3e1e9e338f18cf2f4",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "6757e41a88480b5214f6800e79b1ffd990d8f6a247c3d74b359ad581888283c2",
+        "source_digest": "064121035d835aa760444763dd3b64cd0e04316dde6d8afe727bb4570d6e90d5",
+        "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+        "recorded_at": "2026-10-16T16:03:56.704Z",
+        "git": {
+          "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "43466ad1d2c486e2a08fe1e178a110d18dbeb8b34b0f242a66fed94b4b20ac19"
+    },
+    {
+      "sequence": 4,
+      "type": "REBASELINED",
+      "test_id": "TEST-01",
+      "reason": "Type narrowing fix in the detail parser; behavior and tests unchanged",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/adapters/outbound/memory-inspection-detail-reader.ts",
+        "src/backend/application/inspections/",
+        "src/backend/domain/inspections/",
+        "src/backend/ports/read-inspection-detail.ts",
+        "tests/domain/inspections/",
+        "tests/integration/inspections/"
+      ],
+      "recorded_at": "2026-10-16T16:04:25.853Z",
+      "git": {
+        "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "43466ad1d2c486e2a08fe1e178a110d18dbeb8b34b0f242a66fed94b4b20ac19",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "f2942eb097c993a7eaee90a62bc948f1b1f0adf7d32c865661f9363716041f48",
+        "source_digest": "67647eb1a6dbcb224ccefc24122472b28e219c64d6c68872e2812d30bd499b12",
+        "test_digest": "c612bc2dce990d19514543cd09e57d16841decb13f05399088e2880bc2f33634",
+        "recorded_at": "2026-10-16T16:04:25.841Z",
+        "git": {
+          "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "54ab7acd80e2eec69006ca6ad15b6af63e148da683554db2e1a047b0adffbd66"
+    },
+    {
+      "sequence": 5,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/domain/inspections/mutation-boundaries.test.ts",
+        "tests/domain/storage/",
+        "tests/integration/inspections/effects.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:05:14.588Z",
+      "git": {
+        "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "54ab7acd80e2eec69006ca6ad15b6af63e148da683554db2e1a047b0adffbd66",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "1b52c82268a617776e8063b12f2bdd652ccaf315a9d728be7f9efa2b886d0baa",
+        "source_digest": "67647eb1a6dbcb224ccefc24122472b28e219c64d6c68872e2812d30bd499b12",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:14.586Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "0a7d3e06ba31aaf8f47ed4fca386c6ad163aef22c639ae80fa4fb7fb038314bf"
+    },
+    {
+      "sequence": 6,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/application/inspections/update-inspection-metadata.ts",
+        "src/backend/domain/inspections/mutation-boundaries.ts",
+        "src/backend/domain/storage/",
+        "src/backend/ports/write-inspection-metadata.ts",
+        "tests/domain/inspections/mutation-boundaries.test.ts",
+        "tests/domain/storage/",
+        "tests/integration/inspections/effects.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:05:40.130Z",
+      "git": {
+        "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "0a7d3e06ba31aaf8f47ed4fca386c6ad163aef22c639ae80fa4fb7fb038314bf",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/domain/inspections/mutation-boundaries.test.ts",
+          "tests/domain/storage/secure-download.test.ts",
+          "tests/integration/inspections/effects.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "ac224f3d67d1826115357c23fdc50f19057cdd61e4c447cf3d59b763b16b47b7",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:40.123Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "f8d3ca9a3f82cd62c416bc499b34c64f44475380a77b184e4788485da8505590"
+    },
+    {
+      "sequence": 7,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-02",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/application/inspections/update-inspection-metadata.ts",
+        "src/backend/domain/inspections/mutation-boundaries.ts",
+        "src/backend/domain/storage/",
+        "src/backend/ports/write-inspection-metadata.ts",
+        "tests/domain/inspections/mutation-boundaries.test.ts",
+        "tests/domain/storage/",
+        "tests/integration/inspections/effects.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:05:53.923Z",
+      "git": {
+        "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "f8d3ca9a3f82cd62c416bc499b34c64f44475380a77b184e4788485da8505590",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d74c41da7f0e653e44ae3f700f6afef87bee3f1f367b9dc542392675fb17c3f9",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "f2d1c6e006a427d96051facb082a8b58d8acd5afb17c1f3f584090eea7219f3e",
+        "recorded_at": "2026-10-16T16:05:53.922Z",
+        "git": {
+          "head": "d60764664f490264adb9806e29ef0ba46e3615c9",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "6d9a014de8f80e24c15633ca1175cb73b7028a6726703f1055cd62b8e205ff91"
+    },
+    {
+      "sequence": 8,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/integration/architecture/inspection-mutations-boundary.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:06:35.202Z",
+      "git": {
+        "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "6d9a014de8f80e24c15633ca1175cb73b7028a6726703f1055cd62b8e205ff91",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/inspection-mutations-boundary.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "e1db5f1da230bd523b72f89743a5c5c2bdd281aaa0183d26bd5635444b7270a3",
+        "source_digest": "ffa7cc572b35c715e6838670abcaca1cb1f6400f55237b55093befbfe4381767",
+        "test_digest": "22a0418c8e5f3f9491ed8a97071e5778ad758a40c4ba35de439870a4e3c0b697",
+        "recorded_at": "2026-10-16T16:06:35.200Z",
+        "git": {
+          "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+          "branch": "NP-0037",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "ca8e158698332f2a9fa0fdcf93a0da1fd476cda163380e96c2682b1abaa48f6f"
+    },
+    {
+      "sequence": 9,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/adapters/inbound/inspection-mutation-request.ts",
+        "tests/integration/architecture/inspection-mutations-boundary.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:06:50.364Z",
+      "git": {
+        "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "ca8e158698332f2a9fa0fdcf93a0da1fd476cda163380e96c2682b1abaa48f6f",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/inspection-mutations-boundary.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "a756600b8f576b1f0b5c92c6066313455f421c8d4a21e2b0b578c8e5d8429226",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "22a0418c8e5f3f9491ed8a97071e5778ad758a40c4ba35de439870a4e3c0b697",
+        "recorded_at": "2026-10-16T16:06:50.363Z",
+        "git": {
+          "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "6a7c486e8359b8aea1b3c1ac370961354df6a51d25b672873d575d7c6e07d3f9"
+    },
+    {
+      "sequence": 10,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0037.json",
+        "src/backend/adapters/inbound/inspection-mutation-request.ts",
+        "tests/integration/architecture/inspection-mutations-boundary.test.ts"
+      ],
+      "recorded_at": "2026-10-16T16:06:56.904Z",
+      "git": {
+        "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+        "branch": "NP-0037",
+        "dirty": true
+      },
+      "previous_event_digest": "6a7c486e8359b8aea1b3c1ac370961354df6a51d25b672873d575d7c6e07d3f9",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "a1fe20e387bb5f5f039df3cd777ecddbb9cb30b9ac797f0a06d984545fb83dab",
+        "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+        "test_digest": "22a0418c8e5f3f9491ed8a97071e5778ad758a40c4ba35de439870a4e3c0b697",
+        "recorded_at": "2026-10-16T16:06:56.898Z",
+        "git": {
+          "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+          "branch": "NP-0037",
+          "dirty": true
+        }
+      },
+      "event_digest": "cdbb1c8ebe1a846f15efdc210d75c3df18483146eb00555f37283450e913237d"
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "b7d37b443e6838ad2cf7bfaa38e838f301e1e6be",
+    "branch": "NP-0037"
+  },
+  "final": {
+    "source_digest": "7f934ca5129b5da4adb80e7a24810a4375a7f2c89e6b1c6a89d1899355b0460e",
+    "test_suite_digest": "bbcbfa592c21fa03cb037b5dc3bfbb3e594298c271c6adfc1200b9260d16759b",
+    "recorded_at": "2026-10-16T16:06:56.901Z",
+    "git": {
+      "head": "656ae524a4b3f6930e311b2070c086eadd4e321e",
+      "branch": "NP-0037",
+      "dirty": true
+    }
+  }
+}

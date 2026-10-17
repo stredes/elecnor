@@ -3,6 +3,12 @@ import { cityAliases, cityRegions } from "./city-data";
 import { regionAliases } from "./region-data";
 
 const STREET_PREFIXES = new Set(["c", "calle", "av", "avd", "avda", "avenida", "pje", "pasaje", "villa", "ruta", "camino"]);
+const ADDRESS_HINTS: readonly (readonly [RegExp, string])[] = [
+  [/\b\d+\s*(?:sur|norte|oriente|ote|otiente)\b/u, "Maule"],
+  [/\blos corregidores\b/u, "Ñuble"], [/\breloncavi\b/u, "Ñuble"],
+  [/\bpasaje tres las violetas\b/u, "Maule"], [/\b23\s*n(?:te|orte)\b/u, "Maule"],
+  [/\(-35\.409009,\s*-71\.6258038\)/u, "Maule"],
+];
 
 export function extractCity(address: string | null): string | null {
   const text = normalizeText(address);
@@ -27,7 +33,23 @@ export function resolveRegion(city: string | null, address: string | null): stri
   const match = regionAliases
     .slice().sort((left, right) => right[0].length - left[0].length)
     .find(([alias]) => new RegExp(`(^| )${escape(alias)}($| )`, "u").test(text));
+  const hint = ADDRESS_HINTS.find(([pattern]) => pattern.test(text) || pattern.test(address ?? ""));
+  if (hint) return hint[1];
   return match?.[1] ?? null;
+}
+
+export function recoverRegion(
+  city: string | null,
+  address: string | null,
+  filename: string | null,
+): string | null {
+  const fromAddress = resolveRegion(null, address);
+  if (fromAddress) return fromAddress;
+  const fromFields = resolveRegion(city ?? extractCity(address), address);
+  if (fromFields) return fromFields;
+  if (!filename) return null;
+  const cleanName = filename.replaceAll("_", " ").replace(/\.[^.]+$/u, "");
+  return resolveRegion(extractCity(cleanName), null);
 }
 
 function hasRegion(text: string): boolean {
