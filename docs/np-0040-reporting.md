@@ -51,6 +51,17 @@ El resultado sintético conserva `status: "RENDERED"` y `sheets[]` con `name` y
 formatos OOXML quedan como baseline de caracterización, no como autorización
 para crear fórmulas ni corregir variantes semánticas.
 
+Baseline de hojas observado en `excel_report.py`:
+
+| Hoja | Cabeceras observadas | Gráfico |
+|---|---|---|
+| Resumen | 8 KPI en fila 4 | ninguno |
+| Distribucion | `Tramo`, `Cantidad` en fila 4 | barras |
+| Secciones | sección, aplicables, conformes, cumplimiento % | barras |
+| Metricas | métrica, sección, observaciones, aplicables, conformes, cumplimiento % | barras |
+| Trazabilidad | 4 contadores en fila 3 | doughnut |
+| Detalle | fecha, técnico, ciudad, región, puntaje %, puntos, máximo, acciones, estado, archivo | ninguno |
+
 No existe todavía una versión HTTP aprobada de C-REPORT. No se añaden
 `contract_version`, autenticación, límites, retención ni códigos de error hasta
 que exista decisión operativa y `REVIEW-01` con alcance explícito.
