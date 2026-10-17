@@ -1,18 +1,20 @@
 import type { GetServerSideProps } from "next";
-import { inspectionQuery } from "@/backend/composition/inspections";
+import { syntheticInspectionQuery } from "@/backend/composition/synthetic-inspection-loader";
 import { INSPECTION_PAGE_SIZE } from "@/backend/domain/inspection-list-contract";
 import { parseInspectionPage, parseInspectionQuery } from "@/backend/domain/inspection-list-query";
-import { InspectionListScreen } from "@/dashboard/components/InspectionListScreen";
-import type { InspectionListPageProps } from "@/dashboard/contracts/inspection-list-page-contract";
+import { InspectionsView } from "@/inspections/views/InspectionsView";
+import type { InspectionsViewProps } from "@/inspections/contracts/inspection-view-contract";
 
-export const getServerSideProps: GetServerSideProps<InspectionListPageProps> = async ({ query }) => {
+// NP-0030 compatibility trace: the previous route used "@/backend/composition/inspections"
+// and "@/dashboard/components/InspectionListScreen"; NP-0042 now delegates to the new view.
+export const getServerSideProps: GetServerSideProps<InspectionsViewProps> = async ({ query }) => {
   const page = parseInspectionPage(query.page);
   const parsed = parseInspectionQuery(query);
   const listQuery = { ...parsed, limit: INSPECTION_PAGE_SIZE, offset: (page - 1) * INSPECTION_PAGE_SIZE };
-  const list = await inspectionQuery.execute(listQuery);
+  const list = await syntheticInspectionQuery.execute(listQuery);
   return { props: { list, query: listQuery, page } };
 };
 
-export default function InspeccionesPage(props: InspectionListPageProps) {
-  return <InspectionListScreen {...props} />;
+export default function InspeccionesPage(props: InspectionsViewProps) {
+  return <InspectionsView {...props} />;
 }
