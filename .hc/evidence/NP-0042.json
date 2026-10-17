@@ -189,7 +189,23 @@
           "branch": "NP-0042",
           "dirty": true
         }
-      }
+      },
+      "rebaselines": [
+        {
+          "check": "integration",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "881806bdf8772a95b0278ed5dd4a4cb559e4fe996726bc175cbef06f14254f1d",
+          "source_digest": "4fda658a242dfa578c9f1996d24752d2184e8deadb2083b733307aab36efe4f6",
+          "test_digest": "acb5e095858c181e1ecfe5d12d427458387ea13d9874508e1896bdc563caf6e9",
+          "recorded_at": "2026-10-17T00:36:15.944Z",
+          "git": {
+            "head": "4a01e801799cd9ea59f17dccce0cdc9ae2443799",
+            "branch": "NP-0042",
+            "dirty": true
+          }
+        }
+      ]
     }
   ],
   "reviews": [
@@ -751,14 +767,48 @@
         }
       },
       "event_digest": "9f34420493f0ff50a2c43f7e24cca145634aea538e8940be8f0514128f4b2b45"
+    },
+    {
+      "sequence": 18,
+      "type": "REBASELINED",
+      "test_id": "TEST-03",
+      "reason": "Mover el contrato del diálogo fuera del componente para cumplir el gate de contratos",
+      "executed": true,
+      "changed_files": [
+        "src/inspections/components/EditInspectionDialog.tsx",
+        "src/inspections/contracts/edit-inspection-dialog-contract.ts"
+      ],
+      "recorded_at": "2026-10-17T00:36:15.946Z",
+      "git": {
+        "head": "4a01e801799cd9ea59f17dccce0cdc9ae2443799",
+        "branch": "NP-0042",
+        "dirty": true
+      },
+      "previous_event_digest": "9f34420493f0ff50a2c43f7e24cca145634aea538e8940be8f0514128f4b2b45",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "881806bdf8772a95b0278ed5dd4a4cb559e4fe996726bc175cbef06f14254f1d",
+        "source_digest": "4fda658a242dfa578c9f1996d24752d2184e8deadb2083b733307aab36efe4f6",
+        "test_digest": "acb5e095858c181e1ecfe5d12d427458387ea13d9874508e1896bdc563caf6e9",
+        "recorded_at": "2026-10-17T00:36:15.944Z",
+        "git": {
+          "head": "4a01e801799cd9ea59f17dccce0cdc9ae2443799",
+          "branch": "NP-0042",
+          "dirty": true
+        }
+      },
+      "event_digest": "4e0a14d8dd5b619185166be5c43b934a92e97114d34a6afa4882aeeec5f110af"
     }
   ],
   "final": {
-    "source_digest": "c1323c54ea0a480656eb7cc6aea1d6ab49db50391bf1fabe393a8f09fdce8212",
+    "source_digest": "4fda658a242dfa578c9f1996d24752d2184e8deadb2083b733307aab36efe4f6",
     "test_suite_digest": "3c539a22becf9111155a74da9763b9cb7c5467b8d979878e91389a144f597e03",
-    "recorded_at": "2026-10-17T00:35:21.935Z",
+    "recorded_at": "2026-10-17T00:36:15.946Z",
     "git": {
-      "head": "2846b6fd946f503a631903d14c1cd1a529ad43bb",
+      "head": "4a01e801799cd9ea59f17dccce0cdc9ae2443799",
       "branch": "NP-0042",
       "dirty": true
     }

@@ -1,10 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { InspectionDetailInspection } from "@/backend/domain/inspections/detail-contract";
-
-type EditInspectionDialogProps = {
-  readonly inspection: InspectionDetailInspection;
-  readonly onCancel: () => void;
-};
+import type { EditInspectionDialogProps } from "../contracts/edit-inspection-dialog-contract";
 
 export function EditInspectionDialog({ inspection, onCancel }: EditInspectionDialogProps) {
   const cancelRef = useRef<HTMLButtonElement>(null);
