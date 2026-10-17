@@ -242,7 +242,7 @@
   "reviews": [
     {
       "id": "REVIEW-01",
-      "fingerprint": "1036c7614cd23bbba459643d7f834eb1343e73dc3c5455ced2e275ca9e3f0a94",
+      "fingerprint": "44f85f1e28919dcc944d0eec54d04c74949925282526a609608a5603104526ac",
       "status": "open",
       "reason": "Se agregó resolución canónica inyectada y prueba de symlink escapado. REVIEW-01 sigue abierta para re-review formal; no se habilitan descarga, mutación ni storage real."
     }
