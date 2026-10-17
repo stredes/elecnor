@@ -253,7 +253,14 @@
       ]
     }
   ],
-  "reviews": [],
+  "reviews": [{
+    "id": "REVIEW-01",
+    "fingerprint": "1e6142f542d336b179ab13125b7560a4d61c401e716d012556b8415ad1c8e588",
+    "status": "accepted",
+    "reason": "CTO APPROVED-SYNTHETIC para contratos/read models y fixtures; sin FastAPI/SQLite real, GET activo, medios externos ni storage. No es GO productivo.",
+    "approved_by": "camiloj.lopez79@gmail.com",
+    "attestation": {"provider": "git-signed-commit", "commit": "cb438fee2a961120051d00cde3584325f8d1c7fe"}
+  }],
   "events": [
     {
       "sequence": 1,
