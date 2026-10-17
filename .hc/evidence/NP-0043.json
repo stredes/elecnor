@@ -109,6 +109,59 @@
           "dirty": true
         }
       }
+    },
+    {
+      "test_id": "TEST-03",
+      "ac_ids": [
+        "AC-03"
+      ],
+      "red": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "05ba25949d7264f9b201d73040bf21023cbcf8100d536fb1bb8e2b3be565a089",
+        "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T04:03:44.181Z",
+        "git": {
+          "head": "076004682d9326904ec80381bb590f61382ca5ab",
+          "branch": "NP-0043",
+          "dirty": false
+        },
+        "expected_reason": "getServerSideProps"
+      },
+      "green": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "e56dd6935ab04449041c0897bfbd8e7b1bc120f80eea8198ca66ddf38938aee7",
+        "source_digest": "cc09b69f8cfaa68c6b41a27b42f605dd7ab8d4bcac3058f7a883845547df0230",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T04:04:00.628Z",
+        "git": {
+          "head": "076004682d9326904ec80381bb590f61382ca5ab",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d3671a58cc63ef3b5f79c0067156a1f582bcbc8b86c0339651a8ca380cd51f49",
+        "source_digest": "cc09b69f8cfaa68c6b41a27b42f605dd7ab8d4bcac3058f7a883845547df0230",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T04:04:12.240Z",
+        "git": {
+          "head": "076004682d9326904ec80381bb590f61382ca5ab",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      }
     }
   ],
   "reviews": [],
@@ -437,6 +490,110 @@
         }
       },
       "event_digest": "054004d931f72865dad4060966b3efd271f4f874408cb6ca94981c5c388487be"
+    },
+    {
+      "sequence": 10,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "getServerSideProps",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-17T04:03:44.183Z",
+      "git": {
+        "head": "076004682d9326904ec80381bb590f61382ca5ab",
+        "branch": "NP-0043",
+        "dirty": false
+      },
+      "previous_event_digest": "054004d931f72865dad4060966b3efd271f4f874408cb6ca94981c5c388487be",
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 1,
+        "output_digest": "05ba25949d7264f9b201d73040bf21023cbcf8100d536fb1bb8e2b3be565a089",
+        "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T04:03:44.181Z",
+        "git": {
+          "head": "076004682d9326904ec80381bb590f61382ca5ab",
+          "branch": "NP-0043",
+          "dirty": false
+        },
+        "expected_reason": "getServerSideProps"
+      },
+      "event_digest": "8a3124faf02612516de69ac2e16c951d09f60fa79aba5f165e256afacbdf1b5f"
+    },
+    {
+      "sequence": 11,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "pages/procedimientos/index.tsx"
+      ],
+      "recorded_at": "2026-10-17T04:04:00.629Z",
+      "git": {
+        "head": "076004682d9326904ec80381bb590f61382ca5ab",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "8a3124faf02612516de69ac2e16c951d09f60fa79aba5f165e256afacbdf1b5f",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [
+          "tests/integration/architecture/procedure-presentation.test.ts"
+        ],
+        "exit_code": 0,
+        "output_digest": "e56dd6935ab04449041c0897bfbd8e7b1bc120f80eea8198ca66ddf38938aee7",
+        "source_digest": "cc09b69f8cfaa68c6b41a27b42f605dd7ab8d4bcac3058f7a883845547df0230",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T04:04:00.628Z",
+        "git": {
+          "head": "076004682d9326904ec80381bb590f61382ca5ab",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "e9e9fe4eb08e1e3c6f62e97e1618fb22b77a579498ef0704977158026a376d63"
+    },
+    {
+      "sequence": 12,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-03",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "pages/procedimientos/index.tsx"
+      ],
+      "recorded_at": "2026-10-17T04:04:12.241Z",
+      "git": {
+        "head": "076004682d9326904ec80381bb590f61382ca5ab",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "e9e9fe4eb08e1e3c6f62e97e1618fb22b77a579498ef0704977158026a376d63",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "integration",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "d3671a58cc63ef3b5f79c0067156a1f582bcbc8b86c0339651a8ca380cd51f49",
+        "source_digest": "cc09b69f8cfaa68c6b41a27b42f605dd7ab8d4bcac3058f7a883845547df0230",
+        "test_digest": "f2abe88c287f8762d5b38c79c87e1e2f076ef87218145e8e83917f0d6155c75a",
+        "recorded_at": "2026-10-17T04:04:12.240Z",
+        "git": {
+          "head": "076004682d9326904ec80381bb590f61382ca5ab",
+          "branch": "NP-0043",
+          "dirty": true
+        }
+      },
+      "event_digest": "d6ffa6164ef5735e849bcacfb88a3894f39f103891d6e88bea7995362d80ba59"
     }
   ],
   "git_baseline": {
@@ -445,11 +602,11 @@
     "branch": "NP-0043"
   },
   "final": {
-    "source_digest": "0feb5e96911bf2a0f75cfbc7ef9967acebb7143e3299f5bef8f6d452255ad2ac",
+    "source_digest": "cc09b69f8cfaa68c6b41a27b42f605dd7ab8d4bcac3058f7a883845547df0230",
     "test_suite_digest": "9a239bfecead9c72acf16eb9cb017b21a41cf5c938537116aed11bcbbcba62a2",
-    "recorded_at": "2026-10-17T04:03:21.162Z",
+    "recorded_at": "2026-10-17T04:04:12.240Z",
     "git": {
-      "head": "abedc26d70426a54e695257b5b3ffc19c475ad93",
+      "head": "076004682d9326904ec80381bb590f61382ca5ab",
       "branch": "NP-0043",
       "dirty": true
     }
