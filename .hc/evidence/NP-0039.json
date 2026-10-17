@@ -390,7 +390,14 @@
       }
     }
   ],
-  "reviews": [],
+  "reviews": [{
+    "id": "REVIEW-01",
+    "fingerprint": "1a0d7c0dbceecdc96b4ad9e2a117313b626abba0d29f99fef29e31243c7239f6",
+    "status": "accepted",
+    "reason": "CTO APPROVED-SYNTHETIC solo para contratos, caso de uso y dobles; no autoriza endpoint, mutaciones, DB, Blob, storage, PDF real ni uso productivo. D-02/D-03/D-08 siguen pendientes.",
+    "approved_by": "camiloj.lopez79@gmail.com",
+    "attestation": {"provider": "git-signed-commit", "commit": "b94b873f51addbb23c89e231b3e0fea00e29eda3"}
+  }],
   "events": [
     {
       "sequence": 1,
