@@ -202,7 +202,14 @@
       }
     }
   ],
-  "reviews": [],
+  "reviews": [{
+    "id": "REVIEW-01",
+    "fingerprint": "1de5950ee1e89eb94f47caac4af002789350749d5d94641a00fdc47582285a71",
+    "status": "accepted",
+    "reason": "CTO APPROVED-SYNTHETIC: preservar políticas territoriales y analíticas existentes; sin fuentes externas, backfill, cambios semánticos ni GO productivo. D-04/D-06 continúan condicionados.",
+    "approved_by": "camiloj.lopez79@gmail.com",
+    "attestation": {"provider": "git-signed-commit", "commit": "4697b87c52f6d39582121e2805f2252b42a599d7"}
+  }],
   "events": [
     {
       "sequence": 1,
