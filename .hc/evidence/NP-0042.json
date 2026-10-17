@@ -121,6 +121,20 @@
             "branch": "NP-0042",
             "dirty": true
           }
+        },
+        {
+          "check": "unit",
+          "args": [],
+          "exit_code": 0,
+          "output_digest": "12a302a5a3a568cdd1473eade2305e0a3f547a989384f18c63f434394caba0e7",
+          "source_digest": "c76bb560bd219706a396bc215cefdfe6b1954de1cd54a3e193b8cfb12d51eedc",
+          "test_digest": "27f7a2c48a013557cc7bc2408ecf0074713b1d5b74397b8552febc0c59655603",
+          "recorded_at": "2026-10-17T00:34:23.808Z",
+          "git": {
+            "head": "3b378a81f315660e5eb93c55d66037358a85008a",
+            "branch": "NP-0042",
+            "dirty": false
+          }
         }
       ]
     }
@@ -529,16 +543,67 @@
       "previous_event_digest": "186f34e911dba1366b3ea64a03a8c61d49fd7ab39b5688a4fbb7e5cf7997d755",
       "code": "PRODUCTION_NOT_COMMITTED",
       "event_digest": "34d603660dc214f4bd42fc8d455abe40ba16e345537f0e4aa2d0c1e9d16da3a3"
+    },
+    {
+      "sequence": 13,
+      "type": "REBASELINED",
+      "test_id": "TEST-02",
+      "reason": "Registrar el loader sintético compartido antes de iniciar el ciclo de límites Pages",
+      "executed": true,
+      "changed_files": [],
+      "recorded_at": "2026-10-17T00:34:23.823Z",
+      "git": {
+        "head": "3b378a81f315660e5eb93c55d66037358a85008a",
+        "branch": "NP-0042",
+        "dirty": false
+      },
+      "previous_event_digest": "34d603660dc214f4bd42fc8d455abe40ba16e345537f0e4aa2d0c1e9d16da3a3",
+      "code": "REBASELINED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "12a302a5a3a568cdd1473eade2305e0a3f547a989384f18c63f434394caba0e7",
+        "source_digest": "c76bb560bd219706a396bc215cefdfe6b1954de1cd54a3e193b8cfb12d51eedc",
+        "test_digest": "27f7a2c48a013557cc7bc2408ecf0074713b1d5b74397b8552febc0c59655603",
+        "recorded_at": "2026-10-17T00:34:23.808Z",
+        "git": {
+          "head": "3b378a81f315660e5eb93c55d66037358a85008a",
+          "branch": "NP-0042",
+          "dirty": false
+        }
+      },
+      "event_digest": "95779ac63ed584c305f658302a4a216768fba6482d379e0a082bb3693e62d64b"
+    },
+    {
+      "sequence": 14,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-03",
+      "reason": "TEST-02 has no commit after REFACTOR",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0042.json",
+        "tests/integration/architecture/inspection-presentation.test.ts"
+      ],
+      "recorded_at": "2026-10-17T00:34:36.629Z",
+      "git": {
+        "head": "3b378a81f315660e5eb93c55d66037358a85008a",
+        "branch": "NP-0042",
+        "dirty": true
+      },
+      "previous_event_digest": "95779ac63ed584c305f658302a4a216768fba6482d379e0a082bb3693e62d64b",
+      "code": "PREVIOUS_CYCLE_NOT_COMMITTED",
+      "event_digest": "c9ac805f2846c43382cd5ce94d205558c7e4356c8a8e8f0dd7ba895b320d2189"
     }
   ],
   "final": {
-    "source_digest": "e930bbc5355816e5d945885f1b9cd49fc43dda1000d66259b48c31a40d8c5895",
-    "test_suite_digest": "f55f2f0db7f142c8b07b628f1f752fa4e9731d5265aee1471f1fc5205170311e",
-    "recorded_at": "2026-10-17T00:32:38.990Z",
+    "source_digest": "c76bb560bd219706a396bc215cefdfe6b1954de1cd54a3e193b8cfb12d51eedc",
+    "test_suite_digest": "973cf9fe3888c5ecfbde5e90ae0d228f0850d364558533844db26b86bf27956a",
+    "recorded_at": "2026-10-17T00:34:23.822Z",
     "git": {
-      "head": "d380e9ad1da61fe698388ccf4ef8786a452e11e2",
+      "head": "3b378a81f315660e5eb93c55d66037358a85008a",
       "branch": "NP-0042",
-      "dirty": true
+      "dirty": false
     }
   }
 }

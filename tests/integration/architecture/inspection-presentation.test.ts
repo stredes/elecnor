@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { parseInspectionQuery } from "@/backend/domain/inspection-list-query";
-import { syntheticInspectionDetail, syntheticInspectionQuery, syntheticTechnicianProfile } from "@/backend/composition/synthetic-inspection-loader";
+import { syntheticInspectionDetail, syntheticInspectionQuery, syntheticTechnicianProfile } from "@/backend/composition/synthetic-inspection-entrypoint";
 
 const root = process.cwd();
 const read = (path: string) => readFileSync(`${root}/${path}`, "utf8");
