@@ -1,7 +1,222 @@
 {
-  "schema_version":"2.0",
-  "task_id":"NP-0042",
-  "cycles":[],
-  "reviews":[{"id":"REVIEW-01","fingerprint":"fb7960d4cd17a92fa034384f4b7671a557afac7388bbe299cf4d0173a75231e3","status":"open","reason":"NP-0042/REVIEW-01 requiere revisión humana del CTO; este registro no es aceptación y no tiene attestation."}],
-  "git_baseline":{"kind":"UNMANAGED_INITIAL","head":"cb5d356b6e5b9cc38ca2b2c581ca4e09d3e5e50b","branch":"NP-0042"}
+  "schema_version": "2.0",
+  "task_id": "NP-0042",
+  "cycles": [
+    {
+      "test_id": "TEST-01",
+      "ac_ids": [
+        "AC-01"
+      ],
+      "red": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/inspection-views.test.tsx"
+        ],
+        "exit_code": 1,
+        "output_digest": "37849dccb6987151c82eab3c1642a50de30c2c01a4805d2d39998a2cb80cea6e",
+        "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
+        "test_digest": "e3fec8bca9e947b93ee44112ef52c660bff03df7a17196a4f6d8ac4ebac46801",
+        "recorded_at": "2026-10-17T00:27:21.144Z",
+        "git": {
+          "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+          "branch": "NP-0042",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "green": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/inspection-views.test.tsx"
+        ],
+        "exit_code": 0,
+        "output_digest": "15313c342d28b9c38f6f35c207bdcfbc8aa552b29ef864bf3231af0ff00b7af2",
+        "source_digest": "eb3641942c1fab850decebb13c84b3302360d947a120c85d7118f8900c3f7a36",
+        "test_digest": "e3fec8bca9e947b93ee44112ef52c660bff03df7a17196a4f6d8ac4ebac46801",
+        "recorded_at": "2026-10-17T00:27:59.589Z",
+        "git": {
+          "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+          "branch": "NP-0042",
+          "dirty": true
+        }
+      },
+      "refactor": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "9c3cec14bdbeb13d3ee4146c9c8b546698db69fe4f201a7aee2c7281fd1dfcaa",
+        "source_digest": "ba694bbba4d6d182dbcec275ddd268b5a264debd71b50a25cff93a8b57accbc3",
+        "test_digest": "e3fec8bca9e947b93ee44112ef52c660bff03df7a17196a4f6d8ac4ebac46801",
+        "recorded_at": "2026-10-17T00:29:07.858Z",
+        "git": {
+          "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+          "branch": "NP-0042",
+          "dirty": true
+        }
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "id": "REVIEW-01",
+      "fingerprint": "fb7960d4cd17a92fa034384f4b7671a557afac7388bbe299cf4d0173a75231e3",
+      "status": "open",
+      "reason": "NP-0042/REVIEW-01 requiere revisión humana del CTO; este registro no es aceptación y no tiene attestation."
+    }
+  ],
+  "git_baseline": {
+    "kind": "UNMANAGED_INITIAL",
+    "head": "cb5d356b6e5b9cc38ca2b2c581ca4e09d3e5e50b",
+    "branch": "NP-0042"
+  },
+  "events": [
+    {
+      "sequence": 1,
+      "type": "RED_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "Failed to resolve import",
+      "executed": true,
+      "changed_files": [
+        "tests/presentation/inspection-views.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:27:21.144Z",
+      "git": {
+        "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+        "branch": "NP-0042",
+        "dirty": true
+      },
+      "previous_event_digest": null,
+      "code": "RED_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/inspection-views.test.tsx"
+        ],
+        "exit_code": 1,
+        "output_digest": "37849dccb6987151c82eab3c1642a50de30c2c01a4805d2d39998a2cb80cea6e",
+        "source_digest": "3b74b98c17a55de0a2e5d5e24ef8f002fda577315844ffb19be708e39b459172",
+        "test_digest": "e3fec8bca9e947b93ee44112ef52c660bff03df7a17196a4f6d8ac4ebac46801",
+        "recorded_at": "2026-10-17T00:27:21.144Z",
+        "git": {
+          "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+          "branch": "NP-0042",
+          "dirty": true
+        },
+        "expected_reason": "Failed to resolve import"
+      },
+      "event_digest": "94d84c43e9c187489afcc4d97cda6aa84d14b0cafe345936a4136d444216cf7c"
+    },
+    {
+      "sequence": 2,
+      "type": "GREEN_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "GREEN command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0042.json",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/inspections/",
+        "src/technicians/",
+        "tests/presentation/inspection-views.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:27:59.589Z",
+      "git": {
+        "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+        "branch": "NP-0042",
+        "dirty": true
+      },
+      "previous_event_digest": "94d84c43e9c187489afcc4d97cda6aa84d14b0cafe345936a4136d444216cf7c",
+      "code": "GREEN_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [
+          "tests/presentation/inspection-views.test.tsx"
+        ],
+        "exit_code": 0,
+        "output_digest": "15313c342d28b9c38f6f35c207bdcfbc8aa552b29ef864bf3231af0ff00b7af2",
+        "source_digest": "eb3641942c1fab850decebb13c84b3302360d947a120c85d7118f8900c3f7a36",
+        "test_digest": "e3fec8bca9e947b93ee44112ef52c660bff03df7a17196a4f6d8ac4ebac46801",
+        "recorded_at": "2026-10-17T00:27:59.589Z",
+        "git": {
+          "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+          "branch": "NP-0042",
+          "dirty": true
+        }
+      },
+      "event_digest": "ca2a910e26a154c29fe4e0e51b5cecfd1f20cb15f812737df4e1d62f59eaf523"
+    },
+    {
+      "sequence": 3,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 REFACTOR command failed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0042.json",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/inspections/",
+        "src/technicians/",
+        "tests/presentation/inspection-views.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:28:08.845Z",
+      "git": {
+        "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+        "branch": "NP-0042",
+        "dirty": true
+      },
+      "previous_event_digest": "ca2a910e26a154c29fe4e0e51b5cecfd1f20cb15f812737df4e1d62f59eaf523",
+      "code": "REFACTOR_COMMAND_FAILED",
+      "event_digest": "6ab5d0500ffe9ad13c936a598659536c75ae2a5aed266a0066efe5df3ea53fb7"
+    },
+    {
+      "sequence": 4,
+      "type": "REFACTOR_RECORDED",
+      "test_id": "TEST-01",
+      "reason": "REFACTOR command passed",
+      "executed": true,
+      "changed_files": [
+        ".hc/evidence/NP-0042.json",
+        "src/dashboard/components/ReportLayout.tsx",
+        "src/dashboard/contracts/report-layout-contract.ts",
+        "src/inspections/",
+        "src/technicians/",
+        "tests/presentation/inspection-views.test.tsx"
+      ],
+      "recorded_at": "2026-10-17T00:29:07.858Z",
+      "git": {
+        "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+        "branch": "NP-0042",
+        "dirty": true
+      },
+      "previous_event_digest": "6ab5d0500ffe9ad13c936a598659536c75ae2a5aed266a0066efe5df3ea53fb7",
+      "code": "REFACTOR_RECORDED",
+      "observation": {
+        "check": "unit",
+        "args": [],
+        "exit_code": 0,
+        "output_digest": "9c3cec14bdbeb13d3ee4146c9c8b546698db69fe4f201a7aee2c7281fd1dfcaa",
+        "source_digest": "ba694bbba4d6d182dbcec275ddd268b5a264debd71b50a25cff93a8b57accbc3",
+        "test_digest": "e3fec8bca9e947b93ee44112ef52c660bff03df7a17196a4f6d8ac4ebac46801",
+        "recorded_at": "2026-10-17T00:29:07.858Z",
+        "git": {
+          "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+          "branch": "NP-0042",
+          "dirty": true
+        }
+      },
+      "event_digest": "0ea8075698ea5e3fa08e85259893b198345cb6b282c5a08feb5716998559fda0"
+    }
+  ],
+  "final": {
+    "source_digest": "ba694bbba4d6d182dbcec275ddd268b5a264debd71b50a25cff93a8b57accbc3",
+    "test_suite_digest": "465b4be85cb69c703bc6e8e138a3a7ff058f138d165c7ffb3ac00d4e040ca17b",
+    "recorded_at": "2026-10-17T00:29:07.858Z",
+    "git": {
+      "head": "512e38d19ecc1e0796404e8fbaee3e71a65d6ea0",
+      "branch": "NP-0042",
+      "dirty": true
+    }
+  }
 }

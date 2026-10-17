@@ -9,6 +9,7 @@ export function ReportLayout({ children, activeRoute }: ReportLayoutProps) {
         <Link href="/dashboard" aria-label="Elecnor · Inicio">ELECNOR</Link>
         <nav aria-label="Navegación principal">
           <Link href="/dashboard" aria-current={activeRoute === "dashboard" ? "page" : undefined}>Dashboard</Link>
+          {activeRoute === "inspections" && <Link href="/inspecciones" aria-current="page">Inspecciones</Link>}
           <Link href="/metricas" aria-current={activeRoute === "metrics" ? "page" : undefined}>Métricas</Link>
         </nav>
       </header>
