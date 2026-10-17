@@ -234,7 +234,7 @@
   "reviews": [
     {
       "id": "REVIEW-01",
-      "fingerprint": "0345c136d613fd956b140028a4a29932ec67f77a0e645e1a2ec447a94519ce44",
+      "fingerprint": "5f7d909676490bae8d3d03d7eb27460a86c1cede60b6da79c3783d2d7e1d24a4",
       "status": "open",
       "reason": "E2E TEST-04 ahora valida un consumidor Next sintético y celda text '=SUM(A1)'. REVIEW-01 sigue abierta para re-review; no demuestra escaping OOXML ni autoriza XLSX real, endpoint, storage o producción."
     }
