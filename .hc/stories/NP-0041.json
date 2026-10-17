@@ -1,0 +1,21 @@
+{
+  "schema_version":"2.0",
+  "story":{
+    "id":"NP-0041","title":"Separar presentación dashboard/métricas y estado sintético",
+    "actor":"equipo de frontend","need":"componer views, secciones y estado aislado sin mover reglas al JSX","business_value":"hacer verificables las pantallas principales antes de conectar datos reales",
+    "context":"Anexo NP-0041 en NP-0026-backlog.md. Legacy inspeccionado en np0028-web/web/src/app y presentation/components.",
+    "preconditions":["DashboardSnapshot y reporting sintéticos disponibles","Contrato de props y estilos actuales identificados","Pages Router definido"],
+    "acceptance_criteria":[
+      {"id":"AC-01","given":["snapshot sintético y viewport controlado"],"when":["se compone dashboard y métricas"],"then":["layout, navegación, secciones y accesibilidad permanecen explícitos"],"test_ids":["TEST-01"]},
+      {"id":"AC-02","given":["selección sintética y respuestas fuera de orden"],"when":["se actualiza el estado de métricas"],"then":["la transición es explícita, gana la respuesta vigente y no comparte estado entre requests"],"test_ids":["TEST-02"]},
+      {"id":"AC-03","given":["pages, views, hooks, stores y componentes"],"when":["se verifican dependencias"],"then":["solo la coordinación autorizada usa estado, JSX no calcula métricas y los contratos están separados"],"test_ids":["TEST-03"]}
+    ],
+    "business_rules":[{"id":"BR-01","rule":"No se agregan métricas ni se cambian fórmulas; el cliente sólo presenta, selecciona y formatea."}],
+    "edge_cases":["dataset vacío","carga fallida","respuesta vieja","reduced motion","Escape y foco"],
+    "out_of_scope":["conectar HTTP/DB real","añadir dependencia Zustand sin decisión","persistir estado o credenciales","rediseñar la interfaz"],
+    "dependencies":["NP-0033","NP-0035","NP-0036"],
+    "non_functional_requirements":[{"id":"NFR-01","rule":"SSR aislado por request y límites de imports verificables; no exponer datos personales en fixtures.","risk_tags":["concurrency","personal-data","migration"],"test_ids":["TEST-01","TEST-02","TEST-03"],"review_ids":["REVIEW-01"]}],
+    "definition_of_ready":{"ready":false,"evidence":["Slice sintético; baseline visual formal y dependencia Zustand siguen pendientes."]},
+    "definition_of_done":["Views y estado sintético probados","Sin conexión real ni reglas nuevas"]
+  }
+}
