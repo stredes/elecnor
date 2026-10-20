@@ -26,22 +26,34 @@
 .legacy-summary-grid p { min-height: 78px; margin: 0; border: 1px solid var(--hc-borde); border-radius: 12px; background: white; padding: 12px; box-shadow: 0 2px 8px #1d3b8610; }
 .legacy-summary-grid small { display: block; color: var(--hc-texto-suave); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
 .legacy-summary-grid strong { display: block; margin-top: 7px; color: var(--hc-azul); font-family: var(--font-hc-bebas), sans-serif; font-size: 24px; line-height: 1; }
-.legacy-procedure-families, .legacy-procedure-form, .legacy-content-card, .legacy-empty-card { margin-top: 20px; border: 1px solid var(--hc-borde); border-radius: 16px; background: white; padding: 20px; box-shadow: 0 2px 8px #1d3b8610; }
-.legacy-procedure-families h2, .legacy-procedure-form h2, .legacy-content-card h2 { margin: 0; color: var(--hc-azul); font-size: 24px; line-height: .95; text-transform: uppercase; }
-.legacy-procedure-families > ul { display: grid; gap: 10px; margin: 18px 0 0; padding: 0; list-style: none; }
-.legacy-procedure-families > ul > li { overflow: hidden; border: 1px solid var(--hc-borde); border-radius: 12px; }
-.legacy-family-toggle { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; width: 100%; border: 0; background: white; padding: 14px; color: var(--hc-texto); cursor: pointer; text-align: left; }
-.legacy-family-toggle span { grid-row: span 2; font-weight: 600; }
-.legacy-family-toggle span b { margin-right: 8px; color: var(--hc-azul-accion); font-size: 11px; }
-.legacy-family-toggle strong { color: var(--hc-azul); font-size: 13px; }
-.legacy-family-toggle small { color: var(--hc-texto-suave); font-size: 11px; }
-.legacy-family-detail { border-top: 1px solid var(--hc-borde); padding: 12px; }
-.legacy-family-detail ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
-.legacy-family-detail li { display: flex; flex-direction: column; border: 1px solid var(--hc-borde); border-radius: 10px; padding: 12px; }
-.legacy-family-detail li > span { color: var(--hc-azul-medio); font-size: 12px; font-weight: 700; }
-.legacy-family-detail li > small { color: var(--hc-texto-suave); font-size: 11px; }
-.legacy-family-detail li p { margin: 8px 0; color: var(--hc-texto-suave); font-size: 13px; }
-.legacy-family-detail li a { margin-top: auto; color: var(--hc-azul-accion); font-size: 12px; font-weight: 700; }
+.legacy-procedure-families, .legacy-procedure-form, .legacy-content-card, .legacy-empty-card { margin-top: 20px; border: 1px solid var(--hc-borde); border-radius: 16px; background: white; padding: 24px; box-shadow: 0 2px 8px #1d3b8610; }
+.legacy-procedure-section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+.legacy-procedure-section-heading > div > span { color: var(--hc-azul-accion); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.legacy-procedure-families h2, .legacy-procedure-form h2, .legacy-content-card h2 { margin: 4px 0 0; color: var(--hc-azul); font-size: 26px; line-height: .95; text-transform: uppercase; }
+.legacy-procedure-section-heading > strong { border-radius: 999px; background: var(--hc-neutro); padding: 7px 11px; color: var(--hc-azul); font-size: 11px; white-space: nowrap; }
+.legacy-family-list { display: grid; gap: 12px; margin: 22px 0 0; padding: 0; list-style: none; }
+.legacy-family-item { overflow: hidden; border: 1px solid var(--hc-borde); border-radius: 14px; background: white; transition: border-color .2s ease, box-shadow .2s ease; }
+.legacy-family-item.is-open { border-color: var(--hc-azul); box-shadow: 0 8px 20px #1d3b8618; }
+.legacy-family-toggle { display: grid; grid-template-columns: minmax(0, 1fr) auto 32px; align-items: center; gap: 16px; width: 100%; min-height: 78px; border: 0; background: white; padding: 16px 18px; color: var(--hc-texto); cursor: pointer; text-align: left; }
+.legacy-family-toggle:hover, .legacy-family-toggle:focus-visible { background: #f7f9ff; }
+.legacy-family-main { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.legacy-family-main b { flex: 0 0 auto; border-radius: 7px; background: var(--hc-azul); padding: 7px 8px; color: white; font-family: var(--font-hc-plex-mono), monospace; font-size: 10px; }
+.legacy-family-main strong { overflow: hidden; color: var(--hc-azul); font-size: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.legacy-family-summary { display: grid; gap: 2px; justify-items: end; }
+.legacy-family-summary strong { color: var(--hc-texto); font-size: 12px; }
+.legacy-family-summary small { color: var(--hc-texto-suave); font-size: 11px; }
+.legacy-family-chevron { display: inline-grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--hc-neutro); color: var(--hc-azul); font-size: 21px; line-height: 1; }
+.legacy-family-detail { border-top: 1px solid var(--hc-borde); background: #f7f9ff; padding: 18px; }
+.legacy-family-detail-lead { margin: 0 0 14px; color: var(--hc-texto-suave); font-size: 13px; }
+.legacy-family-detail ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.legacy-procedure-card { display: flex; min-height: 210px; flex-direction: column; border: 1px solid var(--hc-borde); border-radius: 12px; background: white; padding: 16px; box-shadow: 0 2px 8px #1d3b8610; }
+.legacy-procedure-card-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.legacy-procedure-card-meta span { border-radius: 999px; background: #94d1d633; padding: 4px 8px; color: var(--hc-azul); font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.legacy-procedure-card-meta small { color: var(--hc-texto-suave); font-size: 10px; }
+.legacy-procedure-card h3 { margin: 14px 0 0; color: var(--hc-azul); font-size: 23px; line-height: .95; }
+.legacy-procedure-card p { display: -webkit-box; overflow: hidden; margin: 10px 0 14px; color: var(--hc-texto-suave); font-size: 13px; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+.legacy-procedure-card a { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; color: var(--hc-azul-accion); font-size: 12px; font-weight: 700; text-decoration: none; }
+.legacy-procedure-card a:hover, .legacy-procedure-card a:focus-visible { color: var(--hc-azul); text-decoration: underline; }
 .legacy-procedure-form > p { margin: 8px 0 0; color: var(--hc-texto-suave); font-size: 13px; }
 .legacy-procedure-form form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
 .legacy-procedure-form label { display: grid; gap: 4px; color: var(--hc-azul); font-size: 12px; font-weight: 700; }
@@ -54,7 +66,7 @@
 .legacy-content-card p { margin: 10px 0 0; font-size: 14px; line-height: 1.6; }
 .legacy-content-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .legacy-content-card-heading a { border: 2px solid var(--hc-azul); border-radius: 8px; padding: 7px 12px; color: var(--hc-azul); font-size: 12px; font-weight: 700; }
-.legacy-content-card object { display: block; width: 100%; min-height: 360px; margin-top: 16px; border: 1px solid var(--hc-borde); border-radius: 10px; background: var(--hc-neutro); }
+.legacy-content-card object, .legacy-content-card iframe { display: block; width: 100%; min-height: 560px; margin-top: 18px; border: 1px solid var(--hc-borde); border-radius: 12px; background: var(--hc-neutro); }
 .legacy-procedure-video { aspect-ratio: 16 / 9; margin-top: 16px; overflow: hidden; border-radius: 10px; background: #000; }
 .legacy-procedure-video iframe { width: 100%; height: 100%; border: 0; }
 .dialog-backdrop { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; background: #1b2a4a66; padding: 16px; }
@@ -64,4 +76,4 @@
 .dialog-card textarea { width: 100%; min-height: 110px; border: 1px solid var(--hc-borde); border-radius: 8px; padding: 8px; }
 .dialog-card button { margin-top: 12px; border: 0; border-radius: 8px; background: var(--hc-azul); padding: 9px 16px; color: white; cursor: pointer; font-weight: 700; }
 @media (max-width: 800px) { .legacy-search-form, .inspection-filters { grid-template-columns: repeat(2, 1fr); } .legacy-summary-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 560px) { .legacy-search-form, .inspection-filters, .legacy-procedure-form form { grid-template-columns: 1fr; } .legacy-family-detail ul { grid-template-columns: 1fr; } .legacy-summary-grid { grid-template-columns: 1fr 1fr; } .legacy-content-card-heading { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 560px) { .legacy-search-form, .inspection-filters, .legacy-procedure-form form { grid-template-columns: 1fr; } .legacy-procedure-section-heading, .legacy-family-toggle { align-items: flex-start; } .legacy-procedure-section-heading { flex-direction: column; } .legacy-family-toggle { grid-template-columns: minmax(0, 1fr) 30px; } .legacy-family-summary { grid-column: 1; justify-items: start; } .legacy-family-chevron { grid-column: 2; grid-row: 1 / span 2; } .legacy-summary-grid { grid-template-columns: 1fr 1fr; } .legacy-content-card-heading { align-items: flex-start; flex-direction: column; } .legacy-content-card object, .legacy-content-card iframe { min-height: 420px; } }

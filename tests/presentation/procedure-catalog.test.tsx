@@ -22,12 +22,13 @@ describe("NP-0043/AC-01/TEST-01 procedure presentation", () => {
     expect(toggle).toHaveAttribute("aria-expanded", "false");
     expect(toggle).toHaveTextContent("1 de 2 con video");
     fireEvent.click(toggle);
-    expect(screen.getAllByRole("link", { name: /Ver ficha/ })).toHaveLength(2);
+    expect(screen.getAllByRole("link", { name: /Abrir ficha/ })).toHaveLength(2);
     expect(screen.getByRole("heading", { name: "Registrar procedimiento" })).toBeVisible();
     cleanup();
 
     render(<ProcedureDetailView detail={detail} downloadHref="/api/documents/DOC-05-ATC/download" />);
     expect(screen.getByRole("link", { name: /Abrir PDF/ })).toHaveAttribute("href", "/api/documents/DOC-05-ATC/download");
+    expect(screen.getByTitle("Documento PDF de Trabajo en Altura")).toHaveAttribute("src", "/api/documents/DOC-05-ATC/download");
     expect(screen.getByText(/Video no disponible/i)).toBeVisible();
     expect(screen.queryByTitle(/video del procedimiento/i)).not.toBeInTheDocument();
   });

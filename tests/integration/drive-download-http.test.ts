@@ -1,6 +1,6 @@
 import { PassThrough } from "node:stream";
 import { describe, expect, it } from "vitest";
-import { streamPdf } from "@/backend/adapters/inbound/download-response";
+import { streamInlinePdf, streamPdf } from "@/backend/adapters/inbound/download-response";
 import { HttpDocumentDownloadReader } from "@/backend/adapters/outbound/http-document-download-reader";
 
 describe("Drive download BFF adapters", () => {
@@ -23,6 +23,14 @@ describe("Drive download BFF adapters", () => {
 
     const redirect = new HttpDocumentDownloadReader("https://fasapi.test", async () => new Response(null, { status: 302, headers: { location: "https://drive.google.com/private" } }), { inspectionDownload: "/i/{id}", documentDownload: "/d/{id}" });
     await expect(redirect.download("document", "DOC-1")).rejects.toMatchObject({ code: "REJECTED", status: 302 });
+  });
+
+  it("keeps procedure PDFs inline for the embedded viewer", async () => {
+    const response = new PassThrough() as PassThrough & { setHeader: (name: string, value: string) => void };
+    const headers = new Map<string, string>();
+    response.setHeader = (name, value) => headers.set(name.toLowerCase(), value);
+    await streamInlinePdf(response as never, { body: new ReadableStream({ start(controller) { controller.close(); } }), filename: "procedimiento.pdf", contentType: "application/pdf", contentLength: null });
+    expect(headers.get("content-disposition")).toContain("inline");
   });
 
   it("blocks document-id download until FastAPI publishes that route", async () => {

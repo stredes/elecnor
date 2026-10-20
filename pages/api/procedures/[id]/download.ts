@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { mapBackendError, type BackendErrorBody } from "@/backend/adapters/inbound/backend-error-response";
-import { streamPdf } from "@/backend/adapters/inbound/download-response";
+import { streamInlinePdf } from "@/backend/adapters/inbound/download-response";
 import { parseResourceId, ResourceIdError } from "@/backend/adapters/inbound/resource-id";
 import { procedureDownloadReader } from "@/backend/composition/procedure-download";
 
@@ -10,7 +10,7 @@ export default async function procedureDownload(request: NextApiRequest, respons
     return response.status(405).json({ error: "Método no permitido.", code: "BACKEND_REJECTED" });
   }
   try {
-    return await streamPdf(response, await procedureDownloadReader.download(parseResourceId(request.query.id)));
+    return await streamInlinePdf(response, await procedureDownloadReader.download(parseResourceId(request.query.id)));
   } catch (error) {
     if (error instanceof ResourceIdError) return response.status(400).json({ error: error.message, code: "BACKEND_REJECTED" });
     const mapped = mapBackendError(error);

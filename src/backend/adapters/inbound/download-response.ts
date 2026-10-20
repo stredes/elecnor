@@ -7,9 +7,13 @@ export function streamPdf(response: NextApiResponse, file: DocumentDownload): Pr
   return streamFile(response, file);
 }
 
-export function streamFile(response: NextApiResponse, file: DownloadFile): Promise<void> {
+export function streamInlinePdf(response: NextApiResponse, file: DocumentDownload): Promise<void> {
+  return streamFile(response, file, "inline");
+}
+
+export function streamFile(response: NextApiResponse, file: DownloadFile, mode: "attachment" | "inline" = "attachment"): Promise<void> {
   response.setHeader("Content-Type", file.contentType);
-  response.setHeader("Content-Disposition", disposition(file.filename));
+  response.setHeader("Content-Disposition", disposition(file.filename, mode));
   response.setHeader("Cache-Control", "private, no-store");
   response.setHeader("X-Content-Type-Options", "nosniff");
   if (file.contentLength) response.setHeader("Content-Length", file.contentLength);
@@ -21,8 +25,8 @@ export function streamFile(response: NextApiResponse, file: DownloadFile): Promi
   });
 }
 
-function disposition(filename: string): string {
+function disposition(filename: string, mode: "attachment" | "inline" = "attachment"): string {
   const safe = filename.replace(/["\\\r\n\u0000-\u001f]/gu, "").trim() || "documento.pdf";
   const fallback = safe.replace(/[^\x20-\x7e]/gu, "_");
-  return `attachment; filename="${fallback}"; filename*=UTF-8''${encodeURIComponent(safe)}`;
+  return `${mode}; filename="${fallback}"; filename*=UTF-8''${encodeURIComponent(safe)}`;
 }
