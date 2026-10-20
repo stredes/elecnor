@@ -31,6 +31,8 @@ describe("NP-0032/AC-03/TEST-03 import domain purity", () => {
   it("exposes pure policies through a stable domain facade", () => {
     expect(normalizeText("ÁREA ß")).toBe("area ss");
     expect(classifyAnswer("N/A").notApplicable).toBe(1);
+    expect(classifyAnswer("Conformidad").conforming).toBe(1);
+    expect(classifyAnswer("No Conformidad").nonConforming).toBe(1);
     expect(policy.determineImportStatus(validImportFacts)).toBe("COMPLETA");
     expect(importDomainContract.normalizeText("Sí")).toBe("si");
   });
@@ -38,7 +40,9 @@ describe("NP-0032/AC-03/TEST-03 import domain purity", () => {
   it("keeps interpretation files free of runtime and persistence dependencies", () => {
     for (const file of pureFiles) {
       const source = readFileSync(`${root}/${file}`, "utf8");
-      expect(source).not.toMatch(/\b(?:next|react|http|fetch|sql|sqlite|pdf|ports)\b|process\.env/iu);
+      expect(source).not.toMatch(
+        /\b(?:next|react|http|fetch|sql|sqlite|pdf|ports)\b|process\.env/iu,
+      );
     }
   });
 });
