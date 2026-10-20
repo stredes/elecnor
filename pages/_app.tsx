@@ -6,6 +6,7 @@ import "../src/dashboard/styles/legacy-report.css";
 import "../src/dashboard/styles/legacy-data.css";
 import "../src/dashboard/styles/metrics-polish.css";
 import "../src/dashboard/styles/legacy-routes.css";
+import "../src/dashboard/styles/procedure-detail.css";
 import "../src/dashboard/styles/loading.css";
 import { RouteLoadingIndicator } from "../src/dashboard/components/RouteLoadingIndicator";
 

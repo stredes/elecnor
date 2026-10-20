@@ -3,6 +3,7 @@ import { MetricCard } from "../components/MetricCard";
 import { ReportLayout } from "../components/ReportLayout";
 import { LegacyDashboard } from "../components/LegacyDashboard";
 import { DeferredReporting } from "../components/DeferredReporting";
+import { ReportSkeleton } from "../components/ReportSkeleton";
 import type { DashboardViewProps } from "../contracts/dashboard-view-contract";
 
 export function DashboardView({ snapshot, report, homeHref, deferReport, error }: DashboardViewProps) {
@@ -10,7 +11,7 @@ export function DashboardView({ snapshot, report, homeHref, deferReport, error }
   if (report) {
     return <ReportLayout activeRoute="dashboard" homeHref={homeHref ?? "/"}><LegacyDashboard model={report} /></ReportLayout>;
   }
-  if (deferReport) return <ReportLayout activeRoute="dashboard" homeHref={homeHref ?? "/"}><DeferredReporting key={refreshKey(snapshot)} fallback={<SnapshotDashboardContent snapshot={snapshot} />} errorFallback={(message) => <SnapshotDashboardContent snapshot={snapshot} error={message} />}>{(model) => <LegacyDashboard model={model} />}</DeferredReporting></ReportLayout>;
+  if (deferReport) return <ReportLayout activeRoute="dashboard" homeHref={homeHref ?? "/"}><DeferredReporting key={refreshKey(snapshot)} fallback={<ReportSkeleton variant="dashboard" />} errorFallback={(message) => <SnapshotDashboardContent snapshot={snapshot} error={message} />}>{(model) => <LegacyDashboard model={model} />}</DeferredReporting></ReportLayout>;
   return <SnapshotDashboard snapshot={snapshot} />;
 }
 

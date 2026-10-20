@@ -31,9 +31,10 @@ describe("DashboardScreen", () => {
     );
   });
 
-  it("shows the summary while the detailed report is loading", () => {
+  it("shows a loading state while the detailed report is loading", () => {
     vi.spyOn(global, "fetch").mockReturnValue(new Promise<Response>(() => {}));
     render(<DashboardScreen snapshot={{ status: "healthy", generatedAt: "now", metrics: [{ id: "one", label: "Inspecciones", value: "1", trend: "+1%" }] }} deferReport />);
-    expect(within(screen.getByRole("region", { name: "Indicadores principales" })).getByText("Inspecciones")).toBeVisible();
+    expect(screen.getByTestId("dashboard-report-skeleton")).toBeVisible();
+    expect(screen.queryByRole("region", { name: "Indicadores principales" })).not.toBeInTheDocument();
   });
 });

@@ -765,6 +765,45 @@
         }
       },
       "event_digest": "595a8de79b08b173b876a321ad95db384538518ffe198e2f6dcad66d2c8be3c4"
+    },
+    {
+      "sequence": 16,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 already has RED evidence",
+      "executed": false,
+      "changed_files": [
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-20T20:34:22.436Z",
+      "git": {
+        "head": "bdb1bc41e27fc2d1c78b14067239573de9881d94",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "595a8de79b08b173b876a321ad95db384538518ffe198e2f6dcad66d2c8be3c4",
+      "code": "RED_ALREADY_RECORDED",
+      "event_digest": "c4ed51b3d269a044b7317a0ed1b3f1aa32ad9a649557be0b07c4295a62d1beca"
+    },
+    {
+      "sequence": 17,
+      "type": "ATTEMPT_FAILED",
+      "test_id": "TEST-01",
+      "reason": "TEST-01 is not the latest completed cycle",
+      "executed": false,
+      "changed_files": [
+        ".hc/evidence/NP-0043.json",
+        "tests/presentation/procedure-catalog.test.tsx"
+      ],
+      "recorded_at": "2026-10-20T20:34:26.921Z",
+      "git": {
+        "head": "bdb1bc41e27fc2d1c78b14067239573de9881d94",
+        "branch": "NP-0043",
+        "dirty": true
+      },
+      "previous_event_digest": "c4ed51b3d269a044b7317a0ed1b3f1aa32ad9a649557be0b07c4295a62d1beca",
+      "code": "LATEST_REFACTOR_REQUIRED",
+      "event_digest": "fe2b7fb6a62bcfbaae0df60b05ba19ccda000f0478a9b8aac1fb59646400fbd8"
     }
   ],
   "git_baseline": {

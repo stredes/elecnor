@@ -40,4 +40,19 @@ describe("NP-0043/AC-01/TEST-01 procedure presentation", () => {
       "https://www.youtube-nocookie.com/embed/foqEfwCLDiE?rel=0",
     );
   });
+
+  it("presents extracted objective and scope text as readable sections", () => {
+    const detailed = {
+      ...detail,
+      procedure: {
+        ...first,
+        description: "Objetivo\nPrimera línea del objetivo que continúa\nen la siguiente línea.\n\nAlcance\nAplica a las cuadrillas autorizadas.\n• Punto uno\n• Punto dos",
+      },
+    };
+    render(<ProcedureDetailView detail={detailed} downloadHref="/api/procedures/05-ATC/download" />);
+    expect(screen.getByRole("heading", { name: "Objetivo", level: 3 })).toBeVisible();
+    expect(screen.getByRole("heading", { name: "Alcance", level: 3 })).toBeVisible();
+    expect(screen.getByText("Primera línea del objetivo que continúa en la siguiente línea.")).toBeVisible();
+    expect(screen.getByText("Punto uno")).toBeVisible();
+  });
 });
