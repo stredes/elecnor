@@ -31,6 +31,17 @@ describe("backend read-model HTTP adapters", () => {
     expect(headers?.get("X-Fasapi-Scope")).toBe("official");
   });
 
+  it("supports the configured all-records metric scope", async () => {
+    let requested = "";
+    const reader = new HttpMetricsReader("http://backend.test", async (input) => {
+      requested = String(input);
+      return webResponse({ count: 0, data: [] }, { "X-Fasapi-Scope": "all" });
+    }, undefined, { requiredScope: undefined }, "all");
+
+    await expect(reader.list()).resolves.toMatchObject({ data: [] });
+    expect(requested).toBe("http://backend.test/api/v1/metrics?scope=all");
+  });
+
   it("maps snake_case metric records to the frontend contract", async () => {
     const reader = new HttpMetricsReader("http://backend.test", async () => webResponse({
       code: "EPP-1", metric: "EPP", section: "Preparación", observations: 1, applicable: 1,

@@ -3,10 +3,15 @@ import { HttpAnalyticsReader } from "../adapters/outbound/http-analytics-reader"
 import { HttpMetricsReader } from "../adapters/outbound/http-metrics-reader";
 import { HttpSupportReaders } from "../adapters/outbound/http-support-readers";
 import { resolveBackendSelection } from "./backend-config";
+import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-scope";
 
 export function createMetricsReader(fetcher?: typeof fetch) {
   const selection = resolveBackendSelection();
-  if (selection.mode === "http" && selection.url) return new HttpMetricsReader(selection.url, fetcher ?? fetch, selection.paths.metrics, options(selection));
+  const scope = resolveInspectionScope();
+  if (selection.mode === "http" && selection.url) {
+    return new HttpMetricsReader(selection.url, fetcher ?? fetch, selection.paths.metrics,
+      inspectionScopeOptions(options(selection), scope), scope);
+  }
   return { list: async () => { throw missing(); }, detail: async () => { throw missing(); } };
 }
 
