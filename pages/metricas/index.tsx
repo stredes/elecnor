@@ -10,7 +10,8 @@ export const getServerSideProps: GetServerSideProps<MetricsViewProps> = async ()
   const attempt = async <T,>(query: Promise<T>): Promise<T | null> => { try { return await query; } catch (error) { failure ??= error; return null; } };
   const [snapshot, catalog] = await Promise.all([attempt(dashboardQuery.execute()), attempt(metricsReader.list())]);
   const error = !snapshot && !catalog && failure ? pageBackendError(failure, "métricas") : undefined;
-  return { props: { snapshot, catalog: catalog ?? undefined, deferReport: true, error } };
+  const props: MetricsViewProps = { snapshot, deferReport: true, ...(catalog ? { catalog } : {}), ...(error ? { error } : {}) };
+  return { props };
 };
 
 export default function MetricsPage({
