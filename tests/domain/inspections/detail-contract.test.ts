@@ -22,6 +22,31 @@ describe("inspection detail contract", () => {
   it("rejects a detail without an inspection or metric collection", () => {
     expect(() => parseInspectionDetail({ inspection: inspection() })).toThrow();
   });
+
+  it("maps the FastAPI source contract while dropping its Drive identifier", () => {
+    const detail = parseInspectionDetail({
+      inspection: inspection(), metrics: [], source: {
+        drive_file_id: "drive-secret", filename: "original.pdf", mime_type: "application/pdf",
+        size_bytes: 10, sha256: "a".repeat(64), source_modified_at: "2026-10-19T10:00:00Z",
+        source_created_at: "2026-10-18T10:00:00Z", provenance: { source_system: "GOOGLE_DRIVE", received_at: "2026-10-19T10:01:00Z" },
+      },
+    });
+    expect(detail.inspection.provenance).toMatchObject({ filename: "original.pdf", sha256: "a".repeat(64), origin: "GOOGLE_DRIVE" });
+    expect(detail.inspection.provenance).not.toHaveProperty("driveFileId");
+  });
+
+  it("carries the uniqueness block through to the detail", () => {
+    const detail = parseInspectionDetail({
+      inspection: { ...inspection(), uniqueness: { sha256: "c".repeat(64), technician_normalized: "Ana", local_inspection_date: "2026-01-10", local_inspection_at: "09:00", completeness: "PARCIAL", metric_count: 4, modified_time: null, document_kind: "INSPECTION", exact_copy_of: "DOC-9" } },
+      metrics: [],
+    });
+    expect(detail.inspection.uniqueness).toMatchObject({ exactCopyOf: "DOC-9", metricCount: 4, completeness: "PARCIAL" });
+  });
+
+  it("accepts a detail without the uniqueness block", () => {
+    const detail = parseInspectionDetail({ inspection: inspection(), metrics: [] });
+    expect(detail.inspection.uniqueness).toBeNull();
+  });
 });
 
 function inspection() {

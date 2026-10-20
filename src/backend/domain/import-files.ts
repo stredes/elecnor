@@ -5,6 +5,10 @@ export const MAX_IMPORT_FILE_LABEL = "15 MB";
 export type ImportFile = {
   readonly name: string;
   readonly size: number;
+  readonly content?: Uint8Array;
+  readonly legacyId?: string | null;
+  readonly provenance?: BackendProvenance;
+  readonly sha256?: string;
 };
 
 export type ImportSelectionErrorCode =
@@ -50,3 +54,4 @@ function validateFile(file: ImportFile): void {
     );
   }
 }
+import type { BackendProvenance } from "./backend-contract";

@@ -20,10 +20,12 @@ describe("NP-0042/AC-01/TEST-01 inspection presentation composition", () => {
     render(<InspectionsView list={list} query={query} page={1} />);
     expect(screen.getByRole("heading", { name: "Listado de inspecciones" })).toBeVisible();
     expect(screen.getByRole("table", { name: "Lista de inspecciones" })).toBeVisible();
+    expect(screen.getByLabelText("Contexto")).toBeVisible();
+    expect(screen.getByRole("option", { name: "Trabajo en altura" })).toBeVisible();
     expect(screen.getByRole("link", { name: "Ver inspección synthetic-1" })).toHaveAttribute("href", "/inspecciones/synthetic-1");
     cleanup();
 
-    render(<InspectionDetailView detail={detail} />);
+    render(<InspectionDetailView detail={detail} downloadHref="/api/inspections/synthetic-1/download" />);
     fireEvent.click(screen.getByRole("button", { name: "Editar inspección" }));
     expect(screen.getByRole("dialog", { name: "Editar inspección" })).toBeVisible();
     expect(screen.getByRole("button", { name: "Cancelar" })).toHaveFocus();

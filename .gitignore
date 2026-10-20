@@ -27,3 +27,4 @@ temp/
 *.secret
 credentials/
 secrets/
+.vercel

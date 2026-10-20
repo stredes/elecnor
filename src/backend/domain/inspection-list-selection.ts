@@ -27,6 +27,7 @@ function matches(row: InspectionListItem, filters: InspectionFilters): boolean {
   if (filters.auditor && row.auditor !== filters.auditor) return false;
   if (filters.region && row.region !== filters.region) return false;
   if (filters.status && row.status !== filters.status) return false;
+  if (filters.workContext && (row.workContext ?? "SIN_CLASIFICAR") !== filters.workContext) return false;
   if (filters.date && row.date !== filters.date) return false;
   if (filters.from && (!row.date || row.date < filters.from)) return false;
   if (filters.to && (!row.date || row.date > filters.to)) return false;

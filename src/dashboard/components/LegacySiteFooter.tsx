@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const services = [["Capacitaciones", "/procedimientos"], ["Asesoría preventiva", "/metricas"], ["Inspección y seguimiento", "/inspecciones"], ["Procedimientos de trabajo seguro", "/procedimientos"]] as const;
-const navigation = [["Inicio", "/"], ["Inspecciones", "/inspecciones"], ["Procedimientos", "/procedimientos"], ["Métricas", "/metricas"]] as const;
+const navigation = [["Inicio", "/"], ["Importar PDFs", "/importar"], ["Inspecciones", "/inspecciones"], ["Hallazgos", "/hallazgos"], ["Sin clasificar", "/metricas-sin-clasificar"], ["Registro", "/logs"], ["Procedimientos", "/procedimientos"], ["Métricas", "/metricas"]] as const;
 const channels = [["Sitio web", "https://hc-soluciones.cl"], ["Aula virtual", "https://hc-aulavirtual.cl"], ["Instagram", "https://www.instagram.com/hcsolucioneschile/"], ["Facebook", "https://www.facebook.com/hcsolucioneschile"]] as const;
 
 export function LegacySiteFooter() {

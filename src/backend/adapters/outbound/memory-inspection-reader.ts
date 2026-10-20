@@ -6,10 +6,19 @@ import { selectInspectionList } from "../../domain/inspection-list-selection";
 import type { InspectionReader } from "../../ports/inspection-reader";
 
 const rows: readonly InspectionListItem[] = [
-  { id: "synthetic-inspection-1", date: "2026-01-10", time: "09:00", technician: "Técnico A", auditor: "Auditor A", address: "Calle 1", city: "Ciudad", region: "Norte", percentage: 80, score: 8, maxScore: 10, actions: 0, rubric: "SYN", status: "COMPLETA", filename: "synthetic-1.pdf" },
-  { id: "synthetic-inspection-2", date: "2026-02-15", time: "10:00", technician: "Técnico B", auditor: "Auditor B", address: "Calle 2", city: "Ciudad", region: "Sur", percentage: 65, score: 6.5, maxScore: 10, actions: 1, rubric: "SYN", status: "PARCIAL", filename: "synthetic-2.pdf" },
-  { id: "synthetic-inspection-3", date: "2026-03-01", time: "11:00", technician: "Técnico C", auditor: null, address: "Calle 3", city: "Ciudad", region: "Norte", percentage: null, score: null, maxScore: null, actions: null, rubric: "SYN", status: "COMPLETA", filename: "synthetic-3.pdf" },
+  syntheticRow("synthetic-inspection-1", "2026-01-10", "09:00", "Técnico A", "Auditor A", "Norte", "COMPLETA", 80, 0),
+  syntheticRow("synthetic-inspection-2", "2026-02-15", "10:00", "Técnico B", "Auditor B", "Sur", "PARCIAL", 65, 1),
+  syntheticRow("synthetic-inspection-3", "2026-03-01", "11:00", "Técnico C", null, "Norte", "COMPLETA", null, null),
 ];
+
+function syntheticRow(id: string, date: string, time: string, technician: string, auditor: string | null, region: string, status: "COMPLETA" | "PARCIAL", percentage: number | null, actions: number | null): InspectionListItem {
+  const filename = `${id}.pdf`;
+  const documentId = `DOC-${id}`;
+  const sha256 = id === "synthetic-inspection-1" ? "a".repeat(64) : id === "synthetic-inspection-2" ? "b".repeat(64) : "c".repeat(64);
+  return { id, date, time, technician, auditor, address: "Calle 1", city: "Ciudad", region, percentage, score: percentage === null ? null : percentage / 10, maxScore: 10, actions, rubric: "SYN", status, filename,
+    provenance: { documentId, filename, sha256, origin: "SYNTHETIC", receivedAt: null, date, time },
+    uniqueness: { sha256, technicianNormalized: technician, localInspectionDate: date, localInspectionAt: time, completeness: status, metricCount: 1, modifiedTime: `${date}T${time}:00Z`, documentKind: "INSPECTION", exactCopyOf: null, inspectionTime: time, timezone: "UTC", timePrecision: "minute", datePrecision: "day", provenance: { filename, sha256 } } };
+}
 
 export class MemoryInspectionReader implements InspectionReader {
   public list(query: InspectionListQuery) {

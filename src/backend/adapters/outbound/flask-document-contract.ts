@@ -1,3 +1,5 @@
+import type { BackendProvenance } from "../../domain/backend-contract";
+
 export type FlaskMetricRecord = {
   readonly sectionOriginal: string | null;
   readonly sectionNormalized: string | null;
@@ -38,4 +40,9 @@ export type FlaskInspectionRecord = {
   readonly warnings: readonly string[];
   readonly generalObservation: string | null;
   readonly metrics: readonly FlaskMetricRecord[];
+  readonly legacyId?: string | null;
+  readonly sourceSystem?: string | null;
+  readonly provenance?: BackendProvenance;
+  readonly partialDate?: string | null;
+  readonly timezone?: string | null;
 };

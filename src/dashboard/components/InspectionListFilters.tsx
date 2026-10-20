@@ -1,6 +1,7 @@
 import {
   INSPECTION_SCORE_FILTERS,
   INSPECTION_SORTS,
+  INSPECTION_WORK_CONTEXTS,
 } from "@/backend/domain/inspection-list-contract";
 import type { InspectionListFiltersProps } from "../contracts/inspection-list-filters-contract";
 
@@ -20,6 +21,9 @@ export function InspectionListFilters({ filters, auditors, regions }: Inspection
       <label htmlFor="status">Estado<select id="status" name="status" defaultValue={filters.status}>
         <option value="">Todos los estados</option><option value="COMPLETA">Completas</option><option value="PARCIAL">Parciales</option>
       </select></label>
+      <label htmlFor="work_context">Contexto<select id="work_context" name="work_context" defaultValue={filters.workContext}>
+        <option value="">Todos los contextos</option>{INSPECTION_WORK_CONTEXTS.map((value) => <option key={value} value={value}>{contextLabel(value)}</option>)}
+      </select></label>
       <label htmlFor="score">Puntaje<select id="score" name="score" defaultValue={filters.score}>
         <option value="">Todos los puntajes</option>{INSPECTION_SCORE_FILTERS.map((value) => <option key={value} value={value}>{scoreLabel(value)}</option>)}
       </select></label>
@@ -36,6 +40,12 @@ function scoreLabel(value: string): string {
   if (value === "perfect") return "100%";
   if (value === "missing") return "Sin puntaje";
   return value.replace("to", "% a ") + "%";
+}
+
+function contextLabel(value: string): string {
+  if (value === "PISO") return "Nivel de piso";
+  if (value === "ALTURA") return "Trabajo en altura";
+  return "Sin clasificar";
 }
 
 function sortLabel(value: string): string {

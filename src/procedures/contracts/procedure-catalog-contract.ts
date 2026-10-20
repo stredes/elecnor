@@ -6,4 +6,5 @@ export type ProceduresViewProps = {
   readonly families: readonly ProcedureFamily[];
   readonly total: number;
   readonly filters: ProcedureFilters;
+  readonly error?: string;
 };

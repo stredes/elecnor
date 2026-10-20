@@ -11,7 +11,8 @@ export function mapImportError(error: unknown): ImportErrorResponse {
     return { status: 400, body: { error: error.message } };
   }
   if (error instanceof ImportGatewayError && error.code === "REJECTED") {
-    return { status: 502, body: { error: REJECTED } };
+    const status = error.status === 409 || error.status === 424 || error.status === 502 ? error.status : 502;
+    return { status, body: { error: REJECTED } };
   }
   return { status: 503, body: { error: UNAVAILABLE } };
 }

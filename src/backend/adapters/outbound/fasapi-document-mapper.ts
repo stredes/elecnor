@@ -32,8 +32,9 @@ export function mapFasapiDocument(source: FasapiDocumentRecord): NormalizedDocum
   return {
     schemaVersion: NORMALIZED_DOCUMENT_VERSION,
     source: {
-      format: "fasapi-mitti", filename: null, sha256: null, importedAt: null,
-      status: null, rubricVersion: null,
+      format: "fasapi-mitti", filename: source.filename ?? null, sha256: source.sha256 ?? null, importedAt: source.importedAt ?? null,
+      status: audit.estado, rubricVersion: source.rubricVersion ?? null, legacyId: source.legacyId ?? null,
+      sourceSystem: source.sourceSystem ?? "FASAPI", provenance: source.provenance ?? {},
     },
     audit: {
       title: audit.titulo, status: audit.estado,
@@ -47,9 +48,9 @@ export function mapFasapiDocument(source: FasapiDocumentRecord): NormalizedDocum
       score: mapScore(audit.puntuacion),
       flaggedItems: audit.elementos_senalados, actions: audit.acciones,
     },
-    sections: source.secciones.map((section) => ({
-      name: section.nombre, rawName: section.nombre, order: null,
-      items: section.preguntas.map(mapQuestion),
+    sections: source.secciones.map((section, order) => ({
+      name: section.nombre, rawName: section.nombre, order,
+      items: section.preguntas.map((question) => mapQuestion(question, section.nombre)),
     })),
     findings: source.resumen_elementos_senalados.map(mapFinding),
     generalObservations: [...source.observaciones_generales],
@@ -65,14 +66,18 @@ function mapScore(score: FasapiScoreRecord | null): DocumentScore | null {
   return score
     ? {
         obtained: score.obtenida, maximum: score.maxima,
-        percentage: score.porcentaje, percentageScale: "percent",
+        percentage: score.porcentaje, percentageScale: scale(score.porcentaje),
       }
     : null;
 }
 
-function mapQuestion(question: FasapiQuestionRecord): DocumentItem {
+function scale(value: number | null): "fraction" | "percent" | null {
+  return value === null ? null : Math.abs(value) <= 1 ? "fraction" : "percent";
+}
+
+function mapQuestion(question: FasapiQuestionRecord, section: string): DocumentItem {
   return {
-    number: question.numero, section: null,
+    number: question.numero, section,
     label: question.pregunta, rawLabel: question.pregunta,
     response: question.respuesta, state: null,
     applicable: null, conforming: null, nonConforming: null, notApplicable: null,

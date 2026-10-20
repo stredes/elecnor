@@ -10,7 +10,7 @@ const procedure = (overrides: Partial<Procedure> & Pick<Procedure, "id" | "title
 const first = procedure({ id: "05-ATC", title: "Trabajo en Altura", code: "PTS-05", area: "ATC", description: "Medidas sintéticas." });
 const second = procedure({ id: "05-PEX", title: "Trabajo en Altura", code: "PTS-05", area: "PEX", youtubeVideoId: "synthetic-video" });
 const family: ProcedureFamily = { code: "PTS-05", title: "Trabajo en Altura", procedures: [first, second], total: 2, conVideo: 1 };
-const detail: ProcedureDetail = { procedure: first, pdfUrl: "/synthetic/procedures/05-ATC.pdf" };
+const detail: ProcedureDetail = { procedure: first, pdfUrl: "/synthetic/procedures/05-ATC.pdf", documentId: "DOC-05-ATC" };
 
 afterEach(cleanup);
 
@@ -26,8 +26,17 @@ describe("NP-0043/AC-01/TEST-01 procedure presentation", () => {
     expect(screen.getByRole("heading", { name: "Registrar procedimiento" })).toBeVisible();
     cleanup();
 
-    render(<ProcedureDetailView detail={detail} />);
+    render(<ProcedureDetailView detail={detail} downloadHref="/api/documents/DOC-05-ATC/download" />);
+    expect(screen.getByRole("link", { name: /Abrir PDF/ })).toHaveAttribute("href", "/api/documents/DOC-05-ATC/download");
     expect(screen.getByText(/Video no disponible/i)).toBeVisible();
     expect(screen.queryByTitle(/video del procedimiento/i)).not.toBeInTheDocument();
+  });
+
+  it("renders the YouTube video when the procedure has one", () => {
+    render(<ProcedureDetailView detail={{ ...detail, procedure: { ...first, youtubeVideoId: "foqEfwCLDiE" } }} downloadHref="/api/procedures/01-ATC/download" />);
+    expect(screen.getByTitle("Trabajo en Altura")).toHaveAttribute(
+      "src",
+      "https://www.youtube-nocookie.com/embed/foqEfwCLDiE?rel=0",
+    );
   });
 });

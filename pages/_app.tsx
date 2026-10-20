@@ -5,11 +5,13 @@ import "../src/dashboard/styles/legacy-shell.css";
 import "../src/dashboard/styles/legacy-report.css";
 import "../src/dashboard/styles/legacy-data.css";
 import "../src/dashboard/styles/legacy-routes.css";
+import "../src/dashboard/styles/loading.css";
+import { RouteLoadingIndicator } from "../src/dashboard/components/RouteLoadingIndicator";
 
 const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-hc-bebas", display: "swap" });
 const inter = Inter({ weight: ["300", "400", "600"], subsets: ["latin"], variable: "--font-hc-inter", display: "swap" });
 const plexMono = IBM_Plex_Mono({ weight: ["400", "600"], subsets: ["latin"], variable: "--font-hc-plex-mono", display: "swap" });
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <div className={`${bebas.variable} ${inter.variable} ${plexMono.variable} app-root`}><Component {...pageProps} /></div>;
+  return <div className={`${bebas.variable} ${inter.variable} ${plexMono.variable} app-root`}><Component {...pageProps} /><RouteLoadingIndicator /></div>;
 }

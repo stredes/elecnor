@@ -1,14 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { ReportRoute } from "../contracts/report-layout-contract";
 
 const links = [
   ["Home", "/"],
+  ["Importar PDFs", "/importar"],
   ["Ver inspecciones", "/inspecciones"],
   ["Ver procedimiento", "/procedimientos"],
   ["Ver métricas", "/metricas"],
 ] as const;
 
-export function LegacySiteHeader({ homeHref = "/", activeRoute }: { readonly homeHref?: string; readonly activeRoute?: "dashboard" | "metrics" | "inspections" | "procedures" }) {
+export function LegacySiteHeader({ homeHref = "/", activeRoute }: { readonly homeHref?: string; readonly activeRoute?: ReportRoute }) {
   return (
     <>
       <div className="legacy-brand-stripe" aria-hidden="true"><span /><span /></div>
@@ -18,7 +20,7 @@ export function LegacySiteHeader({ homeHref = "/", activeRoute }: { readonly hom
             <Image src="/elecnor-logo.png" alt="Elecnor" width={120} height={62} priority />
           </Link>
           <nav aria-label="Navegación principal" className="legacy-site-nav">
-            {links.map(([label, href]) => <Link key={href} href={href} aria-current={isActive(href, activeRoute) ? "page" : undefined} aria-label={href === "/metricas" ? "Métricas" : undefined} className="legacy-nav-link">{label}</Link>)}
+             {links.map(([label, href]) => <Link key={href} href={href === "/" ? homeHref : href} aria-current={isActive(href, activeRoute) ? "page" : undefined} aria-label={href === "/metricas" ? "Métricas" : undefined} className="legacy-nav-link">{label}</Link>)}
           </nav>
         </div>
       </header>
@@ -26,6 +28,7 @@ export function LegacySiteHeader({ homeHref = "/", activeRoute }: { readonly hom
   );
 }
 
-function isActive(href: string, activeRoute?: "dashboard" | "metrics" | "inspections" | "procedures"): boolean {
-  return activeRoute === "metrics" && href === "/metricas" || activeRoute === "inspections" && href === "/inspecciones" || activeRoute === "procedures" && href === "/procedimientos" || activeRoute === "dashboard" && href === "/";
+function isActive(href: string, activeRoute?: ReportRoute): boolean {
+  const active: Record<ReportRoute, string> = { dashboard: "/", metrics: "/metricas", inspections: "/inspecciones", procedures: "/procedimientos", import: "/importar", findings: "/hallazgos", unknowns: "/metricas-sin-clasificar", logs: "/logs" };
+  return activeRoute ? active[activeRoute] === href : false;
 }

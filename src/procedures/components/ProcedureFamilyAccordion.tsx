@@ -9,7 +9,7 @@ export function ProcedureFamilyAccordion({ families }: ProcedureFamilyAccordionP
     const key = `${family.code}|${family.title}`;
     const expanded = key === open;
      return <li key={key}><button className="legacy-family-toggle" type="button" aria-expanded={expanded} onClick={() => setOpen(expanded ? null : key)}><span><b>{family.code}</b>{family.title}</span><strong>{family.total === 1 ? "1 variante" : `${family.total} variantes`}</strong><small>{family.conVideo ? `${family.conVideo} de ${family.total} con video` : "sin video"}</small></button>
-       {expanded && <div className="legacy-family-detail" role="region" aria-label={family.title}><ul>{family.procedures.map((procedure) => <li key={procedure.id}><span>{procedure.area ?? "Sin área"}</span><small>{procedure.youtubeVideoId ? "video bloqueado" : "sin video"}</small>{procedure.description && <p>{procedure.description}</p>}<Link href={`/procedimientos/${encodeURIComponent(procedure.id)}`}>Ver ficha →</Link></li>)}</ul></div>}
+        {expanded && <div className="legacy-family-detail" role="region" aria-label={family.title}><ul>{family.procedures.map((procedure) => <li key={procedure.id}><span>{procedure.area ?? "Sin área"}</span><small>{procedure.youtubeVideoId ? "con video" : "sin video"}</small>{procedure.description && <p>{procedure.description}</p>}<Link href={`/procedimientos/${encodeURIComponent(procedure.id)}`}>Ver ficha →</Link></li>)}</ul></div>}
     </li>;
   })}</ul></section>;
 }

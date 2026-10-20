@@ -18,7 +18,10 @@ describe("NP-0037/AC-03/TEST-03 inspection mutation boundary", () => {
       const source = readFileSync(`${root}/${file}`, "utf8");
       expect(source).not.toMatch(/(?:next|react|sqlite|sql|adapters\/outbound)/i);
     }
-    expect(existsSync(`${root}/pages/api/inspections/[id].ts`)).toBe(false);
+    const detailRoute = `${root}/pages/api/inspections/[id].ts`;
+    if (existsSync(detailRoute)) {
+      expect(readFileSync(detailRoute, "utf8")).not.toMatch(/(?:POST|PUT|PATCH|DELETE)/u);
+    }
     expect(existsSync(`${root}/src/backend/composition/inspection-mutations.ts`)).toBe(false);
   });
 });

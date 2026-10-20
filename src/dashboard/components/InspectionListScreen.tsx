@@ -18,7 +18,7 @@ export function InspectionListScreen({ list, query, page }: InspectionListPagePr
         <thead><tr><th>Técnico</th><th>Fecha</th><th>Auditor</th><th>Puntaje</th><th>Estado</th></tr></thead>
         <tbody>{list.data.map((row) => <tr data-testid="inspection-row" key={row.id}>
           <td>{row.technician ?? "—"}</td><td>{row.date ?? "—"}</td><td>{row.auditor ?? "—"}</td>
-          <td>{row.percentage === null ? "—" : `${row.percentage}%`}</td><td>{row.status}</td>
+          <td>{row.percentage === null ? "—" : `${row.percentage}%`}</td><td>{row.status ?? "—"}</td>
         </tr>)}</tbody>
       </table>
       <nav aria-label="Paginación">

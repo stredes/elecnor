@@ -15,7 +15,7 @@ export type ReportingImportLogFact = { readonly id: string };
 
 export type ReportingMetricFact = {
   readonly state: string;
-  readonly inspectionId?: string;
+  readonly inspectionId?: string | null;
   readonly section?: string | null;
   readonly metric?: string | null;
   readonly code?: string | null;
@@ -23,6 +23,8 @@ export type ReportingMetricFact = {
   readonly conforming?: number | null;
   readonly technician?: string | null;
   readonly observation?: string | null;
+  readonly date?: string | null;
+  readonly notApplicable?: number | null;
 };
 
 export type ReportingFacts = {

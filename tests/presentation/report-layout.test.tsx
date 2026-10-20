@@ -30,4 +30,10 @@ describe("NP-0041/AC-01/TEST-01 presentation composition", () => {
     expect(screen.getByText("No hay métricas para mostrar.")).toBeVisible();
     expect(screen.getByRole("main")).toHaveAttribute("id", "contenido");
   });
+
+  it("keeps metrics enabled when detailed reporting is unavailable", () => {
+    render(<MetricsView snapshot={null} catalog={{ count: 1, data: [{ metric: "Casco", code: "EPP-1", section: "EPP", observations: 2, applicable: 2, conforming: 1, nonConforming: 1, compliance: 50 }] }} />);
+    expect(screen.getByRole("heading", { name: "Métricas" })).toBeVisible();
+    expect(screen.getByRole("link", { name: "Ver desglose" })).toHaveAttribute("href", "/metricas/EPP-1");
+  });
 });

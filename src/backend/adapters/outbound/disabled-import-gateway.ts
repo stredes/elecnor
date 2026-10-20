@@ -6,11 +6,13 @@ import {
 } from "../../ports/import-gateway";
 
 export class DisabledImportGateway implements ImportGateway {
+  public constructor(private readonly reason = "C-IMPORT upstream permanece deshabilitado.") {}
+
   public async execute(files: readonly ImportFile[]): Promise<ImportSummary> {
     void files;
     throw new ImportGatewayError(
       "UNAVAILABLE",
-      "C-IMPORT upstream permanece deshabilitado.",
+      this.reason,
     );
   }
 }

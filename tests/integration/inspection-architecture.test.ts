@@ -22,7 +22,7 @@ describe("NP-0030/AC-03/TEST-03 inspection architecture", () => {
     const reader = new HttpInspectionReader("http://fastapi.test", fetcher);
 
     await reader.list(parseInspectionQuery({ limit: "25" }));
-    expect(urls).toEqual(["http://fastapi.test/api/inspections?limit=25&offset=0"]);
+    expect(urls).toEqual(["http://fastapi.test/api/v1/inspections?scope=official&limit=25&offset=0"]);
   });
 
   it("keeps pure layers framework-free and routes composed in Pages", () => {

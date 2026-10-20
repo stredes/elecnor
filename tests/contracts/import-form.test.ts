@@ -9,22 +9,22 @@ function pdf(name: string, content = "%PDF-1.4") {
 }
 
 describe("NP-0028/AC-02/TEST-07 multipart boundary", () => {
-  it("normalizes repeated files fields and ignores other fields", () => {
+  it("normalizes repeated files fields and ignores other fields", async () => {
     const form = new FormData();
     form.append("files", pdf("one.pdf"));
     form.append("files", pdf("two.pdf", "%PDF-1.5\nmore"));
     form.append("note", "synthetic fixture");
 
-    expect(importFilesFromFormData(form)).toEqual([
+    await expect(importFilesFromFormData(form)).resolves.toMatchObject([
       { name: "one.pdf", size: 8 },
       { name: "two.pdf", size: 13 },
     ]);
   });
 
-  it("rejects a text value submitted as a file", () => {
+  it("rejects a text value submitted as a file", async () => {
     const form = new FormData();
     form.append("files", "not-a-file");
 
-    expect(() => importFilesFromFormData(form)).toThrow(ImportFormError);
+    await expect(importFilesFromFormData(form)).rejects.toBeInstanceOf(ImportFormError);
   });
 });

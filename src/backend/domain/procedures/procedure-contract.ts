@@ -6,6 +6,7 @@ export type Procedure = {
   readonly description: string | null;
   readonly youtubeVideoId: string | null;
   readonly pdfUrl: string | null;
+  readonly documentId?: string | null;
   readonly filename: string;
   readonly createdAt: string;
   readonly updatedAt: string;
@@ -23,7 +24,8 @@ export type ProcedureVideo = { readonly status: "unavailable" | "pending-policy"
 
 export type ProcedureDetail = {
   readonly procedure: Procedure;
-  readonly pdfUrl: string;
+  readonly pdfUrl: string | null;
+  readonly documentId?: string | null;
   readonly video?: ProcedureVideo;
 };
 

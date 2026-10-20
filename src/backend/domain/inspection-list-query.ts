@@ -3,6 +3,7 @@ import {
   DEFAULT_INSPECTION_SORT,
   INSPECTION_SCORE_FILTERS,
   INSPECTION_SORTS,
+  INSPECTION_WORK_CONTEXTS,
   MAX_INSPECTION_LIMIT,
   type InspectionListQuery,
   type InspectionSort,
@@ -11,6 +12,7 @@ import {
 type RawValue = string | string[] | undefined;
 const SORT_SET = new Set<string>(INSPECTION_SORTS);
 const SCORE_SET = new Set<string>(INSPECTION_SCORE_FILTERS);
+const WORK_CONTEXT_SET = new Set<string>(INSPECTION_WORK_CONTEXTS);
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const MONTH_PATTERN = /^\d{4}-\d{2}$/;
 
@@ -19,11 +21,13 @@ export function parseInspectionQuery(params: Record<string, RawValue> = {}): Ins
   const score = text(params.score, 20);
   const status = text(params.status, 20);
   const month = text(params.month, 7);
+  const workContext = text(params.work_context, 20);
   return {
     filters: {
       q: text(params.q), date: date(params.date), from: date(params.from), to: date(params.to),
       technician: text(params.technician), auditor: text(params.auditor), region: text(params.region),
       status: status === "COMPLETA" || status === "PARCIAL" ? status : "",
+      workContext: WORK_CONTEXT_SET.has(workContext) ? workContext as InspectionListQuery["filters"]["workContext"] : "",
       score: SCORE_SET.has(score) ? score : "",
       month: MONTH_PATTERN.test(month) ? month : "",
       sort: (SORT_SET.has(sort) ? sort : DEFAULT_INSPECTION_SORT) as InspectionSort,
@@ -33,13 +37,13 @@ export function parseInspectionQuery(params: Record<string, RawValue> = {}): Ins
   };
 }
 
-export function buildInspectionQuery(query: InspectionListQuery): string {
-  const params = new URLSearchParams();
+export function buildInspectionQuery(query: InspectionListQuery, scope: string = "official"): string {
+  const params = new URLSearchParams({ scope });
   const { filters } = query;
   const values: Record<string, string> = {
     q: filters.q, date: filters.date, from: filters.from, to: filters.to,
     technician: filters.technician, auditor: filters.auditor, region: filters.region,
-    status: filters.status, score: filters.score, month: filters.month,
+    status: filters.status, work_context: filters.workContext ?? "", score: filters.score, month: filters.month,
   };
   Object.entries(values).forEach(([key, value]) => { if (value) params.set(key, value); });
   if (filters.sort !== DEFAULT_INSPECTION_SORT) params.set("sort", filters.sort);

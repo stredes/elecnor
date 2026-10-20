@@ -2,4 +2,5 @@ import type { TechnicianProfile } from "@/backend/domain/technicians/profile-con
 
 export type TechnicianViewProps = {
   readonly profile: TechnicianProfile;
+  readonly error?: string;
 };

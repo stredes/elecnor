@@ -23,14 +23,15 @@ export function mapFlaskInspection(source: FlaskInspectionRecord): NormalizedDoc
     source: {
       format: "flask-mitti", filename: source.filename, sha256: source.pdfHash,
       importedAt: source.importedAt, status: source.importStatus,
-      rubricVersion: source.rubricVersion,
+      rubricVersion: source.rubricVersion, legacyId: source.legacyId ?? null,
+      sourceSystem: source.sourceSystem ?? "FLASK", provenance: source.provenance ?? {},
     },
     audit: {
-      title: null, status: null,
+      title: null, status: source.importStatus,
       auditor: { name: source.auditor, role: source.auditorRole },
       technician: { name: source.technician, role: null },
-      date: source.inspectionDate, partialDate: null, time: source.inspectionTime,
-      timezone: null,
+      date: source.inspectionDate, partialDate: source.partialDate ?? null, time: source.inspectionTime,
+      timezone: source.timezone ?? null,
       location: {
         address: source.address, city: source.city, region: source.region,
         latitude: source.latitude, longitude: source.longitude,

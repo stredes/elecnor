@@ -1,3 +1,5 @@
+import type { BackendProvenance } from "../../domain/backend-contract";
+
 export type FasapiPersonRecord = { nombre: string | null; cargo: string | null };
 
 export type FasapiScoreRecord = {
@@ -46,4 +48,11 @@ export type FasapiDocumentRecord = {
   resumen_elementos_senalados: readonly FasapiFindingRecord[];
   observaciones_generales: readonly string[];
   advertencias: readonly string[];
+  legacyId?: string | null;
+  sourceSystem?: string | null;
+  filename?: string | null;
+  sha256?: string | null;
+  importedAt?: string | null;
+  rubricVersion?: string | null;
+  provenance?: BackendProvenance;
 };

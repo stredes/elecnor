@@ -1,13 +1,18 @@
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .legacy-data-toolbar { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--hc-borde); background: #ffffffd9; padding: 8px 0; color: var(--hc-texto-suave); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; backdrop-filter: blur(8px); }
 .legacy-toolbar-actions { display: flex; align-items: center; gap: 8px; }
-.legacy-toolbar-actions button, .legacy-toolbar-mobile > button { min-height: 32px; border: 0; border-radius: 6px; background: transparent; padding: 4px 10px; color: var(--hc-texto); cursor: not-allowed; font-size: 11px; font-weight: 600; }
-.legacy-toolbar-actions button:disabled { opacity: 1; }
+.legacy-toolbar-actions button, .legacy-toolbar-actions a, .legacy-toolbar-mobile > button { min-height: 32px; border: 0; border-radius: 6px; background: transparent; padding: 4px 10px; color: var(--hc-texto); cursor: pointer; font-size: 11px; font-weight: 600; text-decoration: none; }
+.legacy-toolbar-actions button:hover, .legacy-toolbar-actions a:hover, .legacy-toolbar-mobile > button:hover { background: var(--hc-neutro); color: var(--hc-azul); }
+.legacy-toolbar-actions button:disabled { cursor: wait; opacity: .55; }
 .legacy-toolbar-actions i { width: 1px; height: 16px; background: var(--hc-borde); }
 .legacy-toolbar-actions small { margin-left: 6px; color: var(--hc-texto-suave); font-size: 10px; text-transform: none; letter-spacing: 0; }
 .legacy-toolbar-mobile { display: none; position: relative; }
 .legacy-toolbar-menu { position: absolute; right: 0; z-index: 30; display: grid; width: 180px; margin-top: 4px; border: 1px solid var(--hc-borde); border-radius: 8px; background: white; padding: 4px; box-shadow: 0 8px 18px #17243a22; }
-.legacy-toolbar-menu button { min-height: 40px; border: 0; background: transparent; padding: 8px 10px; color: var(--hc-texto); cursor: not-allowed; text-align: left; }
+.legacy-toolbar-menu button, .legacy-toolbar-menu a { min-height: 40px; border: 0; background: transparent; padding: 8px 10px; color: var(--hc-texto); cursor: pointer; text-align: left; text-decoration: none; }
+.legacy-toolbar-menu button:hover, .legacy-toolbar-menu a:hover { background: var(--hc-neutro); color: var(--hc-azul); }
+.legacy-toolbar-status { margin: 8px 0 0; color: var(--hc-azul-medio); font-size: 12px; } .legacy-toolbar-status.is-error { color: var(--hc-danger); }
+.legacy-dropzone { position: fixed; inset: 0; z-index: 40; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #1d3b8633; padding: 24px; text-align: center; }
+.legacy-dropzone strong { border: 3px dashed var(--hc-azul); border-radius: 16px; background: #fffffff2; padding: 28px 40px 8px; color: var(--hc-azul); font-family: var(--font-hc-bebas), sans-serif; font-size: 32px; text-transform: uppercase; } .legacy-dropzone span { background: #fffffff2; padding: 0 16px 24px; color: var(--hc-texto-suave); font-size: 13px; }
 .legacy-dashboard-header { margin-top: 24px; border-radius: 16px; background: var(--hc-azul); padding: 24px; color: white; box-shadow: 0 8px 18px #1d3b8622; }
 .legacy-dashboard-title-row { display: flex; align-items: center; gap: 16px; }
 .legacy-dashboard-title-row img { width: 150px; height: auto; object-fit: contain; flex: 0 0 auto; }

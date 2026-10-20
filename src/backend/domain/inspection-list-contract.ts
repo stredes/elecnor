@@ -13,9 +13,20 @@ export const INSPECTION_SCORE_FILTERS = [
   "0to9", "10to19", "20to29", "30to39", "40to49", "50to59", "60to69",
   "70to79", "80to89", "90to99", "below70", "70to89", "perfect", "missing",
 ] as const;
+export const INSPECTION_WORK_CONTEXTS = ["PISO", "ALTURA", "SIN_CLASIFICAR"] as const;
 
 export type InspectionSort = (typeof INSPECTION_SORTS)[number];
-export type InspectionStatus = "COMPLETA" | "PARCIAL";
+export type InspectionStatus = string | null;
+export type InspectionFilterStatus = "COMPLETA" | "PARCIAL" | "";
+export type InspectionWorkContext = (typeof INSPECTION_WORK_CONTEXTS)[number];
+
+export function parseInspectionWorkContext(value: unknown): InspectionWorkContext {
+  if (value === undefined || value === null) return "SIN_CLASIFICAR";
+  if (typeof value !== "string" || !INSPECTION_WORK_CONTEXTS.includes(value as InspectionWorkContext)) {
+    throw new Error("Invalid inspection work context");
+  }
+  return value as InspectionWorkContext;
+}
 
 export type InspectionFilters = {
   readonly q: string;
@@ -25,7 +36,8 @@ export type InspectionFilters = {
   readonly technician: string;
   readonly auditor: string;
   readonly region: string;
-  readonly status: InspectionStatus | "";
+  readonly status: InspectionFilterStatus;
+  readonly workContext?: InspectionWorkContext | "";
   readonly score: string;
   readonly month: string;
   readonly sort: InspectionSort;
@@ -53,6 +65,9 @@ export type InspectionListItem = {
   readonly rubric: string | null;
   readonly status: InspectionStatus;
   readonly filename: string | null;
+  readonly workContext?: InspectionWorkContext;
+  readonly provenance?: DocumentProvenance | null;
+  readonly uniqueness?: UniquenessFacts | null;
 };
 
 export type InspectionListResult = {
@@ -64,3 +79,5 @@ export type InspectionListResult = {
   readonly auditors: readonly string[];
   readonly regions: readonly string[];
 };
+import type { DocumentProvenance } from "./document-provenance";
+import type { UniquenessFacts } from "./uniqueness-facts";

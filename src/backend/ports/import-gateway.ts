@@ -7,6 +7,7 @@ export class ImportGatewayError extends Error {
   public constructor(
     public readonly code: ImportGatewayFailureCode,
     message: string,
+    public readonly status?: number,
   ) {
     super(message);
     this.name = "ImportGatewayError";

@@ -3,6 +3,7 @@ export type DocumentExtractionErrorCode =
   | "INVALID_FILENAME"
   | "INVALID_LIMIT"
   | "UPSTREAM_UNAVAILABLE"
+  | "UPSTREAM_TIMEOUT"
   | "UPSTREAM_REJECTED"
   | "INVALID_RESPONSE"
   | "TOO_LARGE";
@@ -12,6 +13,7 @@ const messages: Record<DocumentExtractionErrorCode, string> = {
   INVALID_FILENAME: "El nombre del documento no es válido.",
   INVALID_LIMIT: "El límite del documento no es válido.",
   UPSTREAM_UNAVAILABLE: "El servicio documental no está disponible.",
+  UPSTREAM_TIMEOUT: "El servicio documental agotó el tiempo de respuesta.",
   UPSTREAM_REJECTED: "El documento fue rechazado por el servicio documental.",
   INVALID_RESPONSE: "El servicio documental devolvió una respuesta inválida.",
   TOO_LARGE: "El documento supera el límite configurado.",

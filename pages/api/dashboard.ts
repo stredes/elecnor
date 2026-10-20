@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { dashboardQuery } from "@/backend/composition/dashboard";
 import type { DashboardResponse } from "@/backend/adapters/inbound/dashboard-response-contract";
+import { mapBackendError } from "@/backend/adapters/inbound/backend-error-response";
 
 export default async function dashboard(
   request: NextApiRequest,
@@ -13,7 +14,8 @@ export default async function dashboard(
 
   try {
     return response.status(200).json(await dashboardQuery.execute());
-  } catch {
-    return response.status(502).json({ code: "BACKEND_UNAVAILABLE" });
+  } catch (error) {
+    const mapped = mapBackendError(error);
+    return response.status(mapped.status).json(mapped.body);
   }
 }

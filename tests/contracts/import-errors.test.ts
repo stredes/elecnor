@@ -27,4 +27,8 @@ describe("NP-0028/AC-02/TEST-05 import error boundary", () => {
       body: { error: "El servicio de importación no está disponible." },
     });
   });
+
+  it.each([409, 424, 502] as const)("preserves mapped upstream status %s", (status) => {
+    expect(mapImportError(new ImportGatewayError("REJECTED", "secret", status)).status).toBe(status);
+  });
 });

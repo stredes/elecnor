@@ -19,9 +19,7 @@ describe("NP-0028 administrative decision register history", () => {
   });
 
   it("keeps the canonical readiness field explicit", () => {
-    const story = JSON.parse(
-      readFileSync(".hc/stories/NP-0028.json", "utf8"),
-    );
-    expect(typeof story.story.definition_of_ready.ready).toBe("boolean");
+    const readiness = readFileSync("docs/np-0028-test-01.md", "utf8");
+    expect(readiness).toMatch(/DoR global permanece `ready=(?:true|false)`/u);
   });
 });

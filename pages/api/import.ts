@@ -22,7 +22,8 @@ export default function importHandler(
   }
 
   return readMultipart(request)
-    .then((form) => importCommand.execute(importFilesFromFormData(form)))
+    .then((form) => importFilesFromFormData(form))
+    .then((files) => importCommand.execute(files))
     .then((summary) => {
       response.status(200).json(summary);
     })

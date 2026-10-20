@@ -1,3 +1,5 @@
+import type { BackendProvenance } from "./backend-contract";
+
 export const NORMALIZED_DOCUMENT_VERSION = "c-import.document.v1";
 
 export type DocumentFormat = "flask-mitti" | "fasapi-mitti";
@@ -29,6 +31,9 @@ export type DocumentSource = {
   readonly importedAt: string | null;
   readonly status: string | null;
   readonly rubricVersion: string | null;
+  readonly legacyId: string | null;
+  readonly sourceSystem: string | null;
+  readonly provenance: BackendProvenance;
 };
 
 export type DocumentItem = {
