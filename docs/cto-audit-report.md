@@ -7,9 +7,9 @@
 
 ## Proyecto
 
-**Elecnor — revisión NP-0001 a NP-0043**  
-**Checkout auditado:** `NP-0043` / `9ceb433`  
-**Fecha:** 2026-10-16  
+**Elecnor — revisión NP-0001 a NP-0043**
+**Checkout auditado:** `NP-0043` / `9ceb433`
+**Fecha:** 2026-10-16
 **Alcance:** reviews, attestations y conexión backend–API–frontend.
 
 ## 1. Dictamen ejecutivo
