@@ -32,8 +32,10 @@ describe("ExecutiveDashboard", () => {
     expect(document.querySelector(".executive-secondary-grid .executive-result-panel")).toBeInTheDocument();
     expect(screen.getByText("Resultado observado")).toBeVisible();
     expect(screen.getByText("Base evaluada")).toBeVisible();
-    expect(screen.getByText("Personas en altura")).toBeVisible();
-    expect(screen.getByText("Personas en piso")).toBeVisible();
+    expect(screen.getByText("Personas en trabajo en altura")).toBeVisible();
+    expect(screen.getByText("Personas en trabajo en piso")).toBeVisible();
+    expect(screen.getByRole("link", { name: /Personas en trabajo en altura/ })).toHaveTextContent(String(model.kpis.personasAltura));
+    expect(screen.getByRole("link", { name: /Personas en trabajo en piso/ })).toHaveTextContent(String(model.kpis.personasPiso));
     expect(screen.getByText("Personas únicas clasificadas en ALTURA")).toBeVisible();
     expect(screen.getByText("Personas únicas clasificadas en PISO")).toBeVisible();
     expect(screen.queryByText("Umbrales por indicador")).not.toBeInTheDocument();
@@ -49,7 +51,7 @@ describe("ExecutiveDashboard", () => {
     expect(screen.queryByText(/70%/)).not.toBeInTheDocument();
     expect(screen.queryByText("Cumplen el estándar")).not.toBeInTheDocument();
     expect(screen.queryByText("Bajo el estándar")).not.toBeInTheDocument();
-    expect(screen.getAllByText("Puntaje perfecto")).toHaveLength(1);
+    expect(screen.queryByText("Puntaje perfecto")).not.toBeInTheDocument();
     expect(screen.getByText("Personas bajo 90%")).toBeVisible();
     const distributionHeader = document.querySelector(".executive-distribution-panel .legacy-donut-legend-header-distribution");
     expect(distributionHeader).toHaveTextContent("Puntaje / nivel");
@@ -67,7 +69,7 @@ describe("ExecutiveDashboard", () => {
     const model = toLegacyDashboardModel(await syntheticReportingQuery.execute());
     const cachedModel = { ...model, kpis: { ...model.kpis, personasAltura: undefined, personasPiso: undefined } };
     render(<ExecutiveDashboard model={cachedModel} generatedAt="2026-11-09T12:00:00.000Z" />);
-    expect(screen.getByText("Personas en altura")).toBeVisible();
-    expect(screen.getByText("Personas en piso")).toBeVisible();
+    expect(screen.getByText("Personas en trabajo en altura")).toBeVisible();
+    expect(screen.getByText("Personas en trabajo en piso")).toBeVisible();
   });
 });

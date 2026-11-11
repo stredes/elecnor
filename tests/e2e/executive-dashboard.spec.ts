@@ -7,7 +7,8 @@ test("home renders the executive dashboard locally", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Dashboard Ejecutivo" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Regiones que requieren atención" })).toBeVisible();
   await expect(page.getByRole("button", { name: /Maule 2 auditorías · 4 incumplimientos/i })).toBeVisible();
-  await expect(page.getByText(/no contiene una clasificación validada/i)).toBeVisible();
+  await expect(page.getByRole("link", { name: /Personas en trabajo en altura/ })).toContainText("2");
+  await expect(page.getByRole("link", { name: /Personas en trabajo en piso/ })).toContainText("1");
 });
 
 test("region focus changes without losing the global dashboard", async ({ page }) => {
