@@ -11,7 +11,7 @@ describe("NP-0034/AC-02/TEST-02 reporting boundaries", () => {
     expect(calculateKpis(empty)).toMatchObject({
       "PDF recibidos": 0, "Puntajes válidos": 0, "Personas evaluadas": 0, "Personas bajo 90%": 0, "Promedio global": "0.00%",
     });
-    expect(calculatePercentiles(empty)).toEqual({ media: null, mediana: null, p25: null, p75: null });
+    expect(calculatePercentiles(empty)).toEqual({ media: null, mediana: null, moda: null, p25: null, p75: null });
     expect(countScoreBands(empty).every((band) => band.count === 0)).toBe(true);
   });
 
@@ -19,8 +19,9 @@ describe("NP-0034/AC-02/TEST-02 reporting boundaries", () => {
     const facts = withScores([0, 0.499999, 0.5, 0.599999, 0.6, 0.699999, 0.7,
       0.799999, 0.8, 0.899999, 0.9, 0.999999, 1, null]);
     expect(countScoreBands(facts).map((band) => band.count)).toEqual([2, 2, 2, 2, 2, 2, 1]);
-    expect(calculatePercentiles(withScores([0.705]))).toEqual({ media: 70.5, mediana: 70.5, p25: 70.5, p75: 70.5 });
-    expect(calculatePercentiles(withScores([0.5, 0.7]))).toEqual({ media: 60, mediana: 60, p25: 50, p75: 50 });
+    expect(calculatePercentiles(withScores([0.705]))).toEqual({ media: 70.5, mediana: 70.5, moda: 70.5, p25: 70.5, p75: 70.5 });
+    expect(calculatePercentiles(withScores([0.5, 0.7]))).toEqual({ media: 60, mediana: 60, moda: null, p25: 50, p75: 50 });
+    expect(calculatePercentiles(withScores([0.7, 0.8, 0.8, 0.9]))).toMatchObject({ media: 80, mediana: 80, moda: 80 });
   });
 
   it("does not promote a value just below an SQL half tie", () => {

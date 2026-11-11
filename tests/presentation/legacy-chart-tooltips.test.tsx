@@ -1,6 +1,6 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
-import { LegacyBellCurveChart, bandCenter, createCurve, estimateStandardDeviation, weightedMean } from "@/dashboard/components/LegacyBellCurveChart";
+import { LegacyBellCurveChart, bandCenter, createCurve, createReferenceCurve, estimateStandardDeviation, weightedMean } from "@/dashboard/components/LegacyBellCurveChart";
 import { LegacyDonutChart } from "@/dashboard/components/LegacyDonutChart";
 import { LegacyProgressChart } from "@/dashboard/components/LegacyProgressChart";
 
@@ -56,20 +56,21 @@ describe("executive chart tooltips", () => {
   });
 
   it("shows the hovered score band", () => {
-    render(<LegacyBellCurveChart distribution={[{ label: "80-89", count: 8 }, { label: "70-79", count: 2 }]} panorama={{ media: 82, mediana: 82, p25: 75, p75: 88 }} />);
+    render(<LegacyBellCurveChart distribution={[{ label: "80-89", count: 8 }, { label: "70-79", count: 2 }]} panorama={{ media: 82, mediana: 82, moda: 82, p25: 75, p75: 88 }} />);
     fireEvent.mouseEnter(document.querySelector(".legacy-bell-bar")!);
     expect(screen.getByRole("status")).toHaveTextContent("Banda 80-89");
     expect(screen.getByRole("status")).toHaveTextContent("8 auditorías");
   });
 
   it("explains the real bars and reference curve without a fixed threshold", () => {
-    render(<LegacyBellCurveChart distribution={[{ label: "80-89", count: 8 }, { label: "70-79", count: 2 }]} panorama={{ media: 82, mediana: 82, p25: 75, p75: 88 }} />);
-    expect(screen.getByRole("heading", { name: "Distribución real y referencia gaussiana" })).toBeVisible();
+    render(<LegacyBellCurveChart distribution={[{ label: "80-89", count: 8 }, { label: "70-79", count: 2 }]} panorama={{ media: 82, mediana: 82, moda: 82, p25: 75, p75: 88 }} />);
+    expect(screen.getByRole("heading", { name: "Distribución real y campana gaussiana referencial" })).toBeVisible();
     expect(screen.getByText(/las barras muestran cuántas auditorías/i)).toBeVisible();
     expect(screen.queryByText("Umbral preventivo")).not.toBeInTheDocument();
     expect(screen.queryByRole("img", { name: "Umbral preventivo: 70%" })).not.toBeInTheDocument();
     expect(screen.getByText("Mediana")).toBeVisible();
-    expect(document.querySelectorAll(".legacy-bell-stat-level")).toHaveLength(4);
+    expect(screen.getByText("Moda")).toBeVisible();
+    expect(document.querySelectorAll(".legacy-bell-stat-level")).toHaveLength(5);
     expect(document.querySelector(".legacy-bell-stat.is-level-3 .legacy-bell-stat-level")).toHaveTextContent("Nivel 3 · Mejorable");
   });
 
@@ -78,20 +79,27 @@ describe("executive chart tooltips", () => {
     expect(points.reduce((best, point) => point.y > best.y ? point : best)).toEqual({ x: 77, y: 1 });
   });
 
+  it("uses a left-skewed curve only as a visual reference", () => {
+    const points = createReferenceCurve(70, 10, 76, 73);
+    const peak = points.reduce((best, point) => point.y > best.y ? point : best);
+    expect(peak.x).toBeGreaterThan(70);
+    expect(points.find((point) => point.x === 60)!.y).toBeGreaterThan(points.find((point) => point.x === 90)!.y);
+  });
+
   it("uses 100 as the exact center of the 100 band and computes weighted means", () => {
     expect(bandCenter("100")).toBe(100);
     expect(weightedMean([{ label: "50-59", count: 2 }, { label: "100", count: 1 }])).toBeCloseTo(69.6667, 3);
   });
 
   it("uses P25/P75 for dispersion and falls back to observed bands", () => {
-    expect(estimateStandardDeviation([{ label: "50-59", count: 1 }], 60, { media: 60, mediana: 60, p25: 50, p75: 80 })).toBeCloseTo((80 - 50) / 1.349, 5);
-    expect(estimateStandardDeviation([{ label: "50-59", count: 1 }, { label: "90-99", count: 1 }], 74.5, { media: 74.5, mediana: 74.5, p25: null, p75: null })).toBeGreaterThan(4);
+    expect(estimateStandardDeviation([{ label: "50-59", count: 1 }], 60, { media: 60, mediana: 60, moda: 60, p25: 50, p75: 80 })).toBeCloseTo((80 - 50) / 1.349, 5);
+    expect(estimateStandardDeviation([{ label: "50-59", count: 1 }, { label: "90-99", count: 1 }], 74.5, { media: 74.5, mediana: 74.5, moda: null, p25: null, p75: null })).toBeGreaterThan(4);
   });
 
   it("handles empty, single-band, equal and configurable-threshold cases without invalid SVG values", () => {
-    const { container, rerender } = render(<LegacyBellCurveChart distribution={[]} panorama={{ media: null, mediana: null, p25: null, p75: null }} />);
+    const { container, rerender } = render(<LegacyBellCurveChart distribution={[]} panorama={{ media: null, mediana: null, moda: null, p25: null, p75: null }} />);
     expect(container.querySelector("svg")).not.toBeInTheDocument();
-    rerender(<LegacyBellCurveChart distribution={[{ label: "100", count: 3 }]} panorama={{ media: null, mediana: null, p25: null, p75: null }} threshold={75} />);
+    rerender(<LegacyBellCurveChart distribution={[{ label: "100", count: 3 }]} panorama={{ media: null, mediana: null, moda: null, p25: null, p75: null }} threshold={75} />);
     expect(screen.getByText("Umbral preventivo")).toBeVisible();
     expect(screen.getByText("75%")).toBeVisible();
     expect(container.querySelector("svg")?.innerHTML).not.toMatch(/NaN|Infinity/);

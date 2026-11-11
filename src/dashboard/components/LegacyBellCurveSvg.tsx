@@ -1,13 +1,13 @@
 import type { ReportingPercentiles } from "@/backend/domain/reporting/reporting-overview-contract";
 import { distributionColor } from "./ExecutiveDashboardParts";
-import { bandRange, buildMarkers, CHART, createCurve, displayBandLabel, formatPercentage, formatScore, scaleX, scaleY, SCORE_LABELS } from "./legacy-bell-curve-math";
+import { bandRange, buildMarkers, CHART, createReferenceCurve, displayBandLabel, formatPercentage, formatScore, scaleX, scaleY, SCORE_LABELS } from "./legacy-bell-curve-math";
 import type { ObservedBand } from "./legacy-bell-curve-math";
 
 type TooltipState = { readonly label: string; readonly value: string; readonly detail: string };
 type LegacyBellCurveSvgProps = { readonly distribution: readonly ObservedBand[]; readonly total: number; readonly panorama: ReportingPercentiles; readonly mean: number; readonly standardDeviation: number; readonly threshold?: number | null; readonly onTooltipChange: (tooltip: TooltipState | null) => void };
 
 export function LegacyBellCurveSvg({ distribution, total, panorama, mean, standardDeviation, threshold, onTooltipChange }: LegacyBellCurveSvgProps) {
-  const points = createCurve(mean, standardDeviation);
+  const points = createReferenceCurve(mean, standardDeviation, panorama.moda, panorama.mediana);
   const peak = Math.max(...points.map((point) => point.y), Number.MIN_VALUE);
   const maximumBandCount = Math.max(...distribution.map((band) => band.count), 1);
   const curveScale = maximumBandCount / peak;
@@ -16,7 +16,7 @@ export function LegacyBellCurveSvg({ distribution, total, panorama, mean, standa
   const markers = buildMarkers(panorama, mean, threshold);
   return <svg viewBox="0 0 534 220" role="img" aria-label="Distribución real de puntajes y referencia de campana de Gauss">
     <title>Campana de Gauss de la distribución de puntajes</title>
-    <desc>Las barras representan la distribución real por banda y usan la escala de conteos observados. La línea curva es una referencia normal calculada con la media y la desviación observadas. Las líneas verticales ubican la media y el umbral preventivo cuando se encuentra configurado.</desc>
+    <desc>Las barras representan la distribución real por banda. La línea es una referencia visual gaussiana sesgada a la izquierda, no un cálculo exacto de densidad. Las líneas verticales ubican media, moda, percentiles y umbral cuando están disponibles.</desc>
     <line className="legacy-bell-axis" x1={CHART.left} x2={CHART.right} y1={CHART.baseline} y2={CHART.baseline} />
     {SCORE_LABELS.map((score) => <line className="legacy-bell-grid" key={`grid-${score}`} x1={scaleX(score)} x2={scaleX(score)} y1="34" y2={CHART.baseline} />)}
     <path className="legacy-bell-area" d={areaPath} aria-hidden="true" />
@@ -37,6 +37,6 @@ function ScoreBandBar({ band, total, maximum, onTooltipChange }: { readonly band
 }
 
 function ScoreMarker({ marker, onTooltipChange }: { readonly marker: ReturnType<typeof buildMarkers>[number]; readonly onTooltipChange: LegacyBellCurveSvgProps["onTooltipChange"] }) {
-  const tooltip = { label: marker.label, value: formatScore(marker.value), detail: marker.kind === "threshold" ? "Umbral preventivo configurado" : marker.kind === "mean" ? "Promedio observado de los puntajes" : "Percentil observado en la distribución" };
+  const tooltip = { label: marker.label, value: formatScore(marker.value), detail: marker.kind === "threshold" ? "Umbral preventivo configurado" : marker.kind === "mean" ? "Media exacta de los puntajes válidos" : marker.kind === "mode" ? "Moda del puntaje mostrado" : "Percentil observado en la distribución" };
   return <line className={`legacy-bell-marker is-${marker.kind}`} x1={scaleX(marker.value)} x2={scaleX(marker.value)} y1="34" y2={CHART.baseline} tabIndex={0} role="img" aria-label={`${marker.label}: ${formatScore(marker.value)}`} onMouseEnter={() => onTooltipChange(tooltip)} onMouseLeave={() => onTooltipChange(null)} onFocus={() => onTooltipChange(tooltip)} onBlur={() => onTooltipChange(null)}><title>{`${marker.label}: ${formatScore(marker.value)}`}</title></line>;
 }

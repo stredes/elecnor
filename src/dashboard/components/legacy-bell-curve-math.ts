@@ -3,7 +3,7 @@ import type { ReportingPercentiles, ScoreBand } from "@/backend/domain/reporting
 export type CurvePoint = { readonly x: number; readonly y: number };
 export type BandRange = { readonly minimum: number; readonly maximum: number };
 export type ObservedBand = { readonly label: ScoreBand["label"]; readonly count: number };
-export type BellMarker = { readonly label: string; readonly value: number; readonly kind: "percentile" | "mean" | "threshold" };
+export type BellMarker = { readonly label: string; readonly value: number; readonly kind: "percentile" | "mean" | "mode" | "threshold" };
 export const CHART = { left: 24, right: 510, baseline: 158, curveHeight: 104 } as const;
 export const SCORE_LABELS = [0, 50, 100] as const;
 const MIN_STANDARD_DEVIATION = 4;
@@ -14,6 +14,19 @@ export function createCurve(mean: number, standardDeviation: number): readonly C
   const safeMean = clampScore(mean);
   const safeDeviation = safeStandardDeviation(standardDeviation);
   return Array.from({ length: 101 }, (_, score) => ({ x: score, y: safeFinite(Math.exp(-0.5 * ((score - safeMean) / safeDeviation) ** 2), 0) }));
+}
+/** Referencia visual con cola izquierda prolongada; no representa un ajuste exacto de densidad. */
+export function createReferenceCurve(mean: number, standardDeviation: number, mode: number | null | undefined, median: number | null | undefined): readonly CurvePoint[] {
+  const safeMean = clampScore(mean);
+  const safeDeviation = safeStandardDeviation(standardDeviation);
+  const observedAnchor = validScore(mode) ? clampScore(mode) : validScore(median) ? clampScore(median) : safeMean;
+  const peak = clampScore(Math.max(observedAnchor, safeMean + safeDeviation * 0.2));
+  const leftDeviation = safeDeviation * 1.35;
+  const rightDeviation = safeDeviation * 0.8;
+  return Array.from({ length: 101 }, (_, score) => {
+    const deviation = score < peak ? leftDeviation : rightDeviation;
+    return { x: score, y: safeFinite(Math.exp(-0.5 * ((score - peak) / deviation) ** 2), 0) };
+  });
 }
 export function estimateStandardDeviation(distribution: readonly ScoreBand[], mean: number, panorama: ReportingPercentiles): number {
   const p25 = validScore(panorama.p25) ? clampScore(panorama.p25) : null;
@@ -36,7 +49,7 @@ export function bandCenter(label: ScoreBand["label"]): number {
   return (minimum + maximum) / 2;
 }
 export function buildMarkers(panorama: ReportingPercentiles, mean: number, threshold: number | null | undefined): readonly BellMarker[] {
-  return [validScore(panorama.p25) ? { label: "P25", value: clampScore(panorama.p25), kind: "percentile" as const } : null, { label: "Media", value: mean, kind: "mean" as const }, validScore(panorama.p75) ? { label: "P75", value: clampScore(panorama.p75), kind: "percentile" as const } : null, validScore(threshold) ? { label: "Umbral preventivo", value: clampScore(threshold), kind: "threshold" as const } : null].filter((marker): marker is BellMarker => marker !== null);
+  return [validScore(panorama.p25) ? { label: "P25", value: clampScore(panorama.p25), kind: "percentile" as const } : null, { label: "Media", value: mean, kind: "mean" as const }, validScore(panorama.moda) ? { label: "Moda", value: clampScore(panorama.moda), kind: "mode" as const } : null, validScore(panorama.p75) ? { label: "P75", value: clampScore(panorama.p75), kind: "percentile" as const } : null, validScore(threshold) ? { label: "Umbral preventivo", value: clampScore(threshold), kind: "threshold" as const } : null].filter((marker): marker is BellMarker => marker !== null);
 }
 export function bandRange(label: ScoreBand["label"]): BandRange {
   if (label === "100") return { minimum: 99, maximum: 100 };

@@ -14,6 +14,7 @@ export type ReportingKpis = {
 export type ReportingPercentiles = {
   readonly media: number | null;
   readonly mediana: number | null;
+  readonly moda: number | null;
   readonly p25: number | null;
   readonly p75: number | null;
 };

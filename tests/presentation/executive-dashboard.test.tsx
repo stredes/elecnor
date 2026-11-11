@@ -61,7 +61,7 @@ describe("ExecutiveDashboard", () => {
     expect(screen.getByText("Progreso preventivo semana a semana")).toBeVisible();
     expect(screen.getByRole("img", { name: "Distribución real de puntajes y referencia de campana de Gauss" })).toBeVisible();
     expect(screen.getByText(/las barras muestran cuántas auditorías/i)).toBeVisible();
-    expect(screen.getByText(/No reemplaza la distribución real/i)).toBeVisible();
+    expect(screen.getByText(/no es un cálculo exacto de densidad/i)).toBeVisible();
     expect(document.querySelector("[aria-label='Leyenda de estatus de las métricas']")).toBeInTheDocument();
   });
 

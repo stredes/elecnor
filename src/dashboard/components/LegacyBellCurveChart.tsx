@@ -4,7 +4,7 @@ import { exigencyLevelLabel, exigencyStateClass } from "@/backend/domain/reporti
 import { LegacyChartTooltip } from "./LegacyChartTooltip";
 import { LegacyBellCurveSvg } from "./LegacyBellCurveSvg";
 import { estimateStandardDeviation, formatScore, normalizeDistribution, validScore, weightedMean } from "./legacy-bell-curve-math";
-export { bandCenter, createCurve, estimateStandardDeviation, weightedMean } from "./legacy-bell-curve-math";
+export { bandCenter, createCurve, createReferenceCurve, estimateStandardDeviation, weightedMean } from "./legacy-bell-curve-math";
 
 type LegacyBellCurveChartProps = { readonly distribution: readonly ScoreBand[]; readonly panorama: ReportingPercentiles; readonly threshold?: number | null };
 type TooltipState = { readonly label: string; readonly value: string; readonly detail: string };
@@ -17,13 +17,13 @@ export function LegacyBellCurveChart({ distribution, panorama, threshold }: Lega
   const mean = validScore(panorama.media) ? panorama.media : weightedMean(observed);
   const standardDeviation = estimateStandardDeviation(observed, mean, panorama);
   return <figure className="legacy-bell-curve">
-    <header className="legacy-bell-heading"><div><span>Lectura estadística</span><h3>Distribución real y referencia gaussiana</h3></div><b>Sin proyección</b></header>
-    <p className="legacy-bell-intro">Las barras muestran los resultados observados por banda. La línea es una referencia gaussiana calculada con la media y la desviación derivadas de los datos. No reemplaza la distribución real ni implica que la mayoría esté en un nivel aceptable.</p>
+    <header className="legacy-bell-heading"><div><span>Lectura estadística</span><h3>Distribución real y campana gaussiana referencial</h3></div><b>Solo referencia</b></header>
+    <p className="legacy-bell-intro">Las barras muestran los resultados observados por banda. La línea es una referencia visual sesgada a la izquierda para leer concentración y dispersión; no es un cálculo exacto de densidad ni reemplaza la distribución real.</p>
     <LegacyBellCurveSvg distribution={observed} total={total} panorama={panorama} mean={mean} standardDeviation={standardDeviation} threshold={threshold} onTooltipChange={setActiveTooltip} />
     {activeTooltip && <LegacyChartTooltip {...activeTooltip} />}
     <div className="legacy-bell-summary" aria-label="Leyenda de la distribución"><span><i className="is-observed" />Barras: resultados reales y colorimetría por banda</span><span><i className="is-reference" />Línea: referencia gaussiana</span></div>
     <BellCurveStats panorama={panorama} mean={mean} threshold={threshold} />
-    <figcaption><strong>Cómo leerla:</strong> las barras muestran cuántas auditorías caen en cada banda; la línea solo sirve como referencia de concentración y dispersión. P25, la media, P75 y el umbral preventivo son puntos de lectura, no una aprobación automática. La conclusión debe basarse en la distribución observada, los niveles configurados y el detalle de cada auditoría.</figcaption>
+    <figcaption><strong>Cómo leerla:</strong> las barras muestran cuántas auditorías caen en cada banda; la línea solo sirve como referencia de concentración y dispersión. La media, la moda y la mediana se calculan sobre los puntajes válidos; la campana no se usa para sustituir esos valores ni para aprobar auditorías.</figcaption>
     <span className="legacy-bell-total">Base analizada: {total.toLocaleString("es-CL")} puntajes válidos</span>
   </figure>;
 }
@@ -32,6 +32,7 @@ function BellCurveStats({ panorama, mean, threshold }: { readonly panorama: Repo
   return <dl className="legacy-bell-stats">
     {validScore(panorama.p25) && <BellCurveStat label="P25" value={panorama.p25} />}
     <BellCurveStat label="Media observada" value={mean} />
+    {validScore(panorama.moda) && <BellCurveStat label="Moda" value={panorama.moda} />}
     {validScore(panorama.mediana) && <BellCurveStat label="Mediana" value={panorama.mediana} />}
     {validScore(panorama.p75) && <BellCurveStat label="P75" value={panorama.p75} />}
     {validScore(threshold) && <BellCurveStat label="Umbral preventivo" value={threshold} reference />}

@@ -49,6 +49,7 @@
 .legacy-bell-line { fill: none; stroke: #2a72ce; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3; }
 .legacy-bell-marker { stroke: #9aabc0; stroke-dasharray: 3 4; stroke-width: 1; }
 .legacy-bell-marker.is-mean { stroke: #df9e25; stroke-width: 1.5; }
+.legacy-bell-marker.is-mode { stroke: #2d9b68; stroke-width: 1.5; }
 .legacy-bell-marker.is-threshold { stroke: #df6b5d; stroke-dasharray: 4 3; stroke-width: 1.5; }
 .legacy-bell-curve text { fill: #647b99; font-size: 10px; text-anchor: middle; }
 .legacy-bell-curve .legacy-bell-axis-title { font-size: 9px; text-anchor: start; }
