@@ -1,3 +1,4 @@
+import { parseInspectionWorkContext } from "../inspection-list-contract";
 import type { ReportingFacts, ReportingMetricFact } from "./reporting-facts-contract";
 
 export class ReportingFactsContractError extends Error {
@@ -11,7 +12,8 @@ export function parseReportingFacts(value: unknown): ReportingFacts {
     inspections: root.inspections.map((item) => {
       const row = record(item);
       if (!row || typeof row.id !== "string" || row.id.length === 0 || !isTextOrNull(row.technician) || !isNumberOrNull(row.percentage) || !isNumberOrNull(row.actions)) fail();
-      return { id: row.id as string, date: textOrNull(row.date), reportingPeriod: textOrNull(row.reporting_period ?? row.reportingPeriod), technician: row.technician as string | null, auditor: textOrNull(row.auditor), address: textOrNull(row.address), city: textOrNull(row.city), region: textOrNull(row.region), filename: textOrNull(row.filename), percentage: row.percentage as number | null, actions: row.actions as number | null };
+      const workContext = row.work_context ?? row.workContext;
+      return { id: row.id as string, date: textOrNull(row.date), reportingPeriod: textOrNull(row.reporting_period ?? row.reportingPeriod), technician: row.technician as string | null, auditor: textOrNull(row.auditor), address: textOrNull(row.address), city: textOrNull(row.city), region: textOrNull(row.region), filename: textOrNull(row.filename), percentage: row.percentage as number | null, actions: row.actions as number | null, ...(workContext === undefined ? {} : { workContext: parseInspectionWorkContext(workContext) }) };
     }),
     importLogs: root.importLogs.map((item) => { const row = record(item); if (!row || typeof row.id !== "string") fail(); return { id: row.id }; }),
     metrics: root.metrics.map(parseMetric),

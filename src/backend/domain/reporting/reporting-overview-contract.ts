@@ -2,6 +2,8 @@ export type ReportingKpis = {
   readonly "PDF recibidos": number;
   readonly "Inspecciones únicas": number;
   readonly "Puntajes válidos": number;
+  readonly "Personas evaluadas": number;
+  readonly "Personas bajo 90%": number;
   readonly "Promedio global": string;
   readonly "Bajo 70%": number;
   readonly "Puntaje perfecto": number;

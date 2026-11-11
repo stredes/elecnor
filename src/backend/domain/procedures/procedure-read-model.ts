@@ -8,8 +8,20 @@ import type {
 export const EXCLUDED_PROCEDURE_ID = "06-PEX";
 export const EXCLUDED_PROCEDURE_TITLE = "Trabajos en Espacios Confinados";
 const PROCEDURE_VIDEO_OVERRIDES: Readonly<Record<string, string>> = {
+  "01-PEX": "jOotKdcX7I8",
   "01-ATC": "uFodyNmmzL0",
-  "08-ATC": "_t-J6Wbw3Ac",
+  "02-PEX": "IrEDXKREe9g",
+  "02-ATC": "IrEDXKREe9g",
+  "03-ATC": "P6s0B2hIYgo",
+  "04-ATC": "xCHzXu5-b7A",
+  "05-ATC": "RtXz4TpMLU4",
+  "07-ATC": "iDT1cI_y0Eg",
+  "08-ATC": "9WWYPBSLO2Y",
+  "09-ATC": "Y0rE7nEwhMg",
+  "10-ATC": "AYCdu3U15M0",
+  "11-ATC": "cUuxaSXEgk4",
+  "12-PEX": "xmN4DZuZB7s",
+  "12-ATC": "xmN4DZuZB7s",
 };
 
 export function isExcludedProcedure(procedure: Pick<Procedure, "id" | "title">): boolean {
@@ -41,13 +53,14 @@ export function projectProcedureDetail(detail: ProcedureDetail): ProcedureDetail
 function projectFamily(family: ProcedureFamily): ProcedureFamily | null {
   const procedures = family.procedures.filter((procedure) => !isExcludedProcedure(procedure));
   if (!procedures.length) return null;
+  const projectedProcedures = procedures.map(projectProcedure);
 
   return {
     ...family,
     code: displayCode(family.code) ?? family.code,
-    procedures: procedures.map(projectProcedure),
+    procedures: projectedProcedures,
     total: procedures.length,
-    conVideo: procedures.filter((procedure) => Boolean(procedure.youtubeVideoId)).length,
+    conVideo: projectedProcedures.filter((procedure) => Boolean(procedure.youtubeVideoId)).length,
   };
 }
 

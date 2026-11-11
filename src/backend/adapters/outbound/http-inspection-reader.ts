@@ -1,10 +1,8 @@
 import { buildInspectionQuery } from "../../domain/inspection-list-query";
-import { availableInspectionRegions, regionAddressSearchTerm } from "../../domain/region-filter";
+import { MAX_INSPECTION_LIMIT, type InspectionListQuery, type InspectionListResult } from "../../domain/inspection-list-contract";
+import { availableInspectionRegions, isUnknownRegion, regionAddressSearchTerm } from "../../domain/region-filter";
+import { resolveInspectionRegion } from "../../domain/geography/resolve-location";
 import { parseInspectionList } from "../../domain/inspection-list-parser";
-import type {
-  InspectionListQuery,
-  InspectionListResult,
-} from "../../domain/inspection-list-contract";
 import type { InspectionReader } from "../../ports/inspection-reader";
 import { EXCLUDED_INSPECTION_COUNT, isExcludedInspection } from "../../domain/inspection-exclusions";
 import { joinEndpoint, requestJson, type HttpClientOptions, withDefaultScope } from "./http-json";
@@ -19,8 +17,26 @@ export class HttpInspectionReader implements InspectionReader {
   ) {}
 
   public async list(query: InspectionListQuery): Promise<InspectionListResult> {
-    const result = await this.request(query);
+    const result = isUnknownRegion(query.filters.region)
+      ? await this.requestUnknownRegion(query)
+      : await this.request(query);
     return withoutExcludedItems(result, query, this.scope);
+  }
+
+  private async requestUnknownRegion(query: InspectionListQuery): Promise<InspectionListResult> {
+    const completeQuery = { ...query, limit: MAX_INSPECTION_LIMIT, offset: 0, filters: { ...query.filters, region: "" } };
+    const first = await this.request(completeQuery);
+    const rows = [...first.data];
+    let offset = rows.length;
+    while (offset < first.total && rows.length > 0) {
+      const next = await this.request({ ...completeQuery, offset });
+      rows.push(...next.data);
+      if (!next.data.length) break;
+      offset += next.data.length;
+    }
+    const unknown = rows.filter((item) => !resolveInspectionRegion(item.region, item.city, item.address, item.filename));
+    const visible = unknown.filter((item) => !isExcludedInspection(item.id));
+    return { ...first, data: visible.slice(query.offset, query.offset + query.limit), total: visible.length, limit: query.limit, offset: query.offset };
   }
 
   private request(query: InspectionListQuery): Promise<InspectionListResult> {
@@ -53,6 +69,7 @@ function isUnfilteredQuery(query: InspectionListQuery): boolean {
 function queryForBackend(query: InspectionListQuery): InspectionListQuery {
   const region = query.filters.region.trim();
   if (!region) return query;
+  if (isUnknownRegion(region)) return { ...query, filters: { ...query.filters, region: "" } };
   return {
     ...query,
     filters: {

@@ -42,6 +42,23 @@ describe("NP-0030/AC-03/TEST-03 inspection architecture", () => {
     expect(urls).toHaveLength(1);
   });
 
+  it("filters unclassified regions from resolved location data instead of searching the label", async () => {
+    const urls: string[] = [];
+    const fetcher = async (input: RequestInfo | URL) => {
+      urls.push(String(input));
+      const unknown = { ...inspection("INS-UNKNOWN"), region: null, city: null, address: null, filename: null };
+      return response({ data: [unknown, inspection("INS-1")], total: 2, limit: 1000, offset: 0, dates: [], auditors: [], regions: [] });
+    };
+    const reader = new HttpInspectionReader("http://fastapi.test", fetcher);
+
+    const result = await reader.list(parseInspectionQuery({ region: "Sin región informada", limit: "25" }));
+
+    expect(result.total).toBe(1);
+    expect(result.data.map((item) => item.id)).toEqual(["INS-UNKNOWN"]);
+    expect(urls[0]).toContain("limit=1000");
+    expect(urls[0]).not.toContain("Sin+regi%C3%B3n+informada");
+  });
+
   it("keeps pure layers framework-free and routes composed in Pages", () => {
     for (const file of pureFiles) {
       const source = readFileSync(`${root}/${file}`, "utf8");

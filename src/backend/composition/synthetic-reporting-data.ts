@@ -2,9 +2,9 @@ import type { ReportingDetailFacts } from "../domain/reporting/reporting-details
 import type { ReportingFacts } from "../domain/reporting/reporting-facts-contract";
 
 const inspections = [
-  { id: "synthetic-inspection-1", date: "2026-01-10", technician: "Técnico A", auditor: "Auditor A", address: "Calle 1", city: "Ciudad", region: "Maule", filename: "synthetic-1.pdf", percentage: 0.8, actions: 0 },
-  { id: "synthetic-inspection-2", date: "2026-02-15", technician: "Técnico B", auditor: "Auditor B", address: "Calle 2", city: "Ciudad", region: "Maule", filename: "synthetic-2.pdf", percentage: 0.65, actions: 1 },
-  { id: "synthetic-inspection-3", date: "2026-03-01", technician: "Técnico C", auditor: null, address: "Calle 3", city: "Ciudad", region: "Valparaíso", filename: "synthetic-3.pdf", percentage: null, actions: null },
+  { id: "synthetic-inspection-1", date: "2026-01-10", technician: "Técnico A", auditor: "Auditor A", address: "Calle 1", city: "Ciudad", region: "Maule", filename: "synthetic-1.pdf", percentage: 0.8, actions: 0, workContext: "ALTURA" },
+  { id: "synthetic-inspection-2", date: "2026-02-15", technician: "Técnico B", auditor: "Auditor B", address: "Calle 2", city: "Ciudad", region: "Maule", filename: "synthetic-2.pdf", percentage: 0.65, actions: 1, workContext: "PISO" },
+  { id: "synthetic-inspection-3", date: "2026-03-01", technician: "Técnico C", auditor: null, address: "Calle 3", city: "Ciudad", region: "Valparaíso", filename: "synthetic-3.pdf", percentage: null, actions: null, workContext: "ALTURA" },
 ] as const;
 
 const metrics: ReportingDetailFacts["metrics"] = [

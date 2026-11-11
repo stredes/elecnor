@@ -11,7 +11,7 @@ export type LegacyMetric = {
   readonly nonConforming: number; readonly compliance: number | null;
   readonly technicians: { readonly conforming: readonly string[]; readonly nonConforming: readonly string[] };
 };
-export type LegacyKpis = { readonly pdfRecibidos: number; readonly inspeccionesUnicas: number; readonly puntajesValidos: number; readonly promedioGlobal: string; readonly bajo70: number; readonly puntajePerfecto: number; readonly hallazgos: number; readonly acciones: number };
+export type LegacyKpis = { readonly pdfRecibidos: number; readonly inspeccionesUnicas: number; readonly puntajesValidos: number; readonly personasEvaluadas?: number; readonly personasBajo90?: number; readonly personasAltura: number; readonly personasPiso: number; readonly promedioGlobal: string; readonly bajo70: number; readonly puntajePerfecto: number; readonly hallazgos: number; readonly acciones: number };
 export type LegacySection = LegacyMetric & { readonly name: string; readonly metrics: readonly LegacyMetric[] };
 export type LegacyDashboardModel = {
   readonly kpis: LegacyKpis;
@@ -30,7 +30,7 @@ export type LegacyDashboardModel = {
   readonly narrative: ReportingDetailsResult["narrative"];
 };
 
-export type LegacyReportingPayload = { readonly overview: ReportingOverview; readonly details: ReportingDetailsResult; readonly analytics: ReportingAnalytics; readonly executive?: { readonly regions: readonly RegionalSummary[] } };
+export type LegacyReportingPayload = { readonly overview: ReportingOverview; readonly details: ReportingDetailsResult; readonly analytics: ReportingAnalytics; readonly executive?: { readonly regions: readonly RegionalSummary[]; readonly peopleByWorkContext?: { readonly altura: number; readonly piso: number } } };
 
 export function toLegacyDashboardModel(payload: LegacyReportingPayload, repeatedInspectionGroups: readonly RepeatedInspectionGroup[] = []): LegacyDashboardModel {
   const { overview, details, analytics } = payload;
@@ -38,7 +38,7 @@ export function toLegacyDashboardModel(payload: LegacyReportingPayload, repeated
   const approvals = details.approvals.slice().sort((left, right) => (sectionOrder.get(left.name) ?? Number.MAX_SAFE_INTEGER) - (sectionOrder.get(right.name) ?? Number.MAX_SAFE_INTEGER));
   const mapMetric = (metric: LegacyMetric): LegacyMetric => ({ ...metric, technicians: { conforming: [], nonConforming: [] } });
   return {
-    kpis: { pdfRecibidos: overview.kpis["PDF recibidos"], inspeccionesUnicas: overview.kpis["Inspecciones únicas"], puntajesValidos: overview.kpis["Puntajes válidos"], promedioGlobal: overview.kpis["Promedio global"], bajo70: overview.kpis["Bajo 70%"], puntajePerfecto: overview.kpis["Puntaje perfecto"], hallazgos: overview.kpis.Hallazgos, acciones: overview.kpis.Acciones },
+    kpis: { pdfRecibidos: overview.kpis["PDF recibidos"], inspeccionesUnicas: overview.kpis["Inspecciones únicas"], puntajesValidos: overview.kpis["Puntajes válidos"], personasEvaluadas: overview.kpis["Personas evaluadas"], personasBajo90: overview.kpis["Personas bajo 90%"], personasAltura: payload.executive?.peopleByWorkContext?.altura ?? 0, personasPiso: payload.executive?.peopleByWorkContext?.piso ?? 0, promedioGlobal: overview.kpis["Promedio global"], bajo70: overview.kpis["Bajo 70%"], puntajePerfecto: overview.kpis["Puntaje perfecto"], hallazgos: overview.kpis.Hallazgos, acciones: overview.kpis.Acciones },
     panorama: overview.panorama, distribution: overview.distribution, progress: analytics.progress, weeklyProgress: analytics.evolution.semanas,
     sections: details.sections.map((section) => ({ ...section, metrics: section.metrics.map(mapMetric) })),
     sectionInspections: approvals.map((item) => ({ name: item.name, total: item.total, evaluated: item.evaluated, approved: item.approved, belowThreshold: item.below, notEvaluated: item.notEvaluated, approvalPercentage: item.percentage, approvalThreshold: 70 })),
@@ -53,5 +53,5 @@ export function fallbackLegacyDashboard(snapshot: DashboardSnapshot): LegacyDash
 }
 
 function emptyModel(inspections = 0): LegacyDashboardModel {
-  return { kpis: { pdfRecibidos: 0, inspeccionesUnicas: inspections, puntajesValidos: 0, promedioGlobal: "—", bajo70: 0, puntajePerfecto: 0, hallazgos: 0, acciones: 0 }, panorama: { media: null, mediana: null, p25: null, p75: null, "Puntaje perfecto": 0 }, distribution: [], progress: [], weeklyProgress: [], sections: [], sectionInspections: [], weakMetrics: [], strongMetrics: [], scatter: [], traceability: { total: 0, con_acciones: 0, sin_acciones: 0, porcentaje_sin_acciones: 0 }, repeatedInspectionGroups: [], regions: [], geolocalizacion: { total: 0, con_geolocalizacion: 0, sin_geolocalizacion: 0, porcentaje_con_geolocalizacion: 0, direcciones_clasificadas: 0, direcciones_pendientes: 0, porcentaje_direcciones_clasificadas: 0, por_region: [] }, narrative: { epp: { directAverage: null, checklist: null }, sectionGap: { weakest: null, restAverage: null }, metricRange: { lowest: null, highest: null }, scatterRisk: { risk: 0, total: 0 }, lowBands: 0, healthy: 0, gap: 0 } };
+  return { kpis: { pdfRecibidos: 0, inspeccionesUnicas: inspections, puntajesValidos: 0, personasAltura: 0, personasPiso: 0, promedioGlobal: "—", bajo70: 0, puntajePerfecto: 0, hallazgos: 0, acciones: 0 }, panorama: { media: null, mediana: null, p25: null, p75: null, "Puntaje perfecto": 0 }, distribution: [], progress: [], weeklyProgress: [], sections: [], sectionInspections: [], weakMetrics: [], strongMetrics: [], scatter: [], traceability: { total: 0, con_acciones: 0, sin_acciones: 0, porcentaje_sin_acciones: 0 }, repeatedInspectionGroups: [], regions: [], geolocalizacion: { total: 0, con_geolocalizacion: 0, sin_geolocalizacion: 0, direcciones_clasificadas: 0, direcciones_pendientes: 0, porcentaje_con_geolocalizacion: 0, porcentaje_direcciones_clasificadas: 0, por_region: [] }, narrative: { epp: { directAverage: null, checklist: null }, sectionGap: { weakest: null, restAverage: null }, metricRange: { lowest: null, highest: null }, scatterRisk: { risk: 0, total: 0 }, lowBands: 0, healthy: 0, gap: 0 } };
 }

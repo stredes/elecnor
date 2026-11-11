@@ -17,6 +17,8 @@ export const CHILE_INSPECTION_REGIONS = [
   "Magallanes",
 ] as const;
 
+export const UNKNOWN_REGION = "Sin región informada";
+
 const ADDRESS_SEARCH_TERMS: Readonly<Record<string, string>> = {
   "arica y parinacota": "Arica",
   "tarapaca": "Tarapacá",
@@ -42,6 +44,10 @@ export function regionAddressSearchTerm(region: string): string {
 
 export function availableInspectionRegions(regions: readonly string[]): readonly string[] {
   return [...new Set([...CHILE_INSPECTION_REGIONS, ...regions])];
+}
+
+export function isUnknownRegion(value: string): boolean {
+  return normalize(value) === normalize(UNKNOWN_REGION);
 }
 
 function normalize(value: string): string {

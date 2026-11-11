@@ -71,6 +71,15 @@ export function recoverRegion(
   return resolveRegion(extractCity(cleanName), null) ?? filenameRegion(filename);
 }
 
+export function resolveInspectionRegion(
+  region: string | null,
+  city: string | null,
+  address: string | null,
+  filename: string | null,
+): string | null {
+  return resolveRegion(null, region) ?? recoverRegion(city, address, filename);
+}
+
 function filenameRegion(filename: string): string | null {
   const cleanName = filename.replace(/\.[^.]+$/u, "");
   return FILENAME_HINTS.find(([pattern]) => pattern.test(cleanName))?.[1] ?? null;

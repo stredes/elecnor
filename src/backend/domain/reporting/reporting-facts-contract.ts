@@ -1,3 +1,5 @@
+import type { InspectionWorkContext } from "../inspection-list-contract";
+
 export type ReportingInspectionFact = {
   readonly id?: string;
   readonly date?: string | null;
@@ -10,6 +12,7 @@ export type ReportingInspectionFact = {
   readonly filename?: string | null;
   readonly percentage: number | null;
   readonly actions: number | null;
+  readonly workContext?: InspectionWorkContext | null;
 };
 
 export type ReportingImportLogFact = { readonly id: string };

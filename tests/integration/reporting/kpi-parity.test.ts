@@ -14,6 +14,8 @@ describe("NP-0034/AC-01/TEST-01 reporting KPI parity", () => {
         "PDF recibidos": 3,
         "Inspecciones únicas": 4,
         "Puntajes válidos": 3,
+        "Personas evaluadas": 2,
+        "Personas bajo 90%": 1,
         "Promedio global": "73.33%",
         "Bajo 70%": 1,
         "Puntaje perfecto": 1,

@@ -30,6 +30,7 @@ describe("NP-0041/AC-01/TEST-01 presentation composition", () => {
     expect(screen.getByRole("heading", { name: "Métricas" })).toBeVisible();
     expect(screen.getByText("No hay métricas para mostrar.")).toBeVisible();
     expect(screen.getByRole("main")).toHaveAttribute("id", "contenido");
+    expect(screen.getByRole("main")).toHaveAttribute("data-active-route", "metrics");
   });
 
   it("keeps metrics enabled when detailed reporting is unavailable", () => {

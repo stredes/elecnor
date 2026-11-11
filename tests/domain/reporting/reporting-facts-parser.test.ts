@@ -4,12 +4,12 @@ import { parseReportingFacts } from "@/backend/domain/reporting/reporting-facts-
 describe("reporting facts parser", () => {
   it("preserves nullable fields and zero-valued facts", () => {
     const result = parseReportingFacts({
-      inspections: [{ id: "AUD-1", date: null, technician: null, percentage: 0, actions: 0 }],
+      inspections: [{ id: "AUD-1", date: null, technician: null, percentage: 0, actions: 0, work_context: "ALTURA" }],
       importLogs: [{ id: "LOG-1" }],
       metrics: [{ state: "NO_CONFORME", inspectionId: "AUD-1", applicable: 0, conforming: 0 }],
     });
 
-    expect(result.inspections[0]).toMatchObject({ id: "AUD-1", technician: null, percentage: 0, actions: 0 });
+    expect(result.inspections[0]).toMatchObject({ id: "AUD-1", technician: null, percentage: 0, actions: 0, workContext: "ALTURA" });
     expect(result.metrics[0]).toMatchObject({ state: "NO_CONFORME", applicable: 0, conforming: 0 });
   });
 });

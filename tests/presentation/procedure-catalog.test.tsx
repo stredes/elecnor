@@ -20,7 +20,7 @@ describe("NP-0043/AC-01/TEST-01 procedure presentation", () => {
     expect(screen.getByRole("heading", { name: "Procedimientos" })).toBeVisible();
     expect(screen.getByRole("heading", { name: "Introducción a los procedimientos" })).toBeVisible();
     expect(screen.queryByTitle("Introducción general a los procedimientos")).not.toBeInTheDocument();
-    expect(screen.getByTitle("Elecnor: Global 2026")).toHaveAttribute("src", "https://www.youtube-nocookie.com/embed/POH042GE0z0?rel=0");
+    expect(screen.getByTitle("Elecnor: Global 2026")).toHaveAttribute("src", "https://www.youtube-nocookie.com/embed/GQ4M5Hbub_o?rel=0");
     expect(screen.queryByText("Parte 02")).not.toBeInTheDocument();
     const toggle = screen.getByRole("button", { name: /Trabajo en Altura/ });
     expect(toggle).toHaveAttribute("aria-expanded", "false");

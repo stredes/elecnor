@@ -41,6 +41,18 @@ describe("procedure read model projection", () => {
   it("adds the Shaft ATC video through the read model", () => {
     const shaft = procedure("08-ATC", "PTS-08", "Trabajo en Shaft");
     const result = projectProcedureCatalog({ families: [{ code: "PTS-08", title: shaft.title, procedures: [shaft], total: 1, conVideo: 0 }], total: 1, filters: { q: "", area: "" } });
-    expect(result.families[0].procedures[0].youtubeVideoId).toBe("_t-J6Wbw3Ac");
+    expect(result.families[0].procedures[0].youtubeVideoId).toBe("9WWYPBSLO2Y");
+    expect(result.families[0].conVideo).toBe(1);
+  });
+
+  it.each([
+    ["01-PEX", "jOotKdcX7I8"], ["01-ATC", "uFodyNmmzL0"], ["02-ATC", "IrEDXKREe9g"],
+    ["03-ATC", "P6s0B2hIYgo"], ["04-ATC", "xCHzXu5-b7A"], ["05-ATC", "RtXz4TpMLU4"],
+    ["07-ATC", "iDT1cI_y0Eg"], ["08-ATC", "9WWYPBSLO2Y"], ["09-ATC", "Y0rE7nEwhMg"],
+    ["10-ATC", "AYCdu3U15M0"], ["11-ATC", "cUuxaSXEgk4"], ["12-ATC", "xmN4DZuZB7s"],
+  ])("projects playlist video %s", (id, videoId) => {
+    const item = procedure(id, `PTS-${id.slice(0, 2)}`, "Procedimiento");
+    const result = projectProcedureCatalog({ families: [{ code: item.code, title: item.title, procedures: [item], total: 1, conVideo: 0 }], total: 1, filters: { q: "", area: "" } });
+    expect(result.families[0].procedures[0].youtubeVideoId).toBe(videoId);
   });
 });

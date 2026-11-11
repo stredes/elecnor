@@ -1,3 +1,5 @@
+import type { ScoreBandLabel } from "./reporting-overview-contract";
+
 export const EXIGENCY_LEVELS = [2, 3, 4, 5] as const;
 
 export type ExigencyLevel = (typeof EXIGENCY_LEVELS)[number];
@@ -31,4 +33,18 @@ export function exigencyStateClass(value: number | null): string {
 export function exigencyLevelLabel(value: number | null): string {
   const level = classifyExigencyPercentage(value);
   return level === null ? "Sin puntaje" : LABELS[level];
+}
+
+export function scoreBandStateClass(label: ScoreBandLabel): string {
+  if (label === "100") return "is-level-5";
+  if (label === "90-99") return "is-level-4";
+  if (label === "80-89") return "is-level-3";
+  return "is-level-2";
+}
+
+export function scoreBandLevelLabel(label: ScoreBandLabel): ExigencyBandLabel {
+  if (label === "100") return LABELS[5];
+  if (label === "90-99") return LABELS[4];
+  if (label === "80-89") return LABELS[3];
+  return LABELS[2];
 }

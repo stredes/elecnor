@@ -6,6 +6,7 @@ import { MemoryReportingDetailsReader } from "../adapters/outbound/memory-report
 import { syntheticReportingDetailFacts, syntheticReportingFacts } from "./synthetic-reporting-data";
 import { getMetricDetail } from "../domain/reporting/get-metric-detail";
 import { calculateRegionalSummary } from "../domain/reporting/calculate-regional-summary";
+import { calculateWorkContextPeople } from "../domain/reporting/calculate-work-context-people";
 
 const factsReader = new MemoryReportingFactsReader(syntheticReportingFacts);
 const detailsReader = new MemoryReportingDetailsReader(syntheticReportingDetailFacts);
@@ -18,7 +19,7 @@ export const syntheticReportingQuery = {
     const [overviewResult, detailsResult, analyticsResult] = await Promise.all([
       overview.execute(), details.execute(), analytics.execute(),
     ]);
-    return { overview: overviewResult, details: detailsResult, analytics: analyticsResult, executive: { regions: calculateRegionalSummary(syntheticReportingFacts.inspections, syntheticReportingFacts.metrics) } };
+    return { overview: overviewResult, details: detailsResult, analytics: analyticsResult, executive: { regions: calculateRegionalSummary(syntheticReportingFacts.inspections, syntheticReportingFacts.metrics), peopleByWorkContext: calculateWorkContextPeople(syntheticReportingFacts.inspections) } };
   },
 };
 

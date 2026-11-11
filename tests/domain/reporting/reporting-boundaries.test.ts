@@ -9,7 +9,7 @@ const empty: ReportingFacts = { inspections: [], importLogs: [], metrics: [] };
 describe("NP-0034/AC-02/TEST-02 reporting boundaries", () => {
   it("keeps empty defaults and null percentiles without inventing evidence", () => {
     expect(calculateKpis(empty)).toMatchObject({
-      "PDF recibidos": 0, "Puntajes válidos": 0, "Promedio global": "0.00%",
+      "PDF recibidos": 0, "Puntajes válidos": 0, "Personas evaluadas": 0, "Personas bajo 90%": 0, "Promedio global": "0.00%",
     });
     expect(calculatePercentiles(empty)).toEqual({ media: null, mediana: null, p25: null, p75: null });
     expect(countScoreBands(empty).every((band) => band.count === 0)).toBe(true);

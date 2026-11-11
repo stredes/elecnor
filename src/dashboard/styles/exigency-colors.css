@@ -1,8 +1,8 @@
 :root {
   --exigency-5: #237a4b;
   --exigency-5-bg: #e4f5ed;
-  --exigency-4: #8a6800;
-  --exigency-4-bg: #fff7cf;
+  --exigency-4: #65b978;
+  --exigency-4-bg: #f1fbf2;
   --exigency-3: #b85c00;
   --exigency-3-bg: #fff0dc;
   --exigency-2: #b4232f;
@@ -83,3 +83,17 @@
 .executive-status-legend i.is-level-2, .executive-status-legend i.is-level-1, .executive-status-legend i.is-level-0 {
   background: var(--exigency-color);
 }
+
+.legacy-progress-chart .legacy-progress-segment { fill: none; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.legacy-progress-chart .legacy-progress-segment.is-level-5, .legacy-progress-chart a.is-level-5 circle { stroke: var(--exigency-5); }
+.legacy-progress-chart .legacy-progress-segment.is-level-4, .legacy-progress-chart a.is-level-4 circle { stroke: var(--exigency-4); }
+.legacy-progress-chart .legacy-progress-segment.is-level-3, .legacy-progress-chart a.is-level-3 circle { stroke: var(--exigency-3); }
+.legacy-progress-chart .legacy-progress-segment.is-level-2, .legacy-progress-chart a.is-level-2 circle { stroke: var(--exigency-2); }
+.legacy-progress-chart .legacy-progress-segment.is-level-1, .legacy-progress-chart a.is-level-1 circle { stroke: var(--exigency-1); }
+.legacy-progress-chart .legacy-progress-segment.is-level-0, .legacy-progress-chart a.is-level-0 circle { stroke: var(--exigency-0); }
+.legacy-progress-chart a.is-level-5 circle { fill: var(--exigency-5); }
+.legacy-progress-chart a.is-level-4 circle { fill: var(--exigency-4); }
+.legacy-progress-chart a.is-level-3 circle { fill: var(--exigency-3); }
+.legacy-progress-chart a.is-level-2 circle { fill: var(--exigency-2); }
+.legacy-progress-chart a.is-level-1 circle { fill: var(--exigency-1); }
+.legacy-progress-chart a.is-level-0 circle { fill: var(--exigency-0); }

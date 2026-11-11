@@ -1,4 +1,5 @@
-import { recoverRegion, resolveRegion } from "../geography/resolve-location";
+import { resolveInspectionRegion as resolveLocationRegion } from "../geography/resolve-location";
+import { UNKNOWN_REGION } from "../region-filter";
 import type { ReportingInspectionFact, ReportingMetricFact } from "./reporting-facts-contract";
 import { roundSql } from "./reporting-rounding";
 
@@ -11,7 +12,6 @@ export type RegionalSummary = {
   readonly nonCompliances: number;
 };
 
-const UNKNOWN_REGION = "Sin región informada";
 const COMPLIANCE_THRESHOLD = 0.7;
 
 export function calculateRegionalSummary(
@@ -51,8 +51,12 @@ function nonComplianceByInspection(metrics: readonly ReportingMetricFact[]): Map
 }
 
 function resolveInspectionRegion(inspection: ReportingInspectionFact): string {
-  return resolveRegion(null, inspection.region ?? null)
-    ?? recoverRegion(inspection.city ?? null, inspection.address ?? null, inspection.filename ?? null)
+  return resolveLocationRegion(
+    inspection.region ?? null,
+    inspection.city ?? null,
+    inspection.address ?? null,
+    inspection.filename ?? null,
+  )
     ?? UNKNOWN_REGION;
 }
 

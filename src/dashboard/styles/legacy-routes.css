@@ -24,6 +24,8 @@
 .legacy-route-table a { color: var(--hc-azul); font-weight: 600; text-decoration: none; }
 .legacy-route-table a:hover { text-decoration: underline; }
 .legacy-route-table .is-danger { color: var(--hc-danger); font-weight: 700; }
+.legacy-route-table td.is-level-5, .legacy-route-table td.is-level-4, .legacy-route-table td.is-level-3, .legacy-route-table td.is-level-2 { color: var(--exigency-color); font-weight: 700; }
+.legacy-route-table td .legacy-level-label { color: var(--exigency-color); }
 .legacy-pagination { display: flex; justify-content: center; gap: 16px; margin-top: 16px; color: var(--hc-texto-suave); font-size: 13px; }
 .legacy-pagination a { color: var(--hc-azul); font-weight: 600; }
 .legacy-summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 20px; }

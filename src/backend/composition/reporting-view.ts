@@ -9,6 +9,7 @@ import { resolveInspectionBackendSelection } from "./backend-config";
 import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-scope";
 import { createReportingAnalytics } from "./reporting-analytics";
 import { calculateRegionalSummary } from "../domain/reporting/calculate-regional-summary";
+import { calculateWorkContextPeople } from "../domain/reporting/calculate-work-context-people";
 import { createReportingOverview } from "./reporting-overview";
 import type { MetricDetailQuery, ReportingViewPayload, ReportingViewQuery } from "./reporting-view-contract";
 
@@ -41,7 +42,7 @@ async function buildReport(facts: import("../domain/reporting/reporting-facts-co
     new GetReportingDetails(detailsReader, overviewReader).execute(),
     createReportingAnalytics(overviewReader).execute(),
   ]);
-  return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics) } };
+  return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics), peopleByWorkContext: calculateWorkContextPeople(facts.inspections) } };
 }
 
 export function createMetricDetailQuery(): MetricDetailQuery {

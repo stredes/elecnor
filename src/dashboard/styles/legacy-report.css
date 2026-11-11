@@ -79,6 +79,9 @@
 .legacy-modal-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 20px; }
 .legacy-modal-kpis span, .legacy-detail-kpis span { border-radius: 10px; background: var(--hc-neutro); padding: 10px; color: var(--hc-texto-suave); font-size: 10px; text-transform: uppercase; }
 .legacy-modal-kpis strong, .legacy-detail-kpis strong { display: block; margin-top: 4px; color: var(--hc-azul); font-family: var(--font-hc-bebas), sans-serif; font-size: 25px; line-height: 1; }
+.legacy-detail-kpis span.is-level-5, .legacy-detail-kpis span.is-level-4, .legacy-detail-kpis span.is-level-3, .legacy-detail-kpis span.is-level-2 { background: var(--exigency-bg); color: var(--exigency-color); }
+.legacy-detail-kpis span.is-level-5 strong, .legacy-detail-kpis span.is-level-4 strong, .legacy-detail-kpis span.is-level-3 strong, .legacy-detail-kpis span.is-level-2 strong { color: var(--exigency-color); }
+.legacy-level-label { display: block; margin-top: 3px; color: var(--exigency-color); font-size: 9px; font-style: normal; font-weight: 800; line-height: 1.2; text-transform: none; }
 .legacy-detail-link { display: inline-block; margin-top: 20px; color: var(--hc-azul); font-size: 14px; font-weight: 600; }
 .legacy-epp-grid, .legacy-synthesis-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
 .legacy-epp-list-header { display: flex; justify-content: space-between; gap: 16px; margin: 0 20px 8px; color: var(--hc-texto-suave); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
