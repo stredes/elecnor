@@ -24,7 +24,7 @@ export function ExecutiveDashboard({ model, generatedAt }: ExecutiveDashboardPro
   }), [regions, severity, threshold]);
   const weakest = model.narrative.sectionGap.weakest;
   const weakestFinding = model.weakMetrics[0] ?? null;
-  const distribution = model.distribution.filter((band) => band.count > 0).map((band, index) => ({ label: band.label, value: band.count, display: `${band.count} auditorías`, color: distributionColor(index) }));
+  const distribution = model.distribution.filter((band) => band.count > 0).map((band, index) => ({ label: band.label, value: band.count, display: `${band.count} auditorías`, color: distributionColor(index, band.label) }));
 
   return <div className="executive-dashboard">
     <LegacyDataToolbar />

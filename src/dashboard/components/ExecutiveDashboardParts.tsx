@@ -49,4 +49,12 @@ export function formatDate(value: string): string { const parsed = new Date(valu
 export function formatShortDate(value: string): string { const parsed = new Date(value); return Number.isNaN(parsed.getTime()) ? "—" : new Intl.DateTimeFormat("es-CL", { day: "2-digit", month: "2-digit", year: "numeric", timeZone: "America/Santiago" }).format(parsed); }
 export function statusFor(value: number | null, threshold: number): string { void threshold; return exigencyStateClass(value); }
 export function toneFor(value: string, threshold: number): string { void threshold; const state = exigencyStateClass(Number.parseFloat(value)); return state === "is-empty" ? "neutral" : state.slice(3); }
-export function distributionColor(index: number): string { return ["#b92f3d", "var(--hc-danger)", "#e0a13e", "#d6a02f", "#2d9b68", "#218653", "#126b42"][index % 7]; }
+export function distributionColor(index: number, label?: string): string {
+  if (label === "100") return "var(--exigency-5)";
+  if (label === "90-99") return "var(--exigency-4)";
+  if (label === "80-89") return "var(--exigency-3)";
+  if (label === "70-79") return "var(--exigency-4)";
+  if (label === "60-69" || label === "50-59") return "var(--exigency-3)";
+  if (label === "0-49") return "var(--exigency-2)";
+  return ["var(--exigency-2)", "var(--exigency-3)", "var(--exigency-4)", "var(--exigency-5)"][index % 4];
+}

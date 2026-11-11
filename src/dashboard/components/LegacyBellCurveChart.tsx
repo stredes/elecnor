@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ReportingPercentiles, ScoreBand } from "@/backend/domain/reporting/reporting-overview-contract";
 import { LegacyChartTooltip } from "./LegacyChartTooltip";
+import { distributionColor } from "./ExecutiveDashboardParts";
 
 type LegacyBellCurveChartProps = {
   readonly distribution: readonly ScoreBand[];
@@ -51,7 +52,7 @@ export function LegacyBellCurveChart({ distribution, panorama, threshold: thresh
           const x = scaleX(range.minimum) + 1;
           const width = Math.max(4, scaleX(range.maximum) - scaleX(range.minimum) - 2);
           const height = band.count / maximumBandCount * 46;
-          return <rect className="legacy-bell-bar" key={band.label} x={x} y={CHART.baseline - height} width={width} height={height} rx="2" tabIndex={0} role="img" aria-label={`${band.label}: ${band.count} auditorías`} onMouseEnter={() => setActiveTooltip({ label: `Banda ${band.label}`, value: `${band.count.toLocaleString("es-CL")} auditorías`, detail: `${formatPercentage(band.count, total)} del total de puntajes válidos` })} onMouseLeave={() => setActiveTooltip(null)} onFocus={() => setActiveTooltip({ label: `Banda ${band.label}`, value: `${band.count.toLocaleString("es-CL")} auditorías`, detail: `${formatPercentage(band.count, total)} del total de puntajes válidos` })} onBlur={() => setActiveTooltip(null)}><title>{`${band.label}: ${band.count} auditorías, ${formatPercentage(band.count, total)} del total`}</title></rect>;
+          return <rect className="legacy-bell-bar" key={band.label} x={x} y={CHART.baseline - height} width={width} height={height} rx="2" fill={distributionColor(0, band.label)} tabIndex={0} role="img" aria-label={`${band.label}: ${band.count} auditorías`} onMouseEnter={() => setActiveTooltip({ label: `Banda ${band.label}`, value: `${band.count.toLocaleString("es-CL")} auditorías`, detail: `${formatPercentage(band.count, total)} del total de puntajes válidos` })} onMouseLeave={() => setActiveTooltip(null)} onFocus={() => setActiveTooltip({ label: `Banda ${band.label}`, value: `${band.count.toLocaleString("es-CL")} auditorías`, detail: `${formatPercentage(band.count, total)} del total de puntajes válidos` })} onBlur={() => setActiveTooltip(null)}><title>{`${band.label}: ${band.count} auditorías, ${formatPercentage(band.count, total)} del total`}</title></rect>;
         })}
         <path className="legacy-bell-line" d={linePath} aria-hidden="true" />
         {markers.map((marker) => <line className={`legacy-bell-marker is-${marker.kind}`} key={marker.label} x1={scaleX(marker.value)} x2={scaleX(marker.value)} y1="34" y2={CHART.baseline} tabIndex={0} role="img" aria-label={`${marker.label}: ${formatScore(marker.value)}`} onMouseEnter={() => setActiveTooltip({ label: marker.label, value: formatScore(marker.value), detail: markerDetail(marker.kind) })} onMouseLeave={() => setActiveTooltip(null)} onFocus={() => setActiveTooltip({ label: marker.label, value: formatScore(marker.value), detail: markerDetail(marker.kind) })} onBlur={() => setActiveTooltip(null)}><title>{`${marker.label}: ${formatScore(marker.value)}`}</title></line>)}
