@@ -3,6 +3,7 @@ import { MAX_INSPECTION_LIMIT, type InspectionListQuery, type InspectionListResu
 import { availableInspectionRegions, isUnknownRegion, regionAddressSearchTerm } from "../../domain/region-filter";
 import { resolveInspectionRegion } from "../../domain/geography/resolve-location";
 import { parseInspectionList } from "../../domain/inspection-list-parser";
+import { selectInspectionList } from "../../domain/inspection-list-selection";
 import type { InspectionReader } from "../../ports/inspection-reader";
 import { EXCLUDED_INSPECTION_COUNT, isExcludedInspection } from "../../domain/inspection-exclusions";
 import { joinEndpoint, requestJson, type HttpClientOptions, withDefaultScope } from "./http-json";
@@ -40,6 +41,23 @@ export class HttpInspectionReader implements InspectionReader {
   }
 
   private request(query: InspectionListQuery): Promise<InspectionListResult> {
+    if (query.filters.workContext) return this.requestWithLocalWorkContextFilter(query);
+    return this.requestPage(query);
+  }
+
+  private async requestWithLocalWorkContextFilter(query: InspectionListQuery): Promise<InspectionListResult> {
+    const completeQuery = { ...query, limit: MAX_INSPECTION_LIMIT, offset: 0 };
+    const first = await this.requestPage(completeQuery);
+    const rows = [...first.data];
+    while (rows.length < first.total) {
+      const next = await this.requestPage({ ...completeQuery, offset: rows.length });
+      if (!next.data.length) break;
+      rows.push(...next.data);
+    }
+    return selectInspectionList(rows, { ...query, filters: { q: "", date: "", from: "", to: "", technician: "", auditor: "", region: "", status: "", workContext: query.filters.workContext, score: "", month: "", sort: query.filters.sort } });
+  }
+
+  private requestPage(query: InspectionListQuery): Promise<InspectionListResult> {
     const backendQuery = queryForBackend(query);
     const url = `${joinEndpoint(this.endpoint, this.path)}?${buildInspectionQuery(backendQuery, this.scope)}`;
     return requestJson(

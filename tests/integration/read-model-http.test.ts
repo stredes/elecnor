@@ -1,9 +1,23 @@
 import { describe, expect, it } from "vitest";
 import { HttpMetricsReader } from "@/backend/adapters/outbound/http-metrics-reader";
+import { HttpInspectionReader } from "@/backend/adapters/outbound/http-inspection-reader";
 import { HttpReportingFactsReader } from "@/backend/adapters/outbound/http-reporting-facts-reader";
+import { parseInspectionQuery } from "@/backend/domain/inspection-list-query";
 import { HttpSupportReaders } from "@/backend/adapters/outbound/http-support-readers";
 
 describe("backend read-model HTTP adapters", () => {
+  it("filters work context locally when the upstream ignores the filter", async () => {
+    const reader = new HttpInspectionReader("http://backend.test", async () => webResponse({
+      data: [inspection("floor", "PISO"), inspection("height", "ALTURA")],
+      total: 2, limit: 1000, offset: 0, dates: [], auditors: [], regions: [],
+    }), undefined, {}, "all");
+
+    const result = await reader.list(parseInspectionQuery({ work_context: "ALTURA", limit: "25" }));
+
+    expect(result.data.map((item) => item.id)).toEqual(["height"]);
+    expect(result.total).toBe(1);
+  });
+
   it("sends the selected scope to reporting facts", async () => {
     let requested = "";
     const reader = new HttpReportingFactsReader("http://backend.test", async (input) => {
@@ -116,4 +130,8 @@ function response(body: unknown): Response {
 
 function webResponse(body: unknown, headers?: Record<string, string>): Response {
   return new Response(JSON.stringify(body), { status: 200, headers: { "content-type": "application/json", ...headers } });
+}
+
+function inspection(id: string, workContext: "ALTURA" | "PISO") {
+  return { id, date: "2026-01-01", time: null, technician: id, auditor: null, address: null, city: null, region: null, percentage: 0.8, score: 8, maxScore: 10, actions: 0, rubric: null, status: "COMPLETA", filename: null, work_context: workContext };
 }
