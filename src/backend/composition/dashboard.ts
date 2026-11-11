@@ -2,6 +2,7 @@ import { GetDashboard } from "../application/get-dashboard";
 import { HttpDashboardReader } from "../adapters/outbound/http-dashboard-reader";
 import { MemoryDashboardReader } from "../adapters/outbound/memory-dashboard-reader";
 import type { DashboardReader } from "../ports/dashboard-reader";
+import { createAsyncCache } from "./async-cache";
 import { resolveInspectionBackendSelection } from "./backend-config";
 import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-scope";
 
@@ -15,7 +16,9 @@ export function createDashboardQuery(fetcher?: typeof fetch) {
     : selection.mode === "memory"
       ? new MemoryDashboardReader()
       : unavailableReader(selection.error);
-  return new GetDashboard(reader);
+  const query = new GetDashboard(reader);
+  const cache = createAsyncCache(() => query.execute(), 30_000);
+  return { execute: () => cache.read() };
 }
 
 function unavailableReader(error?: Error): DashboardReader {

@@ -1,5 +1,4 @@
-import { createInspectionQuery } from "./inspections";
-import { parseInspectionQuery } from "../domain/inspection-list-query";
+import { readAllInspectionRows } from "./inspections";
 import { findRepeatedInspectionGroups } from "../domain/inspection-list-repetition";
 import { reportingViewQuery } from "./reporting-view";
 import { toLegacyDashboardModel } from "@/dashboard/contracts/legacy-dashboard-contract";
@@ -15,8 +14,7 @@ export const metricsReportCache = createAsyncCache(async () => {
 
 async function loadRepeatedInspectionGroups() {
   try {
-    const inspections = await createInspectionQuery().execute(parseInspectionQuery({ limit: "1000", sort: "date_asc" }));
-    return findRepeatedInspectionGroups(inspections.data);
+    return findRepeatedInspectionGroups(await readAllInspectionRows());
   } catch {
     return [];
   }

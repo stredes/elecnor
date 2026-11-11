@@ -1,5 +1,4 @@
 import { BackendConfigurationError } from "../adapters/outbound/http-errors";
-import { HttpInspectionReader } from "../adapters/outbound/http-inspection-reader";
 import { HttpReportingFactsReader } from "../adapters/outbound/http-reporting-facts-reader";
 import { MemoryReportingDetailsReader } from "../adapters/outbound/memory-reporting-details-reader";
 import { MemoryReportingFactsReader } from "../adapters/outbound/memory-reporting-facts-reader";
@@ -12,9 +11,11 @@ import { createReportingAnalytics } from "./reporting-analytics";
 import { calculateRegionalSummary } from "../domain/reporting/calculate-regional-summary";
 import { calculateWorkContextInspections, calculateWorkContextPeople, enrichWorkContexts } from "../domain/reporting/calculate-work-context-people";
 import { createReportingOverview } from "./reporting-overview";
-import { DEFAULT_INSPECTION_SORT, MAX_INSPECTION_LIMIT, type InspectionListQuery, type InspectionWorkContext } from "../domain/inspection-list-contract";
+import { type InspectionWorkContext } from "../domain/inspection-list-contract";
 import type { ReportingFacts } from "../domain/reporting/reporting-facts-contract";
 import type { MetricDetailQuery, ReportingViewPayload, ReportingViewQuery } from "./reporting-view-contract";
+import { readAllInspectionRows } from "./inspections";
+import { createAsyncCache } from "./async-cache";
 
 export type { MetricDetailQuery, ReportingViewPayload, ReportingViewQuery } from "./reporting-view-contract";
 
@@ -27,39 +28,21 @@ export function createReportingViewQuery(): ReportingViewQuery {
       contractVersion: selection.contractVersion, internalToken: selection.internalToken, timeoutMs: selection.timeoutMs,
     }, scope);
     const factsReader = new HttpReportingFactsReader(selection.url, fetch, undefined, options, scope);
-    const inspectionReader = new HttpInspectionReader(selection.url, fetch, selection.paths.inspections, options, scope);
-    return { execute: async () => {
-      return buildReport(await enrichMissingWorkContexts(await factsReader.read(), inspectionReader));
-    } };
+    const cache = createAsyncCache(async () => buildReport(await enrichMissingWorkContexts(await factsReader.read())), 30_000);
+    return { execute: () => cache.read() };
   }
   return { execute: async () => { throw missingReportingContract(); } };
 }
 
-async function enrichMissingWorkContexts(facts: ReportingFacts, reader: HttpInspectionReader): Promise<ReportingFacts> {
+async function enrichMissingWorkContexts(facts: ReportingFacts): Promise<ReportingFacts> {
   if (!facts.inspections.some((inspection) => !inspection.workContext || inspection.workContext === "SIN_CLASIFICAR")) return facts;
-  const rows = await readAllInspectionRows(reader);
+  const rows = await readAllInspectionRows();
   const contextByInspectionId = new Map<string, InspectionWorkContext>();
   for (const row of rows) {
     const workContext = row.visualWorkContext ?? row.workContext;
     if (workContext) contextByInspectionId.set(row.id, workContext);
   }
   return { ...facts, inspections: enrichWorkContexts(facts.inspections, contextByInspectionId) };
-}
-
-async function readAllInspectionRows(reader: HttpInspectionReader) {
-  const query: InspectionListQuery = {
-    filters: { q: "", date: "", from: "", to: "", technician: "", auditor: "", region: "", status: "", workContext: "", score: "", month: "", sort: DEFAULT_INSPECTION_SORT },
-    limit: MAX_INSPECTION_LIMIT,
-    offset: 0,
-  };
-  const first = await reader.list(query);
-  const rows = [...first.data];
-  while (rows.length < first.total) {
-    const next = await reader.list({ ...query, offset: rows.length });
-    if (!next.data.length) break;
-    rows.push(...next.data);
-  }
-  return rows;
 }
 
 async function buildReport(facts: import("../domain/reporting/reporting-facts-contract").ReportingFacts): Promise<ReportingViewPayload> {

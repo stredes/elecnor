@@ -9,6 +9,9 @@ import type { InspectionReader } from "../ports/inspection-reader";
 import type { ReadInspectionDetail } from "../ports/read-inspection-detail";
 import { resolveInspectionBackendSelection } from "./backend-config";
 import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-scope";
+import { createAsyncCache } from "./async-cache";
+import { MAX_INSPECTION_LIMIT, type InspectionListItem } from "../domain/inspection-list-contract";
+import { parseInspectionQuery } from "../domain/inspection-list-query";
 
 export function createInspectionReader(fetcher?: typeof fetch): InspectionReader {
   const selection = resolveInspectionBackendSelection();
@@ -55,3 +58,23 @@ export function createInspectionDetailQuery(fetcher?: typeof fetch) {
 export const inspectionQuery = createInspectionQuery();
 export const guardedInspectionQuery = createGuardedInspectionQuery();
 export const inspectionDetailQuery = createInspectionDetailQuery();
+
+const allInspectionRowsCache = createAsyncCache(readAllInspectionRowsUncached, 30_000);
+
+/** Comparte la lectura completa usada por reporting y métricas durante el mismo ciclo de caché. */
+export function readAllInspectionRows(): Promise<readonly InspectionListItem[]> {
+  return allInspectionRowsCache.read();
+}
+
+async function readAllInspectionRowsUncached(): Promise<readonly InspectionListItem[]> {
+  const query = createInspectionQuery();
+  const listQuery = parseInspectionQuery({ limit: String(MAX_INSPECTION_LIMIT), sort: "date_asc" });
+  const first = await query.execute(listQuery);
+  const rows = [...first.data];
+  while (rows.length < first.total) {
+    const next = await query.execute({ ...listQuery, offset: rows.length });
+    if (!next.data.length) break;
+    rows.push(...next.data);
+  }
+  return rows;
+}
