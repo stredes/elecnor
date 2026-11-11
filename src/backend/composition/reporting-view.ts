@@ -5,16 +5,17 @@ import { MemoryReportingFactsReader } from "../adapters/outbound/memory-reportin
 import { GetReportingDetails } from "../application/reporting/get-reporting-details";
 import { HttpMetricsReader } from "../adapters/outbound/http-metrics-reader";
 import { syntheticMetricDetailQuery, syntheticReportingQuery } from "./synthetic-reporting";
-import { resolveBackendSelection } from "./backend-config";
+import { resolveInspectionBackendSelection } from "./backend-config";
 import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-scope";
 import { createReportingAnalytics } from "./reporting-analytics";
+import { calculateRegionalSummary } from "../domain/reporting/calculate-regional-summary";
 import { createReportingOverview } from "./reporting-overview";
 import type { MetricDetailQuery, ReportingViewPayload, ReportingViewQuery } from "./reporting-view-contract";
 
 export type { MetricDetailQuery, ReportingViewPayload, ReportingViewQuery } from "./reporting-view-contract";
 
 export function createReportingViewQuery(): ReportingViewQuery {
-  const selection = resolveBackendSelection();
+  const selection = resolveInspectionBackendSelection();
   if (selection.mode === "memory") return syntheticReportingQuery;
   if (selection.mode === "http" && selection.url) {
     const scope = resolveInspectionScope();
@@ -40,11 +41,11 @@ async function buildReport(facts: import("../domain/reporting/reporting-facts-co
     new GetReportingDetails(detailsReader, overviewReader).execute(),
     createReportingAnalytics(overviewReader).execute(),
   ]);
-  return { overview, details, analytics };
+  return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics) } };
 }
 
 export function createMetricDetailQuery(): MetricDetailQuery {
-  const selection = resolveBackendSelection();
+  const selection = resolveInspectionBackendSelection();
   if (selection.mode === "memory") return syntheticMetricDetailQuery;
   if (selection.mode === "http" && selection.url) {
     const scope = resolveInspectionScope();

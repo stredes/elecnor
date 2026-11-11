@@ -20,5 +20,5 @@ export function RouteLoadingIndicator() {
   }, []);
 
   if (!loading) return null;
-  return <div className="route-loading" role="status" aria-live="polite"><span className="route-loading-bar" /><span>Cargando la sección…</span></div>;
+  return <div className="route-loading" role="status" aria-live="polite"><span className="route-loading-spinner" aria-hidden="true" /><span>Cargando…</span></div>;
 }

@@ -16,4 +16,5 @@ export type BackendPaths = {
   readonly driveSyncRetry: string;
   readonly inspectionDownload: string;
   readonly documentDownload: string;
+  readonly elecnorComparison: string;
 };

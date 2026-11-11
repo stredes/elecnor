@@ -15,6 +15,26 @@ describe("backend read-model HTTP adapters", () => {
     expect(requested).toBe("http://backend.test/api/v1/reporting/facts?scope=all");
   });
 
+  it("removes the excluded call-center facts from reporting", async () => {
+    const reader = new HttpReportingFactsReader("http://backend.test", async () => webResponse({
+      inspections: [
+        { id: "AUD-4A4789008B95", technician: null, percentage: 0, actions: 0 },
+        { id: "INS-1", technician: "Técnico", percentage: 0.8, actions: 0 },
+      ],
+      importLogs: [{ id: "LOG-D24D380977C4" }, { id: "LOG-1" }],
+      metrics: [
+        { state: "NO_CONFORME", inspectionId: "AUD-4A4789008B95" },
+        { state: "CONFORME", inspectionId: "INS-1" },
+      ],
+    }, { "X-Fasapi-Scope": "all" }), undefined, {}, "all");
+
+    await expect(reader.read()).resolves.toEqual({
+      inspections: [{ id: "INS-1", date: null, reportingPeriod: null, technician: "Técnico", auditor: null, address: null, city: null, region: null, filename: null, percentage: 0.8, actions: 0 }],
+      importLogs: [{ id: "LOG-1" }],
+      metrics: [{ state: "CONFORME", inspectionId: "INS-1", code: null, section: null, metric: null, applicable: null, conforming: null, technician: null, observation: null, date: null, notApplicable: null }],
+    });
+  });
+
   it("maps snake_case metric fields and sends the common contract header", async () => {
     let requested = "";
     let headers: Headers | undefined;
@@ -49,6 +69,14 @@ describe("backend read-model HTTP adapters", () => {
       records: [{ inspection_id: "INS-1", technician: null, date: null, observation: null }],
     }));
     await expect(reader.detail("EPP-1")).resolves.toMatchObject({ records: [{ inspectionId: "INS-1" }] });
+  });
+  it("accepts the legacy camelCase inspection identifier from metric details", async () => {
+    const reader = new HttpMetricsReader("http://backend.test", async () => webResponse({
+      code: "EPP-1", metric: "EPP", section: "Preparación", observations: 1, applicable: 1,
+      conforming: 1, non_conforming: 0, compliance: 100, technicians: [],
+      records: [{ inspectionId: "INS-LEGACY", technician: null, date: null, observation: null }],
+    }));
+    await expect(reader.detail("EPP-1")).resolves.toMatchObject({ records: [{ inspectionId: "INS-LEGACY" }] });
   });
   it("fails closed when FastAPI does not attest that official scope was applied", async () => {
     const reader = new HttpMetricsReader("http://backend.test", async () => webResponse({ count: 0, data: [] }), undefined, { requiredScope: "official" });

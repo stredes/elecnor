@@ -2,11 +2,11 @@ import { BackendConfigurationError } from "../adapters/outbound/http-errors";
 import { HttpAnalyticsReader } from "../adapters/outbound/http-analytics-reader";
 import { HttpMetricsReader } from "../adapters/outbound/http-metrics-reader";
 import { HttpSupportReaders } from "../adapters/outbound/http-support-readers";
-import { resolveBackendSelection } from "./backend-config";
+import { resolveBackendSelection, resolveInspectionBackendSelection } from "./backend-config";
 import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-scope";
 
 export function createMetricsReader(fetcher?: typeof fetch) {
-  const selection = resolveBackendSelection();
+  const selection = resolveInspectionBackendSelection();
   const scope = resolveInspectionScope();
   if (selection.mode === "http" && selection.url) {
     return new HttpMetricsReader(selection.url, fetcher ?? fetch, selection.paths.metrics,
@@ -16,7 +16,7 @@ export function createMetricsReader(fetcher?: typeof fetch) {
 }
 
 export function createAnalyticsReader(fetcher?: typeof fetch) {
-  const selection = resolveBackendSelection();
+  const selection = resolveInspectionBackendSelection();
   if (selection.mode === "http" && selection.url) return new HttpAnalyticsReader(selection.url, fetcher ?? fetch, selection.paths.analytics, options(selection));
   return { read: async () => { throw missing(); } };
 }

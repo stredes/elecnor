@@ -16,6 +16,10 @@
 .legacy-route-table table { width: 100%; min-width: 650px; border-collapse: collapse; text-align: left; font-size: 13px; }
 .legacy-route-table th, .legacy-route-table td { border-bottom: 1px solid #e2e8f5b3; padding: 12px; }
 .legacy-route-table thead th { color: var(--hc-texto-suave); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; }
+.legacy-route-table thead .inspection-sort-link { display: inline-flex; align-items: center; gap: 6px; color: inherit; text-decoration: none; }
+.legacy-route-table thead .inspection-sort-link:hover { color: var(--hc-azul-accion); text-decoration: underline; }
+.inspection-sort-link:focus-visible { border-radius: 3px; outline: 3px solid var(--hc-focus); outline-offset: 3px; }
+.inspection-sort-indicator { color: var(--hc-azul-accion); font-size: 14px; line-height: 1; }
 .legacy-route-table tbody th { color: var(--hc-azul); font-weight: 600; }
 .legacy-route-table a { color: var(--hc-azul); font-weight: 600; text-decoration: none; }
 .legacy-route-table a:hover { text-decoration: underline; }

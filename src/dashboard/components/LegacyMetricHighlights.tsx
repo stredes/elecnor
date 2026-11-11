@@ -1,10 +1,11 @@
 import type { LegacyDashboardModel } from "../contracts/legacy-dashboard-contract";
+import { exigencyStateClass } from "@/backend/domain/reporting/exigency-scale";
 
 export function LegacyMetricHighlights({ model }: { readonly model: LegacyDashboardModel }) {
   const { kpis } = model;
   const items = [
     ["Inspecciones analizadas", formatNumber(kpis.inspeccionesUnicas), "Base consolidada", ""],
-    ["Cumplimiento global", kpis.promedioGlobal, "Resultado promedio", "is-accent"],
+    ["Cumplimiento global", kpis.promedioGlobal, `${kpis.promedioGlobal} clasificado según nivel de exigencia`, exigencyStateClass(Number.parseFloat(kpis.promedioGlobal))],
     ["Bajo 70%", formatNumber(kpis.bajo70), "Requieren revisión", "is-danger"],
     ["Acciones", formatNumber(kpis.acciones), "Seguimientos registrados", "is-aqua"],
   ] as const;

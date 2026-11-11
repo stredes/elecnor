@@ -27,6 +27,41 @@ export function resolveBackendSelection(env: NodeJS.ProcessEnv = process.env): B
   return developmentFallback(paths, env, timeoutMs);
 }
 
+/**
+ * Inspection reads and PDF downloads use a dedicated upstream and credential.
+ * Production never falls back to the globally selected backend: that backend
+ * may point at a different data set, and the inspection credential is read-only.
+ */
+export function resolveInspectionBackendSelection(env: NodeJS.ProcessEnv = process.env): BackendSelection {
+  const paths = resolveBackendPaths({ NODE_ENV: env.NODE_ENV });
+  const configuredUrl = env.INSPECTIONS_API_URL?.trim();
+
+  if (!configuredUrl) {
+    return env.NODE_ENV === "production"
+      ? unavailable(paths, "INSPECTIONS_API_URL debe configurarse para las lecturas de inspecciones.")
+      : resolveBackendSelection(env);
+  }
+
+  const timeoutMs = resolveInspectionTimeout(env);
+  if (!timeoutMs) return unavailable(paths, "INSPECTIONS_TIMEOUT_MS debe ser un entero entre 100 y 120000.");
+  const url = baseUrl(configuredUrl);
+  if (!url) return unavailable(paths, "INSPECTIONS_API_URL debe usar http:// o https://.", timeoutMs);
+  const internalToken = token(env.INSPECTIONS_INTERNAL_TOKEN);
+  if (!internalToken) return unavailable(paths, "INSPECTIONS_INTERNAL_TOKEN es obligatorio para las lecturas de inspecciones.", timeoutMs);
+
+  return {
+    mode: "http",
+    url,
+    paths,
+    contractVersion: env.INSPECTIONS_CONTRACT_VERSION?.trim() || env.FASTAPI_CONTRACT_VERSION?.trim() || BACKEND_CONTRACT_VERSION,
+    driveContractVersion: env.INSPECTIONS_DRIVE_CONTRACT_VERSION?.trim() || env.FASTAPI_DRIVE_CONTRACT_VERSION?.trim() || DRIVE_CONTRACT_VERSION,
+    internalToken,
+    timeoutMs,
+    driveSyncStateEnabled: false,
+    documentDownloadEnabled: env.INSPECTIONS_DOCUMENT_DOWNLOAD_ENABLED === "true",
+  };
+}
+
 export function resolveImportSelection(env: NodeJS.ProcessEnv = process.env): BackendSelection {
   const paths = resolveBackendPaths(env);
   const timeoutMs = resolveTimeout(env);
@@ -87,7 +122,14 @@ function baseUrl(value: string | undefined): string | null {
 }
 
 function resolveTimeout(env: NodeJS.ProcessEnv): number | null {
-  const raw = env.FASTAPI_TIMEOUT_MS ?? env.BACKEND_TIMEOUT_MS;
+  return parseTimeout(env.FASTAPI_TIMEOUT_MS ?? env.BACKEND_TIMEOUT_MS);
+}
+
+function resolveInspectionTimeout(env: NodeJS.ProcessEnv): number | null {
+  return parseTimeout(env.INSPECTIONS_TIMEOUT_MS ?? env.FASTAPI_TIMEOUT_MS ?? env.BACKEND_TIMEOUT_MS);
+}
+
+function parseTimeout(raw: string | undefined): number | null {
   if (!raw) return 10_000;
   const value = Number(raw);
   return Number.isInteger(value) && value >= 100 && value <= 120_000 ? value : null;

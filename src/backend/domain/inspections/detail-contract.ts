@@ -39,15 +39,17 @@ export function parseInspectionDetail(value: unknown): InspectionDetail {
 function withSource(inspection: InspectionDetailInspection, source: Record<string, unknown> | null): InspectionDetailInspection {
   if (!source) return inspection;
   const sourceData = record(source.provenance);
+  const documentId = text(source.document_id ?? source.documentId);
   const provenance = parseDocumentProvenance({
+    document_id: documentId,
     drive_file_id: source.drive_file_id,
     filename: source.filename,
     sha256: source.sha256,
     source_system: sourceData?.source_system ?? "GOOGLE_DRIVE",
     received_at: sourceData?.received_at,
-    source_modified_at: source.source_modified_at,
-    source_created_at: source.source_created_at,
-  });
+    source_modified_at: source.source_modified_at ?? inspection.date,
+    source_created_at: source.source_created_at ?? inspection.time,
+  }, documentId);
   return { ...inspection, provenance };
 }
 
@@ -59,7 +61,7 @@ function parseInspection(value: Record<string, unknown>): InspectionDetailInspec
     technician: text(value.technician), auditor: text(value.auditor), address: text(value.address),
     city: text(value.city), region: text(value.region), percentage: number(value.percentage),
     score: number(value.score), maxScore: number(value.maxScore), actions: number(value.actions),
-    rubric: text(value.rubric), status, workContext: parseInspectionWorkContext(value.work_context), auditorRole: text(value.auditorRole), observation: text(value.observation),
+    rubric: text(value.rubric), status, workContext: parseInspectionWorkContext(value.work_context), visualWorkContext: value.visual_work_context === null || value.visual_work_context === undefined ? null : parseInspectionWorkContext(value.visual_work_context), contextSource: value.context_source === "VISUAL" ? "VISUAL" : "TEXT", visualConfidence: number(value.visual_confidence), visualEvidencePage: integerOrNull(value.visual_evidence_page), visualEvidenceImage: integerOrNull(value.visual_evidence_image), visualRationale: text(value.visual_rationale), auditorRole: text(value.auditorRole), observation: text(value.observation),
     provenance: parseDocumentProvenance(value.provenance, text(value.document_id ?? value.documentId)),
     uniqueness: parseUniquenessFacts(value.uniqueness),
   };
@@ -94,6 +96,13 @@ function number(value: unknown): number | null {
   if (value === null || value === undefined) return null;
   if (typeof value !== "number" || !Number.isFinite(value)) throw new Error("Invalid numeric field");
   return value;
+}
+
+function integerOrNull(value: unknown): number | null {
+  const parsed = number(value);
+  if (parsed === null) return null;
+  if (!Number.isInteger(parsed) || parsed < 1) throw new Error("Invalid integer field");
+  return parsed;
 }
 
 function firstText(...values: unknown[]): string | null { return values.find((value): value is string => typeof value === "string" && value.trim() !== "") ?? null; }

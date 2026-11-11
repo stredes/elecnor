@@ -1,6 +1,7 @@
 import { parseInspectionDetail } from "../../domain/inspections/detail-contract";
 import type { InspectionDetail } from "../../domain/inspections/detail-contract";
 import type { ReadInspectionDetail } from "../../ports/read-inspection-detail";
+import { isExcludedInspection } from "../../domain/inspection-exclusions";
 import { BackendAdapterError, failureForStatus } from "./http-errors";
 import { joinEndpoint, parseJsonResponse, requestResponse, type HttpClientOptions, withDefaultScope } from "./http-json";
 
@@ -14,6 +15,7 @@ export class HttpInspectionDetailReader implements ReadInspectionDetail {
   ) {}
 
   public async read(id: string): Promise<InspectionDetail | null> {
+    if (isExcludedInspection(id)) return null;
     const response = await requestResponse(
       this.fetcher,
       `${joinEndpoint(this.endpoint, this.path)}/${encodeURIComponent(id)}?scope=${this.scope}`,

@@ -9,7 +9,7 @@ export const getServerSideProps: GetServerSideProps<InspectionDetailViewProps> =
   if (!id) return { notFound: true };
   try {
     const detail = await inspectionDetailQuery.execute(id);
-    return detail ? { props: { detail, downloadHref: inspectionDownloadHref(detail.inspection.id) } } : { notFound: true };
+    return detail ? { props: { detail, downloadHref: inspectionDownloadHref(detail.inspection.id, detail.inspection.provenance?.documentId) } } : { notFound: true };
   } catch (error) {
     return { props: { detail: null, error: pageBackendError(error, "detalle de inspección") } };
   }
@@ -19,6 +19,7 @@ export default function InspectionDetailPage({ detail, downloadHref }: InferGetS
   return <InspectionDetailView detail={detail} downloadHref={downloadHref} />;
 }
 
-function inspectionDownloadHref(id: string): string {
+function inspectionDownloadHref(id: string, documentId: string | null | undefined): string {
+  if (documentId) return `/api/documents/${encodeURIComponent(documentId)}/download`;
   return `/api/inspections/${encodeURIComponent(id)}/download`;
 }

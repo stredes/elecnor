@@ -27,3 +27,24 @@
 @media (max-width: 560px) { .legacy-procedure-detail-header { padding: 22px 18px; } .legacy-procedure-detail-header > .legacy-procedure-detail-title, .legacy-procedure-detail-header > .legacy-procedure-detail-date { flex-basis: 100%; } .legacy-procedure-detail-header > .legacy-procedure-detail-date { align-self: start; text-align: left; } .legacy-procedure-description { gap: 20px; margin-top: 22px; } .legacy-procedure-description-section + .legacy-procedure-description-section { padding-top: 20px; } }
 @media (prefers-reduced-motion: no-preference) { .legacy-procedure-info { animation: procedure-detail-rise .45s ease-out both; } }
 @keyframes procedure-detail-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.procedure-intro-videos { position: relative; isolation: isolate; overflow: hidden; margin-top: 20px; border: 1px solid #cbdbea; border-radius: 18px; background: radial-gradient(circle at 95% 0, #5fc9d433 0, transparent 28%), linear-gradient(145deg, #f8fcff 0%, #edf5fc 100%); padding: clamp(20px, 3vw, 30px); text-align: center; box-shadow: 0 10px 28px #173c7012; }
+.procedure-intro-videos::before { position: absolute; top: 0; right: 0; left: 0; height: 5px; background: linear-gradient(90deg, #0b4f9c, #2a72ce 52%, #39a7a7); content: ""; }
+.procedure-intro-heading { width: min(100%, 760px); max-width: 760px; margin-inline: auto; text-align: center; }
+.procedure-intro-heading > span { display: inline-flex; align-items: center; gap: 8px; color: #1c62ae; font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.procedure-intro-heading > span::before { width: 8px; height: 8px; border-radius: 50%; background: #2a72ce; box-shadow: 0 0 0 4px #2a72ce18; content: ""; }
+.procedure-intro-heading h2 { margin: 7px 0 0; color: #12396f; font-size: clamp(1.65rem, 3vw, 2.25rem); line-height: 1; }
+.procedure-intro-heading p { max-width: 70ch; margin: 10px auto 0; color: #526b89; font-size: 13px; line-height: 1.6; text-align: center; }
+.procedure-intro-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 22px; }
+.procedure-intro-card { overflow: hidden; border: 1px solid #d2e0ed; border-radius: 14px; background: #ffffffd9; box-shadow: 0 6px 18px #173c7010; }
+.procedure-intro-card header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 16px 12px; }
+.procedure-intro-card header > span { color: #2a72ce; font-family: var(--font-hc-plex-mono), monospace; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.procedure-intro-card h3 { margin: 0; color: #17396f; font-size: 14px; line-height: 1.2; text-align: right; }
+.procedure-intro-card .legacy-procedure-video { border-top: 1px solid #e1ebf4; background: #071e45; }
+.procedure-intro-card .legacy-procedure-video iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; }
+.procedure-intro-heading > span { justify-content: center; }
+.procedure-intro-grid-single { grid-template-columns: minmax(0, min(100%, 780px)); justify-content: center; }
+.procedure-intro-grid-single .procedure-intro-card header { justify-content: center; padding: 18px 20px 15px; text-align: center; }
+.procedure-intro-grid-single .procedure-intro-card h3 { font-size: clamp(1rem, 2vw, 1.25rem); text-align: center; }
+@media (max-width: 700px) { .procedure-intro-grid { grid-template-columns: 1fr; }.procedure-intro-card header { align-items: flex-start; flex-direction: column; gap: 7px; }.procedure-intro-card h3 { text-align: left; } }
+@media (max-width: 700px) { .procedure-intro-grid-single .procedure-intro-card header { align-items: center; }.procedure-intro-grid-single .procedure-intro-card h3 { text-align: center; } }

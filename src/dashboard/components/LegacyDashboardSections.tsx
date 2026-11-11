@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { exigencyStateClass } from "@/backend/domain/reporting/exigency-scale";
 import type { LegacyDashboardModel } from "../contracts/legacy-dashboard-contract";
 import { LegacyApprovalCharts } from "./LegacyApprovalCharts";
 import { LegacyMetricTable } from "./LegacyMetricTable";
@@ -14,11 +15,11 @@ function EppSection({ model }: { readonly model: LegacyDashboardModel }) {
   const direct = model.narrative.epp.directAverage;
   const checklist = model.narrative.epp.checklist;
   const reveal = `En el mismo ámbito conviven dos comportamientos: el uso directo aparece alto (${format(direct)}), mientras el check list EPP queda en ${format(checklist)}.`;
-  return <LegacyReportShell id="contraste-epp" index="5" title="Contraste dentro del bloque EPP" lead="El bloque EPP merece una lectura más fina. Mirarlo como un solo promedio puede ocultar diferencias internas muy importantes entre el uso observado del equipo y los controles asociados a su gestión."><div className="legacy-epp-grid"><EppLine label="Uso directo del EPP observado" value={direct} href="/metricas/epp-observado" /><EppLine label="Check list EPP (control)" value={checklist} href="/metricas/PREP_EPP_CHECK" danger /></div><LegacyReadingGuide title="Qué revela este contraste" how="Compara lo que la inspección observó en uso directo versus el control documental asociado." reveals={reveal} /></LegacyReportShell>;
+  return <LegacyReportShell id="contraste-epp" index="5" title="Contraste dentro del bloque EPP" lead="El bloque EPP merece una lectura más fina. Mirarlo como un solo promedio puede ocultar diferencias internas muy importantes entre el uso observado del equipo y los controles asociados a su gestión."><div className="legacy-epp-metrics"><div className="legacy-epp-list-header"><span>Nombre</span><span>% de cumplimiento</span></div><div className="legacy-epp-grid"><EppLine label="Uso directo del EPP observado" value={direct} href="/metricas/epp-observado" /><EppLine label="Check list EPP (control)" value={checklist} href="/metricas/PREP_EPP_CHECK" danger /></div></div><p className="legacy-epp-observation"><strong>Observación:</strong> Se ocupan los EPP, pero no se registra ningún control sobre el estado en que se encuentra el EPP ni sobre sus mantenciones.</p><LegacyReadingGuide title="Qué revela este contraste" how="Compara lo que la inspección observó en uso directo versus el control documental asociado." reveals={reveal} /></LegacyReportShell>;
 }
 
 function EppLine({ label, value, href, danger = false }: { readonly label: string; readonly value: number | null; readonly href: string; readonly danger?: boolean }) {
-  return <Link href={href} className={`legacy-epp-line${danger ? " is-danger" : ""}`} aria-label={`${label}: ${format(value)}. Ver detalle`}><span>{label}</span><strong>{format(value)}</strong><i><em style={{ width: `${Math.max(0, Math.min(100, value ?? 0))}%` }} /></i><small>Ver detalle →</small></Link>;
+  return <Link href={href} className={`legacy-epp-line ${exigencyStateClass(value)}${danger ? " is-danger" : ""}`} aria-label={`${label}: ${format(value)}. Ver detalle`}><span>{label}</span><strong>{format(value)}</strong><i><em style={{ width: `${Math.max(0, Math.min(100, value ?? 0))}%` }} /></i><small>Ver detalle →</small></Link>;
 }
 
 function SynthesisSection({ model }: { readonly model: LegacyDashboardModel }) {

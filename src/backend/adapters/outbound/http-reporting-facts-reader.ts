@@ -1,6 +1,7 @@
 import { parseReportingFacts } from "../../domain/reporting/reporting-facts-parser";
 import type { ReportingFacts } from "../../domain/reporting/reporting-facts-contract";
 import type { ReadInspectionFacts } from "../../ports/read-inspection-facts";
+import { isExcludedImportLog, isExcludedInspection } from "../../domain/inspection-exclusions";
 import { joinEndpoint, requestJson, type HttpClientOptions, withDefaultScope } from "./http-json";
 
 export class HttpReportingFactsReader implements ReadInspectionFacts {
@@ -12,7 +13,13 @@ export class HttpReportingFactsReader implements ReadInspectionFacts {
     private readonly scope: "official" | "all" = "official",
   ) {}
 
-  public read(): Promise<ReportingFacts> {
-    return requestJson(this.fetcher, `${joinEndpoint(this.endpoint, this.path)}?scope=${this.scope}`, { method: "GET" }, parseReportingFacts, withDefaultScope({ ...this.options, scope: this.scope }));
+  public async read(): Promise<ReportingFacts> {
+    const facts = await requestJson(this.fetcher, `${joinEndpoint(this.endpoint, this.path)}?scope=${this.scope}`, { method: "GET" }, parseReportingFacts, withDefaultScope({ ...this.options, scope: this.scope }));
+    return {
+      ...facts,
+      inspections: facts.inspections.filter((item) => !isExcludedInspection(item.id)),
+      importLogs: facts.importLogs.filter((item) => !isExcludedImportLog(item.id)),
+      metrics: facts.metrics.filter((item) => !isExcludedInspection(item.inspectionId)),
+    };
   }
 }

@@ -18,6 +18,12 @@ describe("NP-0036 analytic series", () => {
     ]);
   });
 
+  it("uses the authorized reporting period without changing the real date", () => {
+    expect(calculateMonthlySeries([
+      { date: "2026-10-03", reportingPeriod: "2026-09", percentage: 0.9, actions: null },
+    ])).toEqual([{ period: "2026-09", inspections: 1, compliance: 90 }]);
+  });
+
   it("groups weekly volume, score and below-70 cases by ISO Monday", () => {
     expect(calculateWeeklySeries(inspections)).toEqual([
       { inicio: "2025-12-29", inspecciones: 2, promedio: 80, bajo70: 0 },

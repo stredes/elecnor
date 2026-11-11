@@ -7,11 +7,11 @@ import { MemoryInspectionReader } from "../adapters/outbound/memory-inspection-r
 import { syntheticInspectionDetail } from "./synthetic-inspection-entrypoint";
 import type { InspectionReader } from "../ports/inspection-reader";
 import type { ReadInspectionDetail } from "../ports/read-inspection-detail";
-import { resolveBackendSelection } from "./backend-config";
+import { resolveInspectionBackendSelection } from "./backend-config";
 import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-scope";
 
 export function createInspectionReader(fetcher?: typeof fetch): InspectionReader {
-  const selection = resolveBackendSelection();
+  const selection = resolveInspectionBackendSelection();
   const scope = resolveInspectionScope();
   if (selection.mode === "http" && selection.url) return new HttpInspectionReader(
     selection.url, fetcher ?? fetch, selection.paths.inspections,
@@ -35,7 +35,7 @@ export function createGuardedInspectionQuery(fetcher?: typeof fetch) {
 }
 
 export function createInspectionDetailQuery(fetcher?: typeof fetch) {
-  const selection = resolveBackendSelection();
+  const selection = resolveInspectionBackendSelection();
   const scope = resolveInspectionScope();
   const reader: ReadInspectionDetail = selection.mode === "http" && selection.url
     ? new HttpInspectionDetailReader(

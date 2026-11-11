@@ -1,10 +1,10 @@
 import { HttpDocumentDownloadReader } from "../adapters/outbound/http-document-download-reader";
 import { BackendConfigurationError } from "../adapters/outbound/http-errors";
 import type { DocumentDownloadReader } from "../ports/document-download-reader";
-import { resolveBackendSelection } from "./backend-config";
+import { resolveInspectionBackendSelection } from "./backend-config";
 
 export function createDocumentDownloadReader(fetcher?: typeof fetch): DocumentDownloadReader {
-  const selection = resolveBackendSelection();
+  const selection = resolveInspectionBackendSelection();
   if (selection.mode === "http" && selection.url) return new HttpDocumentDownloadReader(
     selection.url, fetcher ?? fetch, selection.paths, { contractVersion: selection.driveContractVersion, internalToken: selection.internalToken, timeoutMs: selection.timeoutMs }, selection.documentDownloadEnabled,
   );

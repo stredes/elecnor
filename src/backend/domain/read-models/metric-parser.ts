@@ -30,8 +30,19 @@ function isTechnician(value: unknown): boolean {
   return item !== null && exact(item, ["technician", "applicable", "conforming", "non_conforming"]) && typeof item.technician === "string" && integer(item.applicable) && integer(item.conforming) && integer(item.non_conforming);
 }
 function toTechnician(value: unknown): MetricTechnician { const item = value as Record<string, unknown>; return { technician: item.technician as string, applicable: item.applicable as number, conforming: item.conforming as number, nonConforming: item.non_conforming as number }; }
-function isRecordItem(value: unknown): boolean { const item = record(value); return item !== null && exact(item, ["inspection_id", "technician", "date", "observation"]) && typeof item.inspection_id === "string" && nullableText(item.technician) && nullableText(item.date) && nullableText(item.observation); }
-function toRecord(value: unknown): MetricRecord { const item = value as Record<string, unknown>; return { inspectionId: item.inspection_id as string, technician: item.technician as string | null, date: item.date as string | null, observation: item.observation as string | null }; }
+function isRecordItem(value: unknown): boolean {
+  const item = record(value);
+  if (!item || !exact(item, [recordInspectionKey(item), "technician", "date", "observation"]) || !nullableText(item.technician) || !nullableText(item.date) || !nullableText(item.observation)) return false;
+  const inspectionId = item.inspection_id ?? item.inspectionId;
+  return typeof inspectionId === "string";
+}
+function toRecord(value: unknown): MetricRecord {
+  const item = value as Record<string, unknown>;
+  return { inspectionId: (item.inspection_id ?? item.inspectionId) as string, technician: item.technician as string | null, date: item.date as string | null, observation: item.observation as string | null };
+}
+function recordInspectionKey(item: Record<string, unknown>): "inspection_id" | "inspectionId" {
+  return "inspection_id" in item ? "inspection_id" : "inspectionId";
+}
 function record(value: unknown): Record<string, unknown> | null { return typeof value === "object" && value !== null && !Array.isArray(value) ? value as Record<string, unknown> : null; }
 function exact(value: Record<string, unknown>, fields: readonly string[]): boolean { return Object.keys(value).length === fields.length && fields.every((field) => field in value); }
 function nullableText(value: unknown): boolean { return value === null || typeof value === "string"; }

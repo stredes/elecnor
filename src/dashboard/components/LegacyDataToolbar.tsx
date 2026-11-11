@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { validateLegacyPdfSelection, describeLegacyImport, type LegacyImportFeedback } from "./legacy-import-feedback";
+import { invalidateSectionCache } from "../cache/section-cache";
 
 export function LegacyDataToolbar() {
   const router = useRouter();
@@ -27,7 +28,10 @@ export function LegacyDataToolbar() {
         if (!response.ok || !payload) throw new Error(payload?.error ?? "No se pudo importar.");
         const result = describeLegacyImport(payload);
         setStatus(result);
-        if (result.refresh) void router.replace(router.asPath);
+        if (result.refresh) {
+          invalidateSectionCache();
+          void router.replace(router.asPath);
+        }
       } catch (error) {
         setStatus({ kind: "error", text: error instanceof TypeError ? "No pudimos importar los PDFs. Revisa tu conexión y vuelve a intentarlo." : error instanceof Error ? error.message : "No se pudo importar.", refresh: false });
       }

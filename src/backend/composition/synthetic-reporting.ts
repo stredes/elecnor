@@ -5,6 +5,7 @@ import { MemoryReportingFactsReader } from "../adapters/outbound/memory-reportin
 import { MemoryReportingDetailsReader } from "../adapters/outbound/memory-reporting-details-reader";
 import { syntheticReportingDetailFacts, syntheticReportingFacts } from "./synthetic-reporting-data";
 import { getMetricDetail } from "../domain/reporting/get-metric-detail";
+import { calculateRegionalSummary } from "../domain/reporting/calculate-regional-summary";
 
 const factsReader = new MemoryReportingFactsReader(syntheticReportingFacts);
 const detailsReader = new MemoryReportingDetailsReader(syntheticReportingDetailFacts);
@@ -17,7 +18,7 @@ export const syntheticReportingQuery = {
     const [overviewResult, detailsResult, analyticsResult] = await Promise.all([
       overview.execute(), details.execute(), analytics.execute(),
     ]);
-    return { overview: overviewResult, details: detailsResult, analytics: analyticsResult };
+    return { overview: overviewResult, details: detailsResult, analytics: analyticsResult, executive: { regions: calculateRegionalSummary(syntheticReportingFacts.inspections, syntheticReportingFacts.metrics) } };
   },
 };
 

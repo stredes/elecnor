@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { MetricCard } from "../components/MetricCard";
+import { ExecutiveDashboard } from "../components/ExecutiveDashboard";
+import { ExecutivePortalLayout } from "../components/ExecutivePortalLayout";
 import { ReportLayout } from "../components/ReportLayout";
 import { LegacyDashboard } from "../components/LegacyDashboard";
 import { DeferredReporting } from "../components/DeferredReporting";
@@ -8,11 +10,14 @@ import type { DashboardViewProps } from "../contracts/dashboard-view-contract";
 
 export function DashboardView({ snapshot, report, homeHref, deferReport, error }: DashboardViewProps) {
   if (!snapshot) return <ReportLayout activeRoute="dashboard" showFooter={false}><p role="alert">{error ?? "No hay datos del backend."}</p></ReportLayout>;
-  if (report) {
-    return <ReportLayout activeRoute="dashboard" homeHref={homeHref ?? "/"}><LegacyDashboard model={report} /></ReportLayout>;
-  }
-  if (deferReport) return <ReportLayout activeRoute="dashboard" homeHref={homeHref ?? "/"}><DeferredReporting key={refreshKey(snapshot)} fallback={<ReportSkeleton variant="dashboard" />} errorFallback={(message) => <SnapshotDashboardContent snapshot={snapshot} error={message} />}>{(model) => <LegacyDashboard model={model} />}</DeferredReporting></ReportLayout>;
+  if (report) return homeHref ? <ExecutivePortalLayout><ExecutiveDashboard model={report} generatedAt={snapshot.generatedAt} /></ExecutivePortalLayout> : <ReportLayout activeRoute="dashboard"><LegacyDashboard model={report} /></ReportLayout>;
+  if (deferReport) return <DeferredDashboard snapshot={snapshot} homeHref={homeHref} />;
   return <SnapshotDashboard snapshot={snapshot} />;
+}
+
+function DeferredDashboard({ snapshot, homeHref }: { readonly snapshot: NonNullable<DashboardViewProps["snapshot"]>; readonly homeHref?: string }) {
+  const content = <DeferredReporting key={refreshKey(snapshot)} fallback={<ReportSkeleton variant="dashboard" />} errorFallback={(message) => <SnapshotDashboardContent snapshot={snapshot} error={message} />}>{(model) => homeHref ? <ExecutiveDashboard model={model} generatedAt={snapshot.generatedAt} /> : <LegacyDashboard model={model} />}</DeferredReporting>;
+  return homeHref ? <ExecutivePortalLayout>{content}</ExecutivePortalLayout> : <ReportLayout activeRoute="dashboard"><div>{content}</div></ReportLayout>;
 }
 
 function refreshKey(snapshot: NonNullable<DashboardViewProps["snapshot"]>): string { return `${snapshot.generatedAt}:${snapshot.metrics.map((metric) => `${metric.id}=${metric.value}`).join("|")}`; }

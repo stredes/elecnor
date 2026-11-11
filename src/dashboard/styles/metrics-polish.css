@@ -40,3 +40,10 @@
 @media (max-width: 800px) { .legacy-metric-highlights-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .legacy-metric-highlights { padding: 16px; } .legacy-metric-highlights-grid { grid-template-columns: 1fr 1fr; } .legacy-metric-highlight-card { min-height: 104px; } .legacy-metric-highlight-card strong { font-size: 27px; } }
 @media (prefers-reduced-motion: reduce) { .legacy-metrics-report.hc-report-enter, .legacy-metrics-report .hc-report-enter-down, .legacy-metrics-report .hc-report-enter-up, .legacy-donut-visual.hc-donut-spin, .hc-donut-data-enter { animation: none; filter: none; opacity: 1; transform: none; } }
+
+@media (max-width: 700px) {
+  .legacy-metrics-report::before { right: 0; width: 140px; height: 140px; }
+  .legacy-metrics-report::after { left: 0; width: 140px; height: 140px; }
+  .legacy-metrics-report .legacy-metrics-header::after,
+  .legacy-metrics-report .legacy-visual-header::after { right: 0; width: 140px; height: 140px; }
+}

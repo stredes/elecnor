@@ -53,13 +53,31 @@ function scoreMatches(value: number | null, filter: string): boolean {
 function compare(left: InspectionListItem, right: InspectionListItem, sort: string): number {
   const descending = sort.endsWith("_desc");
   const field = sort.replace(/_(?:asc|desc)$/, "");
-  const leftValue = field === "score" ? left.percentage : left[field as "date" | "auditor" | "technician" | "status"];
-  const rightValue = field === "score" ? right.percentage : right[field as "date" | "auditor" | "technician" | "status"];
-  const leftMissing = leftValue === null || leftValue === "";
-  const rightMissing = rightValue === null || rightValue === "";
-  if (leftMissing !== rightMissing) return leftMissing ? 1 : -1;
-  const comparison = String(leftValue ?? "").localeCompare(String(rightValue ?? ""), "es", { sensitivity: "base" });
+  const leftValue = sortValue(left, field);
+  const rightValue = sortValue(right, field);
+  if (isMissing(leftValue)) return isMissing(rightValue) ? 0 : 1;
+  if (isMissing(rightValue)) return -1;
+  const comparison = typeof leftValue === "number" && typeof rightValue === "number"
+    ? leftValue - rightValue
+    : String(leftValue).localeCompare(String(rightValue), "es", { sensitivity: "base" });
   return descending ? -comparison : comparison;
+}
+
+function sortValue(row: InspectionListItem, field: string): string | number | null | undefined {
+  if (field === "score") return row.percentage;
+  if (field === "work_context") return contextLabel(row.workContext);
+  return row[field as "date" | "auditor" | "technician" | "status"];
+}
+
+function contextLabel(value?: InspectionListItem["workContext"]): string {
+  if (value === "PISO") return "Nivel de piso";
+  if (value === "ALTURA") return "Trabajo en altura";
+  if (value === "PREPARACION") return "En preparación";
+  return "Sin clasificar";
+}
+
+function isMissing(value: string | number | null | undefined): value is null | undefined | "" {
+  return value === null || value === undefined || value === "";
 }
 
 function options(values: readonly (string | null)[], descending = false): string[] {

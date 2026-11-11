@@ -6,6 +6,7 @@ import type {
   ProcedureCatalogQuery,
   ProcedureDetail,
 } from "../../domain/procedures/procedure-contract";
+import { isExcludedProcedureId, projectProcedureCatalog, projectProcedureDetail } from "../../domain/procedures/procedure-read-model";
 import type { ProcedureReader } from "../../ports/procedure-reader";
 import { BackendAdapterError, failureForStatus } from "./http-errors";
 import { joinEndpoint, parseJsonResponse, requestJson, requestResponse, type HttpClientOptions, withDefaultScope } from "./http-json";
@@ -18,21 +19,23 @@ export class HttpProcedureReader implements ProcedureReader {
     private readonly options: HttpClientOptions = {},
   ) {}
 
-  public catalog(query: ProcedureCatalogQuery) {
+  public async catalog(query: ProcedureCatalogQuery) {
     const options = withDefaultScope(this.options);
     const params = new URLSearchParams({ scope: options.scope ?? "official" });
     if (query.q?.trim()) params.set("q", query.q.trim());
     if (query.area?.trim()) params.set("area", query.area.trim());
     const suffix = params.toString() ? `?${params}` : "";
-    return requestJson(this.fetcher, `${joinEndpoint(this.endpoint, this.path)}${suffix}`, { method: "GET" }, parseProcedureCatalog, options);
+    const catalog = await requestJson(this.fetcher, `${joinEndpoint(this.endpoint, this.path)}${suffix}`, { method: "GET" }, parseProcedureCatalog, options);
+    return projectProcedureCatalog(catalog);
   }
 
   public async detail(id: string): Promise<ProcedureDetail | null> {
+    if (isExcludedProcedureId(id)) return null;
     const options = withDefaultScope(this.options);
     const url = `${joinEndpoint(this.endpoint, this.path)}/${encodeURIComponent(id)}`;
     const response = await requestResponse(this.fetcher, url, { method: "GET" }, options);
     if (response.status === 404) return null;
     if (!response.ok) throw new BackendAdapterError(failureForStatus(response.status), "Backend request was rejected.", response.status);
-    return parseJsonResponse(response, parseProcedureDetail);
+    return projectProcedureDetail(await parseJsonResponse(response, parseProcedureDetail));
   }
 }

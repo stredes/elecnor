@@ -21,6 +21,7 @@ export function resolveBackendPaths(env: NodeJS.ProcessEnv): BackendPaths {
     driveSyncRetry: path(env.BACKEND_DRIVE_SYNC_RETRY_PATH, "/api/v1/sync/drive/{id}/retry"),
     inspectionDownload: path(env.BACKEND_INSPECTION_DOWNLOAD_PATH, "/api/v1/inspections/{id}/download"),
     documentDownload: path(env.BACKEND_DOCUMENT_DOWNLOAD_PATH, "/api/v1/documents/{id}/download"),
+    elecnorComparison: path(env.BACKEND_ELECNOR_COMPARISON_PATH, "/api/v1/elecnor/comparison"),
   };
 }
 

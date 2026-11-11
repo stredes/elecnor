@@ -1,0 +1,48 @@
+import { cleanup, render, screen } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { ExecutiveDashboard } from "@/dashboard/components/ExecutiveDashboard";
+import { toLegacyDashboardModel } from "@/dashboard/contracts/legacy-dashboard-contract";
+import { syntheticReportingQuery } from "@/backend/composition/synthetic-reporting";
+
+vi.mock("next/router", () => ({ useRouter: () => ({ asPath: "/", replace: vi.fn() }) }));
+
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
+
+describe("ExecutiveDashboard", () => {
+  it("renders real KPIs, regional evidence and an explicit unclassified-pillar state", async () => {
+    const model = toLegacyDashboardModel(await syntheticReportingQuery.execute());
+    render(<ExecutiveDashboard model={model} generatedAt="2026-11-09T12:00:00.000Z" />);
+    expect(screen.getByRole("heading", { name: "Dashboard Ejecutivo" })).toBeVisible();
+    expect(screen.getByText("Resultado consolidado")).toBeVisible();
+    expect(screen.getByText("Portal oficial")).toBeVisible();
+    expect(screen.queryByText("Región con más hallazgos")).not.toBeInTheDocument();
+    expect(screen.getByText("Falencias identificadas")).toBeVisible();
+    expect(screen.getByText("Lectura para la conclusión")).toBeVisible();
+    expect(screen.getByText("72.5%", { exact: false })).toBeVisible();
+    expect(screen.getByRole("option", { name: "Maule" })).toBeVisible();
+    expect(screen.getByText("Conocimiento técnico insuficiente")).toBeVisible();
+    expect(screen.getByText("Cultura preventiva débil")).toBeVisible();
+    expect(screen.getByText("Producción por encima de la seguridad")).toBeVisible();
+    expect(screen.getByText(/su explicación y las recomendaciones asociadas se desarrollan en la conclusión/i)).toBeVisible();
+    expect(screen.getAllByRole("link", { name: /Ver conclusión del proyecto/i })).toHaveLength(3);
+    const mauleLink = screen.getAllByRole("link", { name: /Ver auditorías/i }).find((link) => link.getAttribute("href") === "/inspecciones?region=Maule");
+    expect(mauleLink).toBeDefined();
+    expect(document.querySelector(".executive-primary-grid .executive-section-panel")).toBeInTheDocument();
+    expect(document.querySelector(".executive-primary-grid .executive-distribution-panel")).toBeInTheDocument();
+    expect(document.querySelector(".executive-secondary-grid .executive-result-panel")).toBeInTheDocument();
+    expect(screen.getByText("Resultado preventivo")).toBeVisible();
+    expect(screen.getByText("Auditorías frente al estándar")).toBeVisible();
+    expect(screen.getByText("Cumplen el estándar")).toBeVisible();
+    expect(screen.getAllByText("Bajo el estándar")).toHaveLength(2);
+    expect(screen.getAllByText("Puntaje perfecto")).toHaveLength(2);
+    const distributionHeader = document.querySelector(".executive-distribution-panel .legacy-donut-legend-header-distribution");
+    expect(distributionHeader).toHaveTextContent("Puntaje");
+    expect(distributionHeader).toHaveTextContent("% del total");
+    expect(distributionHeader).toHaveTextContent("Cantidad");
+    expect(screen.getByRole("img", { name: "Línea de cumplimiento promedio por semana" })).toBeVisible();
+    expect(screen.getByRole("img", { name: "Distribución real de puntajes y referencia de campana de Gauss" })).toBeVisible();
+    expect(screen.getByText(/las barras muestran cuántas auditorías/i)).toBeVisible();
+    expect(screen.getByText(/No reemplaza la distribución real/i)).toBeVisible();
+    expect(document.querySelector("[aria-label='Leyenda de estatus de las métricas']")).toBeInTheDocument();
+  });
+});

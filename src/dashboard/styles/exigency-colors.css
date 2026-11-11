@@ -1,0 +1,85 @@
+:root {
+  --exigency-5: #237a4b;
+  --exigency-5-bg: #e4f5ed;
+  --exigency-4: #8a6800;
+  --exigency-4-bg: #fff7cf;
+  --exigency-3: #b85c00;
+  --exigency-3-bg: #fff0dc;
+  --exigency-2: #b4232f;
+  --exigency-2-bg: #fde7e9;
+  --exigency-1: #7b4bb2;
+  --exigency-1-bg: #f2eafd;
+  --exigency-0: #4d2f76;
+  --exigency-0-bg: #e9e0f5;
+}
+
+.is-level-5 { --exigency-color: var(--exigency-5); --exigency-bg: var(--exigency-5-bg); }
+.is-level-4 { --exigency-color: var(--exigency-4); --exigency-bg: var(--exigency-4-bg); }
+.is-level-3 { --exigency-color: var(--exigency-3); --exigency-bg: var(--exigency-3-bg); }
+.is-level-2 { --exigency-color: var(--exigency-2); --exigency-bg: var(--exigency-2-bg); }
+.is-level-1 { --exigency-color: var(--exigency-1); --exigency-bg: var(--exigency-1-bg); }
+.is-level-0 { --exigency-color: var(--exigency-0); --exigency-bg: var(--exigency-0-bg); }
+
+.executive-status.is-level-5, .executive-status.is-level-4, .executive-status.is-level-3,
+.executive-status.is-level-2, .executive-status.is-level-1, .executive-status.is-level-0 {
+  background: var(--exigency-bg);
+  color: var(--exigency-color);
+}
+
+.executive-kpi.is-level-5, .executive-kpi.is-level-4, .executive-kpi.is-level-3,
+.executive-kpi.is-level-2, .executive-kpi.is-level-1, .executive-kpi.is-level-0 {
+  border-top-color: var(--exigency-color);
+}
+
+.executive-kpi.is-level-5 strong, .executive-kpi.is-level-4 strong, .executive-kpi.is-level-3 strong,
+.executive-kpi.is-level-2 strong, .executive-kpi.is-level-1 strong, .executive-kpi.is-level-0 strong {
+  color: var(--exigency-color);
+}
+
+.legacy-metric-highlight-card.is-level-5, .legacy-metric-highlight-card.is-level-4,
+.legacy-metric-highlight-card.is-level-3, .legacy-metric-highlight-card.is-level-2,
+.legacy-metric-highlight-card.is-level-1, .legacy-metric-highlight-card.is-level-0 {
+  border-top-color: var(--exigency-color);
+}
+
+.legacy-metric-highlight-card.is-level-5 strong, .legacy-metric-highlight-card.is-level-4 strong,
+.legacy-metric-highlight-card.is-level-3 strong, .legacy-metric-highlight-card.is-level-2 strong,
+.legacy-metric-highlight-card.is-level-1 strong, .legacy-metric-highlight-card.is-level-0 strong {
+  color: var(--exigency-color);
+}
+
+.executive-meter.is-level-5 b, .executive-meter.is-level-4 b, .executive-meter.is-level-3 b,
+.executive-meter.is-level-2 b, .executive-meter.is-level-1 b, .executive-meter.is-level-0 b,
+.legacy-section-bars em.is-level-5, .legacy-section-bars em.is-level-4, .legacy-section-bars em.is-level-3,
+.legacy-section-bars em.is-level-2, .legacy-section-bars em.is-level-1, .legacy-section-bars em.is-level-0,
+.legacy-accordion-list em.is-level-5, .legacy-accordion-list em.is-level-4, .legacy-accordion-list em.is-level-3,
+.legacy-accordion-list em.is-level-2, .legacy-accordion-list em.is-level-1, .legacy-accordion-list em.is-level-0 {
+  background: var(--exigency-color);
+}
+
+.legacy-table td.is-level-5, .legacy-table td.is-level-4, .legacy-table td.is-level-3,
+.legacy-table td.is-level-2, .legacy-table td.is-level-1, .legacy-table td.is-level-0,
+.legacy-route-table td.is-level-5, .legacy-route-table td.is-level-4, .legacy-route-table td.is-level-3,
+.legacy-route-table td.is-level-2, .legacy-route-table td.is-level-1, .legacy-route-table td.is-level-0,
+.legacy-epp-line.is-level-5 strong, .legacy-epp-line.is-level-4 strong, .legacy-epp-line.is-level-3 strong,
+.legacy-epp-line.is-level-2 strong, .legacy-epp-line.is-level-1 strong, .legacy-epp-line.is-level-0 strong {
+  color: var(--exigency-color);
+}
+
+.legacy-epp-line.is-level-5 em, .legacy-epp-line.is-level-4 em, .legacy-epp-line.is-level-3 em,
+.legacy-epp-line.is-level-2 em, .legacy-epp-line.is-level-1 em, .legacy-epp-line.is-level-0 em,
+.inspection-score-cell.is-level-5 .inspection-score-bar i, .inspection-score-cell.is-level-4 .inspection-score-bar i,
+.inspection-score-cell.is-level-3 .inspection-score-bar i, .inspection-score-cell.is-level-2 .inspection-score-bar i,
+.inspection-score-cell.is-level-1 .inspection-score-bar i, .inspection-score-cell.is-level-0 .inspection-score-bar i {
+  background: var(--exigency-color);
+}
+
+.inspection-score-cell.is-level-5 strong, .inspection-score-cell.is-level-4 strong, .inspection-score-cell.is-level-3 strong,
+.inspection-score-cell.is-level-2 strong, .inspection-score-cell.is-level-1 strong, .inspection-score-cell.is-level-0 strong {
+  color: var(--exigency-color);
+}
+
+.executive-status-legend i.is-level-5, .executive-status-legend i.is-level-4, .executive-status-legend i.is-level-3,
+.executive-status-legend i.is-level-2, .executive-status-legend i.is-level-1, .executive-status-legend i.is-level-0 {
+  background: var(--exigency-color);
+}

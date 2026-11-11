@@ -11,10 +11,12 @@ test(
 
     await page.goto("/inspecciones?sort=date_asc");
     await expect(page.getByRole("heading", { name: "Listado de inspecciones" })).toBeVisible();
+    await expect(page.getByRole("region", { name: "Resumen de inspecciones" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Filtros de inspecciones" })).toBeVisible();
     await expect(page.getByTestId("inspection-total")).toHaveText("3 registros indexados.");
     await expect(page.getByTestId("inspection-row")).toHaveCount(3);
-    await expect(page.getByLabel("Auditor")).toBeVisible();
-    await expect(page.getByLabel("Orden")).toBeVisible();
+    await expect(page.getByLabel("Auditor", { exact: true })).toBeVisible();
+    await expect(page.getByLabel("Orden", { exact: true })).toBeVisible();
   },
 );
 

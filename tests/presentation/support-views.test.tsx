@@ -10,7 +10,13 @@ afterEach(cleanup);
 describe("legacy support surfaces", () => {
   it("exposes only the requested primary navigation", () => {
     render(<LegacySiteHeader activeRoute="findings" />);
-    expect(screen.getByRole("link", { name: "Importar PDFs" })).toHaveAttribute("href", "/importar");
+    expect(screen.queryByRole("link", { name: "Importar PDFs" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Inicio" })).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", { name: "Conclusión proyecto" })).toHaveAttribute("href", "/informe");
+    expect(screen.getByRole("link", { name: "Ver inspecciones" })).toHaveAttribute("href", "/inspecciones");
+    expect(screen.getByRole("link", { name: "Ver procedimientos" })).toHaveAttribute("href", "/procedimientos");
+    expect(screen.getByRole("link", { name: "Métricas" })).toHaveAttribute("href", "/metricas");
+    expect(screen.getByRole("link", { name: "Comparativa Elecnor" })).toHaveAttribute("href", "/comparativa-elecnor");
     expect(screen.queryByRole("link", { name: "Hallazgos" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Sin clasificar" })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: "Registro" })).not.toBeInTheDocument();

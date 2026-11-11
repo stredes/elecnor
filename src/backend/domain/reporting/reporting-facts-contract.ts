@@ -1,6 +1,7 @@
 export type ReportingInspectionFact = {
   readonly id?: string;
   readonly date?: string | null;
+  readonly reportingPeriod?: string | null;
   readonly technician: string | null;
   readonly auditor?: string | null;
   readonly address?: string | null;

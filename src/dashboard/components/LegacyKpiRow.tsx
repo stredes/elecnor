@@ -6,7 +6,7 @@ export function LegacyKpiRow({ kpis }: { readonly kpis: LegacyKpis }) {
   const critical = kpis.puntajesValidos === 0 ? "Sin puntajes válidos" : `${kpis.bajo70} de ${kpis.puntajesValidos} puntajes válidos`;
   return (
     <section className="legacy-kpi-grid" aria-label="Indicadores principales">
-      <LegacyKpi label="Promedio global" value={kpis.promedioGlobal} hint={`Basado en ${kpis.puntajesValidos} puntajes válidos`} href="#cumplimiento-por-seccion" accent />
+      <LegacyKpi label="Promedio global" value={kpis.promedioGlobal} hint={`${kpis.promedioGlobal} cumple con estar sobre el 70% de exigencia`} href="#cumplimiento-por-seccion" accent />
       <LegacyKpi label="Bajo 70%" value={`${kpis.bajo70} caso${kpis.bajo70 === 1 ? "" : "s"}`} hint={critical} href="/inspecciones?score=below70" />
       <LegacyKpi label="Inspecciones realizadas" value={inspections} href="/inspecciones" />
     </section>

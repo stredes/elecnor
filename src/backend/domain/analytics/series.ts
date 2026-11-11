@@ -2,6 +2,7 @@ import { roundSql } from "../reporting/reporting-rounding";
 
 export type AnalyticInspection = {
   readonly date?: string | null;
+  readonly reportingPeriod?: string | null;
   readonly technician?: string | null;
   readonly auditor?: string | null;
   readonly address?: string | null;
@@ -22,11 +23,11 @@ export type WeeklySeriesPoint = {
 export function calculateMonthlySeries(items: readonly AnalyticInspection[]): readonly MonthlySeriesPoint[] {
   const groups = new Map<string, number[]>();
   for (const item of items) {
-    const date = item.date;
-    if (!date || !parseDate(date) || item.percentage === null) continue;
-    const values = groups.get(date.slice(0, 7)) ?? [];
+    const period = item.reportingPeriod ?? monthFromDate(item.date);
+    if (!period || !parsePeriod(period) || item.percentage === null) continue;
+    const values = groups.get(period) ?? [];
     values.push(item.percentage);
-    groups.set(date.slice(0, 7), values);
+    groups.set(period, values);
   }
   return [...groups].sort(([left], [right]) => left.localeCompare(right)).map(([period, values]) => ({
     period, inspections: values.length,
@@ -70,6 +71,14 @@ function weekStart(value: string | null | undefined): string | null {
   if (!date) return null;
   date.setUTCDate(date.getUTCDate() - ((date.getUTCDay() + 6) % 7));
   return date.toISOString().slice(0, 10);
+}
+
+function monthFromDate(value: string | null | undefined): string | null {
+  return value && parseDate(value) ? value.slice(0, 7) : null;
+}
+
+function parsePeriod(value: string): boolean {
+  return /^\d{4}-\d{2}$/u.test(value);
 }
 
 function parseDate(value: string | null | undefined): Date | null {

@@ -19,6 +19,7 @@ describe("NP-0041/AC-01/TEST-01 presentation composition", () => {
 
     expect(screen.getByRole("link", { name: "Elecnor · Inicio" })).toHaveAttribute("href", "/dashboard");
     expect(screen.getByRole("link", { name: "Métricas" })).toHaveAttribute("href", "/metricas");
+    expect(screen.getByRole("complementary")).toHaveClass("executive-sidebar", "is-legacy");
     expect(screen.getByRole("heading", { name: "Panel de inspecciones" })).toBeVisible();
     expect(screen.getByText("Inspecciones")).toBeVisible();
   });

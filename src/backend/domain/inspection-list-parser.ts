@@ -1,10 +1,10 @@
 import { parseDocumentProvenance, parseDocumentProvenanceFromUniqueness } from "./document-provenance";
 import { parseUniquenessFacts } from "./uniqueness-facts";
-import { parseInspectionWorkContext, type InspectionListItem, type InspectionListResult, type InspectionWorkContext } from "./inspection-list-contract";
+import { parseInspectionWorkContext, type InspectionContextSource, type InspectionListItem, type InspectionListResult, type InspectionWorkContext } from "./inspection-list-contract";
 
 const RESULT_FIELDS = ["data", "total", "limit", "offset", "dates", "auditors", "regions"];
 const ITEM_FIELDS = ["id", "date", "time", "technician", "auditor", "address", "city", "region", "percentage", "score", "maxScore", "actions", "rubric", "status", "filename"];
-const OPTIONAL_ITEM_FIELDS = ["document_id", "documentId", "provenance", "uniqueness", "work_context", "workContext"];
+const OPTIONAL_ITEM_FIELDS = ["document_id", "documentId", "provenance", "uniqueness", "work_context", "workContext", "visual_work_context", "visualWorkContext", "context_source", "contextSource", "visual_confidence", "visualConfidence", "visual_evidence_page", "visualEvidencePage", "visual_evidence_image", "visualEvidenceImage", "visual_rationale", "visualRationale", "in_matrix"];
 
 export class InspectionListContractError extends Error {
   public constructor() {
@@ -22,7 +22,7 @@ export function parseInspectionList(value: unknown): InspectionListResult {
 
 function parseItem(value: unknown): InspectionListItem {
   if (!record(value) || !exact(value, ITEM_FIELDS, OPTIONAL_ITEM_FIELDS) || typeof value.id !== "string") fail();
-  if (!nullableText(value.status)) fail();
+  if (!nullableText(value.status) || value.in_matrix !== undefined && typeof value.in_matrix !== "boolean") fail();
   const textFields = ["date", "time", "technician", "auditor", "address", "city", "region", "rubric", "filename"];
   const numberFields = ["percentage", "score", "maxScore", "actions"];
   if (!textFields.every((key) => nullableText(value[key])) || !numberFields.every((key) => nullableNumber(value[key]))) fail();
@@ -37,12 +37,29 @@ function parseItem(value: unknown): InspectionListItem {
     percentage: number(value.percentage), score: number(value.score), maxScore: number(value.maxScore),
     actions: number(value.actions), rubric: text(value.rubric), status: text(value.status), filename: text(value.filename),
     workContext: parseWorkContext(value.work_context ?? value.workContext),
+    visualWorkContext: parseOptionalWorkContext(value.visual_work_context ?? value.visualWorkContext),
+    contextSource: parseContextSource(value.context_source ?? value.contextSource),
+    visualConfidence: nullableNumberValue(value.visual_confidence ?? value.visualConfidence),
+    visualEvidencePage: nullableIntegerValue(value.visual_evidence_page ?? value.visualEvidencePage),
+    visualEvidenceImage: nullableIntegerValue(value.visual_evidence_image ?? value.visualEvidenceImage),
+    visualRationale: text((value.visual_rationale !== undefined ? value.visual_rationale : value.visualRationale) ?? null),
     provenance, uniqueness,
   };
 }
 
 function parseWorkContext(value: unknown): InspectionWorkContext {
   try { return parseInspectionWorkContext(value); } catch { fail(); }
+}
+
+function parseOptionalWorkContext(value: unknown): InspectionWorkContext | null {
+  if (value === undefined || value === null) return null;
+  return parseWorkContext(value);
+}
+
+function parseContextSource(value: unknown): InspectionContextSource {
+  if (value === undefined || value === null) return "TEXT";
+  if (value === "TEXT" || value === "VISUAL") return value;
+  fail();
 }
 
 function parseItemUniqueness(value: unknown): InspectionListItem["uniqueness"] {
@@ -71,5 +88,7 @@ function text(value: unknown): string | null { if (!nullableText(value)) fail();
 function nullableNumber(value: unknown): boolean { return value === null || typeof value === "number" && Number.isFinite(value); }
 function number(value: unknown): number | null { if (value === null) return null; if (typeof value !== "number" || !Number.isFinite(value)) fail(); return value; }
 function integer(value: unknown): boolean { return typeof value === "number" && Number.isInteger(value) && value >= 0; }
+function nullableNumberValue(value: unknown): number | null { if (value === undefined || value === null) return null; if (!nullableNumber(value)) fail(); return value as number; }
+function nullableIntegerValue(value: unknown): number | null { if (value === undefined || value === null) return null; if (!integer(value)) fail(); return value as number; }
 function strings(value: unknown): value is readonly string[] { return Array.isArray(value) && value.every((item) => typeof item === "string"); }
 function fail(): never { throw new InspectionListContractError(); }

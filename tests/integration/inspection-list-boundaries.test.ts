@@ -39,6 +39,24 @@ describe("NP-0030/AC-02/TEST-02 inspection list boundaries", () => {
     expect(result.data[0].status).toBeNull();
   });
 
+  it("accepts null visual rationale from an unreviewed visual context", () => {
+    const result = parseInspectionList({
+      data: [{ ...row("visual-null", "2026-01-01", 80), work_context: "SIN_CLASIFICAR", visual_work_context: null,
+        context_source: "TEXT", visual_confidence: null, visual_evidence_page: null,
+        visual_evidence_image: null, visual_rationale: null }],
+      total: 1, limit: 25, offset: 0, dates: [], auditors: [], regions: [],
+    });
+    expect(result.data[0].visualRationale).toBeNull();
+  });
+
+  it("accepts ascending and descending context sort values", () => {
+    for (const sort of ["work_context_asc", "work_context_desc"] as const) {
+      const query = parseInspectionQuery({ sort });
+      expect(query.filters.sort).toBe(sort);
+      expect(buildInspectionQuery(query)).toContain(`sort=${sort}`);
+    }
+  });
+
   it("parses and transports the work-context filter", () => {
     const query = parseInspectionQuery({ work_context: "ALTURA", limit: "2" });
     const result = selectInspectionList([

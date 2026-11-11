@@ -1,5 +1,6 @@
+import Head from "next/head";
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
-import { Bebas_Neue, IBM_Plex_Mono, Inter } from "next/font/google";
 import "../src/dashboard/styles/globals.css";
 import "../src/dashboard/styles/legacy-shell.css";
 import "../src/dashboard/styles/legacy-report.css";
@@ -8,12 +9,21 @@ import "../src/dashboard/styles/metrics-polish.css";
 import "../src/dashboard/styles/legacy-routes.css";
 import "../src/dashboard/styles/procedure-detail.css";
 import "../src/dashboard/styles/loading.css";
+import "../src/dashboard/styles/ui-polish.css";
+import "../src/dashboard/styles/exigency-colors.css";
+import "../src/dashboard/styles/executive-report.css";
+import "../src/dashboard/styles/executive-dashboard.css";
+import "../src/dashboard/styles/executive-portal.css";
+import "../src/elecnor/elecnor-comparison.css";
+import "../src/auth/auth.css";
+import "../src/inspections/inspections-list.css";
 import { RouteLoadingIndicator } from "../src/dashboard/components/RouteLoadingIndicator";
 
-const bebas = Bebas_Neue({ weight: "400", subsets: ["latin"], variable: "--font-hc-bebas", display: "swap" });
-const inter = Inter({ weight: ["300", "400", "600"], subsets: ["latin"], variable: "--font-hc-inter", display: "swap" });
-const plexMono = IBM_Plex_Mono({ weight: ["400", "600"], subsets: ["latin"], variable: "--font-hc-plex-mono", display: "swap" });
-
 export default function App({ Component, pageProps }: AppProps) {
-  return <div className={`${bebas.variable} ${inter.variable} ${plexMono.variable} app-root`}><Component {...pageProps} /><RouteLoadingIndicator /></div>;
+  useEffect(() => {
+    if (!("serviceWorker" in navigator)) return;
+    void navigator.serviceWorker.register("/sw.js", { scope: "/", updateViaCache: "none" }).catch(() => undefined);
+  }, []);
+
+  return <><Head><link rel="icon" href="/favicon.svg" type="image/svg+xml" /></Head><div className="app-root"><Component {...pageProps} /><RouteLoadingIndicator /></div></>;
 }

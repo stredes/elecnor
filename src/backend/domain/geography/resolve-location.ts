@@ -3,7 +3,26 @@ import { cityAliases, cityRegions } from "./city-data";
 import { regionAliases } from "./region-data";
 
 const STREET_PREFIXES = new Set(["c", "calle", "av", "avd", "avda", "avenida", "pje", "pasaje", "villa", "ruta", "camino"]);
+const FILENAME_HINTS: readonly (readonly [RegExp, string])[] = [
+  [/^075_5c8fbed181264770ae06aeed1531efb9$/u, "Maule"],
+];
 const ADDRESS_HINTS: readonly (readonly [RegExp, string])[] = [
+  // Ubicaciones recuperadas desde las direcciones de los documentos que no
+  // traían comuna/región en los campos estructurados de Mitti.
+  [/\bpje mercedes\s*4555\b/u, "Región Metropolitana"],
+  [/\bav las nieves\s*780\b/u, "O'Higgins"],
+  [/\bpje lago sarmiento\s*0456\b/u, "O'Higgins"],
+  [/\bel trapiche\s*3152\b/u, "O'Higgins"],
+  [/\bemma jauch jelves\s*1429\b/u, "Maule"],
+  [/\bpasaje jimenez\s*22\b/u, "Valparaíso"],
+  [/\bagustin avezon\s*99\b/u, "Valparaíso"],
+  [/\bla parva\s*684\b/u, "Valparaíso"],
+  [/\b29 y media sur\s*1303\b/u, "Maule"],
+  [/\bdoce y medio sur\s*3744\b/u, "Maule"],
+  [/\bveintidos norte\s*3960\b/u, "Valparaíso"],
+  [/\b27 y media (?:oriente|otiente)\s*63\b/u, "Maule"],
+  [/\bvalle de elicura\s*0280\b/u, "O'Higgins"],
+  [/\bcamino a tuniche\s*2781\b/u, "O'Higgins"],
   [/\b\d+\s*(?:sur|norte|oriente|ote|otiente)\b/u, "Maule"],
   [/\blos corregidores\b/u, "Ñuble"], [/\breloncavi\b/u, "Ñuble"],
   [/\bpasaje tres las violetas\b/u, "Maule"], [/\b23\s*n(?:te|orte)\b/u, "Maule"],
@@ -49,7 +68,12 @@ export function recoverRegion(
   if (fromFields) return fromFields;
   if (!filename) return null;
   const cleanName = filename.replaceAll("_", " ").replace(/\.[^.]+$/u, "");
-  return resolveRegion(extractCity(cleanName), null);
+  return resolveRegion(extractCity(cleanName), null) ?? filenameRegion(filename);
+}
+
+function filenameRegion(filename: string): string | null {
+  const cleanName = filename.replace(/\.[^.]+$/u, "");
+  return FILENAME_HINTS.find(([pattern]) => pattern.test(cleanName))?.[1] ?? null;
 }
 
 function hasRegion(text: string): boolean {

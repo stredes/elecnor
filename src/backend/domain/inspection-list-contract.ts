@@ -5,20 +5,21 @@ export const MAX_INSPECTION_LIMIT = 1000;
 
 export const INSPECTION_SORTS = [
   "date_desc", "date_asc", "auditor_asc", "auditor_desc",
-  "technician_asc", "technician_desc", "score_desc", "score_asc",
-  "status_asc", "status_desc",
+  "technician_asc", "technician_desc", "work_context_asc", "work_context_desc",
+  "score_desc", "score_asc", "status_asc", "status_desc",
 ] as const;
 
 export const INSPECTION_SCORE_FILTERS = [
   "0to9", "10to19", "20to29", "30to39", "40to49", "50to59", "60to69",
   "70to79", "80to89", "90to99", "below70", "70to89", "perfect", "missing",
 ] as const;
-export const INSPECTION_WORK_CONTEXTS = ["PISO", "ALTURA", "SIN_CLASIFICAR"] as const;
+export const INSPECTION_WORK_CONTEXTS = ["PISO", "ALTURA", "PREPARACION", "SIN_CLASIFICAR"] as const;
 
 export type InspectionSort = (typeof INSPECTION_SORTS)[number];
 export type InspectionStatus = string | null;
 export type InspectionFilterStatus = "COMPLETA" | "PARCIAL" | "";
 export type InspectionWorkContext = (typeof INSPECTION_WORK_CONTEXTS)[number];
+export type InspectionContextSource = "TEXT" | "VISUAL";
 
 export function parseInspectionWorkContext(value: unknown): InspectionWorkContext {
   if (value === undefined || value === null) return "SIN_CLASIFICAR";
@@ -65,7 +66,14 @@ export type InspectionListItem = {
   readonly rubric: string | null;
   readonly status: InspectionStatus;
   readonly filename: string | null;
+  readonly inMatrix?: boolean;
   readonly workContext?: InspectionWorkContext;
+  readonly visualWorkContext?: InspectionWorkContext | null;
+  readonly contextSource?: InspectionContextSource;
+  readonly visualConfidence?: number | null;
+  readonly visualEvidencePage?: number | null;
+  readonly visualEvidenceImage?: number | null;
+  readonly visualRationale?: string | null;
   readonly provenance?: DocumentProvenance | null;
   readonly uniqueness?: UniquenessFacts | null;
 };
