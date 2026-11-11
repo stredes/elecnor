@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { exigencyLevelLabel, exigencyStateClass, scoreBandLevelLabel, scoreBandStateClass } from "@/backend/domain/reporting/exigency-scale";
+import { exigencyLevelLabel, exigencyStateClass } from "@/backend/domain/reporting/exigency-scale";
 import type { LegacyDashboardModel, LegacyMetric } from "../contracts/legacy-dashboard-contract";
 
 export const PILLARS = [
@@ -27,17 +27,6 @@ export function FindingRow({ metric }: { readonly metric: LegacyMetric }) {
   return <article className="executive-finding-row"><div><span>{formatName(metric.section)}</span><strong>{metric.metric}</strong><small>{metric.nonConforming} incumplimientos · {metric.applicable} registros aplicables</small></div><b className={`executive-status ${statusFor(metric.compliance, 70)}`}>{formatPercentage(metric.compliance)} · {exigencyLevelLabel(metric.compliance)}</b><Link href={`/metricas/${encodeURIComponent(metric.code)}`} aria-label={`Ver detalle de ${metric.metric}`}>Detalle →</Link></article>;
 }
 
-export function Trace({ label, detail, value, total, danger = false, perfect = false }: { readonly label: string; readonly detail: string; readonly value: number; readonly total: number; readonly danger?: boolean; readonly perfect?: boolean }) {
-  const percentage = total ? Math.round(value / total * 100) : 0;
-  const tone = danger ? "is-danger" : perfect ? "is-perfect" : "is-positive";
-  return <div className={`executive-result-card ${tone}`} aria-label={`${label}: ${value.toLocaleString("es-CL")} auditorías, ${percentage}% del total válido`}><div className="executive-result-card-label"><i aria-hidden="true" /><span>{label}</span></div><div className="executive-result-card-number"><strong>{value.toLocaleString("es-CL")}</strong><small>auditorías</small></div><div className="executive-result-card-meta"><b>{percentage}%</b><span>{detail}</span></div><i className="executive-trace-meter" aria-hidden="true"><b style={{ width: `${Math.max(0, Math.min(100, percentage))}%` }} /></i></div>;
-}
-
-export function ObservedComplianceBands({ distribution }: { readonly distribution: LegacyDashboardModel["distribution"] }) {
-  const total = distribution.reduce((sum, band) => sum + band.count, 0);
-  return <section className="executive-observed-bands" aria-labelledby="observed-bands-title"><div className="executive-observed-bands-heading"><strong id="observed-bands-title">Colorimetría de cumplimiento</strong><span>{total.toLocaleString("es-CL")} puntajes válidos</span></div><ul aria-label="Inspecciones por porcentaje de cumplimiento">{distribution.map((band) => <li className={scoreBandStateClass(band.label)} key={band.label}><i className={scoreBandStateClass(band.label)} aria-hidden="true" /><span><strong>{band.label === "100" ? "100%" : `${band.label}%`}</strong><small className="legacy-band-level">{scoreBandLevelLabel(band.label)}</small><small className="legacy-band-count">{band.count.toLocaleString("es-CL")} inspecciones</small></span><b>{formatShare(band.count, total)}</b></li>)}</ul></section>;
-}
-
 export function PanelHeading({ kicker, title, description }: { readonly kicker: string; readonly title: string; readonly description: string }) {
   return <header className="executive-panel-heading"><span>{kicker}</span><h2>{title}</h2><p>{description}</p></header>;
 }
@@ -61,5 +50,3 @@ export function distributionColor(index: number, label?: string): string {
   if (label === "70-79" || label === "60-69" || label === "50-59" || label === "0-49") return "var(--exigency-2)";
   return ["var(--exigency-2)", "var(--exigency-3)", "var(--exigency-4)", "var(--exigency-5)"][index % 4];
 }
-
-function formatShare(value: number, total: number): string { return `${total ? (value / total * 100).toFixed(1) : "0.0"}%`; }
