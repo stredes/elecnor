@@ -11,7 +11,7 @@ export type LegacyMetric = {
   readonly nonConforming: number; readonly compliance: number | null;
   readonly technicians: { readonly conforming: readonly string[]; readonly nonConforming: readonly string[] };
 };
-export type LegacyKpis = { readonly pdfRecibidos: number; readonly inspeccionesUnicas: number; readonly puntajesValidos: number; readonly personasEvaluadas?: number; readonly personasBajo90?: number; readonly personasAltura: number; readonly personasPiso: number; readonly promedioGlobal: string; readonly bajo70: number; readonly puntajePerfecto: number; readonly hallazgos: number; readonly acciones: number };
+export type LegacyKpis = { readonly pdfRecibidos: number; readonly inspeccionesUnicas: number; readonly puntajesValidos: number; readonly personasEvaluadas?: number; readonly personasBajo90?: number; readonly personasAltura?: number; readonly personasPiso?: number; readonly promedioGlobal: string; readonly bajo70: number; readonly puntajePerfecto: number; readonly hallazgos: number; readonly acciones: number };
 export type LegacySection = LegacyMetric & { readonly name: string; readonly metrics: readonly LegacyMetric[] };
 export type LegacyDashboardModel = {
   readonly kpis: LegacyKpis;

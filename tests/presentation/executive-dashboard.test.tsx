@@ -63,4 +63,12 @@ describe("ExecutiveDashboard", () => {
     expect(screen.getByText(/No reemplaza la distribución real/i)).toBeVisible();
     expect(document.querySelector("[aria-label='Leyenda de estatus de las métricas']")).toBeInTheDocument();
   });
+
+  it("keeps rendering when a previous service-worker response lacks context people counts", async () => {
+    const model = toLegacyDashboardModel(await syntheticReportingQuery.execute());
+    const cachedModel = { ...model, kpis: { ...model.kpis, personasAltura: undefined, personasPiso: undefined } };
+    render(<ExecutiveDashboard model={cachedModel} generatedAt="2026-11-09T12:00:00.000Z" />);
+    expect(screen.getByText("Personas en altura")).toBeVisible();
+    expect(screen.getByText("Personas en piso")).toBeVisible();
+  });
 });
