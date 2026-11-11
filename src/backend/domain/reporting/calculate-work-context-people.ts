@@ -6,6 +6,11 @@ export type WorkContextPeople = {
   readonly piso: number;
 };
 
+export type WorkContextInspections = {
+  readonly altura: number;
+  readonly piso: number;
+};
+
 export function calculateWorkContextPeople(inspections: readonly ReportingInspectionFact[]): WorkContextPeople {
   const people = { altura: new Set<string>(), piso: new Set<string>() };
   for (const inspection of inspections) {
@@ -15,6 +20,14 @@ export function calculateWorkContextPeople(inspections: readonly ReportingInspec
     if (inspection.workContext === "PISO") people.piso.add(technician);
   }
   return { altura: people.altura.size, piso: people.piso.size };
+}
+
+export function calculateWorkContextInspections(inspections: readonly ReportingInspectionFact[]): WorkContextInspections {
+  return inspections.reduce((counts, inspection) => {
+    if (inspection.workContext === "ALTURA") counts.altura += 1;
+    if (inspection.workContext === "PISO") counts.piso += 1;
+    return counts;
+  }, { altura: 0, piso: 0 });
 }
 
 export function enrichWorkContexts(

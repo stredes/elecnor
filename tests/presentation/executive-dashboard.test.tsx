@@ -32,12 +32,12 @@ describe("ExecutiveDashboard", () => {
     expect(document.querySelector(".executive-secondary-grid .executive-result-panel")).toBeInTheDocument();
     expect(screen.getByText("Resultado observado")).toBeVisible();
     expect(screen.getByText("Base evaluada")).toBeVisible();
-    expect(screen.getByText("Personas en trabajo en altura")).toBeVisible();
-    expect(screen.getByText("Personas en trabajo en piso")).toBeVisible();
-    expect(screen.getByRole("link", { name: /Personas en trabajo en altura/ })).toHaveTextContent(String(model.kpis.personasAltura));
-    expect(screen.getByRole("link", { name: /Personas en trabajo en piso/ })).toHaveTextContent(String(model.kpis.personasPiso));
-    expect(screen.getByText("Personas únicas clasificadas en ALTURA")).toBeVisible();
-    expect(screen.getByText("Personas únicas clasificadas en PISO")).toBeVisible();
+    expect(screen.getByText("Registros en trabajo en altura")).toBeVisible();
+    expect(screen.getByText("Registros en trabajo en piso")).toBeVisible();
+    expect(screen.getByRole("link", { name: /Registros en trabajo en altura/ })).toHaveTextContent(String(model.kpis.inspeccionesAltura));
+    expect(screen.getByRole("link", { name: /Registros en trabajo en piso/ })).toHaveTextContent(String(model.kpis.inspeccionesPiso));
+    expect(screen.getByText("Inspecciones clasificadas en ALTURA")).toBeVisible();
+    expect(screen.getByText("Inspecciones clasificadas en PISO")).toBeVisible();
     expect(screen.queryByText("Umbrales por indicador")).not.toBeInTheDocument();
     expect(screen.getByText(/PDFs importados · reimportaciones o duplicados consolidados/)).toBeVisible();
     expect(screen.getByText("Colorimetría de cumplimiento")).toBeVisible();
@@ -67,9 +67,9 @@ describe("ExecutiveDashboard", () => {
 
   it("keeps rendering when a previous service-worker response lacks context people counts", async () => {
     const model = toLegacyDashboardModel(await syntheticReportingQuery.execute());
-    const cachedModel = { ...model, kpis: { ...model.kpis, personasAltura: undefined, personasPiso: undefined } };
+    const cachedModel = { ...model, kpis: { ...model.kpis, inspeccionesAltura: undefined, inspeccionesPiso: undefined } };
     render(<ExecutiveDashboard model={cachedModel} generatedAt="2026-11-09T12:00:00.000Z" />);
-    expect(screen.getByText("Personas en trabajo en altura")).toBeVisible();
-    expect(screen.getByText("Personas en trabajo en piso")).toBeVisible();
+    expect(screen.getByText("Registros en trabajo en altura")).toBeVisible();
+    expect(screen.getByText("Registros en trabajo en piso")).toBeVisible();
   });
 });

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { calculateWorkContextPeople, enrichWorkContexts } from "@/backend/domain/reporting/calculate-work-context-people";
+import { calculateWorkContextInspections, calculateWorkContextPeople, enrichWorkContexts } from "@/backend/domain/reporting/calculate-work-context-people";
 
 describe("calculateWorkContextPeople", () => {
   it("counts unique technicians independently for height and floor contexts", () => {
@@ -10,6 +10,14 @@ describe("calculateWorkContextPeople", () => {
       { technician: "luis soto", percentage: 0.9, actions: 0, workContext: "ALTURA" },
       { technician: null, percentage: 0.9, actions: 0, workContext: "PISO" },
       { technician: "Sin contexto", percentage: 0.9, actions: 0, workContext: "SIN_CLASIFICAR" },
+    ])).toEqual({ altura: 2, piso: 1 });
+  });
+
+  it("counts inspection records independently for height and floor contexts", () => {
+    expect(calculateWorkContextInspections([
+      { technician: "Ana", percentage: 0.8, actions: 0, workContext: "ALTURA" },
+      { technician: "Ana", percentage: 0.7, actions: 1, workContext: "ALTURA" },
+      { technician: "Luis", percentage: 0.9, actions: 0, workContext: "PISO" },
     ])).toEqual({ altura: 2, piso: 1 });
   });
 
