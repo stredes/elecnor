@@ -1,19 +1,17 @@
-import { useState } from "react";
 import { exigencyStateClass } from "@/backend/domain/reporting/exigency-scale";
 import type { WeeklySeriesPoint } from "@/backend/domain/analytics/series";
 import type { LegacyDashboardModel } from "../contracts/legacy-dashboard-contract";
-import { LegacyChartTooltip } from "./LegacyChartTooltip";
 
 type ProgressPoint = { readonly period: string; readonly label: string; readonly inspections: number; readonly compliance: number; readonly href: string; readonly levelClass: string };
 type LegacyProgressChartProps = { readonly progress?: LegacyDashboardModel["progress"]; readonly weeklyProgress?: readonly WeeklySeriesPoint[] };
 type ProgressDomain = { readonly minimum: number; readonly maximum: number };
 const MIN_WEEKLY_INSPECTIONS_FOR_TREND = 2;
+const WEEKLY_EVOLUTION_START = "2026-06-01";
 const WEEKLY_DOMAIN: ProgressDomain = { minimum: 70, maximum: 90 };
 const FULL_DOMAIN: ProgressDomain = { minimum: 0, maximum: 100 };
 const TREND_TICKS = [70, 80, 90] as const;
 
 export function LegacyProgressChart({ progress, weeklyProgress }: LegacyProgressChartProps) {
-  const [activePeriod, setActivePeriod] = useState<string | null>(null);
   const isWeekly = weeklyProgress !== undefined;
   const source = isWeekly ? weeklyPoints(weeklyProgress) : monthlyPoints(progress ?? []);
   const chartProgress = source.filter((point) => isComparable(point.period, isWeekly));
@@ -22,8 +20,9 @@ export function LegacyProgressChart({ progress, weeklyProgress }: LegacyProgress
   const domain = isWeekly ? WEEKLY_DOMAIN : monthlyDomain(chartProgress);
   const points = chartProgress.map((point, index) => ({ ...point, x: padding + index * step, y: scaleY(point.compliance, domain, height, padding) }));
   const labelStep = Math.max(1, Math.ceil(points.length / 8));
-  const activePoint = points.find((point) => point.period === activePeriod) ?? null;
-  return <div className={`legacy-progress-chart${isWeekly ? " is-weekly" : ""}`}>{points.length === 0 ? <p className="legacy-empty">Sin períodos comparables.</p> : <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`Línea de cumplimiento promedio por ${isWeekly ? "semana" : "período"}`}><TrendGrid domain={domain} height={height} padding={padding} weekly={isWeekly} />{points.slice(1).map((point, index) => { const previous = points[index]; return <line className={`legacy-progress-segment ${point.levelClass}`} key={`segment-${point.period}`} x1={previous.x} y1={previous.y} x2={point.x} y2={point.y} />; })}{points.map((point, index) => <a className={`${activePeriod === point.period ? "is-active " : ""}${point.levelClass}`} key={point.period} href={point.href} aria-label={`${point.label}: ${point.compliance}% de cumplimiento, ${point.inspections} inspecciones`} onMouseEnter={() => setActivePeriod(point.period)} onMouseLeave={() => setActivePeriod(null)} onFocus={() => setActivePeriod(point.period)} onBlur={() => setActivePeriod(null)}><circle cx={point.x} cy={point.y} r="6" /><title>{`${point.label}: ${point.compliance}% de cumplimiento, ${point.inspections} inspecciones`}</title>{(index % labelStep === 0 || index === points.length - 1) && <text x={point.x} y={height - 7}>{point.label}</text>}<text x={point.x} y={Math.max(12, point.y - 12)}>{point.compliance}%</text></a>)}</svg>}{activePoint && <LegacyChartTooltip label={activePoint.label} value={`${activePoint.compliance}% de cumplimiento`} detail={`${activePoint.inspections.toLocaleString("es-CL")} inspecciones · ${isWeekly ? "Semana" : "Período"} ${activePoint.period}`} />}</div>;
+  const firstPoint = points[0] ?? null;
+  const finalPoint = points.at(-1) ?? null;
+  return <div className={`legacy-progress-chart${isWeekly ? " is-weekly" : ""}`}>{points.length === 0 ? <p className="legacy-empty">Sin períodos comparables.</p> : <><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`Evolución lineal del cumplimiento desde ${isWeekly ? "el 1 de junio" : "el primer período"}`}><desc>La línea muestra la tendencia del cumplimiento observado. No se muestran cantidades ni porcentajes sobre los puntos.</desc><TrendGrid domain={domain} height={height} padding={padding} weekly={isWeekly} />{points.slice(1).map((point, index) => { const previous = points[index]; return <line className={`legacy-progress-segment ${point.levelClass}`} key={`segment-${point.period}`} x1={previous.x} y1={previous.y} x2={point.x} y2={point.y} />; })}{points.map((point, index) => <a className={point.levelClass} key={point.period} href={point.href} aria-label={`${point.label}: ${point.compliance}% de cumplimiento, ${point.inspections} inspecciones`}><circle cx={point.x} cy={point.y} r={index === points.length - 1 ? "7" : "5"} />{(index % labelStep === 0 || index === points.length - 1) && <text x={point.x} y={height - 7}>{point.label}</text>}</a>)}</svg><div className="legacy-progress-summary" aria-label="Resumen de la evolución"><div><span>{isWeekly ? "Inicio de evolución" : "Primer período"}</span><strong>{isWeekly ? formatLongDate(firstPoint!.period) : firstPoint!.label}</strong></div><div className="is-final"><span>Cumplimiento final real</span><strong>{formatCompliance(finalPoint!.compliance)}%</strong><small>{isWeekly ? finalPoint!.label : finalPoint!.period}</small></div></div></>}</div>;
 }
 
 function scaleY(value: number, domain: { readonly minimum: number; readonly maximum: number }, height: number, padding: number): number {
@@ -62,11 +61,19 @@ function weeklyPoints(progress: readonly WeeklySeriesPoint[] | undefined): reado
 }
 
 function isComparable(period: string, weekly: boolean): boolean {
-  return weekly ? !period.startsWith("2026-04-") : period !== "2026-04";
+  return weekly ? period >= WEEKLY_EVOLUTION_START : period !== "2026-04";
 }
 
 function formatWeekLabel(value: string): string {
   return new Intl.DateTimeFormat("es-CL", { day: "2-digit", month: "short", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
+}
+
+function formatLongDate(value: string): string {
+  return new Intl.DateTimeFormat("es-CL", { day: "numeric", month: "long", timeZone: "UTC" }).format(new Date(`${value}T00:00:00Z`));
+}
+
+function formatCompliance(value: number): string {
+  return value.toFixed(1);
 }
 
 function weekHref(start: string): string {

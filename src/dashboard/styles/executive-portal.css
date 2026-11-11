@@ -256,8 +256,14 @@
 .legacy-donut-arc { cursor: help; outline: none; transition: opacity .18s ease, stroke-width .18s ease, filter .18s ease; }
 .legacy-donut-arc:hover, .legacy-donut-arc:focus-visible, .legacy-donut-arc.is-active { filter: drop-shadow(0 3px 5px #09285e4d); opacity: .88; stroke-width: 38; }
 .legacy-progress-chart a { cursor: pointer; outline: none; }
-.legacy-progress-chart a circle { transition: r .18s ease, filter .18s ease, stroke-width .18s ease; }
-.legacy-progress-chart a:hover circle, .legacy-progress-chart a:focus-visible circle, .legacy-progress-chart a.is-active circle { filter: drop-shadow(0 3px 4px #09285e59); r: 8px; stroke-width: 4px; }
+.legacy-progress-chart a:focus-visible circle { filter: drop-shadow(0 3px 4px #09285e59); stroke-width: 4px; }
+.legacy-progress-summary { display: flex; justify-content: space-between; gap: 24px; margin-top: 10px; padding: 10px 2px 0; border-top: 1px solid #dbe6f1; }
+.legacy-progress-summary > div { display: grid; gap: 3px; min-width: 0; }
+.legacy-progress-summary > div:last-child { text-align: right; }
+.legacy-progress-summary span { color: #6a8098; font-size: 10px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.legacy-progress-summary strong { color: #17396f; font-size: 14px; line-height: 1.1; }
+.legacy-progress-summary .is-final strong { color: #16803c; font-size: 18px; }
+.legacy-progress-summary small { color: #6a8098; font-size: 10px; }
 .legacy-bell-bar, .legacy-bell-marker { cursor: help; outline: none; transition: opacity .18s ease, filter .18s ease, stroke-width .18s ease; }
 .legacy-bell-bar:hover, .legacy-bell-bar:focus-visible { filter: drop-shadow(0 3px 4px #2a72ce45); opacity: .88; }
 .legacy-bell-marker:hover, .legacy-bell-marker:focus-visible { filter: drop-shadow(0 2px 3px #df9e2559); stroke-width: 3px; }

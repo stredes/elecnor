@@ -20,11 +20,14 @@ describe("executive chart tooltips", () => {
     expect(screen.getByText("Nivel 5 · Buen estado", { exact: true })).toBeVisible();
     expect(document.querySelector(".legacy-donut-distribution-row.is-level-4")).toBeInTheDocument();
   });
-  it("shows the hovered progress period", () => {
-    render(<LegacyProgressChart progress={[{ period: "2026-01", inspections: 4, compliance: 72 }]} />);
+  it("renders the evolution without hover values and highlights the real final compliance", () => {
+    render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-06-01", inspecciones: 2, promedio: 70, bajo70: 0 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 86.2, bajo70: 0 }]} />);
     fireEvent.mouseEnter(document.querySelector(".legacy-progress-chart a")!);
-    expect(screen.getByRole("status")).toHaveTextContent("72% de cumplimiento");
-    expect(screen.getByRole("status")).toHaveTextContent("4 inspecciones");
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+    expect(screen.getByText("1 de junio")).toBeVisible();
+    expect(screen.getByText("86.2%", { exact: true })).toBeVisible();
+    expect(document.querySelectorAll(".legacy-progress-chart title")).toHaveLength(0);
+    expect([...document.querySelectorAll(".legacy-progress-chart svg text")].map((node) => node.textContent)).not.toContain("86.2%");
   });
   it("uses the observed monthly range so a real recovery is visible", () => {
     render(<LegacyProgressChart progress={[
@@ -40,19 +43,26 @@ describe("executive chart tooltips", () => {
     expect(points[1] - points[0]).toBeGreaterThan(20);
   });
   it("uses a 70–90 visual scale for the weekly trend", () => {
-    render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-03-02", inspecciones: 2, promedio: 70, bajo70: 0 }, { inicio: "2026-03-09", inspecciones: 2, promedio: 90, bajo70: 0 }]} />);
+    render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-06-01", inspecciones: 2, promedio: 70, bajo70: 0 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 90, bajo70: 0 }]} />);
     expect(document.querySelectorAll(".legacy-progress-grid")).toHaveLength(1);
     expect(document.querySelector(".legacy-progress-grid")).toHaveTextContent("70%");
     expect(document.querySelector(".legacy-progress-grid")).toHaveTextContent("90%");
   });
 
   it("does not render an isolated weekly inspection in the evolution chart", () => {
-    render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-03-02", inspecciones: 1, promedio: 40, bajo70: 1 }, { inicio: "2026-03-09", inspecciones: 2, promedio: 80, bajo70: 0 }]} />);
+    render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-06-01", inspecciones: 1, promedio: 40, bajo70: 1 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 80, bajo70: 0 }]} />);
     expect(document.querySelectorAll(".legacy-progress-chart a")).toHaveLength(1);
-    expect(document.querySelector(".legacy-progress-chart a")).toHaveAttribute("href", "/inspecciones?from=2026-03-09&to=2026-03-15");
+    expect(document.querySelector(".legacy-progress-chart a")).toHaveAttribute("href", "/inspecciones?from=2026-06-08&to=2026-06-14");
     expect(document.querySelector(".legacy-progress-chart a")).toHaveClass("is-level-3");
     expect(document.querySelector(".legacy-threshold")).not.toBeInTheDocument();
     expect(screen.queryByText("40%")).not.toBeInTheDocument();
+  });
+
+  it("starts the weekly evolution on June 1 and excludes earlier weeks", () => {
+    render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-05-25", inspecciones: 2, promedio: 60, bajo70: 2 }, { inicio: "2026-06-01", inspecciones: 2, promedio: 72.5, bajo70: 0 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 80, bajo70: 0 }]} />);
+    expect(document.querySelectorAll(".legacy-progress-chart a")).toHaveLength(2);
+    expect(screen.getByText("1 de junio")).toBeVisible();
+    expect(screen.queryByText("25 may")).not.toBeInTheDocument();
   });
 
   it("shows the hovered score band", () => {
