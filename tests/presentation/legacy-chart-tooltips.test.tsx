@@ -26,6 +26,9 @@ describe("executive chart tooltips", () => {
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
     expect(screen.getByText("1 de junio")).toBeVisible();
     expect(screen.getByText("86.2%", { exact: true })).toBeVisible();
+    expect(screen.getByText("Crecimiento observado")).toBeVisible();
+    expect(screen.getByText("+16.2%", { exact: true })).toBeVisible();
+    expect(screen.getByText(/educación y corrección in situ/i)).toBeVisible();
     expect(document.querySelectorAll(".legacy-progress-chart title")).toHaveLength(0);
     expect([...document.querySelectorAll(".legacy-progress-chart svg text")].map((node) => node.textContent)).not.toContain("86.2%");
     expect(document.querySelectorAll(".legacy-progress-chart a")).toHaveLength(0);

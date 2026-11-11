@@ -258,13 +258,18 @@
 .legacy-progress-line { fill: none; stroke: #2a72ce; stroke-width: 4; stroke-linecap: round; }
 .legacy-progress-point { fill: #fff; stroke: #2a72ce; stroke-width: 3; }
 .legacy-progress-point.is-final { fill: #16803c; stroke: #0e6d35; stroke-width: 4; }
-.legacy-progress-summary { display: flex; justify-content: space-between; gap: 24px; margin-top: 10px; padding: 10px 2px 0; border-top: 1px solid #dbe6f1; }
+.legacy-progress-summary { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; margin-top: 10px; padding: 10px 2px 0; border-top: 1px solid #dbe6f1; }
 .legacy-progress-summary > div { display: grid; gap: 3px; min-width: 0; }
 .legacy-progress-summary > div:last-child { text-align: right; }
+.legacy-progress-summary .is-growth { text-align: center; }
 .legacy-progress-summary span { color: #6a8098; font-size: 10px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
 .legacy-progress-summary strong { color: #17396f; font-size: 14px; line-height: 1.1; }
+.legacy-progress-summary .is-growth strong { color: #2a72ce; font-size: 18px; }
+.legacy-progress-summary .is-growth.is-negative strong { color: #c0392b; }
 .legacy-progress-summary .is-final strong { color: #16803c; font-size: 18px; }
 .legacy-progress-summary small { color: #6a8098; font-size: 10px; }
+.legacy-progress-narrative { margin: 12px 2px 0; color: #435a78; font-size: 12px; line-height: 1.5; }
+.legacy-progress-narrative strong { color: #17396f; }
 .legacy-bell-bar, .legacy-bell-marker { cursor: help; outline: none; transition: opacity .18s ease, filter .18s ease, stroke-width .18s ease; }
 .legacy-bell-bar:hover, .legacy-bell-bar:focus-visible { filter: drop-shadow(0 3px 4px #2a72ce45); opacity: .88; }
 .legacy-bell-marker:hover, .legacy-bell-marker:focus-visible { filter: drop-shadow(0 2px 3px #df9e2559); stroke-width: 3px; }
