@@ -1,4 +1,4 @@
-const CACHE_NAME = "elecnor-sections-v11";
+const CACHE_NAME = "elecnor-sections-v12";
 const CACHEABLE_API = /^\/api\/(dashboard|analytics|findings|inspections(?:\/|$)|logs|metrics(?:\/|$)|procedures(?:\/|$)|reporting|unknowns|elecnor\/comparison(?:\/|$))/u;
 
 self.addEventListener("install", (event) => {
