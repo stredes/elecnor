@@ -255,8 +255,9 @@
 .legacy-chart-tooltip small { color: #d9ecff; font-size: 10px; line-height: 1.35; }
 .legacy-donut-arc { cursor: help; outline: none; transition: opacity .18s ease, stroke-width .18s ease, filter .18s ease; }
 .legacy-donut-arc:hover, .legacy-donut-arc:focus-visible, .legacy-donut-arc.is-active { filter: drop-shadow(0 3px 5px #09285e4d); opacity: .88; stroke-width: 38; }
-.legacy-progress-chart a { cursor: pointer; outline: none; }
-.legacy-progress-chart a:focus-visible circle { filter: drop-shadow(0 3px 4px #09285e59); stroke-width: 4px; }
+.legacy-progress-line { fill: none; stroke: #2a72ce; stroke-width: 4; stroke-linecap: round; }
+.legacy-progress-point { fill: #fff; stroke: #2a72ce; stroke-width: 3; }
+.legacy-progress-point.is-final { fill: #16803c; stroke: #0e6d35; stroke-width: 4; }
 .legacy-progress-summary { display: flex; justify-content: space-between; gap: 24px; margin-top: 10px; padding: 10px 2px 0; border-top: 1px solid #dbe6f1; }
 .legacy-progress-summary > div { display: grid; gap: 3px; min-width: 0; }
 .legacy-progress-summary > div:last-child { text-align: right; }

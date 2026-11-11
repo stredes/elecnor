@@ -22,25 +22,30 @@ describe("executive chart tooltips", () => {
   });
   it("renders the evolution without hover values and highlights the real final compliance", () => {
     render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-06-01", inspecciones: 2, promedio: 70, bajo70: 0 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 86.2, bajo70: 0 }]} />);
-    fireEvent.mouseEnter(document.querySelector(".legacy-progress-chart a")!);
+    fireEvent.mouseEnter(document.querySelector(".legacy-progress-chart")!);
     expect(screen.queryByRole("status")).not.toBeInTheDocument();
     expect(screen.getByText("1 de junio")).toBeVisible();
     expect(screen.getByText("86.2%", { exact: true })).toBeVisible();
     expect(document.querySelectorAll(".legacy-progress-chart title")).toHaveLength(0);
     expect([...document.querySelectorAll(".legacy-progress-chart svg text")].map((node) => node.textContent)).not.toContain("86.2%");
+    expect(document.querySelectorAll(".legacy-progress-chart a")).toHaveLength(0);
+    expect(document.querySelectorAll(".legacy-progress-line")).toHaveLength(1);
+    expect(document.querySelectorAll(".legacy-progress-point")).toHaveLength(2);
+    const trendLine = document.querySelector<SVGLineElement>(".legacy-progress-line")!;
+    expect(Number(trendLine.getAttribute("x1"))).toBeLessThan(Number(trendLine.getAttribute("x2")));
+    expect(Number(trendLine.getAttribute("y1"))).toBeGreaterThan(Number(trendLine.getAttribute("y2")));
   });
-  it("uses the observed monthly range so a real recovery is visible", () => {
+  it("uses the observed monthly endpoints for one linear summary line", () => {
     render(<LegacyProgressChart progress={[
       { period: "2026-06", inspections: 10, compliance: 79.31 },
       { period: "2026-07", inspections: 10, compliance: 73.7 },
       { period: "2026-08", inspections: 10, compliance: 78.22 },
       { period: "2026-09", inspections: 10, compliance: 79.84 },
     ]} />);
-    const points = [...document.querySelectorAll(".legacy-progress-chart a circle")].map((point) => Number(point.getAttribute("cy")));
-    expect(points[0]).toBeLessThan(points[1]);
-    expect(points[1]).toBeGreaterThan(points[2]);
-    expect(points[2]).toBeGreaterThan(points[3]);
-    expect(points[1] - points[0]).toBeGreaterThan(20);
+    expect(document.querySelectorAll(".legacy-progress-line")).toHaveLength(1);
+    expect(document.querySelectorAll(".legacy-progress-point")).toHaveLength(2);
+    const trendLine = document.querySelector<SVGLineElement>(".legacy-progress-line")!;
+    expect(Number(trendLine.getAttribute("y1"))).toBeGreaterThan(Number(trendLine.getAttribute("y2")));
   });
   it("uses a 70–90 visual scale for the weekly trend", () => {
     render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-06-01", inspecciones: 2, promedio: 70, bajo70: 0 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 90, bajo70: 0 }]} />);
@@ -51,16 +56,15 @@ describe("executive chart tooltips", () => {
 
   it("does not render an isolated weekly inspection in the evolution chart", () => {
     render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-06-01", inspecciones: 1, promedio: 40, bajo70: 1 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 80, bajo70: 0 }]} />);
-    expect(document.querySelectorAll(".legacy-progress-chart a")).toHaveLength(1);
-    expect(document.querySelector(".legacy-progress-chart a")).toHaveAttribute("href", "/inspecciones?from=2026-06-08&to=2026-06-14");
-    expect(document.querySelector(".legacy-progress-chart a")).toHaveClass("is-level-3");
+    expect(document.querySelectorAll(".legacy-progress-chart a")).toHaveLength(0);
+    expect(document.querySelectorAll(".legacy-progress-point")).toHaveLength(1);
     expect(document.querySelector(".legacy-threshold")).not.toBeInTheDocument();
     expect(screen.queryByText("40%")).not.toBeInTheDocument();
   });
 
   it("starts the weekly evolution on June 1 and excludes earlier weeks", () => {
     render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-05-25", inspecciones: 2, promedio: 60, bajo70: 2 }, { inicio: "2026-06-01", inspecciones: 2, promedio: 72.5, bajo70: 0 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 80, bajo70: 0 }]} />);
-    expect(document.querySelectorAll(".legacy-progress-chart a")).toHaveLength(2);
+    expect(document.querySelectorAll(".legacy-progress-point")).toHaveLength(2);
     expect(screen.getByText("1 de junio")).toBeVisible();
     expect(screen.queryByText("25 may")).not.toBeInTheDocument();
   });
