@@ -222,7 +222,7 @@ Explica la ruta “Detectamos, Evaluamos, Actuamos, Medimos y Mejoramos”. Es u
 - **Cumplimiento global:** dona de cumplimiento contra brecha (`100 - cumplimiento`).
 - **Inspecciones deficientes:** inspecciones bajo 80% contra las de 80% o más, siempre sobre puntajes válidos.
 - **Cumplimiento por sección:** barras enlazadas al primer detalle de métrica de cada sección.
-- **Progreso preventivo en el tiempo:** línea del cumplimiento promedio por período; cada punto informa el porcentaje y la cantidad de inspecciones, y enlaza al filtro mensual correspondiente.
+- **Progreso preventivo semana a semana:** línea del cumplimiento promedio por semana; cada punto informa el porcentaje y la cantidad de inspecciones, y enlaza al rango semanal correspondiente. Sólo se muestran semanas comparables con al menos dos inspecciones.
 - **Métricas que requieren acción:** hasta seis controles con menor cumplimiento.
 - **Localización/repetición:** advierte cuando un técnico tiene varias inspecciones el mismo día a horas distintas; cada registro queda enlazado.
 
