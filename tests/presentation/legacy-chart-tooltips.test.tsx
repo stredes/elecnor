@@ -50,11 +50,11 @@ describe("executive chart tooltips", () => {
     const trendLine = document.querySelector<SVGLineElement>(".legacy-progress-line")!;
     expect(Number(trendLine.getAttribute("y1"))).toBeGreaterThan(Number(trendLine.getAttribute("y2")));
   });
-  it("uses a 70–90 visual scale for the weekly trend", () => {
+  it("keeps the visual scale without numeric axis labels", () => {
     render(<LegacyProgressChart weeklyProgress={[{ inicio: "2026-06-01", inspecciones: 2, promedio: 70, bajo70: 0 }, { inicio: "2026-06-08", inspecciones: 2, promedio: 90, bajo70: 0 }]} />);
     expect(document.querySelectorAll(".legacy-progress-grid")).toHaveLength(1);
-    expect(document.querySelector(".legacy-progress-grid")).toHaveTextContent("70%");
-    expect(document.querySelector(".legacy-progress-grid")).toHaveTextContent("90%");
+    expect(document.querySelectorAll(".legacy-progress-grid line")).toHaveLength(3);
+    expect(document.querySelectorAll(".legacy-progress-grid text")).toHaveLength(0);
   });
 
   it("does not render an isolated weekly inspection in the evolution chart", () => {

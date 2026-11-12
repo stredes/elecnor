@@ -73,7 +73,6 @@
 .executive-primary-grid .legacy-progress-chart { align-self: center; width: 100%; overflow: hidden; }
 .executive-primary-grid .legacy-progress-chart svg { min-width: 0; width: 100%; }
 .legacy-progress-grid line { stroke: #cbd9e8; stroke-dasharray: 3 4; stroke-width: 1; }
-.legacy-progress-grid text { fill: #6a8098; font-size: 9px; text-anchor: end; }
 .executive-secondary-grid { grid-template-columns: minmax(0, 1.55fr) minmax(320px, .85fr); }
 .executive-finding-row > div, .executive-region-row button span { min-width: 0; }
 .executive-finding-row strong, .executive-region-row button strong { overflow-wrap: anywhere; line-height: 1.2; }

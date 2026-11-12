@@ -49,8 +49,9 @@ describe("ExecutiveDashboard", () => {
     expect(distributionHeader).toHaveTextContent("Puntaje / nivel");
     expect(distributionHeader).toHaveTextContent("% del total");
     expect(distributionHeader).toHaveTextContent("Cantidad");
-    expect(screen.getByText("Evolución semanal")).toBeVisible();
-    expect(screen.getByText("Progreso preventivo semana a semana")).toBeVisible();
+    expect(screen.getByText("Evolución del proyecto")).toBeVisible();
+    expect(screen.getByText("Progreso preventivo")).toBeVisible();
+    expect(screen.getByText(/educación y las correcciones in situ/i)).toBeVisible();
     expect(screen.getByRole("img", { name: "Distribución real de puntajes y referencia de campana de Gauss" })).toBeVisible();
     expect(screen.getByText(/las barras muestran cuántas auditorías/i)).toBeVisible();
     expect(screen.getByText(/no es un cálculo exacto de densidad/i)).toBeVisible();

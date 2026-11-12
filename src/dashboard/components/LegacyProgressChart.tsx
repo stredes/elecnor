@@ -49,7 +49,7 @@ function monthlyDomain(points: readonly ProgressPoint[]): ProgressDomain {
 
 function TrendGrid({ domain, height, padding, weekly }: { readonly domain: { readonly minimum: number; readonly maximum: number }; readonly height: number; readonly padding: number; readonly weekly: boolean }) {
   if (!weekly) return <line x1={padding} y1={height - padding} x2="100%" y2={height - padding} />;
-  return <g className="legacy-progress-grid" aria-hidden="true">{TREND_TICKS.map((tick) => <g key={tick}><line x1={padding} y1={scaleY(tick, domain, height, padding)} x2="100%" y2={scaleY(tick, domain, height, padding)} /><text x={padding - 7} y={scaleY(tick, domain, height, padding) + 3}>{tick}%</text></g>)}</g>;
+  return <g className="legacy-progress-grid" aria-hidden="true">{TREND_TICKS.map((tick) => <line key={tick} x1={padding} y1={scaleY(tick, domain, height, padding)} x2="100%" y2={scaleY(tick, domain, height, padding)} />)}</g>;
 }
 
 function monthlyPoints(progress: LegacyDashboardModel["progress"]): readonly ProgressPoint[] {
