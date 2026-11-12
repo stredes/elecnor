@@ -18,6 +18,9 @@ describe("ExecutiveDashboard", () => {
     expect(screen.queryByText("Región con más hallazgos")).not.toBeInTheDocument();
     expect(screen.getByText("Falencias identificadas")).toBeVisible();
     expect(screen.getByText("Lectura para la conclusión")).toBeVisible();
+    expect(screen.getByText("Recomendaciones para cerrar brechas")).toBeVisible();
+    expect(screen.getByText("Priorizar la brecha más crítica")).toBeVisible();
+    expect(screen.getByRole("link", { name: /Abrir prioridad:/i })).toBeVisible();
     expect(screen.getByText("72.5%", { exact: false })).toBeVisible();
     expect(screen.getByRole("option", { name: "Maule" })).toBeVisible();
     expect(screen.queryByText("Lectura cualitativa")).not.toBeInTheDocument();

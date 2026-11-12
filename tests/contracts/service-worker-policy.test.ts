@@ -6,7 +6,7 @@ const source = readFileSync(resolve(process.cwd(), "public/sw.js"), "utf8");
 
 describe("section service worker cache policy", () => {
   it("uses a new cache generation so stale empty pages are evicted", () => {
-    expect(source).toContain('CACHE_NAME = "elecnor-sections-v15"');
+    expect(source).toContain('CACHE_NAME = "elecnor-sections-v16"');
     expect(source).toContain('startsWith("elecnor-sections-")');
   });
 

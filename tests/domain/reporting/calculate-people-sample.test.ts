@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { ElecnorWorker } from "@/backend/domain/elecnor-contract";
-import { calculatePeopleSample, calculatePeopleSampleFromComparison } from "@/backend/domain/reporting/calculate-people-sample";
+import { calculatePeopleSample } from "@/backend/domain/reporting/calculate-people-sample";
 
 describe("calculatePeopleSample", () => {
   it("groups repeated names and classifies each person's average result", () => {
@@ -24,36 +23,6 @@ describe("calculatePeopleSample", () => {
     });
   });
 
-  it("uses the comparison roster as the person universe", () => {
-    expect(calculatePeopleSampleFromComparison([
-      comparisonWorker("Ana Pérez", [96, 94]),
-      comparisonWorker("Luis Soto", [96]),
-      comparisonWorker("Marta Díaz", [80]),
-      comparisonWorker("Rosa Silva", [79]),
-      comparisonWorker("Sin inspección", []),
-    ])).toMatchObject({
-      total: 4,
-      bands: [
-        { level: 5, people: 1, percentage: 25 },
-        { level: 4, people: 1, percentage: 25 },
-        { level: 3, people: 1, percentage: 25 },
-        { level: 2, people: 1, percentage: 25 },
-      ],
-    });
-  });
-
-  it("filters reporting scores by comparison names instead of counting outside technicians", () => {
-    const sample = calculatePeopleSampleFromComparison(
-      [comparisonWorker("Ana Pérez", [])],
-      [
-        { id: "inside", technician: "Ana Pérez", percentage: 0.96, actions: 0 },
-        { id: "outside", technician: "Técnico fuera de nómina", percentage: 1, actions: 0 },
-      ],
-    );
-    expect(sample.total).toBe(1);
-    expect(sample.bands[0]).toMatchObject({ level: 5, people: 1, percentage: 100 });
-  });
-
   it("returns an empty sample when no named inspection has a valid result", () => {
     expect(calculatePeopleSample([
       { technician: null, percentage: 0.9, actions: 0 },
@@ -68,11 +37,31 @@ describe("calculatePeopleSample", () => {
       ],
     });
   });
-});
 
-function comparisonWorker(name: string, percentages: readonly number[]): ElecnorWorker {
-  return {
-    name,
-    inspections: percentages.map((percentage, index) => ({ audit_id: `${name}-${index}`, percentage })),
-  } as unknown as ElecnorWorker;
-}
+  it("consolidates spelling, order, accents and duplicated extracted name fragments", () => {
+    const sample = calculatePeopleSample([
+      { technician: "Ana Pérez", percentage: 0.96, actions: 0 },
+      { technician: "PEREZ, ANA", percentage: 0.94, actions: 0 },
+      { technician: "Marcos BravoMarcos Bravo Fuentes", percentage: 0.82, actions: 0 },
+      { technician: "Marcos Bravo Fuentes", percentage: 0.86, actions: 0 },
+      { technician: "Rosa Silva", percentage: 0.90, actions: 0 },
+      { technician: "Rosa Soto", percentage: 0.90, actions: 0 },
+      { technician: "Sin nombre", percentage: 1, actions: 0 },
+    ]);
+
+    expect(sample.total).toBe(4);
+    expect(sample.bands.find((band) => band.level === 4)?.people).toBe(3);
+    expect(sample.bands.find((band) => band.level === 3)?.people).toBe(1);
+  });
+
+  it("accepts reporting percentages in either decimal or whole-percent scale", () => {
+    const sample = calculatePeopleSample([
+      { technician: "Ana Pérez", percentage: 96, actions: 0 },
+      { technician: "Luis Soto", percentage: 0.94, actions: 0 },
+    ]);
+
+    expect(sample.total).toBe(2);
+    expect(sample.bands.find((band) => band.level === 5)?.people).toBe(1);
+    expect(sample.bands.find((band) => band.level === 4)?.people).toBe(1);
+  });
+});

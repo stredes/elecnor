@@ -21,8 +21,24 @@ export function FindingRow({ metric }: { readonly metric: LegacyMetric }) {
   return <article className="executive-finding-row"><div><span>{formatName(metric.section)}</span><strong>{metric.metric}</strong><small>{metric.nonConforming} incumplimientos · {metric.applicable} registros aplicables</small></div><b className={`executive-status ${statusFor(metric.compliance, 70)}`}>{formatPercentage(metric.compliance)} · {exigencyLevelLabel(metric.compliance)}</b><Link href={`/metricas/${encodeURIComponent(metric.code)}`} aria-label={`Ver detalle de ${metric.metric}`}>Detalle →</Link></article>;
 }
 
-export function PanelHeading({ kicker, title, description }: { readonly kicker: string; readonly title: string; readonly description: string }) {
-  return <header className="executive-panel-heading"><span>{kicker}</span><h2>{title}</h2><p>{description}</p></header>;
+export function RecommendationsPanel({ metrics }: { readonly metrics: readonly LegacyMetric[] }) {
+  const priority = metrics[0] ?? null;
+  const actions = [
+    { title: "Priorizar la brecha más crítica", text: priority ? `Intervenir primero en ${priority.metric} de ${formatName(priority.section)} y asignar un responsable con plazo de cierre.` : "Ordenar las brechas por menor cumplimiento y asignar un responsable con plazo de cierre." },
+    { title: "Asegurar el control antes de la tarea", text: "Aplicar el checklist o AST antes de comenzar la jornada y detener el inicio cuando falte un control preventivo." },
+    { title: "Reforzar la supervisión en terreno", text: "Realizar una instrucción breve con el equipo y verificar en terreno que el control se ejecute correctamente." },
+    { title: "Verificar el cierre con evidencia", text: "Registrar la corrección, repetir la inspección y revisar periódicamente el resultado para evitar que la brecha reaparezca." },
+  ];
+
+  return <section className="executive-panel executive-recommendations-panel" aria-labelledby="recommendations-title">
+    <PanelHeading id="recommendations-title" kicker="Plan de acción" title="Recomendaciones para cerrar brechas" description="Pasos sugeridos para convertir las falencias observadas en acciones correctivas verificables." />
+    <ol className="executive-recommendation-list">{actions.map((action) => <li key={action.title}><div><strong>{action.title}</strong><p>{action.text}</p></div></li>)}</ol>
+    <Link className="executive-recommendations-link" href={priority ? `/metricas/${encodeURIComponent(priority.code)}` : "/metricas"}>{priority ? `Abrir prioridad: ${priority.metric} →` : "Revisar métricas →"}</Link>
+  </section>;
+}
+
+export function PanelHeading({ id, kicker, title, description }: { readonly id?: string; readonly kicker: string; readonly title: string; readonly description: string }) {
+  return <header className="executive-panel-heading"><span>{kicker}</span><h2 id={id}>{title}</h2><p>{description}</p></header>;
 }
 
 export function MetricStatusLegend() {

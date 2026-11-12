@@ -245,6 +245,20 @@
 .executive-findings-conclusion p strong { color: #17396f; }
 .executive-findings-conclusion a { width: fit-content; color: #176bd0; font-size: 11px; font-weight: 800; text-decoration: none; }
 .executive-findings-conclusion a:hover, .executive-findings-conclusion a:focus-visible { text-decoration: underline; }
+.executive-recommendations-panel { align-self: start; background: linear-gradient(145deg, #ffffff 0%, #f2f8ff 100%); }
+.executive-recommendations-panel .executive-panel-heading { margin-bottom: 18px; }
+.executive-recommendations-panel .executive-panel-heading > span { color: #23794d; }
+.executive-recommendations-panel .executive-panel-heading > span::before { display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; background: #2d9b68; box-shadow: 0 0 0 4px #2d9b681c; content: ""; }
+.executive-recommendations-panel .executive-panel-heading h2 { max-width: 360px; }
+.executive-recommendation-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; counter-reset: recommendation; }
+.executive-recommendation-list li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; counter-increment: recommendation; }
+.executive-recommendation-list li::before { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 8px; background: #e4f5ed; color: #23794d; content: counter(recommendation); font-size: 12px; font-weight: 800; }
+.executive-recommendation-list li > div { border-bottom: 1px solid #e3ebf4; padding-bottom: 11px; }
+.executive-recommendation-list li:last-child > div { border-bottom: 0; padding-bottom: 0; }
+.executive-recommendation-list strong { display: block; color: #17396f; font-size: 13px; line-height: 1.25; }
+.executive-recommendation-list p { margin: 4px 0 0; color: #617794; font-size: 11px; line-height: 1.5; }
+.executive-recommendations-link { display: inline-flex; margin-top: 17px; border-radius: 7px; background: #176bd0; padding: 9px 11px; color: white; font-size: 11px; font-weight: 800; text-decoration: none; }
+.executive-recommendations-link:hover, .executive-recommendations-link:focus-visible { background: #0b55ad; }
 
 .legacy-people-sample { margin: 12px 0 0; border-top: 1px solid #e3ebf4; padding-top: 14px; }
 .legacy-people-sample-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
