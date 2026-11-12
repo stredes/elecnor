@@ -1,5 +1,6 @@
 import { classifyExigencyPercentage, type ExigencyBandLabel, type ExigencyLevel } from "./exigency-scale";
 import type { ReportingInspectionFact } from "./reporting-facts-contract";
+import type { ElecnorWorker } from "../elecnor-contract";
 
 export type PeopleSampleBand = {
   readonly level: ExigencyLevel;
@@ -26,6 +27,27 @@ export function calculatePeopleSample(inspections: readonly ReportingInspectionF
     scoresByTechnician.set(technician, scores);
   }
 
+  return buildPeopleSample(scoresByTechnician);
+}
+
+export function calculatePeopleSampleFromComparison(workers: readonly ElecnorWorker[]): PeopleSample {
+  const scoresByTechnician = new Map<string, number[]>();
+  for (const worker of workers) {
+    const technician = normalizeTechnician(worker.name);
+    if (!technician) continue;
+    for (const inspection of worker.inspections) {
+      const percentage = comparisonPercentage(inspection.percentage);
+      if (percentage === null) continue;
+      const scores = scoresByTechnician.get(technician) ?? [];
+      scores.push(percentage);
+      scoresByTechnician.set(technician, scores);
+    }
+  }
+
+  return buildPeopleSample(scoresByTechnician);
+}
+
+function buildPeopleSample(scoresByTechnician: Map<string, number[]>): PeopleSample {
   const counts = new Map<ExigencyLevel, number>(BAND_ORDER.map((level) => [level, 0]));
   for (const scores of scoresByTechnician.values()) {
     const average = scores.reduce((total, score) => total + score, 0) / scores.length;
@@ -43,6 +65,11 @@ export function calculatePeopleSample(inspections: readonly ReportingInspectionF
       percentage: total ? (counts.get(level) ?? 0) / total * 100 : 0,
     })),
   };
+}
+
+function comparisonPercentage(value: number | null): number | null {
+  if (value === null || !Number.isFinite(value)) return null;
+  return value <= 1 ? value * 100 : value;
 }
 
 function normalizeTechnician(value: string | null): string {

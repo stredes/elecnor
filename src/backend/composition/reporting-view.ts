@@ -10,13 +10,16 @@ import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-sco
 import { createReportingAnalytics } from "./reporting-analytics";
 import { calculateRegionalSummary } from "../domain/reporting/calculate-regional-summary";
 import { calculateWorkContextInspections, calculateWorkContextPeople, enrichWorkContexts } from "../domain/reporting/calculate-work-context-people";
-import { calculatePeopleSample } from "../domain/reporting/calculate-people-sample";
+import { calculatePeopleSample, calculatePeopleSampleFromComparison } from "../domain/reporting/calculate-people-sample";
 import { createReportingOverview } from "./reporting-overview";
 import { type InspectionWorkContext } from "../domain/inspection-list-contract";
 import type { ReportingFacts } from "../domain/reporting/reporting-facts-contract";
 import type { MetricDetailQuery, ReportingViewPayload, ReportingViewQuery } from "./reporting-view-contract";
 import { readAllInspectionRows } from "./inspections";
 import { createAsyncCache } from "./async-cache";
+import { createElecnorComparisonReader } from "./elecnor-comparison";
+import type { ElecnorComparisonReader } from "../ports/elecnor-comparison-reader";
+import type { ElecnorWorker } from "../domain/elecnor-contract";
 
 export type { MetricDetailQuery, ReportingViewPayload, ReportingViewQuery } from "./reporting-view-contract";
 
@@ -29,7 +32,14 @@ export function createReportingViewQuery(): ReportingViewQuery {
       contractVersion: selection.contractVersion, internalToken: selection.internalToken, timeoutMs: selection.timeoutMs,
     }, scope);
     const factsReader = new HttpReportingFactsReader(selection.url, fetch, undefined, options, scope);
-    const cache = createAsyncCache(async () => buildReport(await enrichMissingWorkContexts(await factsReader.read())), 30_000);
+    const comparisonReader = createElecnorComparisonReader();
+    const cache = createAsyncCache(async () => {
+      const [facts, comparisonWorkers] = await Promise.all([
+        factsReader.read(),
+        readComparisonWorkers(comparisonReader).catch(() => null),
+      ]);
+      return buildReport(await enrichMissingWorkContexts(facts), comparisonWorkers);
+    }, 30_000);
     return { execute: () => cache.read() };
   }
   return { execute: async () => { throw missingReportingContract(); } };
@@ -46,7 +56,19 @@ async function enrichMissingWorkContexts(facts: ReportingFacts): Promise<Reporti
   return { ...facts, inspections: enrichWorkContexts(facts.inspections, contextByInspectionId) };
 }
 
-async function buildReport(facts: import("../domain/reporting/reporting-facts-contract").ReportingFacts): Promise<ReportingViewPayload> {
+async function readComparisonWorkers(reader: ElecnorComparisonReader): Promise<readonly ElecnorWorker[]> {
+  const workers: ElecnorWorker[] = [];
+  const limit = 500;
+  let offset = 0;
+  while (true) {
+    const page = await reader.list({ q: "", status: "all", limit, offset, sort: "name", direction: "asc" });
+    workers.push(...page.data);
+    offset += page.data.length;
+    if (!page.data.length || offset >= page.total) return workers;
+  }
+}
+
+async function buildReport(facts: import("../domain/reporting/reporting-facts-contract").ReportingFacts, comparisonWorkers: readonly ElecnorWorker[] | null = null): Promise<ReportingViewPayload> {
   const overviewReader = new MemoryReportingFactsReader(facts);
   const detailsReader = new MemoryReportingDetailsReader({
     inspections: facts.inspections.map((item) => ({ id: item.id ?? "", technician: item.technician })),
@@ -57,7 +79,8 @@ async function buildReport(facts: import("../domain/reporting/reporting-facts-co
     new GetReportingDetails(detailsReader, overviewReader).execute(),
     createReportingAnalytics(overviewReader).execute(),
   ]);
-  return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics), peopleByWorkContext: calculateWorkContextPeople(facts.inspections), inspectionsByWorkContext: calculateWorkContextInspections(facts.inspections), peopleSample: calculatePeopleSample(facts.inspections) } };
+  const peopleSample = comparisonWorkers === null ? calculatePeopleSample(facts.inspections) : calculatePeopleSampleFromComparison(comparisonWorkers);
+  return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics), peopleByWorkContext: calculateWorkContextPeople(facts.inspections), inspectionsByWorkContext: calculateWorkContextInspections(facts.inspections), peopleSample } };
 }
 
 export function createMetricDetailQuery(): MetricDetailQuery {
