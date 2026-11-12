@@ -10,6 +10,7 @@ import { inspectionScopeOptions, resolveInspectionScope } from "./inspection-sco
 import { createReportingAnalytics } from "./reporting-analytics";
 import { calculateRegionalSummary } from "../domain/reporting/calculate-regional-summary";
 import { calculateWorkContextInspections, calculateWorkContextPeople, enrichWorkContexts } from "../domain/reporting/calculate-work-context-people";
+import { calculatePeopleSample } from "../domain/reporting/calculate-people-sample";
 import { createReportingOverview } from "./reporting-overview";
 import { type InspectionWorkContext } from "../domain/inspection-list-contract";
 import type { ReportingFacts } from "../domain/reporting/reporting-facts-contract";
@@ -56,7 +57,7 @@ async function buildReport(facts: import("../domain/reporting/reporting-facts-co
     new GetReportingDetails(detailsReader, overviewReader).execute(),
     createReportingAnalytics(overviewReader).execute(),
   ]);
-  return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics), peopleByWorkContext: calculateWorkContextPeople(facts.inspections), inspectionsByWorkContext: calculateWorkContextInspections(facts.inspections) } };
+  return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics), peopleByWorkContext: calculateWorkContextPeople(facts.inspections), inspectionsByWorkContext: calculateWorkContextInspections(facts.inspections), peopleSample: calculatePeopleSample(facts.inspections) } };
 }
 
 export function createMetricDetailQuery(): MetricDetailQuery {

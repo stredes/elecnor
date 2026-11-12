@@ -4,12 +4,13 @@ import type { WorkContextInspections, WorkContextPeople } from "../domain/report
 import type { ReportingDetailsResult } from "../application/reporting/reporting-details-result-contract";
 import type { ReportingOverview } from "../domain/reporting/reporting-overview-contract";
 import type { MetricDetail } from "../domain/read-models/metric-contract";
+import type { PeopleSample } from "../domain/reporting/calculate-people-sample";
 
 export type ReportingViewPayload = {
   readonly overview: ReportingOverview;
   readonly details: ReportingDetailsResult;
   readonly analytics: ReportingAnalytics;
-  readonly executive: { readonly regions: readonly RegionalSummary[]; readonly peopleByWorkContext: WorkContextPeople; readonly inspectionsByWorkContext: WorkContextInspections };
+  readonly executive: { readonly regions: readonly RegionalSummary[]; readonly peopleByWorkContext: WorkContextPeople; readonly inspectionsByWorkContext: WorkContextInspections; readonly peopleSample: PeopleSample };
 };
 export type ReportingViewQuery = { execute(): Promise<ReportingViewPayload> };
 export type MetricDetailQuery = { execute(code: string): Promise<MetricDetail | null> };

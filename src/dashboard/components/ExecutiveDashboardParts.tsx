@@ -2,12 +2,6 @@ import Link from "next/link";
 import { exigencyLevelLabel, exigencyStateClass } from "@/backend/domain/reporting/exigency-scale";
 import type { LegacyDashboardModel, LegacyMetric } from "../contracts/legacy-dashboard-contract";
 
-export const PILLARS = [
-  ["P1", "Conocimiento técnico insuficiente", "Brechas en el dominio de riesgos y controles críticos durante la ejecución de las tareas."],
-  ["P2", "Cultura preventiva débil", "La prevención no siempre se consolida como un hábito visible en las decisiones cotidianas."],
-  ["P3", "Producción por encima de la seguridad", "La presión por avanzar puede favorecer atajos y el debilitamiento de controles esenciales."],
-] as const;
-
 export function Kpi({ label, value, detail, tone, href }: { readonly label: string; readonly value: string; readonly detail: string; readonly tone: string; readonly href: string }) {
   return <Link className={`executive-kpi is-${tone}`} href={href}><span>{label}</span><strong>{value}</strong><small>{detail}</small><em>Ver origen →</em></Link>;
 }

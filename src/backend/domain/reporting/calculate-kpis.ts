@@ -1,4 +1,5 @@
 import type { ReportingFacts } from "./reporting-facts-contract";
+import { calculatePeopleSample } from "./calculate-people-sample";
 import type { ReportingKpis } from "./reporting-overview-contract";
 import { roundSql } from "./reporting-rounding";
 
@@ -7,11 +8,12 @@ export function calculateKpis(facts: ReportingFacts): ReportingKpis {
   const average = validScores.length
     ? roundSql(sumScores(validScores) / validScores.length * 100)
     : 0;
+  const peopleSample = calculatePeopleSample(facts.inspections);
   return {
     "PDF recibidos": facts.importLogs.length,
     "Inspecciones únicas": facts.inspections.length,
     "Puntajes válidos": validScores.length,
-    "Personas evaluadas": uniqueTechnicians(validScores).size,
+    "Personas evaluadas": peopleSample.total,
     "Personas bajo 90%": uniqueTechnicians(validScores.filter((item) => item.percentage! < 0.9)).size,
     "Promedio global": `${average.toFixed(2)}%`,
     "Bajo 70%": validScores.filter((item) => item.percentage! < 0.7).length,
