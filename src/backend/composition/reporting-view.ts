@@ -79,7 +79,7 @@ async function buildReport(facts: import("../domain/reporting/reporting-facts-co
     new GetReportingDetails(detailsReader, overviewReader).execute(),
     createReportingAnalytics(overviewReader).execute(),
   ]);
-  const peopleSample = comparisonWorkers === null ? calculatePeopleSample(facts.inspections) : calculatePeopleSampleFromComparison(comparisonWorkers);
+  const peopleSample = comparisonWorkers === null ? calculatePeopleSample(facts.inspections) : calculatePeopleSampleFromComparison(comparisonWorkers, facts.inspections);
   return { overview, details, analytics, executive: { regions: calculateRegionalSummary(facts.inspections, facts.metrics), peopleByWorkContext: calculateWorkContextPeople(facts.inspections), inspectionsByWorkContext: calculateWorkContextInspections(facts.inspections), peopleSample } };
 }
 

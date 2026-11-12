@@ -42,6 +42,18 @@ describe("calculatePeopleSample", () => {
     });
   });
 
+  it("filters reporting scores by comparison names instead of counting outside technicians", () => {
+    const sample = calculatePeopleSampleFromComparison(
+      [comparisonWorker("Ana Pérez", [])],
+      [
+        { id: "inside", technician: "Ana Pérez", percentage: 0.96, actions: 0 },
+        { id: "outside", technician: "Técnico fuera de nómina", percentage: 1, actions: 0 },
+      ],
+    );
+    expect(sample.total).toBe(1);
+    expect(sample.bands[0]).toMatchObject({ level: 5, people: 1, percentage: 100 });
+  });
+
   it("returns an empty sample when no named inspection has a valid result", () => {
     expect(calculatePeopleSample([
       { technician: null, percentage: 0.9, actions: 0 },
