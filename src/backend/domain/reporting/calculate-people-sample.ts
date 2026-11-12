@@ -15,6 +15,7 @@ export type PeopleSample = {
 
 const BAND_ORDER: readonly ExigencyLevel[] = [5, 4, 3, 2];
 const PLACEHOLDER_NAMES = new Set(["na", "n a", "no informado", "no registrado", "sin nombre", "sin tecnico", "sin puntaje", "sin dato", "desconocido"]);
+const ORIGIN_MARKERS = new Set(["mundo", "pacifico", "tigo"]);
 
 export function calculatePeopleSample(inspections: readonly ReportingInspectionFact[]): PeopleSample {
   const people: PersonScoreGroup[] = [];
@@ -59,7 +60,7 @@ function normalizeTechnician(value: string | null): NormalizedPerson | null {
     .trim()
     .replace(/\s+/g, " ");
   if (!normalized || isPlaceholderName(normalized)) return null;
-  const tokens = [...new Set(collapseRepeatedNameParts(normalized).split(" ").filter(Boolean))];
+  const tokens = [...new Set(stripOriginMarkers(collapseRepeatedNameParts(normalized)).split(" ").filter(Boolean))];
   return tokens.length ? { key: [...tokens].sort().join(" "), tokens } : null;
 }
 
@@ -119,6 +120,12 @@ function collapseRepeatedNameParts(value: string): string {
 function isPlaceholderName(value: string): boolean {
   return PLACEHOLDER_NAMES.has(value)
     || value.includes("sin nombre") || value.includes("sin tecnico");
+}
+
+function stripOriginMarkers(value: string): string {
+  const tokens = value.split(" ");
+  const nameTokens = tokens.filter((token) => !ORIGIN_MARKERS.has(token));
+  return nameTokens.length ? nameTokens.join(" ") : "";
 }
 
 function toPercentage(value: number | null): number | null {

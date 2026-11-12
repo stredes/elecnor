@@ -64,4 +64,16 @@ describe("calculatePeopleSample", () => {
     expect(sample.bands.find((band) => band.level === 5)?.people).toBe(1);
     expect(sample.bands.find((band) => band.level === 4)?.people).toBe(1);
   });
+
+  it("removes source markers such as Mundo, Pacífico and Tigo when an original name exists", () => {
+    const sample = calculatePeopleSample([
+      { technician: "Sergio Barría", percentage: 0.90, actions: 0 },
+      { technician: "Sergio Barría (Mundo Pacífico)", percentage: 0.90, actions: 0 },
+      { technician: "Sergio Barría Tigo", percentage: 0.90, actions: 0 },
+      { technician: "Tigo", percentage: 0.90, actions: 0 },
+    ]);
+
+    expect(sample.total).toBe(1);
+    expect(sample.bands.find((band) => band.level === 4)?.people).toBe(1);
+  });
 });
