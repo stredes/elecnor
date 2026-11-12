@@ -34,6 +34,13 @@ export type LegacyDashboardModel = {
 
 export type LegacyReportingPayload = { readonly overview: ReportingOverview; readonly details: ReportingDetailsResult; readonly analytics: ReportingAnalytics; readonly executive?: { readonly regions: readonly RegionalSummary[]; readonly inspectionsByWorkContext?: { readonly altura: number; readonly piso: number }; readonly peopleSample?: PeopleSample } };
 
+export function normalizeLegacyDashboardModel(model: LegacyDashboardModel): LegacyDashboardModel {
+  const sample = model.peopleSample;
+  return sample && Number.isFinite(sample.total) && Array.isArray(sample.bands)
+    ? model
+    : { ...model, peopleSample: calculatePeopleSample([]) };
+}
+
 export function toLegacyDashboardModel(payload: LegacyReportingPayload, repeatedInspectionGroups: readonly RepeatedInspectionGroup[] = []): LegacyDashboardModel {
   const { overview, details, analytics } = payload;
   const sectionOrder = new Map(details.sections.map((section, index) => [section.name, index]));

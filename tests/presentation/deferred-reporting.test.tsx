@@ -26,10 +26,10 @@ describe("DeferredReporting", () => {
       json: async () => report,
     } as Response);
     render(<DeferredReporting fallback={<p>Cargando</p>}>
-      {(value) => <p>Inspecciones: {value.kpis.inspeccionesUnicas}</p>}
+      {(value) => <p>Inspecciones: {value.kpis.inspeccionesUnicas} · Muestra: {value.peopleSample.total}</p>}
     </DeferredReporting>);
 
-    await waitFor(() => expect(screen.getByText("Inspecciones: 2")).toBeVisible());
+    await waitFor(() => expect(screen.getByText("Inspecciones: 2 · Muestra: 0")).toBeVisible());
     expect(fetcher).toHaveBeenCalledWith("/api/reporting", expect.objectContaining({ method: "GET" }));
   });
 });

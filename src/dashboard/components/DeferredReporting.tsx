@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from "react";
 import type { DeferredReportingProps } from "../contracts/deferred-reporting-contract";
-import type { LegacyDashboardModel } from "../contracts/legacy-dashboard-contract";
+import { normalizeLegacyDashboardModel, type LegacyDashboardModel } from "../contracts/legacy-dashboard-contract";
 
 export function DeferredReporting({ endpoint = "/api/reporting", initial, fallback, errorFallback, children }: DeferredReportingProps) {
-  const [report, setReport] = useState(initial);
+  const [report, setReport] = useState(initial ? normalizeLegacyDashboardModel(initial) : undefined);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export function DeferredReporting({ endpoint = "/api/reporting", initial, fallba
         if (!response.ok) throw new Error("No fue posible cargar el reporte.");
         return response.json() as Promise<LegacyDashboardModel>;
       })
+      .then(normalizeLegacyDashboardModel)
       .then(setReport)
       .catch((reason: unknown) => {
         if (!controller.signal.aborted) setError(reason instanceof Error ? reason.message : "No fue posible cargar el reporte.");
