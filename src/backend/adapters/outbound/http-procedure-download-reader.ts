@@ -10,11 +10,11 @@ export class HttpProcedureDownloadReader {
     private readonly options: HttpClientOptions = {},
   ) {}
 
-  public async download(id: string): Promise<DocumentDownload> {
+  public async download(id: string, downloadAssertion?: string): Promise<DocumentDownload> {
     const path = `${this.path.replace(/\/$/u, "")}/${encodeURIComponent(id)}/download`;
     const response = await requestResponse(this.fetcher, joinEndpoint(this.endpoint, path), {
       method: "GET", redirect: "manual", headers: { accept: "application/pdf" },
-    }, this.options);
+    }, { ...this.options, downloadAssertion });
     if (response.status === 404) throw new BackendAdapterError("NOT_FOUND", "PDF not found.", 404);
     if (response.status >= 300 && response.status < 400) throw new BackendAdapterError("REJECTED", "PDF redirects are not allowed.", response.status);
     if (!response.ok) throw new BackendAdapterError(failureForStatus(response.status), "PDF request was rejected.", response.status);

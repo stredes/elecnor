@@ -49,6 +49,7 @@ export async function requestResponse(
   headers.set(BACKEND_CONTRACT_HEADER, options.contractVersion ?? BACKEND_CONTRACT_VERSION);
   headers.set(BACKEND_CONTRACT_VERSION_HEADER, options.contractVersion ?? BACKEND_CONTRACT_VERSION);
   if (options.internalToken) headers.set("X-Fasapi-Internal-Token", options.internalToken);
+  if (options.downloadAssertion) headers.set("X-Fasapi-Download-Assertion", options.downloadAssertion);
   if (options.scope) headers.set("X-Fasapi-Scope", options.scope);
   try {
     const response = await fetcher(url, { ...init, headers, signal: init.signal ?? controller.signal });
